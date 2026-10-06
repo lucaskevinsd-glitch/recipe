@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>健康菜谱与健身</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <nav class="section-switch" aria-label="内容板块">
+        <button class="section-tab" data-section="recipes" aria-selected="true"><span class="mini-mark"></span>健康菜谱</button>
+        <button class="section-tab" data-section="ingredients" aria-selected="false"><span class="mini-mark"></span>食材库</button>
+        <button class="section-tab" data-section="fitness" aria-selected="false"><span class="mini-mark"></span>健身训练</button>
+      </nav>
+      <label class="search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
+        <input id="search" class="search" type="search" placeholder="搜索菜名、食材或营养" aria-label="搜索内容" autocomplete="off" autocapitalize="off" enterkeyhint="search" />
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section id="recipesPanel" class="panel">
+      <div class="intro">
+        <div>
+          <p class="eyebrow">吃得明白，做得简单</p>
+          <h1>今天好好吃饭，<br>从一盘家常菜开始。</h1>
+          <p>按餐次、营养和食材找菜。每道菜都整理了别名、营养亮点、适合搭配与清晰步骤。</p>
+        </div>
+        <div class="daily-note"><strong>一餐的简单公式</strong><span>½ 蔬菜 + ¼ 优质蛋白 + ¼ 主食。具体摄入量可按活动量调整。</span></div>
+      </div>
+
+      <section class="today-card" aria-labelledby="todayTitle">
+        <div><h2 id="todayTitle">今日三餐灵感</h2><p>清爽、均衡、在家也容易做</p></div>
+        <button id="shuffleMeals" type="button">换一组</button>
+        <div class="meal-strip" id="mealStrip"></div>
+      </section>
+
+      <div class="section-head">
+        <div><h2>菜谱库</h2><p id="resultCount" aria-live="polite">8 道基础菜谱</p></div>
+        <div class="filters" aria-label="菜谱筛选">
+          <button class="chip active" data-filter="全部">全部</button><button class="chip" data-filter="早餐">早餐</button><button class="chip" data-filter="快手">快手</button><button class="chip" data-filter="高蛋白">高蛋白</button><button class="chip" data-filter="清淡">清淡</button>
+        </div>
+      </div>
+      <div class="recipe-grid" id="recipeGrid"></div>
+      <div class="empty" id="recipeEmpty">没有找到匹配的菜谱，换个关键词试试。</div>
+
+      <section class="plan" aria-labelledby="planTitle">
+        <div class="section-head"><div><h2 id="planTitle">一周怎么吃</h2><p>切换日期，查看三餐搭配示例</p></div></div>
+        <div class="plan-days" id="planDays"></div>
+        <div class="plan-content" id="planContent"></div>
+      </section>
+    </section>
+
+    <section id="ingredientsPanel" class="panel" hidden>
+      <div class="ingredient-intro">
+        <div><p class="eyebrow">从一棵菜，到一桌菜</p><h1>先看有什么，<br>再决定怎么做。</h1><p>按食用部位和烹饪用途整理常见食材，覆盖蔬果、粮豆、肉蛋奶、水产、干货与调味。点开食材看实物图、口感、营养特点与适合做法，再把手边材料加入组合。</p></div>
+        <div class="picker-guide"><b>组合做菜</b><span>一次选择 1–6 种主食材；基础油盐与饮用水默认不计。系统会按食材属性给出炒、煮、蒸、炖、烤、拌等适配方案。</span></div>
+      </div>
+      <div class="coverage-strip" aria-label="食材库概览"><div><b id="coverageTotal">—</b><span>种食材与常用别名</span></div><div><b id="coverageCats">—</b><span>个烹饪分类</span></div><div><b>1–6</b><span>种食材自由组合</span></div></div>
+      <div class="ingredient-layout">
+        <div id="ingredientCatalog">
+          <div class="catalog-toolbar"><div><h2>单一食材库</h2><p id="ingredientCount" aria-live="polite">按类别浏览食材</p></div></div>
+          <div class="ingredient-filters" id="ingredientFilters" aria-label="食材类别筛选"></div>
+          <div class="ingredient-grid" id="ingredientGrid"></div>
+          <div class="empty" id="ingredientEmpty">没有找到匹配食材，换个关键词试试。</div>
+        </div>
+        <aside class="selection-box" aria-labelledby="selectionTitle">
+          <h2 id="selectionTitle">已选食材 <span id="selectionCount">0/6</span></h2>
+          <p>点食材加入，再生成适合当前组合的家常做法。</p>
+          <div class="selected-list" id="selectedList"><span class="selection-empty">还没有选择食材</span></div>
+          <div class="selection-actions"><button id="generateIdeas" class="generate" type="button" disabled>匹配可做的菜</button><button id="clearSelection" class="clear-selection" type="button">清空</button></div>
+          <div class="idea-summary" id="ideaSummary" hidden></div>
+          <div class="idea-list" id="ideaList"></div>
+          <p class="idea-note">组合结果按常见烹饪规律生成；需去毒、泡发或特殊处理的食材，请遵循包装与当地食品安全指引。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="fitnessPanel" class="panel" hidden>
+      <div class="fitness-intro">
+        <div><p class="eyebrow">动作清楚，训练有序</p><h1>选一个部位，<br>完成今天的训练。</h1><p>健身板块与菜谱独立。先掌握动作路线，再逐步增加重量；每组保留 1–3 次余力，动作变形时停止。</p></div>
+        <div class="body-map" aria-hidden="true">
+          <svg viewBox="0 0 180 280"><g fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"><circle cx="90" cy="28" r="18"/><path d="M90 50v86M58 72l32 28 32-28M66 92l-22 58M114 92l22 58M75 136l-12 106M105 136l12 106"/></g><g class="muscle-dot"><circle cx="90" cy="76" r="12"/><circle cx="64" cy="81" r="8"/><circle cx="116" cy="81" r="8"/><circle cx="90" cy="108" r="10"/><circle cx="72" cy="155" r="8"/><circle cx="108" cy="155" r="8"/></g></svg>
+        </div>
+      </div>
+      <div class="section-head"><div><h2>训练动作库</h2><p id="workoutCount" aria-live="polite">按部位筛选动作</p></div></div>
+      <div class="muscle-filters" aria-label="训练部位筛选">
+        <button class="muscle active" data-muscle="全部">全部</button><button class="muscle" data-muscle="胸部">胸部</button><button class="muscle" data-muscle="背部">背部</button><button class="muscle" data-muscle="肩部">肩部</button><button class="muscle" data-muscle="手臂">手臂</button><button class="muscle" data-muscle="腿部">腿部</button>
+      </div>
+      <div class="workout-grid" id="workoutGrid"></div>
+      <div class="empty" id="workoutEmpty">没有找到匹配动作，换个关键词试试。</div>
+      <div class="training-note"><div><b>热身 5–10 分钟</b><span>轻有氧 + 目标关节活动，逐步进入工作重量。</span></div><div><b>组间休息 60–120 秒</b><span>复合动作可更长，孤立动作可更短。</span></div><div><b>每周留恢复日</b><span>同一肌群高强度训练间隔约 48 小时。</span></div></div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="移动端板块导航">
+    <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button>
+  </nav>
+</div>
+
+<dialog id="recipeDialog" aria-labelledby="detailTitle">
+  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><div class="detail-alias" id="detailAlias"></div><div class="benefit-line" id="detailBenefits"></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
+</dialog>
+
+<dialog id="ingredientDialog" aria-labelledby="ingredientDetailTitle">
+  <div class="ingredient-detail">
+    <div class="ingredient-detail-media"><img id="ingredientDetailImage" alt=""><span class="photo-label" id="ingredientPhotoLabel">食材实物图</span></div>
+    <div class="ingredient-detail-copy">
+      <button class="close ingredient-close" type="button" aria-label="关闭食材介绍">×</button>
+      <p class="eyebrow" id="ingredientDetailCategory"></p>
+      <h2 id="ingredientDetailTitle"></h2>
+      <div class="detail-alias" id="ingredientDetailAlias"></div>
+      <p class="ingredient-lead" id="ingredientDetailLead"></p>
+      <div class="trait-grid">
+        <div class="trait"><b>外形与口感</b><span id="ingredientDetailTexture"></span></div>
+        <div class="trait"><b>营养亮点</b><span id="ingredientDetailNutrient"></span></div>
+        <div class="trait"><b>适合做法</b><span id="ingredientDetailCooking"></span></div>
+        <div class="trait"><b>挑选与保存</b><span id="ingredientDetailStorage"></span></div>
+      </div>
+      <div class="ingredient-detail-actions"><button id="ingredientDetailSelect" type="button"></button><a class="ingredient-source" id="ingredientDetailSource" href="#" target="_blank" rel="noopener">查看图片来源</a></div>
+      <p class="notice">具体营养含量会随品种、产地与烹饪方式变化；特殊食材请按食品安全要求处理。</p>
+    </div>
+  </div>
+</dialog>
+
+  <script src="assets/js/data-meta.js"></script>
+  <script src="assets/js/data-recipes.js"></script>
+  <script src="assets/js/data-ingredientDetails-1.js"></script>
+  <script src="assets/js/data-ingredientDetails-2.js"></script>
+  <script src="assets/js/data-ingredientDetails-3.js"></script>
+  <script src="assets/js/data-ingredientDetails-4.js"></script>
+  <script src="assets/js/data-ingredientDetails-5.js"></script>
+  <script src="assets/js/data-ingredientImages-1.js"></script>
+  <script src="assets/js/data-ingredientImages-2.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
