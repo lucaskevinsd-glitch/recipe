@@ -26,10 +26,15 @@
     .app{min-height:100vh;padding-bottom:92px}
     .topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 91%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
     .topbar-inner{max-width:1180px;margin:auto;padding:12px clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .section-switch{display:flex;gap:6px;background:var(--paper-2);padding:5px;border-radius:14px}
-    .section-switch button{border:0;background:transparent;padding:9px 18px;border-radius:10px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px}
-    .section-switch button[aria-selected="true"]{background:var(--paper);color:var(--green);box-shadow:0 2px 10px rgba(32,65,41,.10)}
-    .mini-mark{width:10px;height:10px;border-radius:50%;background:currentColor;opacity:.8}
+    .brand{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer}
+    .brand-leaf{width:27px;height:27px;color:var(--green);flex:none}
+    .brand-cn{font:900 1.28rem var(--serif);color:var(--ink);letter-spacing:.02em}
+    .brand-en{font-weight:600;color:var(--muted);font-size:.92rem;letter-spacing:.04em}
+    .section-switch{display:flex;gap:clamp(14px,3vw,30px);background:transparent;padding:0;border-radius:0}
+    .section-switch button{border:0;background:transparent!important;padding:10px 2px;border-radius:0;font-weight:700;font-size:1rem;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--muted);position:relative;box-shadow:none!important}
+    .section-switch button[aria-selected="true"]{color:var(--ink)}
+    .section-switch button[aria-selected="true"]::after{content:"";position:absolute;left:2px;right:2px;bottom:3px;height:3px;border-radius:2px;background:var(--green)}
+    .mini-mark{display:none}
     .search-wrap{position:relative;max-width:340px;flex:1}.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
     .search{width:100%;height:42px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:0 14px 0 42px;outline:none}.search:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 15%,transparent)}
     main{max-width:1180px;margin:auto;padding:32px clamp(16px,4vw,40px) 56px}
@@ -69,18 +74,26 @@
     .brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;flex-shrink:0;cursor:pointer}
     .brand-cn{font:900 1.35rem var(--serif);letter-spacing:.06em}
     .brand-en{font-size:.72rem;color:var(--muted);letter-spacing:.14em;font-weight:600}
-    .hero{max-width:780px;margin:26px auto 34px;text-align:center;padding:34px 18px 30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
-    .hero .eyebrow{margin-bottom:10px}
-    .hero h1{font:900 clamp(2.1rem,5.4vw,3.6rem)/1.18 var(--serif);letter-spacing:-.02em;margin:0 0 12px}
-    .hero-sub{color:var(--muted);font-size:1.02rem;margin:0 0 22px}
-    .hero-search{display:flex;gap:8px;max-width:560px;margin:0 auto}
-    .hero-search input{flex:1;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 16px;background:var(--bg);color:var(--ink);outline:none;font-size:1rem}
-    .hero-search input:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 15%,transparent)}
-    .hero-search button{border:0;background:var(--green);color:#fff;border-radius:12px;padding:0 22px;font-weight:800;cursor:pointer;white-space:nowrap}
-    .hot-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:16px;font-size:.85rem;color:var(--muted)}
-    .hot-tag{border:1px solid var(--line);background:var(--paper-2);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--ink)}
+    .hero{margin:6px auto 42px;background:transparent;border:0;box-shadow:none;padding:0;text-align:left;max-width:none}
+    .hero-inner{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,4vw,56px);align-items:center}
+    .hero .eyebrow{color:var(--green);font-weight:700;letter-spacing:.16em;font-size:.8rem;margin:0 0 14px}
+    .hero h1{font:900 clamp(2.3rem,5.2vw,3.7rem)/1.24 var(--serif);letter-spacing:.01em;margin:0 0 14px;color:#1F2A1F}
+    .hero-sub{color:var(--muted);font-size:1.04rem;margin:0 0 26px}
+    .hero-search{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 20px;max-width:560px;box-shadow:0 10px 28px rgba(31,42,31,.09)}
+    .hero-search svg{color:var(--muted);flex:none}
+    .hero-search input{flex:1;border:0;outline:none;background:transparent;height:46px;font-size:1rem;color:var(--ink);padding:0 10px;min-width:0}
+    .hero-search input:focus{box-shadow:none}
+    .hero-search:focus-within{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 15%,transparent)}
+    .hero-search button{border:0;background:#1F2A1F;color:#fff;border-radius:999px;padding:0 26px;height:46px;font-weight:800;font-size:.95rem;cursor:pointer;white-space:nowrap}
+    .hero-search button:hover{background:var(--green)}
+    .hot-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;align-items:center;margin-top:18px;font-size:.86rem;color:var(--muted)}
+    .hot-fire{font-weight:700}
+    .hot-tag{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 15px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.86rem}
     .hot-tag:hover{border-color:var(--green);color:var(--green)}
-    .hero-note{margin:18px 0 0;font-size:.8rem;color:var(--muted)}
+    .hero-visual{position:relative}
+    .hero-visual img{width:100%;height:clamp(300px,38vw,440px);object-fit:cover;border-radius:22px;box-shadow:var(--shadow);display:block}
+    .hero-script{position:absolute;left:6%;top:16%;font-family:"Segoe Script","Bradley Hand","Comic Sans MS",cursive;font-size:clamp(1.1rem,2.2vw,1.5rem);color:#4a6b3f;transform:rotate(-8deg);line-height:1.35;opacity:.9}
+    @media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-visual img{height:280px}.hero{margin-bottom:32px}}
     .meta-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px;align-items:center}
     .difficulty{font-size:.74rem;font-weight:800;color:var(--coral);background:var(--coral-soft);padding:4px 8px;border-radius:6px}
     .cat-tag{font-size:.74rem;font-weight:700;color:var(--green);background:var(--green-2);padding:4px 8px;border-radius:6px}
@@ -127,17 +140,84 @@
     .shop-item.done span{text-decoration:line-through;color:var(--muted)}
     .shop-count{margin:10px 0 0;font-size:.82rem;color:var(--muted)}
     @media(max-width:640px){.shop-list{grid-template-columns:1fr 1fr}.hero{margin:14px 0 24px;padding:26px 16px}.brand-en{display:none}}
+  
+    /* ===== mockup: home 3-col ===== */
+    .home-3col{display:grid;grid-template-columns:1.28fr 1fr 1fr;gap:22px;margin:0 0 46px}
+    .home-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);min-width:0}
+    .home-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:16px}
+    .home-card-head h2{font:800 1.22rem var(--serif);margin:0;display:flex;align-items:center;gap:8px;color:var(--ink)}
+    .head-ico{font-size:1.15rem}
+    .home-card-head p{margin:5px 0 0;color:var(--muted);font-size:.85rem}
+    .link-more{border:0;background:none;color:var(--muted);font-size:.84rem;cursor:pointer;white-space:nowrap;padding:4px 0}
+    .link-more:hover{color:var(--green)}
+    .today-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .today-recipe{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;text-align:left;transition:transform .2s ease,box-shadow .2s ease;min-width:0}
+    .today-recipe:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .today-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+    .today-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .today-badge{position:absolute;left:10px;top:10px;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;padding:5px 10px;border-radius:8px}
+    .today-body{padding:12px 12px 14px}
+    .today-body h3{font:800 .98rem var(--serif);margin:0 0 5px;color:var(--ink)}
+    .today-meta{font-size:.78rem;color:var(--muted);margin-bottom:6px}
+    .today-body p{font-size:.8rem;color:var(--muted);margin:0 0 8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .today-body .tags{display:flex;flex-wrap:wrap;gap:5px}
+    .today-body .tag{font-size:.7rem}
+    .fridge-circles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px;margin-bottom:18px}
+    .fridge-circle{border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;padding:0}
+    .fc-img{width:64px;height:64px;border-radius:50%;overflow:hidden;background:var(--paper-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+    .fc-img img{width:100%;height:100%;object-fit:cover}
+    .fc-name{font-size:.82rem;font-weight:600;color:var(--ink)}
+    .fridge-cta{width:100%;border:0;background:var(--green-2);color:var(--green);border-radius:12px;padding:13px;font-weight:800;font-size:.92rem;cursor:pointer}
+    .fridge-cta:hover{background:var(--green);color:#fff}
+    .ai-col{background:var(--green-2);border-color:transparent}
+    .ai-head{display:flex;align-items:center;gap:8px;font-size:.9rem;margin-bottom:12px;color:var(--ink)}
+    .ai-col h2{font:900 1.45rem var(--serif);margin:0 0 4px;color:#1F2A1F}
+    .ai-sub{color:var(--muted);font-size:.88rem;margin:0 0 16px}
+    .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+    .ai-opt{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:border-color .15s ease}
+    .ai-opt:hover{border-color:var(--green)}
+    .ai-opt span{font-size:1.2rem}
+    .ai-opt b{font-size:.86rem;color:var(--ink)}
+    .ai-opt small{font-size:.72rem;color:var(--muted)}
+    .ai-cta{width:100%;border:0;background:#1F2A1F;color:#fff;border-radius:12px;padding:14px;font-weight:800;font-size:.95rem;cursor:pointer}
+    .ai-cta:hover{background:var(--green)}
+    @media(max-width:1020px){.home-3col{grid-template-columns:1fr 1fr}.today-col{grid-column:1/-1}}
+    @media(max-width:680px){.home-3col{grid-template-columns:1fr}.today-grid{grid-template-columns:1fr 1fr}.fridge-circles{grid-template-columns:repeat(3,1fr)}}
+  
+    /* ===== mockup: world ingredients + footer ===== */
+    .world-section{margin:8px 0 46px}
+    .world-section .section-head{margin-top:0}
+    .world-strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(210px,240px);gap:16px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory}
+    .world-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;padding:0;text-align:left;scroll-snap-align:start;transition:transform .2s ease,box-shadow .2s ease;min-width:0}
+    .world-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .world-img{aspect-ratio:1/1;overflow:hidden;background:var(--paper-2)}
+    .world-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .world-body{padding:14px 14px 16px}
+    .world-body h3{font:800 1.05rem var(--serif);margin:0 0 3px;color:var(--ink)}
+    .world-alias{font-size:.76rem;color:var(--muted);margin-bottom:2px}
+    .world-cat{display:inline-block;font-size:.72rem;font-weight:800;color:var(--green);background:var(--green-2);border-radius:6px;padding:3px 8px;margin:6px 0}
+    .world-benefit{font-size:.82rem;color:var(--muted);line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em}
+    .world-more{border:0;background:none;color:var(--green);font-size:.84rem;font-weight:700;cursor:pointer;padding:0}
+    .world-more:hover{text-decoration:underline}
+    .site-footer{border-top:1px solid var(--line);margin-top:10px;background:var(--paper)}
+    .footer-inner{max-width:1180px;margin:auto;padding:26px clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .footer-brand{cursor:default}
+    .footer-links{display:flex;gap:clamp(12px,2.5vw,26px);flex-wrap:wrap}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:var(--green)}
+    .footer-slogan{font-family:"Segoe Script","Bradley Hand","Comic Sans MS",cursive;color:var(--green);font-size:1rem;transform:rotate(-2deg)}
+    @media(max-width:680px){.footer-inner{justify-content:center;text-align:center}}
   </style>
 </head>
 <body>
 <div class="app">
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" id="brandHome" aria-label="食见 FoodAtlas 首页"><span class="brand-cn">食见</span><span class="brand-en">FoodAtlas</span></a>
+      <a class="brand" id="brandHome" aria-label="食见 FoodAtlas 首页"><svg class="brand-leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C11 3.5 4.5 10 4.5 19.5c9.5 0 16-6.5 16-16z"/><path d="M6 18C8.5 13.5 12 10 17 7.5" stroke="#F7F5EF" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg><span class="brand-cn">食见</span><span class="brand-en">FoodAtlas</span></a>
       <nav class="section-switch" aria-label="内容板块">
-        <button class="section-tab" data-section="recipes" aria-selected="true"><span class="mini-mark"></span>健康菜谱</button>
-        <button class="section-tab" data-section="ingredients" aria-selected="false"><span class="mini-mark"></span>食材库</button>
-        <button class="section-tab" data-section="fitness" aria-selected="false"><span class="mini-mark"></span>健身训练</button>
+        <button class="section-tab" data-section="recipes" aria-selected="true">今天吃什么</button>
+        <button class="section-tab" data-section="ingredients" aria-selected="false">食材百科</button>
+        <button class="section-tab" data-section="fitness" aria-selected="false">健身训练</button>
       </nav>
       <label class="search-wrap">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
@@ -149,21 +229,53 @@
   <main>
     <section id="recipesPanel" class="panel">
       <div class="hero">
-        <p class="eyebrow">认识每一种食材，做好每一顿饭。</p>
-        <h1>今天吃什么？<br>让食材替你决定。</h1>
-        <p class="hero-sub">从冰箱里的食材出发，找到今天最适合你的一餐。</p>
-        <div class="hero-search">
-          <input id="heroSearch" type="search" placeholder="搜索菜谱、食材，或者告诉我们你想吃什么……" aria-label="搜索菜谱或食材" autocomplete="off" autocapitalize="off" enterkeyhint="search">
-          <button id="heroGo" type="button">开始找菜</button>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">好食材 · 好烹调 · 好生活</p>
+            <h1>今天吃什么？<br>让食材替你决定。</h1>
+            <p class="hero-sub">从冰箱里的食材出发，找到今天最适合你的一餐。</p>
+            <div class="hero-search">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
+              <input id="heroSearch" type="search" placeholder="搜索菜谱、食材或你想吃的味道…" aria-label="搜索菜谱或食材" autocomplete="off" autocapitalize="off" enterkeyhint="search">
+              <button id="heroGo" type="button">开始找菜</button>
+            </div>
+            <div class="hot-tags"><span class="hot-fire">🔥 热门搜索：</span><button class="hot-tag" type="button" data-q="鸡蛋">鸡蛋</button><button class="hot-tag" type="button" data-q="番茄">番茄</button><button class="hot-tag" type="button" data-q="鸡胸肉">鸡胸肉</button><button class="hot-tag" type="button" data-q="土豆">土豆</button><button class="hot-tag" type="button" data-q="牛肉">牛肉</button></div>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/img/full/img0004.jpg" alt="虾仁牛油果沙拉" fetchpriority="high">
+            <span class="hero-script" aria-hidden="true">Good Food<br>Better Life</span>
+          </div>
         </div>
-        <div class="hot-tags"><span>热门搜索</span><button class="hot-tag" type="button" data-q="鸡蛋">鸡蛋</button><button class="hot-tag" type="button" data-q="番茄">番茄</button><button class="hot-tag" type="button" data-q="鸡胸肉">鸡胸肉</button><button class="hot-tag" type="button" data-q="土豆">土豆</button><button class="hot-tag" type="button" data-q="牛肉">牛肉</button></div>
-        <p class="hero-note">一餐的简单公式：½ 蔬菜 + ¼ 优质蛋白 + ¼ 主食</p>
       </div>
 
-      <section class="today-card" aria-labelledby="todayTitle">
-        <div><h2 id="todayTitle">今日三餐灵感</h2><p>清爽、均衡、在家也容易做</p></div>
-        <button id="shuffleMeals" type="button">换一组</button>
-        <div class="meal-strip" id="mealStrip"></div>
+      <section class="home-3col" aria-label="今日推荐">
+        <div class="home-card today-col">
+          <div class="home-card-head">
+            <div><h2><span class="head-ico" aria-hidden="true">🧑‍🍳</span>今天吃什么</h2><p>为你推荐 3 道适合今日的美味</p></div>
+            <button class="link-more" id="todayMore" type="button">查看更多 →</button>
+          </div>
+          <div class="today-grid" id="todayGrid"></div>
+        </div>
+        <div class="home-card fridge-col">
+          <div class="home-card-head">
+            <div><h2><span class="head-ico" aria-hidden="true">🧊</span>从你的冰箱开始</h2><p id="fridgeSub">选择食材，看看能做什么菜</p></div>
+            <button class="link-more" id="fridgeAll" type="button">查看全部 →</button>
+          </div>
+          <div class="fridge-circles" id="fridgeCircles"></div>
+          <button class="fridge-cta" id="fridgeGo" type="button">去看看能做什么菜 →</button>
+        </div>
+        <div class="home-card ai-col">
+          <div class="ai-head"><span class="head-ico" aria-hidden="true">🤖</span><b>AI 智能推荐</b></div>
+          <h2>不知道吃什么？</h2>
+          <p class="ai-sub">告诉我你的时间、预算和口味</p>
+          <div class="ai-grid">
+            <button class="ai-opt" data-ai="quick" type="button"><span aria-hidden="true">⏱</span><b>快速下厨</b><small>15 分钟内</small></button>
+            <button class="ai-opt" data-ai="budget" type="button"><span aria-hidden="true">💰</span><b>经济实惠</b><small>¥20 以内 / 人</small></button>
+            <button class="ai-opt" data-ai="light" type="button"><span aria-hidden="true">🥬</span><b>健康轻食</b><small>低油低盐</small></button>
+            <button class="ai-opt" data-ai="spicy" type="button"><span aria-hidden="true">🌶</span><b>重口味</b><small>辣 / 酸 / 咸 / 香</small></button>
+          </div>
+          <button class="ai-cta" id="aiGo" type="button">告诉我你的需求 →</button>
+        </div>
       </section>
 
       <div class="section-head">
@@ -174,6 +286,14 @@
       </div>
       <div class="recipe-grid" id="recipeGrid"></div>
       <div class="empty" id="recipeEmpty">没有找到匹配的菜谱，换个关键词试试。</div>
+
+      <section class="world-section" aria-label="探索世界食材">
+        <div class="section-head">
+          <div><h2><span class="head-ico" aria-hidden="true">🌐</span>探索世界食材</h2><p>来自全球的优质食材，了解它们的故事与营养价值</p></div>
+          <button class="link-more" id="worldMore" type="button">查看更多 →</button>
+        </div>
+        <div class="world-strip" id="worldGrid"></div>
+      </section>
 
       <section class="plan" aria-labelledby="planTitle">
         <div class="section-head"><div><h2 id="planTitle">一周怎么吃</h2><p>切换日期，查看三餐搭配示例</p></div></div>
@@ -229,6 +349,16 @@
       <div class="training-note"><div><b>热身 5–10 分钟</b><span>轻有氧 + 目标关节活动，逐步进入工作重量。</span></div><div><b>组间休息 60–120 秒</b><span>复合动作可更长，孤立动作可更短。</span></div><div><b>每周留恢复日</b><span>同一肌群高强度训练间隔约 48 小时。</span></div></div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand footer-brand" aria-label="食见 FoodAtlas"><svg class="brand-leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C11 3.5 4.5 10 4.5 19.5c9.5 0 16-6.5 16-16z"/><path d="M6 18C8.5 13.5 12 10 17 7.5" stroke="#F7F5EF" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg><span class="brand-cn">食见</span><span class="brand-en">FoodAtlas</span></a>
+      <nav class="footer-links" aria-label="页脚链接">
+        <a href="#" data-soon>关于我们</a><a href="#" data-soon>帮助中心</a><a href="#" data-soon>联系我们</a><a href="#" data-soon>用户协议</a><a href="#" data-soon>隐私政策</a>
+      </nav>
+      <span class="footer-slogan">好的食材，遇见更好的你</span>
+    </div>
+  </footer>
 
   <nav class="mobile-nav" aria-label="移动端板块导航">
     <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button>
@@ -445,6 +575,7 @@
     q('#generateIdeas').disabled=!chosen.length;
     q('#persistHint').hidden=!chosen.length;
     qa('[data-remove]').forEach(b=>b.addEventListener('click',()=>toggleIngredient(b.dataset.remove)));
+    if(typeof renderFridgePanel==='function')renderFridgePanel();
   }
   function addIdea(list,name,method,steps){if(!list.some(x=>x.name===name))list.push({name,method,steps})}
   function makeIdeas(){
@@ -601,7 +732,7 @@
   searchInput.addEventListener('search',()=>applySearch(true));
   searchInput.addEventListener('change',()=>applySearch(true));
   q('#generateIdeas').addEventListener('click',makeIdeas);q('#clearSelection').addEventListener('click',()=>{selectedIngredients.clear();saveFridge();q('#ideaList').innerHTML='';q('#ideaSummary').hidden=true;renderIngredients();renderSelection()});
-  q('#shuffleMeals').addEventListener('click',()=>{mealSet=(mealSet+1)%mealPlans.length;renderMeals()});q('#recipeDialog .close').addEventListener('click',()=>q('#recipeDialog').close());q('#recipeDialog').addEventListener('click',e=>{if(e.target===q('#recipeDialog'))q('#recipeDialog').close()});
+  /* shuffleMeals removed in mockup restyle */q('#recipeDialog .close').addEventListener('click',()=>q('#recipeDialog').close());q('#recipeDialog').addEventListener('click',e=>{if(e.target===q('#recipeDialog'))q('#recipeDialog').close()});
   q('.ingredient-close').addEventListener('click',()=>q('#ingredientDialog').close());q('#ingredientDialog').addEventListener('click',e=>{if(e.target===q('#ingredientDialog'))q('#ingredientDialog').close()});q('#ingredientDetailSelect').addEventListener('click',()=>{if(activeIngredientId)toggleIngredient(activeIngredientId)});
   q('#coverageTotal').textContent=ingredients.length.toLocaleString('zh-CN');q('#coverageCats').textContent=ingredientGroups.length;
   q('#cookPrev').addEventListener('click',()=>{if(cookIdx>0){cookIdx--;renderCook()}});
@@ -618,8 +749,81 @@
   q('#heroGo').addEventListener('click',heroDoSearch);
   qa('.hot-tag').forEach(b=>b.addEventListener('click',()=>{heroSearch.value=b.dataset.q;searchInput.value=b.dataset.q;applySearch(true)}));
   q('#brandHome').addEventListener('click',e=>{e.preventDefault();switchSection('recipes')});
+
+
+  /* ===== mockup: world ingredients ===== */
+  const worldPicks=[
+    {name:'番茄',benefit:'富含番茄红素，有助于抗氧化'},
+    {name:'牛油果',benefit:'富含单不饱和脂肪酸，有助于心血管健康'},
+    {name:'鹰嘴豆',benefit:'富含膳食纤维和植物蛋白，有助于血糖健康'},
+    {name:'紫苏',benefit:'具有浓郁香气，有助于消化和抗炎'},
+    {name:'松茸',benefit:'香气浓郁，营养丰富，被誉为菌中之王'},
+    {name:'秋葵',benefit:'富含膳食纤维和维生素，有助于肠胃健康'}
+  ];
+  function renderWorldIngredients(){
+    if(!q('#worldGrid'))return;
+    q('#worldGrid').innerHTML=worldPicks.map(w=>{
+      const x=ingredients.find(i=>i.name===w.name);
+      if(!x)return '';
+      const media=ingredientImages[x.id]||{};
+      return `<button class="world-card" data-ing="${x.id}" type="button" aria-label="查看${x.name}">
+        <div class="world-img">${media.image?`<img src="${media.image}" alt="${x.name}" loading="lazy" decoding="async">`:''}</div>
+        <div class="world-body"><h3>${x.name}</h3><div class="world-alias">${x.alias?('别名：'+x.alias):'&nbsp;'}</div>
+        <span class="world-cat">${x.cat}</span><p class="world-benefit">${w.benefit}</p>
+        <span class="world-more">了解更多 →</span></div></button>`;
+    }).join('');
+    qa('#worldGrid .world-card').forEach(b=>b.addEventListener('click',()=>openIngredient(b.dataset.ing)));
+    if(q('#worldMore'))q('#worldMore').addEventListener('click',()=>switchSection('ingredients'));
+  }
+  qa('[data-soon]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();}));
+
+  /* ===== mockup: home 3-col logic ===== */
+  const todayBadges={tomato:'家常经典',fish:'清淡鲜美',chicken:'高蛋白优选'};
+  function renderTodayPicks(){
+    if(!q('#todayGrid'))return;
+    const dayIdx=Math.floor(Date.now()/864e5);
+    const picks=[0,1,2].map(i=>recipes[(dayIdx+i)%recipes.length]);
+    q('#todayGrid').innerHTML=picks.map(r=>`<button class="today-recipe" data-id="${r.id}" aria-label="查看${r.name}"><div class="today-img"><img src="${r.image}" alt="${r.name}" loading="lazy" decoding="async"><span class="today-badge">${todayBadges[r.id]||(r.labels[0]||'推荐')}</span></div><div class="today-body"><h3>${r.name}</h3><div class="today-meta">⏱ ${r.time} · ${r.level}</div><p>${r.summary}</p><div class="tags">${r.tags.slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></button>`).join('');
+    qa('#todayGrid .today-recipe').forEach(el=>el.addEventListener('click',()=>openRecipe(el.dataset.id)));
+  }
+  const fridgeDefaults=['鸡蛋','番茄','土豆','鸡胸肉','生菜','蒜'];
+  function countMakeable(){
+    const chosen=ingredients.filter(x=>selectedIngredients.has(x.id));
+    if(!chosen.length)return 0;
+    const names=chosen.map(x=>x.name);
+    let c=0;
+    recipes.forEach(r=>{if(names.some(n=>r.ingredients.join(' ').includes(n)))c++;});
+    return c;
+  }
+  function renderFridgePanel(){
+    if(!q('#fridgeCircles'))return;
+    let chosen=ingredients.filter(x=>selectedIngredients.has(x.id));
+    let isDefault=false;
+    if(!chosen.length){isDefault=true;chosen=fridgeDefaults.map(n=>ingredients.find(x=>x.name===n)).filter(Boolean).slice(0,6);}
+    const shown=chosen.slice(0,6);
+    q('#fridgeCircles').innerHTML=shown.map(x=>{const media=ingredientImages[x.id]||{};return `<button class="fridge-circle" data-ing="${x.id}" type="button" aria-label="${x.name}"><span class="fc-img">${media.image?`<img src="${media.image}" alt="${x.name}" loading="lazy" decoding="async">`:''}</span><span class="fc-name">${x.name}</span></button>`;}).join('');
+    const n=selectedIngredients.size;
+    q('#fridgeSub').textContent=n?`你现有 ${n} 种食材，可做 ${countMakeable()} 道菜`:'选择食材，看看能做什么菜';
+    qa('#fridgeCircles .fridge-circle').forEach(b=>b.addEventListener('click',()=>{if(isDefault)toggleIngredient(b.dataset.ing);else openIngredient(b.dataset.ing);}));
+  }
+  function setRecipeFilter(f){recipeFilter=f;qa('.filters .chip').forEach(x=>x.classList.toggle('active',x.dataset.filter===f));}
+  function wireHome3col(){
+    if(q('#todayMore'))q('#todayMore').addEventListener('click',()=>q('#recipeGrid').scrollIntoView({behavior:'smooth',block:'start'}));
+    if(q('#fridgeAll'))q('#fridgeAll').addEventListener('click',()=>switchSection('ingredients'));
+    if(q('#fridgeGo'))q('#fridgeGo').addEventListener('click',()=>{switchSection('ingredients');setTimeout(()=>{const sb=q('#selectionTitle');if(sb)sb.scrollIntoView({behavior:'smooth',block:'center'});},120);});
+    if(q('#aiGo'))q('#aiGo').addEventListener('click',()=>switchSection('ingredients'));
+    qa('.ai-opt').forEach(b=>b.addEventListener('click',()=>{
+      const mode=b.dataset.ai;
+      if(mode==='quick')setRecipeFilter('快手');
+      else if(mode==='light')setRecipeFilter('清淡');
+      else if(mode==='budget'){setRecipeFilter('全部');searchInput.value='鸡蛋';heroSearch.value='鸡蛋';}
+      else if(mode==='spicy'){setRecipeFilter('全部');searchInput.value='辣';heroSearch.value='辣';}
+      applySearch(false);
+      q('#recipeGrid').scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+  }
   loadFridge();
-  renderRecipes();renderMeals();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();
+  renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();
 })();
 </script>
 </body>
