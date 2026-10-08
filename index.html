@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="data:," />
-  <title>健康菜谱与健身</title>
+  <title>食见 FoodAtlas · 认识每一种食材，做好每一顿饭</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root{
       color-scheme:light dark;
-      --bg:#f5f7f2;--paper:#ffffff;--paper-2:#edf2e8;--ink:#182319;--muted:#5d6a5d;
-      --line:#d8e0d3;--green:#236342;--green-2:#dcebdc;--green-3:#a9c7a9;
-      --coral:#d85d3f;--coral-soft:#f7ded6;--gold:#bd7d18;--shadow:0 16px 42px rgba(31,57,40,.10);
+      --bg:#F7F5EF;--paper:#FFFFFF;--paper-2:#EFEAE0;--ink:#1F2A1F;--muted:#6B7263;
+      --line:#E3DCCB;--green:#496B3F;--green-2:#E7EEDF;--green-3:#9DB38E;
+      --coral:#B06030;--coral-soft:#F3E7D3;--gold:#8A6D3B;--shadow:0 16px 42px rgba(31,42,31,.10);
+      --aux:#D8CDBA;
       --serif:"Noto Serif SC",serif;--sans:"Noto Sans SC",system-ui,sans-serif;
     }
     @media(prefers-color-scheme:dark){
-      :root{--bg:#101612;--paper:#18201a;--paper-2:#202b22;--ink:#eef5ed;--muted:#aab7aa;--line:#344238;--green:#72c08e;--green-2:#213b2a;--green-3:#477458;--coral:#f08a6e;--coral-soft:#442a24;--gold:#efb75b;--shadow:0 18px 48px rgba(0,0,0,.28)}
+      :root{--bg:#131711;--paper:#1B231B;--paper-2:#232D22;--ink:#EDEAE0;--muted:#A8B09E;--line:#2E3A2C;--green:#9DBE8C;--green-2:#243024;--green-3:#5C7350;--coral:#D08A4E;--coral-soft:#33241A;--gold:#C9A45C;--aux:#4A4438;--shadow:0 18px 48px rgba(0,0,0,.28)}
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;min-width:320px}
     button,input{font:inherit} button{color:inherit} a{color:inherit}
@@ -63,12 +64,76 @@
       .app{padding-bottom:88px}.topbar{position:static}.topbar-inner{padding:12px 16px}.section-switch{display:none}.search-wrap{max-width:none}.intro{grid-template-columns:1fr;gap:18px;margin-bottom:22px}.intro h1,.fitness-intro h1,.ingredient-intro h1{font-size:2.55rem}.today-card{grid-template-columns:1fr;padding:20px}.today-card button{width:max-content}.meal-strip{grid-template-columns:1fr;gap:10px}.recipe-grid{grid-template-columns:1fr 1fr;gap:10px}.recipe-grid>.recipe:first-child{grid-column:auto}.recipe-grid>.recipe:first-child .recipe-image{aspect-ratio:1/1}.recipe-grid>.recipe:first-child h3{font-size:1.09rem}.recipe-body{padding:12px}.tagline{display:none}.recipe-image{aspect-ratio:1/1}.section-head{align-items:flex-start;flex-direction:column}.plan{padding:16px;margin-top:28px}.plan-days{grid-template-columns:repeat(4,1fr)}.plan-content{grid-template-columns:1fr}.fitness-intro,.ingredient-intro{grid-template-columns:1fr;gap:18px}.coverage-strip div{padding:13px 11px}.coverage-strip b{font-size:1.2rem}.coverage-strip span{font-size:.68rem}.body-map{display:none}.muscle-filters{grid-template-columns:repeat(3,1fr)}.workout-grid{grid-template-columns:1fr}.training-note{grid-template-columns:1fr}.ingredient-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-toolbar{align-items:flex-start;flex-direction:column}.selection-box{padding:16px}.detail,.ingredient-detail{grid-template-columns:1fr}.detail-media,.ingredient-detail-media{min-height:220px;height:220px}.detail-copy,.ingredient-detail-copy{padding:22px;max-height:none}.detail-grid,.trait-grid{grid-template-columns:1fr}.mobile-nav{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:var(--shadow)}.mobile-nav button{border:0;background:transparent;padding:11px 5px;border-radius:11px;font-weight:800}.mobile-nav button.active{background:var(--green);color:#fff}}
     @media(max-width:390px){.recipe-grid{grid-template-columns:1fr}.plan-days{grid-template-columns:repeat(3,1fr)}.muscle-filters{grid-template-columns:repeat(2,1fr)}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+    /* ===== 食见 FoodAtlas 新增样式 ===== */
+    .brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;flex-shrink:0;cursor:pointer}
+    .brand-cn{font:900 1.35rem var(--serif);letter-spacing:.06em}
+    .brand-en{font-size:.72rem;color:var(--muted);letter-spacing:.14em;font-weight:600}
+    .hero{max-width:780px;margin:26px auto 34px;text-align:center;padding:34px 18px 30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+    .hero .eyebrow{margin-bottom:10px}
+    .hero h1{font:900 clamp(2.1rem,5.4vw,3.6rem)/1.18 var(--serif);letter-spacing:-.02em;margin:0 0 12px}
+    .hero-sub{color:var(--muted);font-size:1.02rem;margin:0 0 22px}
+    .hero-search{display:flex;gap:8px;max-width:560px;margin:0 auto}
+    .hero-search input{flex:1;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 16px;background:var(--bg);color:var(--ink);outline:none;font-size:1rem}
+    .hero-search input:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 15%,transparent)}
+    .hero-search button{border:0;background:var(--green);color:#fff;border-radius:12px;padding:0 22px;font-weight:800;cursor:pointer;white-space:nowrap}
+    .hot-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:16px;font-size:.85rem;color:var(--muted)}
+    .hot-tag{border:1px solid var(--line);background:var(--paper-2);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--ink)}
+    .hot-tag:hover{border-color:var(--green);color:var(--green)}
+    .hero-note{margin:18px 0 0;font-size:.8rem;color:var(--muted)}
+    .meta-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px;align-items:center}
+    .difficulty{font-size:.74rem;font-weight:800;color:var(--coral);background:var(--coral-soft);padding:4px 8px;border-radius:6px}
+    .cat-tag{font-size:.74rem;font-weight:700;color:var(--green);background:var(--green-2);padding:4px 8px;border-radius:6px}
+    .cook-cta{display:flex;align-items:center;gap:12px;margin:16px 0}
+    .cook-cta button{border:0;background:var(--ink);color:var(--bg);font-size:1.02rem;font-weight:800;padding:13px 26px;border-radius:12px;cursor:pointer}
+    .cook-cta span{color:var(--muted);font-size:.82rem}
+    .cook-mode{position:fixed;inset:0;z-index:100;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom))}
+    .cook-mode[hidden]{display:none!important}
+    .cook-top{display:flex;justify-content:space-between;align-items:center;max-width:720px;width:100%;margin:0 auto 8px}
+    .cook-top span{font-weight:800;color:var(--muted)}
+    .cook-top button,.cook-nav button{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 22px;font-weight:800;font-size:1rem;cursor:pointer}
+    .cook-body{flex:1;overflow:auto;max-width:720px;width:100%;margin:0 auto;display:flex;flex-direction:column;justify-content:center;padding:12px 0}
+    .cook-step-label{color:var(--green);font-weight:800;letter-spacing:.1em;font-size:.85rem;margin-bottom:10px}
+    .cook-step-text{font:700 clamp(1.5rem,5.5vw,2.4rem)/1.5 var(--serif);margin:0 0 16px}
+    .cook-time{display:inline-block;background:var(--green-2);color:var(--green);font-weight:800;border-radius:999px;padding:8px 16px;width:max-content}
+    .cook-ing{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:16px 18px;margin-bottom:22px}
+    .cook-ing h3{font:800 1rem var(--serif);margin:0 0 8px}
+    .cook-ing ul{margin:0;padding-left:20px;color:var(--muted)}
+    .cook-done{text-align:center}
+    .cook-done-emoji{font-size:3.4rem}
+    .cook-done h2{font:900 2.2rem var(--serif);margin:8px 0}
+    .cook-done button{border:0;background:var(--green);color:#fff;border-radius:12px;padding:14px 40px;font-weight:800;font-size:1.05rem;cursor:pointer;margin-top:14px}
+    .cook-nav{display:flex;gap:10px;max-width:720px;width:100%;margin:0 auto}
+    .cook-nav button{flex:1}
+    .cook-nav button:disabled{opacity:.35;cursor:not-allowed}
+    .cook-nav #cookNext{background:var(--green);border-color:var(--green);color:#fff}
+    .taste-block,.method-block,.pair-block{margin:20px 0}
+    .taste-block h3,.method-block h3,.pair-block h3{font:800 1.05rem var(--serif);margin:0 0 10px}
+    .taste-row{display:grid;grid-template-columns:3em 1fr;gap:10px;align-items:center;margin:7px 0;font-size:.88rem}
+    .taste-row .tname{color:var(--muted);font-weight:600}
+    .taste-bar{font-family:monospace;letter-spacing:2px;color:var(--green);font-size:1rem}
+    .method-group{margin:10px 0}
+    .method-group b{display:inline-block;background:var(--ink);color:var(--bg);font-size:.76rem;border-radius:6px;padding:3px 9px;margin-right:8px}
+    .method-group span{color:var(--muted);font-size:.88rem}
+    .pair-row{display:flex;justify-content:space-between;align-items:center;padding:9px 2px;border-bottom:1px dashed var(--line);font-size:.9rem}
+    .pair-row .stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
+    .step-time{display:block;font-size:.76rem;color:var(--green);font-weight:700;margin-top:3px}
+    .persist-hint{font-size:.76rem;color:var(--green);font-weight:700;margin:8px 0 0!important}
+    .shop-wrap{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+    #genShopList{border:0;background:var(--ink);color:var(--bg);font-weight:800;padding:13px 26px;border-radius:12px;cursor:pointer;font-size:1rem}
+    .shop-list{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .shop-item{display:flex;gap:9px;align-items:center;background:var(--paper-2);border-radius:9px;padding:10px 12px;font-size:.88rem;cursor:pointer}
+    .shop-item input{width:17px;height:17px;accent-color:var(--green);flex-shrink:0}
+    .shop-item.done span{text-decoration:line-through;color:var(--muted)}
+    .shop-count{margin:10px 0 0;font-size:.82rem;color:var(--muted)}
+    @media(max-width:640px){.shop-list{grid-template-columns:1fr 1fr}.hero{margin:14px 0 24px;padding:26px 16px}.brand-en{display:none}}
   </style>
 </head>
 <body>
 <div class="app">
   <header class="topbar">
     <div class="topbar-inner">
+      <a class="brand" id="brandHome" aria-label="食见 FoodAtlas 首页"><span class="brand-cn">食见</span><span class="brand-en">FoodAtlas</span></a>
       <nav class="section-switch" aria-label="内容板块">
         <button class="section-tab" data-section="recipes" aria-selected="true"><span class="mini-mark"></span>健康菜谱</button>
         <button class="section-tab" data-section="ingredients" aria-selected="false"><span class="mini-mark"></span>食材库</button>
@@ -83,13 +148,16 @@
 
   <main>
     <section id="recipesPanel" class="panel">
-      <div class="intro">
-        <div>
-          <p class="eyebrow">吃得明白，做得简单</p>
-          <h1>今天好好吃饭，<br>从一盘家常菜开始。</h1>
-          <p>按餐次、营养和食材找菜。每道菜都整理了别名、营养亮点、适合搭配与清晰步骤。</p>
+      <div class="hero">
+        <p class="eyebrow">认识每一种食材，做好每一顿饭。</p>
+        <h1>今天吃什么？<br>让食材替你决定。</h1>
+        <p class="hero-sub">从冰箱里的食材出发，找到今天最适合你的一餐。</p>
+        <div class="hero-search">
+          <input id="heroSearch" type="search" placeholder="搜索菜谱、食材，或者告诉我们你想吃什么……" aria-label="搜索菜谱或食材" autocomplete="off" autocapitalize="off" enterkeyhint="search">
+          <button id="heroGo" type="button">开始找菜</button>
         </div>
-        <div class="daily-note"><strong>一餐的简单公式</strong><span>½ 蔬菜 + ¼ 优质蛋白 + ¼ 主食。具体摄入量可按活动量调整。</span></div>
+        <div class="hot-tags"><span>热门搜索</span><button class="hot-tag" type="button" data-q="鸡蛋">鸡蛋</button><button class="hot-tag" type="button" data-q="番茄">番茄</button><button class="hot-tag" type="button" data-q="鸡胸肉">鸡胸肉</button><button class="hot-tag" type="button" data-q="土豆">土豆</button><button class="hot-tag" type="button" data-q="牛肉">牛肉</button></div>
+        <p class="hero-note">一餐的简单公式：½ 蔬菜 + ¼ 优质蛋白 + ¼ 主食</p>
       </div>
 
       <section class="today-card" aria-labelledby="todayTitle">
@@ -111,6 +179,11 @@
         <div class="section-head"><div><h2 id="planTitle">一周怎么吃</h2><p>切换日期，查看三餐搭配示例</p></div></div>
         <div class="plan-days" id="planDays"></div>
         <div class="plan-content" id="planContent"></div>
+        <div class="shop-wrap">
+          <button id="genShopList" type="button">生成购物清单</button>
+          <div id="shopList" class="shop-list" hidden></div>
+          <p class="shop-count" id="shopCount" hidden></p>
+        </div>
       </section>
     </section>
 
@@ -130,6 +203,7 @@
         <aside class="selection-box" aria-labelledby="selectionTitle">
           <h2 id="selectionTitle">已选食材 <span id="selectionCount">0/6</span></h2>
           <p>点食材加入，再生成适合当前组合的家常做法。</p>
+          <p class="persist-hint" id="persistHint" hidden>🔖 已记住你的选择，下次打开自动恢复</p>
           <div class="selected-list" id="selectedList"><span class="selection-empty">还没有选择食材</span></div>
           <div class="selection-actions"><button id="generateIdeas" class="generate" type="button" disabled>匹配可做的菜</button><button id="clearSelection" class="clear-selection" type="button">清空</button></div>
           <div class="idea-summary" id="ideaSummary" hidden></div>
@@ -162,7 +236,7 @@
 </div>
 
 <dialog id="recipeDialog" aria-labelledby="detailTitle">
-  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><div class="detail-alias" id="detailAlias"></div><div class="benefit-line" id="detailBenefits"></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
+  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><div class="detail-alias" id="detailAlias"></div><div class="benefit-line" id="detailBenefits"></div><div class="cook-cta"><button id="startCooking" type="button">▶ 开始烹饪</button><span>全屏一步一步跟着做，手机放厨房也好用</span></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
 </dialog>
 
 <dialog id="ingredientDialog" aria-labelledby="ingredientDetailTitle">
@@ -180,24 +254,96 @@
         <div class="trait"><b>适合做法</b><span id="ingredientDetailCooking"></span></div>
         <div class="trait"><b>挑选与保存</b><span id="ingredientDetailStorage"></span></div>
       </div>
+      <div class="taste-block"><h3>味道特点</h3><div id="ingredientTaste"></div></div>
+      <div class="method-block"><h3>它可以这么做</h3><div id="ingredientMethods"></div></div>
+      <div class="pair-block"><h3>搭配推荐</h3><div id="ingredientPairs"></div></div>
       <div class="ingredient-detail-actions"><button id="ingredientDetailSelect" type="button"></button><a class="ingredient-source" id="ingredientDetailSource" href="#" target="_blank" rel="noopener">查看图片来源</a></div>
       <p class="notice">具体营养含量会随品种、产地与烹饪方式变化；特殊食材请按食品安全要求处理。</p>
     </div>
   </div>
 </dialog>
 
+<div id="cookMode" class="cook-mode" hidden role="dialog" aria-modal="true" aria-label="烹饪模式">
+  <div class="cook-top"><span id="cookCount">步骤 1 / 3</span><button id="cookClose" type="button">✕ 退出</button></div>
+  <div class="cook-body">
+    <div class="cook-ing" id="cookIngWrap"><h3>所需食材（全部）</h3><ul id="cookIngredients"></ul></div>
+    <div id="cookStepWrap">
+      <div class="cook-step-label" id="cookStepLabel">第 1 步</div>
+      <p class="cook-step-text" id="cookStepText"></p>
+      <div><span class="cook-time" id="cookStepTime"></span></div>
+    </div>
+    <div class="cook-done" id="cookDone" hidden><div class="cook-done-emoji">🎉</div><h2>开饭！</h2><p id="cookDoneText"></p><button id="cookFinish" type="button">完成</button></div>
+  </div>
+  <div class="cook-nav"><button id="cookPrev" type="button">← 上一步</button><button id="cookNext" type="button">下一步 →</button></div>
+</div>
+
 <script>
 (function(){
-  const recipes=[
-    {id:'tomato',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},
-    {id:'fish',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},
-    {id:'chicken',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},
-    {id:'shrimp',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],source:'https://www.pljs.net/1/229292.html'},
-    {id:'oatmeal',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},
-    {id:'tofu',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},
-    {id:'beef',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},
-    {id:'millet',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],source:'https://ihopesun.com/yinshi/46652.html'}
-  ];
+  const recipes=[{id:'tomato',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',level:'简单',labels:['家常菜','高蛋白'],cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],stepTimes:[4,6,3],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},{id:'fish',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',level:'简单',labels:['清淡','高蛋白'],cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],stepTimes:[5,10,3],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},{id:'chicken',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',level:'简单',labels:['高蛋白','快手'],cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],stepTimes:[12,6,4],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},{id:'shrimp',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',level:'简单',labels:['高蛋白','清淡'],cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],stepTimes:[3,4,3],source:'https://www.pljs.net/1/229292.html'},{id:'oatmeal',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',level:'简单',labels:['早餐','快手'],cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],stepTimes:[5,2,2],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},{id:'tofu',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',level:'简单',labels:['清淡','快手'],cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],stepTimes:[4,6,3],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},{id:'beef',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['高蛋白','下饭菜'],cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],stepTimes:[8,4,4],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},{id:'millet',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',level:'简单',labels:['早餐','清淡'],cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],stepTimes:[5,5,25],source:'https://ihopesun.com/yinshi/46652.html'}];
+  /* ===== 食见 FoodAtlas 新增数据 ===== */
+  const tasteByCat={'叶菜':[1,2,2,2],'根茎薯芋':[1,3,1,2],'瓜果茄类':[3,3,3,3],'花茎芽苗':[1,2,2,3],'菌菇木耳':[0,1,5,4],'豆类豆制品':[0,2,3,2],'谷物杂粮':[0,2,1,3],'面食粉类':[0,1,1,2],'水果':[3,5,0,4],'禽蛋':[0,1,3,2],'畜肉内脏':[0,1,4,3],'乳品':[2,3,2,3],'鱼类':[0,1,5,3],'虾蟹贝软体':[0,2,5,3],'海藻干货':[0,1,5,4],'坚果种子':[0,2,1,4],'香草葱蒜':[1,1,2,5],'调味酱料':[2,2,4,5]};
+  const tasteOverride={'番茄':[4,3,4,3],'柠檬':[5,1,0,4],'青柠':[5,1,0,4],'小米椒':[1,1,1,5],'花椒':[0,0,1,5],'圣女果':[4,4,3,3],'杨梅':[5,3,0,3],'山楂':[5,2,0,2],'乌梅':[5,2,0,2]};
+  const tasteNames=['酸度','甜度','鲜味','香气'];
+  const cookMethodsByCat={
+    '叶菜':[['炒','蒜蓉菠菜','清炒小白菜'],['煮','菠菜豆腐汤'],['凉拌','凉拌苋菜']],
+    '根茎薯芋':[['炒','酸辣土豆丝'],['炖','土豆炖牛肉'],['蒸','清蒸山药']],
+    '瓜果茄类':[['炒','番茄炒蛋'],['炖','番茄炖牛腩'],['凉拌','凉拌黄瓜']],
+    '花茎芽苗':[['炒','蒜蓉西兰花'],['煮','上汤菜心'],['凉拌','凉拌豆芽']],
+    '菌菇木耳':[['炒','香菇鸡胸肉'],['煮','菌菇汤'],['凉拌','凉拌木耳']],
+    '豆类豆制品':[['煮','菠菜豆腐汤'],['炒','麻婆豆腐'],['炖','黄豆炖猪蹄']],
+    '谷物杂粮':[['煮','南瓜小米粥'],['蒸','杂粮饭']],
+    '面食粉类':[['煮','番茄鸡蛋面'],['拌','凉拌米线']],
+    '水果':[['生食','水果拼盘'],['煮','冰糖雪梨']],
+    '禽蛋':[['炒','番茄炒蛋'],['煮','水煮蛋'],['蒸','蒸蛋羹']],
+    '畜肉内脏':[['炒','彩椒牛肉'],['炖','土豆炖牛肉']],
+    '乳品':[['冲调','牛奶燕麦'],['拌','酸奶水果碗']],
+    '鱼类':[['蒸','清蒸鲈鱼'],['煎','香煎三文鱼']],
+    '虾蟹贝软体':[['炒','西兰花炒虾仁'],['蒸','蒜蓉扇贝']],
+    '海藻干货':[['煮','海带汤'],['凉拌','凉拌海带丝']],
+    '坚果种子':[['生食','每日坚果'],['打浆','黑芝麻糊']],
+    '香草葱蒜':[['调味','蒜蓉酱'],['炒','蒜香小炒']],
+    '调味酱料':[['调味','万能蘸汁'],['腌','爽口酱菜']]
+  };
+  const pairByCat={
+    '叶菜':[['蒜',5],['鸡蛋',4],['嫩豆腐',4],['香菇',4]],
+    '根茎薯芋':[['牛里脊',5],['胡萝卜',4],['洋葱',4],['猪排骨',4]],
+    '瓜果茄类':[['鸡蛋',5],['牛里脊',5],['蒜',4],['洋葱',4]],
+    '花茎芽苗':[['蒜',5],['白虾',4],['鸡蛋',4]],
+    '菌菇木耳':[['鸡胸肉',5],['蒜',4],['洋葱',4],['豆腐',4]],
+    '豆类豆制品':[['菠菜',5],['蒜',4],['香菇',4],['鸡蛋',4]],
+    '谷物杂粮':[['南瓜',5],['牛奶',4],['红豆',4],['鸡蛋',4]],
+    '面食粉类':[['番茄',5],['鸡蛋',4],['牛里脊',4],['小白菜',4]],
+    '水果':[['酸奶',5],['牛奶',4],['燕麦',4],['蜂蜜',4]],
+    '禽蛋':[['番茄',5],['洋葱',4],['菠菜',4],['牛奶',3]],
+    '畜肉内脏':[['彩椒',5],['洋葱',5],['土豆',4],['蒜',4]],
+    '乳品':[['燕麦',5],['香蕉',5],['核桃',4],['草莓',4]],
+    '鱼类':[['姜',5],['小葱',5],['柠檬',4],['豆腐',4]],
+    '虾蟹贝软体':[['蒜',5],['西兰花',4],['姜',4],['柠檬',4]],
+    '海藻干货':[['豆腐',5],['鸡蛋',4],['虾皮',4]],
+    '坚果种子':[['燕麦',5],['酸奶',4],['香蕉',4],['蜂蜜',4]],
+    '香草葱蒜':[['鸡蛋',5],['茄子',4],['黄瓜',4],['豆腐',4]],
+    '调味酱料':[['蒜',5],['姜',5],['小葱',4],['小米椒',4]]
+  };
+  const dishIngredients={
+    '番茄炒蛋':['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],
+    '清蒸鲈鱼':['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],
+    '香菇鸡胸肉':['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],
+    '西兰花炒虾仁':['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],
+    '香蕉燕麦粥':['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],
+    '菠菜豆腐汤':['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],
+    '彩椒牛肉':['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],
+    '南瓜小米粥':['小米 60 克','南瓜 180 克','清水 700 毫升'],
+    '水煮蛋':['鸡蛋 2 个'], '鸡蛋':['鸡蛋 2 个'],
+    '米饭':['大米 80 克'], '糙米饭':['糙米 80 克'], '杂粮饭':['杂粮米 80 克'],
+    '玉米':['玉米 1 根'], '牛奶':['牛奶 250 毫升'], '青菜':['小白菜 200 克'],
+    '全麦面包':['全麦面包 2 片'], '水果':['时令水果 1 份'], '时蔬':['时令蔬菜 200 克'],
+    '红薯':['红薯 1 个'], '荞麦面':['荞麦面 80 克'],
+    '全麦三明治':['全麦面包 2 片','鸡蛋 1 个','生菜少许'],
+    '南瓜':['南瓜 150 克'], '豆腐':['嫩豆腐 200 克'], '酸奶':['酸奶 150 克'],
+    '坚果':['混合坚果 20 克'], '香蕉':['香蕉 1 根'],
+    '燕麦粥':['燕麦片 50 克','牛奶 200 毫升'], '燕麦牛奶':['燕麦片 40 克','牛奶 250 毫升'],
+    '燕麦':['燕麦片 40 克']
+  };
   const ingredientGroups=[
     {cat:'叶菜',nutrient:'叶酸 · 维生素K',items:'菠菜/赤根菜,小白菜/青菜,上海青/青江菜,油麦菜,生菜/莴苣叶,空心菜/蕹菜,芥蓝,广东菜心,茼蒿/皇帝菜,羽衣甘蓝,苋菜,芝麻菜,木耳菜/落葵,韭菜,大白菜/黄芽菜,圆白菜/包菜,紫甘蓝,娃娃菜,芥菜,雪里蕻,苦菊,罗马生菜,西洋菜/豆瓣菜,红薯叶,南瓜叶,豌豆尖,萝卜缨,莙荙菜/甜菜叶,龙须菜,儿菜叶'},
     {cat:'根茎薯芋',nutrient:'膳食纤维 · 钾',items:'胡萝卜/红萝卜,白萝卜/萝卜,青萝卜,樱桃萝卜,甜菜根,土豆/马铃薯,红薯/地瓜,紫薯,山药/淮山,铁棍山药,芋头,香芋,莲藕,荸荠/马蹄,牛蒡,洋葱,红洋葱,姜,仔姜,莴笋/莴苣茎,竹笋,冬笋,春笋,茭白,凉薯/豆薯,葛根,菱角,百合,魔芋,慈姑,菊芋/洋姜,芜菁,根芹菜,抱子芥/儿菜'},
@@ -262,7 +408,7 @@
     const term=normalizeSearch(searchInput.value);
     let list=recipes.filter(r=>(recipeFilter==='全部'||r.cats.includes(recipeFilter))&&recipeMatches(r,term));
     if(term&&list.length===0&&recipes.some(r=>recipeMatches(r,term))){recipeFilter='全部';qa('.filters .chip').forEach(x=>x.classList.toggle('active',x.dataset.filter==='全部'));list=recipes.filter(r=>recipeMatches(r,term))}
-    q('#recipeGrid').innerHTML=list.map(r=>`<button class="recipe" data-id="${r.id}" aria-label="查看${r.name}详情"><div class="recipe-image"><img src="${r.image}" alt="${r.name}"><span class="time">${r.time}</span></div><div class="recipe-body"><h3>${r.name}</h3><div class="alias">${r.alias.replace('又名：','')}</div><p class="tagline">${r.summary}</p><div class="tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></button>`).join('');
+    q('#recipeGrid').innerHTML=list.map(r=>`<button class="recipe" data-id="${r.id}" aria-label="查看${r.name}详情"><div class="recipe-image"><img src="${r.image}" alt="${r.name}"><span class="time">⏱ ${r.time}</span></div><div class="recipe-body"><h3>${r.name}</h3><div class="alias">${r.alias.replace('又名：','')}</div><div class="meta-row"><span class="difficulty">${r.level}</span>${r.labels.map(l=>`<span class="cat-tag">${l}</span>`).join('')}</div><p class="tagline">${r.summary}</p><div class="tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></button>`).join('');
     q('#resultCount').textContent=`${list.length} 道菜谱`;
     q('#recipeEmpty').style.display=list.length?'none':'block';
     qa('.recipe').forEach(el=>el.addEventListener('click',()=>openRecipe(el.dataset.id)));
@@ -283,8 +429,12 @@
     qa('.ingredient-select').forEach(b=>b.addEventListener('click',()=>toggleIngredient(b.dataset.ingredient)));
   }
   let activeIngredientId='';
+  const FRIDGE_KEY='foodatlas-fridge-v1';
+  function saveFridge(){try{localStorage.setItem(FRIDGE_KEY,JSON.stringify([...selectedIngredients]))}catch(e){}}
+  function loadFridge(){try{JSON.parse(localStorage.getItem(FRIDGE_KEY)||'[]').forEach(id=>{if(ingredients.some(x=>x.id===id)&&selectedIngredients.size<6)selectedIngredients.add(id)})}catch(e){}}
   function toggleIngredient(id){
     if(selectedIngredients.has(id))selectedIngredients.delete(id);else if(selectedIngredients.size<6)selectedIngredients.add(id);
+    saveFridge();
     q('#ideaList').innerHTML='';q('#ideaSummary').hidden=true;renderIngredients();renderSelection();
     if(activeIngredientId===id)q('#ingredientDetailSelect').textContent=selectedIngredients.has(id)?'从组合中移除':'加入组合做菜';
   }
@@ -293,6 +443,7 @@
     q('#selectionCount').textContent=`${chosen.length}/6`;
     q('#selectedList').innerHTML=chosen.length?chosen.map(x=>`<button class="selected-pill" data-remove="${x.id}" aria-label="移除${x.name}">${x.name} ×</button>`).join(''):'<span class="selection-empty">还没有选择食材</span>';
     q('#generateIdeas').disabled=!chosen.length;
+    q('#persistHint').hidden=!chosen.length;
     qa('[data-remove]').forEach(b=>b.addEventListener('click',()=>toggleIngredient(b.dataset.remove)));
   }
   function addIdea(list,name,method,steps){if(!list.some(x=>x.name===name))list.push({name,method,steps})}
@@ -360,14 +511,54 @@
     q('#ingredientDetailCooking').textContent=p.cooking;
     q('#ingredientDetailStorage').textContent=p.storage;
     q('#ingredientDetailSelect').textContent=selectedIngredients.has(id)?'从组合中移除':'加入组合做菜';
+    const tv=tasteOverride[x.name]||tasteByCat[x.cat]||[2,2,2,2];
+    q('#ingredientTaste').innerHTML=tasteNames.map((n,i)=>`<div class="taste-row"><span class="tname">${n}</span><span class="taste-bar">${'█'.repeat(tv[i])}${'░'.repeat(5-tv[i])}</span></div>`).join('');
+    const methods=cookMethodsByCat[x.cat]||[];
+    q('#ingredientMethods').innerHTML=methods.map(g=>`<div class="method-group"><b>${g[0]}</b><span>${g.slice(1).join(' · ')}</span></div>`).join('')||'<span class="selection-empty">做法整理中</span>';
+    const pairs=pairByCat[x.cat]||[];
+    q('#ingredientPairs').innerHTML=pairs.map(p=>`<div class="pair-row"><span>${p[0]}</span><span class="stars">${'★'.repeat(p[1])}${'☆'.repeat(5-p[1])}</span></div>`).join('');
     const source=q('#ingredientDetailSource');source.hidden=!media.source;if(media.source)source.href=media.source;
     q('#ingredientDialog').showModal();
   }
   function openRecipe(id){
     const r=recipes.find(x=>x.id===id); if(!r)return;
-    q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;q('#detailAlias').textContent=`${r.alias} · ${r.time}`;
-    q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');q('#detailSteps').innerHTML=r.steps.map(x=>`<li>${x}</li>`).join('');q('#detailSource').href=r.source;
+    q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level}`;
+    q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');q('#detailSource').href=r.source;
+    q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
     q('#recipeDialog').showModal();
+  }
+  let cookRecipe=null,cookIdx=0;
+  function startCooking(id){cookRecipe=recipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
+  function endCooking(){q('#cookMode').hidden=true;document.body.style.overflow=''}
+  function renderCook(){
+    const r=cookRecipe,n=r.steps.length,done=cookIdx>=n;
+    q('#cookDone').hidden=!done;q('#cookStepWrap').hidden=done;
+    q('#cookIngWrap').style.display=(!done&&cookIdx===0)?'block':'none';
+    q('#cookCount').textContent=done?`${r.name} · 完成`:`${r.name} · 步骤 ${Math.min(cookIdx+1,n)} / ${n}`;
+    if(!done){
+      q('#cookIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');
+      q('#cookStepLabel').textContent=`第 ${cookIdx+1} 步`;
+      q('#cookStepText').textContent=r.steps[cookIdx];
+      q('#cookStepTime').textContent=`⏱ 预计 ${r.stepTimes[cookIdx]} 分钟`;
+    }else{
+      q('#cookDoneText').textContent=`${r.name} 做好了，一共 ${n} 步。用心的一餐，值得慢慢享用。`;
+    }
+    q('#cookPrev').disabled=cookIdx===0;
+    q('#cookNext').style.display=done?'none':'';
+    q('#cookNext').textContent=cookIdx===n-1?'完成 →':'下一步 →';
+  }
+  function genShoppingList(){
+    const items=[];
+    mealPlans.forEach(day=>day.forEach(m=>String(m.n).split('+').forEach(part=>{
+      const name=part.trim();if(!name)return;
+      const ings=dishIngredients[name];
+      if(ings)ings.forEach(x=>{if(!items.includes(x))items.push(x)});
+      else if(!items.includes(name))items.push(name);
+    })));
+    const box=q('#shopList');box.hidden=false;
+    box.innerHTML=items.map(x=>`<label class="shop-item"><input type="checkbox"><span>${x}</span></label>`).join('');
+    box.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>cb.closest('.shop-item').classList.toggle('done',cb.checked)));
+    const c=q('#shopCount');c.hidden=false;c.textContent=`共 ${items.length} 项 · 来自 7 天 21 餐，勾选表示已买`;
   }
   function renderMeals(){const p=mealPlans[mealSet%mealPlans.length];q('#mealStrip').innerHTML=p.map(x=>`<div><b>${x.t}</b><span>${x.n}</span></div>`).join('')}
   function renderPlan(){q('#planDays').innerHTML=dayNames.map((d,i)=>`<button class="day ${i===planDay?'active':''}" data-day="${i}">${d}</button>`).join('');q('#planContent').innerHTML=mealPlans[planDay].map(x=>`<div class="plan-meal"><b>${x.t}</b><span>${x.n}</span><small>${x.d}</small></div>`).join('');qa('.day').forEach(b=>b.addEventListener('click',()=>{planDay=+b.dataset.day;renderPlan()}))}
@@ -379,7 +570,7 @@
   }
   function switchSection(next,{preserveSearch=false,keepScroll=false}={}){
     section=next;const recipesOn=section==='recipes',ingredientsOn=section==='ingredients';
-    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn;if(!preserveSearch)searchInput.value='';
+    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn;if(!preserveSearch){searchInput.value='';const hs=q('#heroSearch');if(hs)hs.value='';}
     searchInput.placeholder=recipesOn?'搜索菜名、食材或营养':ingredientsOn?'搜索胡萝卜、青菜、豆类等':'搜索动作或训练部位';
     qa('.section-tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.section===section)));qa('.mobile-tab').forEach(b=>b.classList.toggle('active',b.dataset.section===section));
     if(recipesOn)renderRecipes();else if(ingredientsOn)renderIngredients();else renderWorkouts();if(!keepScroll)window.scrollTo({top:0,behavior:'smooth'});
@@ -409,10 +600,25 @@
   searchInput.addEventListener('input',event=>{if(!searchComposing&&!event.isComposing)applySearch(true)});
   searchInput.addEventListener('search',()=>applySearch(true));
   searchInput.addEventListener('change',()=>applySearch(true));
-  q('#generateIdeas').addEventListener('click',makeIdeas);q('#clearSelection').addEventListener('click',()=>{selectedIngredients.clear();q('#ideaList').innerHTML='';q('#ideaSummary').hidden=true;renderIngredients();renderSelection()});
+  q('#generateIdeas').addEventListener('click',makeIdeas);q('#clearSelection').addEventListener('click',()=>{selectedIngredients.clear();saveFridge();q('#ideaList').innerHTML='';q('#ideaSummary').hidden=true;renderIngredients();renderSelection()});
   q('#shuffleMeals').addEventListener('click',()=>{mealSet=(mealSet+1)%mealPlans.length;renderMeals()});q('#recipeDialog .close').addEventListener('click',()=>q('#recipeDialog').close());q('#recipeDialog').addEventListener('click',e=>{if(e.target===q('#recipeDialog'))q('#recipeDialog').close()});
   q('.ingredient-close').addEventListener('click',()=>q('#ingredientDialog').close());q('#ingredientDialog').addEventListener('click',e=>{if(e.target===q('#ingredientDialog'))q('#ingredientDialog').close()});q('#ingredientDetailSelect').addEventListener('click',()=>{if(activeIngredientId)toggleIngredient(activeIngredientId)});
   q('#coverageTotal').textContent=ingredients.length.toLocaleString('zh-CN');q('#coverageCats').textContent=ingredientGroups.length;
+  q('#cookPrev').addEventListener('click',()=>{if(cookIdx>0){cookIdx--;renderCook()}});
+  q('#cookNext').addEventListener('click',()=>{if(cookRecipe&&cookIdx<cookRecipe.steps.length){cookIdx++;renderCook()}});
+  q('#cookClose').addEventListener('click',endCooking);
+  q('#cookFinish').addEventListener('click',endCooking);
+  q('#genShopList').addEventListener('click',genShoppingList);
+  const heroSearch=q('#heroSearch');let heroComposing=false;
+  const heroDoSearch=()=>{searchInput.value=heroSearch.value;applySearch(true)};
+  heroSearch.addEventListener('compositionstart',()=>{heroComposing=true});
+  heroSearch.addEventListener('compositionend',()=>{heroComposing=false;heroDoSearch()});
+  heroSearch.addEventListener('input',e=>{if(!heroComposing&&!e.isComposing){searchInput.value=heroSearch.value;applySearch(false)}});
+  heroSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();heroDoSearch()}});
+  q('#heroGo').addEventListener('click',heroDoSearch);
+  qa('.hot-tag').forEach(b=>b.addEventListener('click',()=>{heroSearch.value=b.dataset.q;searchInput.value=b.dataset.q;applySearch(true)}));
+  q('#brandHome').addEventListener('click',e=>{e.preventDefault();switchSection('recipes')});
+  loadFridge();
   renderRecipes();renderMeals();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();
 })();
 </script>
