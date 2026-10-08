@@ -207,6 +207,41 @@
     .footer-links a:hover{color:var(--green)}
     .footer-slogan{font-family:"Segoe Script","Bradley Hand","Comic Sans MS",cursive;color:var(--green);font-size:1rem;transform:rotate(-2deg)}
     @media(max-width:680px){.footer-inner{justify-content:center;text-align:center}}
+    .baking-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,44px);box-shadow:var(--shadow);margin-bottom:26px}
+    .baking-hero .eyebrow{letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700;font-size:.8rem;margin:0 0 10px}
+    .baking-hero h2{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.25;margin:0 0 12px;color:var(--ink)}
+    .baking-hero .lede{color:var(--muted);margin:0 0 20px;font-size:1.02rem}
+    .baking-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--green);color:#fff;border:0;border-radius:999px;padding:13px 28px;font-weight:700;cursor:pointer;font-size:1rem}
+    .btn-primary:hover{filter:brightness(1.07)}
+    .btn-ghost{background:var(--green-2);color:var(--green);border:0;border-radius:999px;padding:13px 24px;font-weight:700;cursor:pointer}
+    .baking-hero-media img{width:100%;height:100%;min-height:280px;max-height:420px;object-fit:cover;border-radius:14px}
+    .baking-cats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+    .baking-cat{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 20px;font-size:1rem;cursor:pointer;font-weight:600}
+    .baking-cat.active{background:var(--green);color:#fff;border-color:var(--green)}
+    .baking-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+    .baking-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
+    .baking-card:hover{transform:translateY(-3px)}
+    .baking-card .bimg{position:relative;height:170px;overflow:hidden}
+    .baking-card .bimg img{width:100%;height:100%;object-fit:cover}
+    .baking-badge{position:absolute;top:10px;left:10px;background:var(--green);color:#fff;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px}
+    .baking-card .bbody{padding:14px 16px 18px}
+    .baking-card h3{margin:0 0 6px;font-size:1.1rem;font-family:var(--serif)}
+    .baking-meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:8px}
+    .baking-level{background:var(--green-2);color:var(--green);padding:2px 10px;border-radius:999px;font-weight:700;font-size:.78rem}
+    .baking-card .bdesc{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+    .baking-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .baking-tags span{background:var(--paper-2);border-radius:999px;padding:3px 12px;font-size:.78rem;color:var(--muted)}
+    .academy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .academy-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+    .academy-card h3{margin:0 0 8px;font-size:1.05rem}
+    .academy-card h3 .lv{display:inline-block;background:var(--green);color:#fff;font-size:.72rem;border-radius:999px;padding:2px 10px;margin-right:8px;vertical-align:middle}
+    .academy-card p{margin:0;color:var(--muted);font-size:.92rem}
+    .fail-list{display:grid;gap:10px}
+    .fail-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:baseline}
+    .fail-item b{color:var(--coral);white-space:nowrap}
+    .fail-item span{color:var(--muted)}
+    @media(max-width:760px){.baking-hero{grid-template-columns:1fr}.baking-hero-media img{min-height:200px}}
   </style>
 </head>
 <body>
@@ -218,6 +253,7 @@
         <button class="section-tab" data-section="recipes" aria-selected="true">今天吃什么</button>
         <button class="section-tab" data-section="ingredients" aria-selected="false">食材百科</button>
         <button class="section-tab" data-section="fitness" aria-selected="false">健身训练</button>
+        <button class="section-tab" data-section="baking" aria-selected="false">烘焙甜点</button>
       </nav>
       <label class="search-wrap">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
@@ -348,6 +384,45 @@
       <div class="empty" id="workoutEmpty">没有找到匹配动作，换个关键词试试。</div>
       <div class="training-note"><div><b>热身 5–10 分钟</b><span>轻有氧 + 目标关节活动，逐步进入工作重量。</span></div><div><b>组间休息 60–120 秒</b><span>复合动作可更长，孤立动作可更短。</span></div><div><b>每周留恢复日</b><span>同一肌群高强度训练间隔约 48 小时。</span></div></div>
     </section>
+
+    <section class="panel" id="bakingPanel" hidden>
+      <div class="baking-hero">
+        <div class="baking-hero-copy">
+          <p class="eyebrow">Baking &amp; Dessert</p>
+          <h2>从一块蛋糕开始，<br>让生活变得更甜。</h2>
+          <p class="lede">学习烘焙技巧，探索甜点世界，在家也能做出专业级的美味。</p>
+          <div class="baking-hero-actions">
+            <button class="btn-primary" type="button" id="bakingExplore">探索烘焙世界 →</button>
+            <button class="btn-ghost" type="button" id="bakingToday">今天做什么甜点？</button>
+          </div>
+        </div>
+        <div class="baking-hero-media"><img src="assets/img/full/img0005.jpg" alt="烘焙甜点"></div>
+      </div>
+
+      <div class="baking-cats" id="bakingCats">
+        <button class="baking-cat active" data-bcat="all">🍰 蛋糕</button>
+        <button class="baking-cat" data-bcat="cookie">🍪 饼干</button>
+        <button class="baking-cat" data-bcat="bread">🥐 面包</button>
+        <button class="baking-cat" data-bcat="dessert">🍮 甜品</button>
+        <button class="baking-cat" data-bcat="chocolate">🍫 巧克力</button>
+        <button class="baking-cat" data-bcat="pie">🥧 派/塔</button>
+      </div>
+
+      <div class="section-head">
+        <div><h2>烘焙甜点推荐</h2><p class="sub">从经典到创意，轻松掌握烘焙技巧。</p></div>
+      </div>
+      <div class="baking-grid" id="bakingGrid"></div>
+
+      <div class="section-head" style="margin-top:40px">
+        <div><h2>烘焙学院</h2><p class="sub">先理解为什么，再学会怎么做。</p></div>
+      </div>
+      <div class="academy-grid" id="academyGrid"></div>
+
+      <div class="section-head" style="margin-top:40px">
+        <div><h2>我的蛋糕为什么失败？</h2><p class="sub">常见翻车现场，一句话找到原因。</p></div>
+      </div>
+      <div class="fail-list" id="failList"></div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -361,7 +436,7 @@
   </footer>
 
   <nav class="mobile-nav" aria-label="移动端板块导航">
-    <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button>
+    <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button><button class="mobile-tab" data-section="baking">烘焙甜点</button>
   </nav>
 </div>
 
@@ -410,6 +485,32 @@
 <script>
 (function(){
   const recipes=[{id:'tomato',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',level:'简单',labels:['家常菜','高蛋白'],cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],stepTimes:[4,6,3],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},{id:'fish',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',level:'简单',labels:['清淡','高蛋白'],cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],stepTimes:[5,10,3],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},{id:'chicken',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',level:'简单',labels:['高蛋白','快手'],cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],stepTimes:[12,6,4],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},{id:'shrimp',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',level:'简单',labels:['高蛋白','清淡'],cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],stepTimes:[3,4,3],source:'https://www.pljs.net/1/229292.html'},{id:'oatmeal',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',level:'简单',labels:['早餐','快手'],cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],stepTimes:[5,2,2],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},{id:'tofu',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',level:'简单',labels:['清淡','快手'],cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],stepTimes:[4,6,3],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},{id:'beef',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['高蛋白','下饭菜'],cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],stepTimes:[8,4,4],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},{id:'millet',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',level:'简单',labels:['早餐','清淡'],cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],stepTimes:[5,5,25],source:'https://ihopesun.com/yinshi/46652.html'}];
+  /* ===== 烘焙甜点数据 ===== */
+  const bakingRecipes=[
+    {id:'strawberry-cake',name:'草莓奶油蛋糕',alias:'经典生日蛋糕',image:'assets/img/full/img0005.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake'],summary:'蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。',tags:['奶油','草莓'],benefits:['心情愉悦','分享喜悦'],ingredients:['低筋面粉 80 克','鸡蛋 4 个','细砂糖 60 克','牛奶 40 毫升','玉米油 40 毫升','淡奶油 300 毫升','草莓 200 克','糖粉 20 克'],steps:['鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。','面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。','淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。','表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。'],stepTimes:[15,30,15],prepTime:'准备 15 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷却 60 分钟',source:'#'},
+    {id:'cookies',name:'曲奇饼干',alias:'黄油曲奇',image:'assets/img/full/img0008.png',time:'30 分钟',level:'简单',labels:['入门'],cats:['cookie'],summary:'黄油 + 面粉 + 糖，酥脆香甜，新手首选。',tags:['黄油','酥脆'],benefits:['下午茶搭配','简单易做'],ingredients:['黄油 100 克','低筋面粉 150 克','细砂糖 50 克','鸡蛋 1 个','香草精几滴'],steps:['黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。','筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。','烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。','取出冷却，密封保存。'],stepTimes:[10,15,5],prepTime:'准备 10 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷却 5 分钟',source:'#'},
+    {id:'lava-cake',name:'熔岩巧克力蛋糕',alias:'流心巧克力蛋糕',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['热门'],cats:['chocolate','cake'],summary:'巧克力 + 蛋糕 + 流心，切开有惊喜。',tags:['巧克力','流心'],benefits:['浓郁口感','聚会亮点'],ingredients:['黑巧克力 100 克','黄油 80 克','鸡蛋 2 个','蛋黄 1 个','细砂糖 40 克','低筋面粉 30 克','可可粉少许'],steps:['巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。','面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。','倒扣脱模，撒可可粉，趁热切开享用流心。'],stepTimes:[10,10,5],prepTime:'准备 10 分钟',bakeTime:'烘烤 10 分钟',coolTime:'静置 5 分钟',source:'#'},
+    {id:'macaron',name:'马卡龙',alias:'法式小圆饼',image:'assets/img/full/img0001.webp',time:'90 分钟',level:'中等',labels:['创意'],cats:['cookie','dessert'],summary:'杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。',tags:['杏仁','法式'],benefits:['精致下午茶','送礼佳品'],ingredients:['杏仁粉 80 克','糖粉 80 克','蛋白 60 克（分两次）','细砂糖 60 克','食用色素少许','夹心奶油适量'],steps:['杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。','另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。','装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。','烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。'],stepTimes:[20,45,25],prepTime:'准备 20 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾皮+冷却 55 分钟',source:'#'}
+  ];
+  const bakingCats=[{id:'all',name:'🍰 蛋糕'},{id:'cake',name:'🍰 蛋糕'},{id:'cookie',name:'🍪 饼干'},{id:'bread',name:'🥐 面包'},{id:'dessert',name:'🍮 甜品'},{id:'chocolate',name:'🍫 巧克力'},{id:'pie',name:'🥧 派/塔'}];
+  const academyCourses=[
+    {lv:'Lv.1',name:'烘焙基础',desc:'认识烤箱、模具、打蛋器、刮刀、电子秤以及基础材料。'},
+    {lv:'Lv.2',name:'材料科学',desc:'面粉、糖、鸡蛋、黄油、油脂、奶油、巧克力等在配方中的作用。'},
+    {lv:'Lv.3',name:'温度控制',desc:'预热、上下火、热风、温度偏差、烘烤曲线和冷却。'},
+    {lv:'Lv.4',name:'打发技术',desc:'蛋白、淡奶油、黄油等不同体系的打发状态和判断方法。'},
+    {lv:'Lv.5',name:'面团与发酵',desc:'含水量、揉面、面筋、基础发酵、整形和二发。'},
+    {lv:'Lv.6',name:'装饰技术',desc:'抹面、裱花、水果、巧克力和简单造型。'}
+  ];
+  const bakingFails=[
+    {q:'蛋糕塌陷',a:'蛋白打发不足或搅拌消泡，烤箱温度偏低、出炉后没有倒扣冷却。'},
+    {q:'内部湿黏',a:'烘烤时间不够或温度偏低，面糊太湿，下次延长 5–10 分钟并用牙签测试。'},
+    {q:'表面开裂',a:'烤箱温度过高，面糊表面结皮太快，把温度降 10–20℃ 试试。'},
+    {q:'顶部隆起',a:'上火太强或面糊太多，换小一号模具或降低上火温度。'},
+    {q:'奶油打发失败',a:'淡奶油温度不够低或含脂量不足，冷藏打蛋盆、用 35% 以上淡奶油。'},
+    {q:'曲奇摊得太开',a:'黄油太软或面粉太少，面团冷藏 30 分钟再烤。'},
+    {q:'面包不蓬松',a:'酵母失效或发酵温度太低，检查酵母活性，发酵环境保持 28℃ 左右。'},
+    {q:'巧克力分离',a:'温度过高导致油水分离，隔水融化时水温别超 60℃，离火搅拌。'}
+  ];
   /* ===== 食见 FoodAtlas 新增数据 ===== */
   const tasteByCat={'叶菜':[1,2,2,2],'根茎薯芋':[1,3,1,2],'瓜果茄类':[3,3,3,3],'花茎芽苗':[1,2,2,3],'菌菇木耳':[0,1,5,4],'豆类豆制品':[0,2,3,2],'谷物杂粮':[0,2,1,3],'面食粉类':[0,1,1,2],'水果':[3,5,0,4],'禽蛋':[0,1,3,2],'畜肉内脏':[0,1,4,3],'乳品':[2,3,2,3],'鱼类':[0,1,5,3],'虾蟹贝软体':[0,2,5,3],'海藻干货':[0,1,5,4],'坚果种子':[0,2,1,4],'香草葱蒜':[1,1,2,5],'调味酱料':[2,2,4,5]};
   const tasteOverride={'番茄':[4,3,4,3],'柠檬':[5,1,0,4],'青柠':[5,1,0,4],'小米椒':[1,1,1,5],'花椒':[0,0,1,5],'圣女果':[4,4,3,3],'杨梅':[5,3,0,3],'山楂':[5,2,0,2],'乌梅':[5,2,0,2]};
@@ -658,8 +759,27 @@
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
     q('#recipeDialog').showModal();
   }
+  let bakingFilter='all';
+  function renderBaking(){
+    const list=bakingFilter==='all'?bakingRecipes:bakingRecipes.filter(r=>r.cats.includes(bakingFilter));
+    q('#bakingGrid').innerHTML=list.map(r=>`<article class="baking-card" data-bid="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="bimg"><img src="${r.image}" alt="${r.name}" loading="lazy"><span class="baking-badge">${r.labels[0]}</span></div><div class="bbody"><h3>${r.name}</h3><div class="baking-meta"><span>⏱ ${r.time}</span><span class="baking-level">${r.level}</span></div><p class="bdesc">${r.summary}</p><div class="baking-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join('');
+    qa('#bakingGrid .baking-card').forEach(c=>{c.onclick=()=>openBaking(c.dataset.bid);c.onkeydown=e=>{if(e.key==='Enter')openBaking(c.dataset.bid)}});
+    q('#academyGrid').innerHTML=academyCourses.map(c=>`<div class="academy-card"><h3><span class="lv">${c.lv}</span>${c.name}</h3><p>${c.desc}</p></div>`).join('');
+    q('#failList').innerHTML=bakingFails.map(f=>`<div class="fail-item"><b>${f.q}</b><span>${f.a}</span></div>`).join('');
+  }
+  function openBaking(id){
+    const r=bakingRecipes.find(x=>x.id===id);if(!r)return;
+    q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;
+    q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level} · ${r.prepTime}｜${r.bakeTime}｜${r.coolTime}`;
+    q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');
+    q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');
+    q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');
+    q('#detailSource').href=r.source;
+    q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
+    q('#recipeDialog').showModal();
+  }
   let cookRecipe=null,cookIdx=0;
-  function startCooking(id){cookRecipe=recipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
+  function startCooking(id){cookRecipe=recipes.find(x=>x.id===id)||bakingRecipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
   function endCooking(){q('#cookMode').hidden=true;document.body.style.overflow=''}
   function renderCook(){
     const r=cookRecipe,n=r.steps.length,done=cookIdx>=n;
@@ -700,11 +820,11 @@
     q('#workoutCount').textContent=`${list.length} 个动作 · ${muscleFilter}`;q('#workoutEmpty').style.display=list.length?'none':'block';
   }
   function switchSection(next,{preserveSearch=false,keepScroll=false}={}){
-    section=next;const recipesOn=section==='recipes',ingredientsOn=section==='ingredients';
-    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn;if(!preserveSearch){searchInput.value='';const hs=q('#heroSearch');if(hs)hs.value='';}
-    searchInput.placeholder=recipesOn?'搜索菜名、食材或营养':ingredientsOn?'搜索胡萝卜、青菜、豆类等':'搜索动作或训练部位';
+    section=next;const recipesOn=section==='recipes',ingredientsOn=section==='ingredients',bakingOn=section==='baking';
+    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#bakingPanel').hidden=!bakingOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn||bakingOn;if(!preserveSearch){searchInput.value='';const hs=q('#heroSearch');if(hs)hs.value='';}
+    searchInput.placeholder=recipesOn?'搜索菜名、食材或营养':ingredientsOn?'搜索胡萝卜、青菜、豆类等':bakingOn?'搜索蛋糕、饼干、甜点':'搜索动作或训练部位';
     qa('.section-tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.section===section)));qa('.mobile-tab').forEach(b=>b.classList.toggle('active',b.dataset.section===section));
-    if(recipesOn)renderRecipes();else if(ingredientsOn)renderIngredients();else renderWorkouts();if(!keepScroll)window.scrollTo({top:0,behavior:'smooth'});
+    if(recipesOn)renderRecipes();else if(ingredientsOn)renderIngredients();else if(bakingOn)renderBaking();else renderWorkouts();if(!keepScroll)window.scrollTo({top:0,behavior:'smooth'});
   }
   function revealIngredientResults(){
     requestAnimationFrame(()=>{const target=q('#ingredientCatalog');if(target)target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
@@ -724,6 +844,9 @@
     if(revealResults&&term&&section==='ingredients')revealIngredientResults();
   }
   qa('[data-section]').forEach(b=>b.addEventListener('click',()=>switchSection(b.dataset.section)));
+  qa('.baking-cat').forEach(b=>b.addEventListener('click',()=>{bakingFilter=b.dataset.bcat;qa('.baking-cat').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
+  if(q('#bakingExplore'))q('#bakingExplore').addEventListener('click',()=>{const g=q('#bakingGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});});
+  if(q('#bakingToday'))q('#bakingToday').addEventListener('click',()=>{const r=bakingRecipes[Math.floor(Math.random()*bakingRecipes.length)];openBaking(r.id);});
   qa('.filters .chip').forEach(b=>b.addEventListener('click',()=>{recipeFilter=b.dataset.filter;qa('.filters .chip').forEach(x=>x.classList.toggle('active',x===b));renderRecipes()}));
   qa('.muscle').forEach(b=>b.addEventListener('click',()=>{muscleFilter=b.dataset.muscle;qa('.muscle').forEach(x=>x.classList.toggle('active',x===b));renderWorkouts()}));
   searchInput.addEventListener('compositionstart',()=>{searchComposing=true});
