@@ -2,6 +2,9 @@
 (function () {
   const { esc, imgTag } = FA.ui;
 
+  // 饮品关键参数的英文键名 → 中文展示名(中文键名原样展示)
+  const PARAM_LABEL = { sweet: '甜度', ice: '冰量', strength: '浓度' };
+
   function hero(item, title, alias) {
     return `<div class="detail-hero">${item.image ? `<img src="${esc(item.image)}" alt="${esc(title)}">` : `<div class="dh-fallback">${esc(title)}</div>`}</div>
     <div class="detail-head"><div class="kicker">${esc(item.category || '')}</div>
@@ -19,6 +22,16 @@
     if (item.servings) b.push(`<span class="badge">${item.servings} 人份</span>`);
     (item.tags || []).forEach(t => b.push(`<span class="badge">${esc(t)}</span>`));
     return `<div class="meta-row" style="margin:12px 0">${b.join('')}</div>`;
+  }
+
+  // 烘焙步骤用时常含发酵/冷藏/晾凉等被动等待,合计会大于页头的主动操作时间(准备+制作),加注说明避免混淆
+  function passiveNote(item) {
+    const sum = (item.stepTimes || []).reduce((a, b) => a + (+b || 0), 0);
+    const active = (+item.prepTime || 0) + (+item.cookTime || 0);
+    if (sum > active && active > 0) {
+      return `<p style="font-size:13px;color:var(--muted);margin:10px 0 0">⏱ 步骤用时合计约 ${sum} 分钟,其中主动操作约 ${active} 分钟,另含发酵 / 冷藏 / 晾凉等被动等待约 ${sum - active} 分钟。</p>`;
+    }
+    return '';
   }
 
   function tipsBox(title, items) {
@@ -133,14 +146,14 @@
     const formula = item.formula && item.formula.length ? item.formula :
       (item.ingredients || []).map(x => ({ name: typeof x === 'string' ? x : x.name, grams: null, percent: null, note: '' }));
     const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
-      ${hero(item, item.name, item.alias)}${metaBadges(item)}
+      ${hero(item, item.name, item.alias)}${metaBadges(item)}${passiveNote(item)}
       ${item.sweetness || item.texture ? `<div class="meta-row"><span class="badge gold">甜度 ${esc(item.sweetness || '—')}</span><span class="badge gold">口感 ${esc(item.texture || '—')}</span></div>` : ''}
       <div class="detail-actions">${FA.ui.favBtn('baking', id)}
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
       <h3 style="font-family:var(--font-d);margin:18px 0 10px">配方（烘焙百分比）</h3>
       <table class="formula"><tr><th>原料</th><th>重量</th><th>百分比</th><th>备注</th></tr>
-        ${formula.map(x => `<tr><td>${esc(x.name)}</td><td>${x.grams == null ? '—' : x.grams + ' 克'}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`).join('')}</table>
+        ${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : ''); return `<tr><td>${esc(x.name)}</td><td>${amt ? esc(amt) : '—'}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`; }).join('')}</table>
       ${item.totalDough ? `<p style="font-size:13.5px;color:var(--muted);margin-top:8px">面团/面糊总重约 ${item.totalDough} 克</p>` : ''}
       <div class="form-row" style="margin:16px 0">
         ${item.pan ? `<div class="field"><label>模具</label><div style="font-size:15px">${esc(item.pan)}</div></div>` : ''}
@@ -183,7 +196,7 @@
           <h3 style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
           <ol class="step-list">${(item.steps || []).map((s, i) =>
             `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
-          ${item.params && Object.keys(item.params).length ? `<div class="tip-box"><h4>关键参数</h4><ul>${Object.entries(item.params).map(([k, v]) => `<li>${esc(k)}：${esc(v)}</li>`).join('')}</ul></div>` : ''}
+          ${item.params && Object.keys(item.params).length ? `<div class="tip-box"><h4>关键参数</h4><ul>${Object.entries(item.params).map(([k, v]) => `<li>${esc(PARAM_LABEL[k] || k)}：${esc(v)}</li>`).join('')}</ul></div>` : ''}
           ${tipsBox('💡 关键技巧', item.tips)}${faqHtml(item.faq)}
           ${item.benefits ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">营养与功效</h3><p style="color:var(--ink2)">${esc(item.benefits)}</p>` : ''}
         </div></div>
