@@ -639,7 +639,8 @@
 
     /* ===== 去拥挤重设计 (2026-10-09) ===== */
     .section-head{margin:72px 0 32px}
-    .section-head h2{font-size:2.2rem}
+    .section-head h2{font-size:1.45rem}
+    @media(max-width:680px){.section-head h2{font-size:1.3rem}.section-head{margin:48px 0 20px}}
     .sec-eyebrow{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px;font-weight:700}
     .recipe-grid,.baking-grid,.drink-grid{gap:28px}
     .recipe-body,.baking-body,.drink-body{padding:20px}
@@ -650,6 +651,8 @@
     .chip{padding:10px 18px;font-size:.9rem}
     .chip.active{background:var(--green);color:#fff;border-color:var(--green)}
     section{scroll-margin-top:90px}
+    .daily-ing .di-body h3{color:var(--ink);font-weight:800}
+    .daily-ing .di-body p{color:#4a4a4a}
 
 </style>
 </head>
@@ -1930,7 +1933,7 @@ function renderWorld(){
     {m:7,name:'桃子',desc:'夏末蜜桃，香甜多汁，可做白桃乌龙。',img:'assets/img/full/img0040.jpg',ing:'桃',recipes:['peach-oolong']},
     {m:8,name:'葡萄',desc:'秋季水果，鲜食或做果饮皆宜。',img:'assets/img/full/img0045.jpg',ing:'葡萄',recipes:['grape-drink']},
     {m:9,name:'南瓜',desc:'秋季金黄，蒸煮香甜，适合做南瓜派。',img:'assets/img/full/img0008.jpg',ing:'南瓜',recipes:['pumpkin-soup']},
-    {m:10,name:'苹果',desc:'秋冬常备，脆甜多汁，生吃熟吃都好。',img:'assets/img/full/img0050.jpg',ing:'苹果',recipes:['apple-pie']},
+    {m:10,name:'红薯',desc:'秋冬烤红薯，香甜软糯，补充膳食纤维。',img:'assets/img/full/img0050.jpg',ing:'红薯',recipes:['apple-pie']},
     {m:11,name:'大白菜',desc:'冬季囤菜之王，炖煮越久越入味。',img:'assets/img/full/img0060.jpg',ing:'白菜',recipes:['cabbage-stew']},
     {m:12,name:'橙子',desc:'冬日维C担当，鲜榨果汁酸甜开胃。',img:'assets/img/full/img0070.jpg',ing:'橙子',recipes:['orange-juice']}
   ];
