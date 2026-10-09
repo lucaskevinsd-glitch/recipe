@@ -1,0 +1,1893 @@
+[
+ {
+  "id": "iced-americano",
+  "name": "冰美式",
+  "alias": "Iced Americano",
+  "image": "assets/img/full/drinks1.jpg",
+  "category": "咖啡",
+  "summary": "清爽、苦香、低负担，适合早晨与午后。",
+  "servings": 1,
+  "prepTime": 5,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "提神"
+  ],
+  "tastes": [
+   "清爽",
+   "咖啡香",
+   "微苦",
+   "无糖"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "浓缩咖啡",
+    "amount": "60毫升",
+    "note": "双份"
+   },
+   {
+    "name": "冰块",
+    "amount": "1杯",
+    "note": "约 200 克"
+   },
+   {
+    "name": "冰水",
+    "amount": "200毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "萃取双份浓缩咖啡，约 60 毫升，备用。",
+   "高杯中加满冰块，倒入冰水至八分满。",
+   "将浓缩咖啡沿杯壁缓缓倒入，呈现分层即成。"
+  ],
+  "stepTimes": [
+   2,
+   1,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "无糖",
+   "ice": "满冰",
+   "strength": "标准"
+  },
+  "benefits": "提神醒脑；低热量负担",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "matcha-latte",
+  "name": "抹茶拿铁",
+  "alias": "Matcha Latte",
+  "image": "assets/img/full/drinks2.jpg",
+  "category": "奶昔",
+  "summary": "清新的茶香与奶香融合，顺滑柔和。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "奶香"
+  ],
+  "tastes": [
+   "奶香",
+   "茶香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "抹茶粉",
+    "amount": "8克",
+    "note": ""
+   },
+   {
+    "name": "温水",
+    "amount": "60毫升",
+    "note": "约 80℃"
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   },
+   {
+    "name": "细砂糖或糖浆",
+    "amount": "10克",
+    "note": "可选"
+   },
+   {
+    "name": "冰块",
+    "amount": "适量",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "抹茶粉过筛，加入温水，用茶筅或奶泡器搅打至细腻起泡。",
+   "牛奶加热至 60℃ 左右（做冰饮则直接加冰块）。",
+   "杯中先倒牛奶，再缓缓倒入抹茶液，形成分层即成。"
+  ],
+  "stepTimes": [
+   3,
+   3,
+   4
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "半糖",
+   "ice": "少冰",
+   "strength": "茶香浓郁"
+  },
+  "benefits": "口感顺滑；茶香清新",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "passion-lemon-tea",
+  "name": "百香果柠檬茶",
+  "alias": "Passion Fruit Lemon Tea",
+  "image": "assets/img/full/drinks3.jpg",
+  "category": "果汁",
+  "summary": "酸甜明亮，适合炎热天气。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "清爽"
+  ],
+  "tastes": [
+   "清爽",
+   "酸甜",
+   "果香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "百香果",
+    "amount": "2个",
+    "note": ""
+   },
+   {
+    "name": "柠檬 半个",
+    "amount": "",
+    "note": ""
+   },
+   {
+    "name": "红茶包",
+    "amount": "1包",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜或糖浆",
+    "amount": "20克",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "1杯",
+    "note": ""
+   },
+   {
+    "name": "清水",
+    "amount": "400毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "红茶包用 90℃ 热水泡 3 分钟，取出茶包放凉。",
+   "百香果对半挖出果肉，柠檬切片，其中一片挤汁入杯。",
+   "茶汤、果肉、柠檬片与蜂蜜混合，加冰块搅匀即成。"
+  ],
+  "stepTimes": [
+   4,
+   3,
+   3
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "半糖",
+   "ice": "标准冰",
+   "strength": "果香明亮"
+  },
+  "benefits": "酸甜开胃；清爽解腻",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "strawberry-shake",
+  "name": "草莓奶昔",
+  "alias": "Strawberry Smoothie",
+  "image": "assets/img/full/drinks4.jpg",
+  "category": "奶昔",
+  "summary": "水果、牛奶与冰块融合，浓郁顺滑。",
+  "servings": 1,
+  "prepTime": 8,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "人气"
+  ],
+  "tastes": [
+   "奶香",
+   "酸甜",
+   "浓郁",
+   "果香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "新鲜草莓",
+    "amount": "150克",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   },
+   {
+    "name": "原味酸奶",
+    "amount": "50克",
+    "note": "可选"
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "10克",
+    "note": "可选"
+   },
+   {
+    "name": "冰块 4–5 块",
+    "amount": "",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "草莓洗净去蒂，对半切开。",
+   "将草莓、牛奶、酸奶、蜂蜜和冰块一起放入料理机。",
+   "搅打 30–40 秒至顺滑，倒入杯中即成。"
+  ],
+  "stepTimes": [
+   3,
+   2,
+   3
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "标准",
+   "ice": "少冰",
+   "strength": "浓郁顺滑"
+  },
+  "benefits": "水果奶香；口感浓郁",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "hot-cocoa",
+  "name": "热可可",
+  "alias": "Hot Chocolate",
+  "image": "assets/img/full/drinks5.jpg",
+  "category": "传统特色饮品",
+  "summary": "巧克力香气浓郁，适合夜晚和寒冷天气。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "治愈"
+  ],
+  "tastes": [
+   "浓郁",
+   "巧克力",
+   "奶香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "可可粉",
+    "amount": "20克",
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "amount": "15克",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "250毫升",
+    "note": ""
+   },
+   {
+    "name": "黑巧克力",
+    "amount": "20克",
+    "note": "可选"
+   },
+   {
+    "name": "淡奶油少许",
+    "amount": "",
+    "note": "装饰用"
+   }
+  ],
+  "steps": [
+   "可可粉与糖混合，用少量热牛奶调成顺滑糊状。",
+   "倒入剩余牛奶，小火加热至 70℃ 左右，边加热边搅拌。",
+   "加入黑巧克力搅至融化，倒入杯中，顶层加点淡奶油。"
+  ],
+  "stepTimes": [
+   2,
+   5,
+   3
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "标准",
+   "ice": "热饮去冰",
+   "strength": "香气浓郁"
+  },
+  "benefits": "温暖治愈；巧克力香气",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "bubble-milk-tea",
+  "name": "珍珠奶茶",
+  "alias": "Bubble Milk Tea",
+  "image": "assets/img/full/drinks6.jpg",
+  "category": "茶饮",
+  "summary": "茶香奶香交织，珍珠 Q 弹有嚼劲。",
+  "servings": 1,
+  "prepTime": 25,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "经典"
+  ],
+  "tastes": [
+   "奶香",
+   "茶香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "红茶包",
+    "amount": "2包",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   },
+   {
+    "name": "珍珠60 克",
+    "amount": "",
+    "note": "木薯粉圆"
+   },
+   {
+    "name": "红糖或黑糖浆",
+    "amount": "25克",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "适量",
+    "note": ""
+   },
+   {
+    "name": "清水",
+    "amount": "500毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "水烧开后下珍珠，煮 15 分钟后焖 5 分钟，捞出过凉水拌入糖浆。",
+   "红茶包用 90℃ 热水泡 4 分钟，取出后加糖调匀、放凉。",
+   "杯底放珍珠，加冰块，倒入奶茶，插入粗吸管即成。"
+  ],
+  "stepTimes": [
+   20,
+   4,
+   1
+  ],
+  "tips": [
+   "珍珠煮好要焖，中心有白心会硬",
+   "黑糖珍珠放凉会变硬，尽快喝"
+  ],
+  "params": {
+   "sweet": "半糖",
+   "ice": "少冰",
+   "strength": "奶香浓郁"
+  },
+  "benefits": "奶香茶香；嚼感十足",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "honey-lemon-soda",
+  "name": "蜂蜜柠檬气泡饮",
+  "alias": "Honey Lemon Sparkling",
+  "image": "assets/img/full/drinks7.jpg",
+  "category": "气泡饮品",
+  "summary": "冰、气泡、果香，轻松做出夏日感。",
+  "servings": 1,
+  "prepTime": 5,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "气泡"
+  ],
+  "tastes": [
+   "清爽",
+   "酸甜",
+   "果香",
+   "无糖"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "柠檬 半个",
+    "amount": "",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "20克",
+    "note": ""
+   },
+   {
+    "name": "气泡水",
+    "amount": "300毫升",
+    "note": "冰镇"
+   },
+   {
+    "name": "冰块",
+    "amount": "1杯",
+    "note": ""
+   },
+   {
+    "name": "薄荷叶几片",
+    "amount": "",
+    "note": "可选"
+   }
+  ],
+  "steps": [
+   "柠檬一半切片、一半挤汁，蜂蜜用少许温水化开。",
+   "杯中加满冰块，放入柠檬片和薄荷叶。",
+   "倒入蜂蜜柠檬汁，再缓缓倒入冰镇气泡水，轻搅即成。"
+  ],
+  "stepTimes": [
+   2,
+   1,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "微糖",
+   "ice": "多冰",
+   "strength": "气泡清爽"
+  },
+  "benefits": "清爽解腻；气泡口感",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "ginger-date-tea",
+  "name": "姜枣枸杞茶",
+  "alias": "Ginger Date Goji Tea",
+  "image": "assets/img/full/drinks8.jpg",
+  "category": "果汁",
+  "summary": "温热醇厚，适合寒冷天气与需要暖身的时候。",
+  "servings": 1,
+  "prepTime": 15,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "暖身"
+  ],
+  "tastes": [
+   "茶香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "生姜",
+    "amount": "3片",
+    "note": ""
+   },
+   {
+    "name": "红枣",
+    "amount": "5颗",
+    "note": ""
+   },
+   {
+    "name": "枸杞",
+    "amount": "10克",
+    "note": ""
+   },
+   {
+    "name": "红糖",
+    "amount": "15克",
+    "note": "可选"
+   },
+   {
+    "name": "清水",
+    "amount": "600毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "红枣去核切半，生姜切片，与清水一同入锅。",
+   "大火煮开后转小火煮 10 分钟。",
+   "加入枸杞和红糖再煮 2 分钟，倒入杯中即成。"
+  ],
+  "stepTimes": [
+   3,
+   10,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "微甜",
+   "ice": "热饮",
+   "strength": "温润醇厚"
+  },
+  "benefits": "温热暖身；简单易做",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "latte",
+  "name": "拿铁咖啡",
+  "alias": "Caffè Latte",
+  "image": "assets/img/full/drinks10.jpg",
+  "category": "咖啡",
+  "summary": "浓缩 + 热牛奶，柔和顺滑的经典之选。",
+  "servings": 1,
+  "prepTime": 8,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "经典"
+  ],
+  "tastes": [
+   "奶香",
+   "咖啡香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "浓缩咖啡",
+    "amount": "60毫升",
+    "note": "双份"
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "萃取双份浓缩咖啡，约 60 毫升。",
+   "牛奶加热至 60℃，打出细腻奶泡。",
+   "浓缩倒入杯中，缓缓倒入牛奶，表面可拉花。"
+  ],
+  "stepTimes": [
+   3,
+   3,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "无糖",
+   "ice": "热饮",
+   "strength": "奶香浓郁"
+  },
+  "benefits": "口感柔和；咖啡入门",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "cappuccino",
+  "name": "卡布奇诺",
+  "alias": "Cappuccino",
+  "image": "assets/img/full/drinks11.jpg",
+  "category": "咖啡",
+  "summary": "浓缩 + 奶泡，绵密厚实的意式风味。",
+  "servings": 1,
+  "prepTime": 8,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "经典"
+  ],
+  "tastes": [
+   "奶香",
+   "咖啡香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "浓缩咖啡",
+    "amount": "60毫升",
+    "note": "双份"
+   },
+   {
+    "name": "牛奶",
+    "amount": "150毫升",
+    "note": ""
+   },
+   {
+    "name": "可可粉少许",
+    "amount": "",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "萃取双份浓缩咖啡，倒入杯中。",
+   "牛奶打发成绵密厚奶泡。",
+   "先倒牛奶再铺奶泡，表面筛少许可可粉。"
+  ],
+  "stepTimes": [
+   3,
+   3,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "无糖",
+   "ice": "热饮",
+   "strength": "奶泡厚实"
+  },
+  "benefits": "奶泡绵密；意式经典",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "mocha",
+  "name": "摩卡",
+  "alias": "Caffè Mocha",
+  "image": "assets/img/full/drinks12.jpg",
+  "category": "咖啡",
+  "summary": "浓缩 + 巧克力 + 牛奶，咖啡与可可的相遇。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "巧克力"
+  ],
+  "tastes": [
+   "巧克力",
+   "奶香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "浓缩咖啡",
+    "amount": "60毫升",
+    "note": ""
+   },
+   {
+    "name": "黑巧克力",
+    "amount": "20克",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   },
+   {
+    "name": "淡奶油少许",
+    "amount": "",
+    "note": "可选"
+   }
+  ],
+  "steps": [
+   "黑巧克力用少量热牛奶化开，调成巧克力酱。",
+   "萃取浓缩倒入，与巧克力酱混合均匀。",
+   "牛奶加热打泡后倒入，顶层可挤少许淡奶油。"
+  ],
+  "stepTimes": [
+   3,
+   2,
+   5
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "标准",
+   "ice": "热饮",
+   "strength": "巧克力浓郁"
+  },
+  "benefits": "巧克力香气；双重满足",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "cold-brew",
+  "name": "冷萃咖啡",
+  "alias": "Cold Brew",
+  "image": "assets/img/full/drinks13.jpg",
+  "category": "咖啡",
+  "summary": "低温慢萃，顺滑低酸，夏日必备。",
+  "servings": 1,
+  "prepTime": 12,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "清爽"
+  ],
+  "tastes": [
+   "清爽",
+   "咖啡香",
+   "微苦",
+   "无糖"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "中深烘咖啡粉",
+    "amount": "60克",
+    "note": ""
+   },
+   {
+    "name": "常温水",
+    "amount": "600毫升",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "适量",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "咖啡粉倒入冷萃壶，加入常温水搅匀。",
+   "密封后放入冰箱，冷藏慢萃约 12 小时。",
+   "过滤掉咖啡渣，加冰块稀释后饮用。"
+  ],
+  "stepTimes": [
+   5,
+   710,
+   5
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "无糖",
+   "ice": "加冰",
+   "strength": "顺滑低酸"
+  },
+  "benefits": "口感顺滑；酸度低",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "caramel-macchiato",
+  "name": "焦糖玛奇朵",
+  "alias": "Caramel Macchiato",
+  "image": "assets/img/full/drinks14.jpg",
+  "category": "咖啡",
+  "summary": "焦糖 + 牛奶 + 浓缩，漂亮的分层。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "中等",
+  "tags": [
+   "香甜"
+  ],
+  "tastes": [
+   "香甜",
+   "奶香",
+   "咖啡香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "浓缩咖啡",
+    "amount": "60毫升",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "180毫升",
+    "note": ""
+   },
+   {
+    "name": "焦糖酱",
+    "amount": "20毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "杯底倒入焦糖酱，加入热牛奶。",
+   "牛奶打发出细腻奶泡。",
+   "沿杯壁缓缓倒入浓缩形成分层，顶部再淋焦糖酱。"
+  ],
+  "stepTimes": [
+   3,
+   2,
+   5
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "香甜",
+   "ice": "热饮",
+   "strength": "焦糖浓郁"
+  },
+  "benefits": "颜值高；香甜顺滑",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "white-peach-oolong",
+  "name": "白桃乌龙茶",
+  "alias": "White Peach Oolong",
+  "image": "assets/img/full/drinks15.jpg",
+  "category": "茶饮",
+  "summary": "白桃 + 乌龙，果香茶香两相宜。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "果香"
+  ],
+  "tastes": [
+   "果香",
+   "茶香",
+   "清爽"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "乌龙茶叶",
+    "amount": "8克",
+    "note": ""
+   },
+   {
+    "name": "白桃",
+    "amount": "1个",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "15克",
+    "note": "可选"
+   },
+   {
+    "name": "冰块",
+    "amount": "适量",
+    "note": ""
+   },
+   {
+    "name": "清水",
+    "amount": "400毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "乌龙茶用 85℃ 热水泡 3 分钟，过滤后放凉。",
+   "白桃一半切丁，一半压成泥。",
+   "茶汤、白桃丁、桃泥与蜂蜜混合，加冰块搅匀。"
+  ],
+  "stepTimes": [
+   5,
+   3,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "微糖",
+   "ice": "加冰",
+   "strength": "果香明亮"
+  },
+  "benefits": "果香清新；茶香回甘",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "honey-pomelo-tea",
+  "name": "蜂蜜柚子茶",
+  "alias": "Honey Pomelo Tea",
+  "image": "assets/img/full/drinks16.jpg",
+  "category": "茶饮",
+  "summary": "柚子 + 蜂蜜，温热治愈的一杯。",
+  "servings": 1,
+  "prepTime": 15,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "治愈"
+  ],
+  "tastes": [
+   "酸甜",
+   "果香",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "柚子 半个",
+    "amount": "",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "60克",
+    "note": ""
+   },
+   {
+    "name": "温水",
+    "amount": "300毫升",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "柚子取果肉撕成小块，柚子皮切细丝焯水去苦味。",
+   "果肉、皮丝与蜂蜜拌匀，腌制 7 分钟入味。",
+   "取 3 勺柚子蜜，加温水冲调均匀即成。"
+  ],
+  "stepTimes": [
+   6,
+   7,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "蜂蜜甜",
+   "ice": "热饮",
+   "strength": "温润醇厚"
+  },
+  "benefits": "温润暖身；果香浓郁",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "mango-smoothie",
+  "name": "芒果冰沙",
+  "alias": "Mango Smoothie",
+  "image": "assets/img/full/drinks17.jpg",
+  "category": "果汁",
+  "summary": "芒果 + 冰块 + 酸奶，绵密冰爽。",
+  "servings": 1,
+  "prepTime": 10,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "人气"
+  ],
+  "tastes": [
+   "果香",
+   "酸甜",
+   "浓郁"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "芒果",
+    "amount": "1个",
+    "note": "约 300 克"
+   },
+   {
+    "name": "原味酸奶",
+    "amount": "100克",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "5块",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "10克",
+    "note": "可选"
+   }
+  ],
+  "steps": [
+   "芒果取肉切块（用冻芒果口感更绵密）。",
+   "芒果块、酸奶、冰块、蜂蜜一起放入料理机。",
+   "搅打 40 秒至绵密无颗粒，倒入杯中即成。"
+  ],
+  "stepTimes": [
+   3,
+   2,
+   5
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "标准",
+   "ice": "冰沙",
+   "strength": "绵密浓郁"
+  },
+  "benefits": "芒果浓香；冰凉解暑",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "watermelon-juice",
+  "name": "鲜榨西瓜汁",
+  "alias": "Watermelon Juice",
+  "image": "assets/img/full/drinks18.jpg",
+  "category": "果汁",
+  "summary": "西瓜 + 柠檬，夏天的味道。",
+  "servings": 1,
+  "prepTime": 8,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "清爽"
+  ],
+  "tastes": [
+   "清爽",
+   "果香",
+   "酸甜"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "西瓜",
+    "amount": "500克",
+    "note": ""
+   },
+   {
+    "name": "柠檬汁",
+    "amount": "10毫升",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "适量",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "西瓜去皮去籽，切成小块。",
+   "西瓜块、柠檬汁、冰块放入榨汁机。",
+   "榨汁后过滤，倒入杯中即成。"
+  ],
+  "stepTimes": [
+   4,
+   2,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "天然甜",
+   "ice": "加冰",
+   "strength": "清爽多汁"
+  },
+  "benefits": "水分充足；清爽解暑",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "lime-mint-soda",
+  "name": "青柠薄荷气泡水",
+  "alias": "Lime Mint Sparkling",
+  "image": "assets/img/full/drinks19.jpg",
+  "category": "茶饮",
+  "summary": "青柠 + 薄荷 + 气泡，清凉到底。",
+  "servings": 1,
+  "prepTime": 5,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "清爽"
+  ],
+  "tastes": [
+   "清爽",
+   "酸甜",
+   "果香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "青柠",
+    "amount": "1个",
+    "note": ""
+   },
+   {
+    "name": "薄荷叶",
+    "amount": "8片",
+    "note": ""
+   },
+   {
+    "name": "气泡水",
+    "amount": "300毫升",
+    "note": "冰镇"
+   },
+   {
+    "name": "冰块",
+    "amount": "1杯",
+    "note": ""
+   },
+   {
+    "name": "蜂蜜",
+    "amount": "10克",
+    "note": "可选"
+   }
+  ],
+  "steps": [
+   "青柠一半切片、一半挤汁，薄荷叶轻拍出香气。",
+   "杯中加满冰块，放入青柠片和薄荷叶。",
+   "倒入蜂蜜青柠汁，再缓缓倒入冰镇气泡水，轻搅即成。"
+  ],
+  "stepTimes": [
+   2,
+   1,
+   2
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "微糖",
+   "ice": "多冰",
+   "strength": "气泡清爽"
+  },
+  "benefits": "清凉提神；零负担",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "oreo-shake",
+  "name": "奥利奥奶昔",
+  "alias": "Oreo Milkshake",
+  "image": "assets/img/full/drinks20.jpg",
+  "category": "奶昔",
+  "summary": "奥利奥 + 牛奶 + 冰淇淋，快乐加倍。",
+  "servings": 1,
+  "prepTime": 8,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "人气"
+  ],
+  "tastes": [
+   "奶香",
+   "浓郁",
+   "香甜"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "奥利奥饼干",
+    "amount": "4块",
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "amount": "200毫升",
+    "note": ""
+   },
+   {
+    "name": "香草冰淇淋 2 球",
+    "amount": "",
+    "note": ""
+   },
+   {
+    "name": "冰块",
+    "amount": "3块",
+    "note": ""
+   }
+  ],
+  "steps": [
+   "奥利奥饼干掰碎，留 1 块做装饰。",
+   "饼干碎、牛奶、冰淇淋、冰块一起放入料理机。",
+   "搅打 30 秒至顺滑，倒入杯中，顶层撒饼干碎。"
+  ],
+  "stepTimes": [
+   2,
+   2,
+   4
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "香甜",
+   "ice": "少冰",
+   "strength": "浓郁顺滑"
+  },
+  "benefits": "浓郁香甜；快乐源泉",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "id": "mango-pomelo-sago",
+  "name": "杨枝甘露",
+  "alias": "Mango Pomelo Sago",
+  "image": "assets/img/full/drinks21.jpg",
+  "category": "果汁",
+  "summary": "芒果 + 西柚 + 西米 + 椰奶，港式经典。",
+  "servings": 1,
+  "prepTime": 25,
+  "cookTime": 0,
+  "level": "中等",
+  "tags": [
+   "经典"
+  ],
+  "tastes": [
+   "果香",
+   "酸甜",
+   "浓郁",
+   "奶香"
+  ],
+  "temp": "冷热皆宜",
+  "ingredients": [
+   {
+    "name": "芒果",
+    "amount": "1个",
+    "note": ""
+   },
+   {
+    "name": "西柚",
+    "amount": "1瓣",
+    "note": ""
+   },
+   {
+    "name": "西米",
+    "amount": "50克",
+    "note": ""
+   },
+   {
+    "name": "椰奶",
+    "amount": "150毫升",
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "amount": "20克",
+    "note": "可选"
+   }
+  ],
+  "steps": [
+   "西米沸水煮 12 分钟至透明，焖 5 分钟后过凉水备用。",
+   "芒果一半打泥、一半切丁，西柚取果肉撕小块。",
+   "椰奶加芒果泥和糖搅匀，加入西米、芒果丁、西柚粒。",
+   "冷藏 10 分钟后食用，风味更佳。"
+  ],
+  "stepTimes": [
+   17,
+   5,
+   3,
+   10
+  ],
+  "tips": [
+   "水温过高会让茶和咖啡发苦",
+   "冰块加太早会稀释风味",
+   "糖量可先减半，不够再加"
+  ],
+  "params": {
+   "sweet": "标准",
+   "ice": "冷藏",
+   "strength": "层次丰富"
+  },
+  "benefits": "层次丰富；果香浓郁",
+  "equipment": [],
+  "source": "编辑整理",
+  "legacy": true
+ },
+ {
+  "alias": "Oat Milk Latte",
+  "benefits": "燕麦奶富含膳食纤维，搭配咖啡提神，乳糖不耐受人群也能喝拿铁。",
+  "category": "咖啡",
+  "cookTime": 0,
+  "equipment": [
+   "意式咖啡机或摩卡壶",
+   "奶泡杯",
+   "咖啡杯"
+  ],
+  "id": "d021",
+  "image": "assets/img/drinks/d021.jpg",
+  "ingredients": [
+   {
+    "amount": "30ml",
+    "name": "浓缩咖啡",
+    "note": "约 18g 咖啡粉萃取"
+   },
+   {
+    "amount": "180ml",
+    "name": "燕麦奶",
+    "note": "选咖啡专用款，打发性更好"
+   },
+   {
+    "amount": "10g",
+    "name": "细砂糖",
+    "note": "可选"
+   }
+  ],
+  "level": "简单",
+  "name": "燕麦拿铁",
+  "params": {
+   "咖啡与奶比例": "1:6",
+   "粉水比": "1:2"
+  },
+  "prepTime": 10,
+  "servings": 1,
+  "source": "编辑整理",
+  "steps": [
+   "用意式咖啡机或摩卡壶萃取 30ml 浓缩咖啡，倒入杯中。",
+   "燕麦奶加热至约 60°C，用奶泡杯打出细腻奶泡。",
+   "将打好的燕麦奶沿杯壁缓缓倒入咖啡中，奶泡留在最后。",
+   "表面可拉花或直接撒少许可可粉装饰。"
+  ],
+  "summary": "燕麦奶代替牛奶的拿铁，谷物香与咖啡香融合，口感顺滑，乳糖不耐受人群的福音。",
+  "tags": [
+   "提神",
+   "早餐",
+   "植物奶"
+  ],
+  "tastes": [
+   "奶香",
+   "醇",
+   "甜"
+  ],
+  "temp": "冷热皆宜",
+  "tips": [
+   "燕麦奶加热别超过 65°C，否则会结块分层",
+   "做冰的直接加冰块，咖啡先倒再倒冷燕麦奶，会自然分层"
+  ]
+ },
+ {
+  "alias": "Affogato",
+  "benefits": "咖啡因加冰淇淋，提神又解馋，分量小巧适合饭后甜点。",
+  "category": "咖啡",
+  "cookTime": 0,
+  "equipment": [
+   "意式咖啡机或摩卡壶",
+   "甜品杯",
+   "小勺"
+  ],
+  "id": "d022",
+  "image": "assets/img/drinks/d022.jpg",
+  "ingredients": [
+   {
+    "amount": "80g",
+    "name": "香草冰淇淋",
+    "note": "约 2 球，提前冷冻硬"
+   },
+   {
+    "amount": "30ml",
+    "name": "浓缩咖啡",
+    "note": "现萃取，趁热"
+   }
+  ],
+  "level": "入门",
+  "name": "阿芙佳朵",
+  "params": {
+   "冰淇淋与咖啡比例": "约 3:1"
+  },
+  "prepTime": 5,
+  "servings": 1,
+  "source": "编辑整理",
+  "steps": [
+   "甜品杯提前冷冻 10 分钟，口感更冰爽。",
+   "杯中放入 2 球香草冰淇淋。",
+   "现萃取 30ml 热浓缩咖啡，趁热浇在冰淇淋上。",
+   "立即上桌，趁冰淇淋半融时挖着吃。"
+  ],
+  "summary": "意大利经典吃法：滚烫浓缩咖啡浇在香草冰淇淋上，冷热交织、苦甜碰撞。",
+  "tags": [
+   "意式",
+   "甜点",
+   "经典"
+  ],
+  "tastes": [
+   "浓郁",
+   "苦",
+   "奶香"
+  ],
+  "temp": "冷饮",
+  "tips": [
+   "咖啡必须现萃现浇，冷掉的咖啡浇上去就没有灵魂了",
+   "杯子提前冷冻，冰淇淋融化慢，口感更好"
+  ]
+ },
+ {
+  "alias": "Earl Grey Tea Latte",
+  "benefits": "红茶含茶多酚，搭配牛奶口感温润，咖啡因比咖啡低，适合下午饮用。",
+  "category": "茶饮",
+  "cookTime": 5,
+  "equipment": [
+   "茶壶",
+   "奶锅",
+   "茶杯"
+  ],
+  "id": "d023",
+  "image": "assets/img/drinks/d023.jpg",
+  "ingredients": [
+   {
+    "amount": "5g",
+    "name": "伯爵红茶",
+    "note": "约 2 茶包"
+   },
+   {
+    "amount": "150ml",
+    "name": "热水",
+    "note": "95°C"
+   },
+   {
+    "amount": "150ml",
+    "name": "牛奶",
+    "note": ""
+   },
+   {
+    "amount": "10g",
+    "name": "细砂糖",
+    "note": "按口味增减"
+   }
+  ],
+  "level": "简单",
+  "name": "伯爵红茶拿铁",
+  "params": {
+   "茶奶比": "1:1",
+   "茶水比": "1:30"
+  },
+  "prepTime": 10,
+  "servings": 1,
+  "source": "编辑整理",
+  "steps": [
+   "伯爵红茶用 95°C 热水冲泡 3 分钟，滤出浓茶汤。",
+   "茶汤中加入细砂糖，搅拌至完全融化。",
+   "牛奶加热至约 60°C，倒入茶汤中搅匀。",
+   "表面可撒少许肉桂粉或伯爵茶叶装饰。"
+  ],
+  "summary": "佛手柑香的伯爵红茶配温热牛奶，茶香与奶香平衡，温润顺滑。",
+  "tags": [
+   "下午茶",
+   "温润",
+   "英式"
+  ],
+  "tastes": [
+   "醇",
+   "奶香",
+   "甜"
+  ],
+  "temp": "冷热皆宜",
+  "tips": [
+   "茶汤要浓，泡 3 分钟别偷懒，淡了会被牛奶盖住",
+   "做冰的把茶汤晾凉再加冷牛奶和冰块"
+  ]
+ },
+ {
+  "alias": "Orange Carrot Juice",
+  "benefits": "橙子补维生素 C，胡萝卜补维生素 A，鲜榨无添加，孩子也爱喝。",
+  "category": "果汁",
+  "cookTime": 0,
+  "equipment": [
+   "原汁机或榨汁机",
+   "玻璃杯"
+  ],
+  "id": "d024",
+  "image": "assets/img/drinks/d024.jpg",
+  "ingredients": [
+   {
+    "amount": "300g",
+    "name": "橙子",
+    "note": "约 2 个，去皮"
+   },
+   {
+    "amount": "150g",
+    "name": "胡萝卜",
+    "note": "约 1 根，去皮切块"
+   },
+   {
+    "amount": "100ml",
+    "name": "凉白开",
+    "note": "调节浓稠度"
+   },
+   {
+    "amount": "10g",
+    "name": "蜂蜜",
+    "note": "可选"
+   }
+  ],
+  "level": "入门",
+  "name": "橙汁胡萝卜汁",
+  "params": {
+   "橙与胡萝卜比例": "2:1"
+  },
+  "prepTime": 10,
+  "servings": 2,
+  "source": "编辑整理",
+  "steps": [
+   "橙子去皮去籽，掰成小块；胡萝卜去皮切小块。",
+   "橙子和胡萝卜交替放入原汁机榨汁，减少卡机。",
+   "榨好的汁加凉白开调匀，按口味加蜂蜜。",
+   "倒入杯中，尽快饮用，鲜榨汁放久了营养流失。"
+  ],
+  "summary": "橙子的酸甜盖住胡萝卜的土腥味，颜色金黄漂亮，营养加倍的鲜榨果蔬汁。",
+  "tags": [
+   "维C",
+   "鲜榨",
+   "健康"
+  ],
+  "tastes": [
+   "果香",
+   "甜",
+   "清爽"
+  ],
+  "temp": "冷饮",
+  "tips": [
+   "用原汁机比普通榨汁机出汁率高、口感细",
+   "鲜榨汁 30 分钟内喝完，维生素 C 流失最少"
+  ]
+ },
+ {
+  "alias": "Avocado Banana Smoothie",
+  "benefits": "牛油果富含不饱和脂肪酸，香蕉补钾，一杯顶一顿加餐，饱腹感强。",
+  "category": "奶昔",
+  "cookTime": 0,
+  "equipment": [
+   "破壁机或料理机",
+   "高玻璃杯"
+  ],
+  "id": "d025",
+  "image": "assets/img/drinks/d025.jpg",
+  "ingredients": [
+   {
+    "amount": "100g",
+    "name": "牛油果",
+    "note": "约半个，熟透的"
+   },
+   {
+    "amount": "120g",
+    "name": "香蕉",
+    "note": "约 1 根，熟透带斑点最甜"
+   },
+   {
+    "amount": "200ml",
+    "name": "牛奶",
+    "note": ""
+   },
+   {
+    "amount": "10g",
+    "name": "蜂蜜",
+    "note": "可选"
+   }
+  ],
+  "level": "简单",
+  "name": "牛油果香蕉奶昔",
+  "params": {
+   "果与奶比例": "约 1:1"
+  },
+  "prepTime": 10,
+  "servings": 1,
+  "source": "编辑整理",
+  "steps": [
+   "牛油果对半切开去核，挖出果肉；香蕉剥皮掰段。",
+   "所有材料放入破壁机，牛奶先倒，水果后放。",
+   "高速搅打约 1 分钟至细腻无颗粒。",
+   "倒入杯中，表面可放几片香蕉片装饰。"
+  ],
+  "summary": "牛油果的绵密加香蕉的香甜，打出来像冰淇淋一样浓稠，不加糖也好喝。",
+  "tags": [
+   "加餐",
+   "饱腹",
+   "浓稠"
+  ],
+  "tastes": [
+   "浓郁",
+   "奶香",
+   "甜"
+  ],
+  "temp": "冷饮",
+  "tips": [
+   "香蕉和牛油果都要用熟透的，甜度够了就不用加糖",
+   "想更冰爽可以加 3–4 块冰块一起打"
+  ]
+ },
+ {
+  "alias": "Watermelon Mint Cooler",
+  "benefits": "西瓜补水解渴，薄荷清凉提神，气泡刺激味蕾，夏天续命水。",
+  "category": "气泡饮品",
+  "cookTime": 0,
+  "equipment": [
+   "榨汁机或料理机",
+   "高玻璃杯",
+   "滤网"
+  ],
+  "id": "d026",
+  "image": "assets/img/drinks/d026.jpg",
+  "ingredients": [
+   {
+    "amount": "300g",
+    "name": "西瓜",
+    "note": "去皮去籽"
+   },
+   {
+    "amount": "5g",
+    "name": "薄荷叶",
+    "note": "约 8–10 片"
+   },
+   {
+    "amount": "200ml",
+    "name": "气泡水",
+    "note": "冰镇的"
+   },
+   {
+    "amount": "100g",
+    "name": "冰块",
+    "note": ""
+   },
+   {
+    "amount": "半个",
+    "name": "青柠",
+    "note": "挤汁"
+   }
+  ],
+  "level": "入门",
+  "name": "西瓜薄荷气泡饮",
+  "params": {
+   "果汁与气泡水比例": "约 1:1"
+  },
+  "prepTime": 10,
+  "servings": 2,
+  "source": "编辑整理",
+  "steps": [
+   "西瓜去皮去籽切块，打成汁后过滤掉细渣。",
+   "薄荷叶用手拍一下激发出香味，放入杯中。",
+   "杯中加满冰块，倒入西瓜汁至七分满。",
+   "沿杯壁缓缓倒入冰镇气泡水，挤入青柠汁，插一支薄荷叶装饰。"
+  ],
+  "summary": "西瓜汁打底，气泡水带来清爽刺激感，薄荷和青柠点睛，冰镇后一口入夏。",
+  "tags": [
+   "夏日",
+   "清爽",
+   "高颜值"
+  ],
+  "tastes": [
+   "清爽",
+   "果香",
+   "甜"
+  ],
+  "temp": "冷饮",
+  "tips": [
+   "气泡水一定要冰镇的，常温的气泡散得快",
+   "薄荷叶别搅碎，拍一下放进去香味最清爽，碎了会发苦"
+  ]
+ },
+ {
+  "alias": "Osmanthus Sour Plum Drink",
+  "benefits": "乌梅生津开胃，山楂助消化，桂花香气安神，夏天喝解暑去油腻。",
+  "category": "传统特色饮品",
+  "cookTime": 40,
+  "equipment": [
+   "砂锅或不锈钢锅",
+   "滤网",
+   "大水壶"
+  ],
+  "id": "d027",
+  "image": "assets/img/drinks/d027.jpg",
+  "ingredients": [
+   {
+    "amount": "40g",
+    "name": "乌梅",
+    "note": ""
+   },
+   {
+    "amount": "25g",
+    "name": "山楂",
+    "note": "干山楂片"
+   },
+   {
+    "amount": "5g",
+    "name": "甘草",
+    "note": ""
+   },
+   {
+    "amount": "5g",
+    "name": "陈皮",
+    "note": ""
+   },
+   {
+    "amount": "3g",
+    "name": "干桂花",
+    "note": "最后放"
+   },
+   {
+    "amount": "80g",
+    "name": "冰糖",
+    "note": "按口味增减"
+   },
+   {
+    "amount": "1500ml",
+    "name": "清水",
+    "note": ""
+   }
+  ],
+  "level": "中等",
+  "name": "桂花酸梅汤",
+  "params": {
+   "料水比": "约 1:19",
+   "熬煮时间": "40分钟"
+  },
+  "prepTime": 15,
+  "servings": 4,
+  "source": "编辑整理",
+  "steps": [
+   "乌梅、山楂、甘草、陈皮用清水冲洗一遍，浸泡 15 分钟。",
+   "所有材料（除桂花、冰糖外）加 1500ml 清水，大火烧开。",
+   "转小火熬煮 40 分钟，汤色变深红。",
+   "加入冰糖搅拌融化，关火后撒入干桂花，盖盖焖 5 分钟。",
+   "过滤掉料渣，晾凉后冷藏，冰镇后饮用风味最佳。"
+  ],
+  "summary": "老北京风味的升级版：乌梅山楂熬出深红汤底，桂花在最后点香，酸甜生津。",
+  "tags": [
+   "传统",
+   "解暑",
+   "开胃"
+  ],
+  "tastes": [
+   "酸",
+   "甜",
+   "果香"
+  ],
+  "temp": "冷热皆宜",
+  "tips": [
+   "桂花一定要关火后再放，久煮香味就散了",
+   "熬好的酸梅汤冷藏 3 天内喝完，口感最新鲜"
+  ]
+ },
+ {
+  "alias": "Red Bean and Barley Water",
+  "benefits": "红豆补铁，薏米利水祛湿，低糖清淡，适合湿气重、容易水肿的人日常喝。",
+  "category": "传统特色饮品",
+  "cookTime": 60,
+  "equipment": [
+   "砂锅或电饭煲",
+   "滤网"
+  ],
+  "id": "d028",
+  "image": "assets/img/drinks/d028.jpg",
+  "ingredients": [
+   {
+    "amount": "60g",
+    "name": "红豆",
+    "note": "提前浸泡 4 小时"
+   },
+   {
+    "amount": "60g",
+    "name": "薏米",
+    "note": "提前浸泡 4 小时"
+   },
+   {
+    "amount": "1200ml",
+    "name": "清水",
+    "note": ""
+   },
+   {
+    "amount": "20g",
+    "name": "冰糖",
+    "note": "可选，按口味"
+   }
+  ],
+  "level": "简单",
+  "name": "红豆薏米水",
+  "params": {
+   "熬煮时间": "60分钟",
+   "豆水比": "1:10"
+  },
+  "prepTime": 10,
+  "servings": 3,
+  "source": "编辑整理",
+  "steps": [
+   "红豆和薏米分别洗净，提前浸泡 4 小时（或隔夜）。",
+   "泡好的红豆薏米加 1200ml 清水，大火烧开。",
+   "转小火加盖熬煮 60 分钟，至豆子软烂开花。",
+   "按口味加冰糖搅匀，过滤出汤水饮用，豆子可留着当甜品吃。"
+  ],
+  "summary": "红豆薏米慢火熬出的清甜汤水，祛湿利水，温和不寒凉，适合日常代水喝。",
+  "tags": [
+   "祛湿",
+   "养生",
+   "日常"
+  ],
+  "tastes": [
+   "清爽",
+   "甜"
+  ],
+  "temp": "冷热皆宜",
+  "tips": [
+   "红豆薏米必须提前泡透，否则熬 1 小时也煮不烂",
+   "体质偏寒的人少喝，加两片生姜一起熬更温和"
+  ]
+ }
+]

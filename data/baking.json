@@ -1,0 +1,2561 @@
+[
+ {
+  "id": "strawberry-cake",
+  "name": "草莓奶油蛋糕",
+  "alias": "经典生日蛋糕",
+  "image": "assets/img/full/baking1.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。",
+  "servings": 6,
+  "prepTime": 30,
+  "cookTime": 30,
+  "level": "中等",
+  "tags": [
+   "经典"
+  ],
+  "formula": [
+   {
+    "name": "低筋面粉",
+    "grams": 80,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 60,
+    "percent": 75,
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "玉米油",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "淡奶油",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "草莓",
+    "grams": 200,
+    "percent": 250,
+    "note": ""
+   },
+   {
+    "name": "糖粉",
+    "grams": 20,
+    "percent": 25,
+    "note": ""
+   }
+  ],
+  "totalDough": 360,
+  "pan": "",
+  "oven": {
+   "temp": 170,
+   "preheat": false,
+   "time": 30,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。",
+   "面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。",
+   "淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。",
+   "表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。"
+  ],
+  "stepTimes": [
+   15,
+   30,
+   15,
+   60
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "心情愉悦；分享喜悦",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "松软"
+ },
+ {
+  "id": "cookies",
+  "name": "曲奇饼干",
+  "alias": "黄油曲奇",
+  "image": "assets/img/full/baking2.jpg",
+  "category": "饼干",
+  "cuisine": "其他",
+  "summary": "黄油 + 面粉 + 糖，酥脆香甜，新手首选。",
+  "servings": 6,
+  "prepTime": 15,
+  "cookTime": 15,
+  "level": "简单",
+  "tags": [
+   "入门"
+  ],
+  "formula": [
+   {
+    "name": "黄油",
+    "grams": 100,
+    "percent": 66.7,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 150,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 50,
+    "percent": 33.3,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "香草精几滴",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 300,
+  "pan": "",
+  "oven": {
+   "temp": 170,
+   "preheat": false,
+   "time": 15,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。",
+   "筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。",
+   "烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。",
+   "取出冷却，密封保存。"
+  ],
+  "stepTimes": [
+   10,
+   5,
+   15,
+   5
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "下午茶搭配；简单易做",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "lava-cake",
+  "name": "熔岩巧克力蛋糕",
+  "alias": "流心巧克力蛋糕",
+  "image": "assets/img/full/baking3.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "巧克力 + 蛋糕 + 流心，切开有惊喜。",
+  "servings": 6,
+  "prepTime": 20,
+  "cookTime": 10,
+  "level": "中等",
+  "tags": [
+   "热门"
+  ],
+  "formula": [
+   {
+    "name": "黑巧克力",
+    "grams": 100,
+    "percent": 333.3,
+    "note": ""
+   },
+   {
+    "name": "黄油",
+    "grams": 80,
+    "percent": 266.7,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "蛋黄",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 40,
+    "percent": 133.3,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 30,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "可可粉少许",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 250,
+  "pan": "",
+  "oven": {
+   "temp": 220,
+   "preheat": false,
+   "time": 10,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "巧克力和黄油隔水融化，搅拌顺滑后稍冷却。",
+   "鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。",
+   "面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。",
+   "倒扣脱模，撒可可粉，趁热切开享用流心。"
+  ],
+  "stepTimes": [
+   10,
+   10,
+   10,
+   5
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "浓郁口感；聚会亮点",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "流心"
+ },
+ {
+  "id": "macaron",
+  "name": "马卡龙",
+  "alias": "法式小圆饼",
+  "image": "assets/img/full/baking4.jpg",
+  "category": "饼干",
+  "cuisine": "其他",
+  "summary": "杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。",
+  "servings": 6,
+  "prepTime": 30,
+  "cookTime": 15,
+  "level": "中等",
+  "tags": [
+   "创意"
+  ],
+  "formula": [],
+  "totalDough": null,
+  "pan": "",
+  "oven": {
+   "temp": 150,
+   "preheat": false,
+   "time": 15,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。",
+   "另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。",
+   "装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。",
+   "烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。"
+  ],
+  "stepTimes": [
+   20,
+   10,
+   30,
+   30
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "精致下午茶；送礼佳品",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "basque-cheesecake",
+  "name": "巴斯克芝士蛋糕",
+  "alias": "焦香芝士蛋糕",
+  "image": "assets/img/full/baking6.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "奶油奶酪 + 鸡蛋，表面焦香、中心流心。",
+  "servings": 6,
+  "prepTime": 18,
+  "cookTime": 25,
+  "level": "中等",
+  "tags": [
+   "经典"
+  ],
+  "formula": [
+   {
+    "name": "奶油奶酪",
+    "grams": 250,
+    "percent": 1666.7,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 80,
+    "percent": 533.3,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "淡奶油",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 15,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "玉米淀粉",
+    "grams": 10,
+    "percent": 66.7,
+    "note": ""
+   },
+   {
+    "name": "香草精几滴",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 355,
+  "pan": "",
+  "oven": {
+   "temp": 220,
+   "preheat": false,
+   "time": 25,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "奶油奶酪室温软化，加糖搅打顺滑，分次加入鸡蛋拌匀。",
+   "倒入淡奶油和香草精拌匀，筛入低筋面粉和玉米淀粉翻拌至无颗粒。",
+   "面糊倒入铺油纸的 6 寸模具，烤箱 220℃ 烤 25 分钟至表面焦黄。",
+   "出炉放凉 15 分钟后脱模切块，中心微流心口感最佳。"
+  ],
+  "stepTimes": [
+   10,
+   8,
+   25,
+   17
+  ],
+  "tips": [
+   "烤制表面焦黑是正常的，不要提前取出",
+   "冷藏后再切，切面更漂亮"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "浓郁芝香；聚会人气",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "湿润"
+ },
+ {
+  "id": "tiramisu",
+  "name": "提拉米苏",
+  "alias": "意式咖啡蛋糕",
+  "image": "assets/img/full/baking7.jpg",
+  "category": "慕斯与冷藏甜点",
+  "cuisine": "其他",
+  "summary": "马斯卡彭 + 咖啡 + 可可粉，免烤的意式经典。",
+  "servings": 6,
+  "prepTime": 35,
+  "cookTime": 0,
+  "level": "中等",
+  "tags": [
+   "热门"
+  ],
+  "formula": [],
+  "totalDough": null,
+  "pan": "",
+  "oven": {
+   "temp": null,
+   "preheat": false,
+   "time": 0,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "蛋黄加糖隔水加热打发至浓稠，放凉备用。",
+   "马斯卡彭室温软化，与打发的淡奶油、蛋黄糊混合成顺滑芝士糊。",
+   "手指饼干快速蘸咖啡液，整齐铺入容器底层。",
+   "铺一层芝士糊，重复一层饼干一层芝士糊，抹平表面。",
+   "表面筛上可可粉，冷藏 4 小时以上定型后食用。"
+  ],
+  "stepTimes": [
+   8,
+   10,
+   7,
+   10,
+   5
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "免烤简单；意式风情",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "丝滑"
+ },
+ {
+  "id": "portuguese-tart",
+  "name": "葡式蛋挞",
+  "alias": "葡式蛋塔",
+  "image": "assets/img/full/baking8.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "酥皮 + 蛋奶馅，烤出漂亮焦斑。",
+  "servings": 6,
+  "prepTime": 20,
+  "cookTime": 15,
+  "level": "简单",
+  "tags": [
+   "热门"
+  ],
+  "formula": [
+   {
+    "name": "蛋挞皮",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "淡奶油",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "蛋黄",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 40,
+    "percent": 400,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 10,
+    "percent": 100,
+    "note": ""
+   }
+  ],
+  "totalDough": 50,
+  "pan": "",
+  "oven": {
+   "temp": 220,
+   "preheat": false,
+   "time": 15,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "蛋挞皮室温解冻，码入模具备用。",
+   "牛奶、淡奶油、糖小火加热至糖化，放凉后加入蛋黄拌匀，过筛。",
+   "蛋挞液倒入挞皮八分满。",
+   "烤箱 220℃ 烤 15 分钟至表面出现焦斑，晾凉脱模。"
+  ],
+  "stepTimes": [
+   5,
+   10,
+   5,
+   15
+  ],
+  "tips": [
+   "蛋挞液表面起泡要撇掉，否则有蜂窝",
+   "烤好后别马上脱模，烫手且易碎"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "外酥内嫩；下午茶首选",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "brownie",
+  "name": "巧克力布朗尼",
+  "alias": "美式巧克力蛋糕",
+  "image": "assets/img/full/baking9.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "浓郁巧克力 + 坚果，外脆内软。",
+  "servings": 6,
+  "prepTime": 15,
+  "cookTime": 20,
+  "level": "简单",
+  "tags": [
+   "入门"
+  ],
+  "formula": [
+   {
+    "name": "黑巧克力",
+    "grams": 120,
+    "percent": 200,
+    "note": ""
+   },
+   {
+    "name": "黄油",
+    "grams": 90,
+    "percent": 150,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 80,
+    "percent": 133.3,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 60,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "可可粉",
+    "grams": 15,
+    "percent": 25,
+    "note": ""
+   },
+   {
+    "name": "核桃碎",
+    "grams": 40,
+    "percent": 66.7,
+    "note": ""
+   }
+  ],
+  "totalDough": 405,
+  "pan": "",
+  "oven": {
+   "temp": 175,
+   "preheat": false,
+   "time": 20,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "黑巧克力和黄油隔水融化，搅拌顺滑后稍冷却。",
+   "加入糖和鸡蛋搅匀，筛入面粉和可可粉翻拌，加入坚果碎。",
+   "面糊倒入铺油纸的模具抹平，烤箱 175℃ 烤 20 分钟。",
+   "出炉放凉 5 分钟后切块，中心微湿润口感最佳。"
+  ],
+  "stepTimes": [
+   8,
+   7,
+   20,
+   5
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "巧克力浓郁；简单易做",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "湿润"
+ },
+ {
+  "id": "cinnamon-roll",
+  "name": "肉桂卷",
+  "alias": "瑞典肉桂面包",
+  "image": "assets/img/full/baking10.jpg",
+  "category": "面包",
+  "cuisine": "其他",
+  "summary": "肉桂 + 糖霜，香甜松软的北欧风味。",
+  "servings": 6,
+  "prepTime": 45,
+  "cookTime": 20,
+  "level": "中等",
+  "tags": [
+   "香甜"
+  ],
+  "formula": [
+   {
+    "name": "高筋面粉",
+    "grams": 300,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "酵母",
+    "grams": 5,
+    "percent": 1.7,
+    "note": ""
+   },
+   {
+    "name": "温牛奶",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "黄油",
+    "grams": 40,
+    "percent": 13.3,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 40,
+    "percent": 13.3,
+    "note": ""
+   },
+   {
+    "name": "肉桂粉",
+    "grams": 8,
+    "percent": 2.7,
+    "note": ""
+   },
+   {
+    "name": "红糖",
+    "grams": 60,
+    "percent": 20,
+    "note": ""
+   },
+   {
+    "name": "糖粉",
+    "grams": 50,
+    "percent": 16.7,
+    "note": "糖霜用"
+   }
+  ],
+  "totalDough": 503,
+  "pan": "",
+  "oven": {
+   "temp": 180,
+   "preheat": false,
+   "time": 20,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "面粉、酵母、温牛奶、鸡蛋、黄油、糖揉成光滑面团。",
+   "面团发酵 60 分钟至两倍大。",
+   "擀成长方形，抹软化黄油，撒肉桂红糖，卷起切 8 段，排入烤盘二发 20 分钟。",
+   "烤箱 180℃ 烤 20 分钟至金黄。",
+   "出炉趁热淋上糖霜即成。"
+  ],
+  "stepTimes": [
+   15,
+   60,
+   30,
+   20,
+   5
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "香气浓郁；早餐人气",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "高甜",
+  "texture": "松软"
+ },
+ {
+  "id": "chiffon-cake",
+  "name": "戚风蛋糕",
+  "alias": "气疯蛋糕",
+  "image": "assets/img/full/baking11.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "松软不塌，掌握蛋白打发的关键。",
+  "servings": 6,
+  "prepTime": 28,
+  "cookTime": 30,
+  "level": "中等",
+  "tags": [
+   "经典"
+  ],
+  "formula": [
+   {
+    "name": "低筋面粉",
+    "grams": 85,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 70,
+    "percent": 82.4,
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "玉米油",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 155,
+  "pan": "",
+  "oven": {
+   "temp": 160,
+   "preheat": false,
+   "time": 30,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "蛋黄加牛奶、玉米油搅匀，筛入低筋面粉拌成顺滑蛋黄糊。",
+   "蛋白分三次加糖打发至硬性发泡，提起有直立尖角。",
+   "取三分之一蛋白霜与蛋黄糊翻拌，再倒回剩余蛋白霜中拌匀。",
+   "面糊倒入 8 寸模具，烤箱 160℃ 烤 30 分钟。",
+   "出炉震出热气后倒扣，放凉后脱模。"
+  ],
+  "stepTimes": [
+   10,
+   10,
+   8,
+   30,
+   2
+  ],
+  "tips": [
+   "蛋白霜打发是关键，不到位必塌",
+   "倒扣冷却不充分会回缩"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "口感轻盈；烘焙基本功",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "低甜",
+  "texture": "松软"
+ },
+ {
+  "id": "lemon-tart",
+  "name": "柠檬塔",
+  "alias": "法式柠檬挞",
+  "image": "assets/img/full/baking12.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "酸甜柠檬馅 + 酥脆塔皮，清新不腻。",
+  "servings": 6,
+  "prepTime": 25,
+  "cookTime": 15,
+  "level": "中等",
+  "tags": [
+   "清爽"
+  ],
+  "formula": [
+   {
+    "name": "黄油",
+    "grams": 90,
+    "percent": 50,
+    "note": ""
+   },
+   {
+    "name": "糖粉",
+    "grams": 50,
+    "percent": 27.8,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 180,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "柠檬汁",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "柠檬皮屑",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 80,
+    "percent": 44.4,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": "馅用"
+   },
+   {
+    "name": "黄油",
+    "grams": 60,
+    "percent": 33.3,
+    "note": "馅用"
+   }
+  ],
+  "totalDough": 460,
+  "pan": "",
+  "oven": {
+   "temp": 180,
+   "preheat": false,
+   "time": 15,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "黄油加糖粉打发，加入蛋液，拌入低筋面粉成团，冷藏松弛 20 分钟。",
+   "面团擀开铺入塔模，用叉子扎洞，烤箱 180℃ 烤 15 分钟定型。",
+   "柠檬汁、柠檬皮屑、糖、鸡蛋、黄油隔水加热，不断搅拌成浓稠柠檬馅。",
+   "柠檬馅倒入塔壳抹平，冷藏 20 分钟定型，表面装饰柠檬片。"
+  ],
+  "stepTimes": [
+   10,
+   25,
+   15,
+   20
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "清爽解腻；颜值担当",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "apple-pie",
+  "name": "苹果派",
+  "alias": "美式苹果派",
+  "image": "assets/img/full/baking13.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "肉桂苹果馅，烤得金黄酥脆。",
+  "servings": 6,
+  "prepTime": 35,
+  "cookTime": 35,
+  "level": "中等",
+  "tags": [
+   "经典"
+  ],
+  "formula": [
+   {
+    "name": "低筋面粉",
+    "grams": 250,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "黄油",
+    "grams": 150,
+    "percent": 60,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 30,
+    "percent": 12,
+    "note": ""
+   },
+   {
+    "name": "盐",
+    "grams": 2,
+    "percent": 0.8,
+    "note": ""
+   },
+   {
+    "name": "冰水",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "苹果",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "肉桂粉",
+    "grams": 5,
+    "percent": 2,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 60,
+    "percent": 24,
+    "note": "馅用"
+   },
+   {
+    "name": "柠檬汁",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 497,
+  "pan": "",
+  "oven": {
+   "temp": 200,
+   "preheat": false,
+   "time": 35,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "面粉、黄油、糖、盐搓成粗粒，加冰水揉成团，冷藏 30 分钟。",
+   "苹果切片，加肉桂粉、糖、柠檬汁拌匀，静置 10 分钟。",
+   "面团擀开铺入派盘，填入苹果馅，顶部编织格子盖。",
+   "烤箱 200℃ 烤 35 分钟至金黄，晾凉 5 分钟后切块。"
+  ],
+  "stepTimes": [
+   10,
+   10,
+   15,
+   40
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "果香浓郁；节日氛围",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "croissant",
+  "name": "可颂面包",
+  "alias": "牛角面包",
+  "image": "assets/img/full/baking14.jpg",
+  "category": "面包",
+  "cuisine": "其他",
+  "summary": "黄油开酥，层层分明的法式经典。",
+  "servings": 6,
+  "prepTime": 55,
+  "cookTime": 18,
+  "level": "较难",
+  "tags": [
+   "热门"
+  ],
+  "formula": [
+   {
+    "name": "高筋面粉",
+    "grams": 300,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "酵母",
+    "grams": 6,
+    "percent": 2,
+    "note": ""
+   },
+   {
+    "name": "细砂糖",
+    "grams": 30,
+    "percent": 10,
+    "note": ""
+   },
+   {
+    "name": "盐",
+    "grams": 5,
+    "percent": 1.7,
+    "note": ""
+   },
+   {
+    "name": "牛奶",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "黄油",
+    "grams": 30,
+    "percent": 10,
+    "note": "面团用"
+   },
+   {
+    "name": "裹入黄油",
+    "grams": 150,
+    "percent": 50,
+    "note": ""
+   },
+   {
+    "name": "蛋液少许",
+    "grams": null,
+    "percent": null,
+    "note": "刷面用"
+   }
+  ],
+  "totalDough": 521,
+  "pan": "",
+  "oven": {
+   "temp": 200,
+   "preheat": false,
+   "time": 18,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "面粉、酵母、糖、盐、牛奶、黄油揉成面团，冷藏 1 小时。",
+   "裹入黄油擀成薄片包入面团，三折两次，每次冷藏松弛 30 分钟。",
+   "面团擀开切三角形，卷成牛角形，发酵 45 分钟。",
+   "表面刷蛋液，烤箱 200℃ 烤 18 分钟至金黄酥脆。",
+   "出炉放凉，层次分明，趁新鲜食用。"
+  ],
+  "stepTimes": [
+   15,
+   80,
+   65,
+   18,
+   2
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "酥脆掉渣；法式早餐",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "低甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "oatmeal-cookie",
+  "name": "燕麦饼干",
+  "alias": "健康燕麦曲奇",
+  "image": "assets/img/full/baking15.jpg",
+  "category": "饼干",
+  "cuisine": "其他",
+  "summary": "燕麦 + 坚果，低负担的健康小食。",
+  "servings": 6,
+  "prepTime": 18,
+  "cookTime": 12,
+  "level": "简单",
+  "tags": [
+   "健康"
+  ],
+  "formula": [
+   {
+    "name": "黄油",
+    "grams": 80,
+    "percent": 133.3,
+    "note": ""
+   },
+   {
+    "name": "红糖",
+    "grams": 60,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "鸡蛋",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   },
+   {
+    "name": "燕麦片",
+    "grams": 120,
+    "percent": 200,
+    "note": ""
+   },
+   {
+    "name": "低筋面粉",
+    "grams": 60,
+    "percent": 100,
+    "note": ""
+   },
+   {
+    "name": "坚果碎",
+    "grams": 40,
+    "percent": 66.7,
+    "note": ""
+   },
+   {
+    "name": "肉桂粉少许",
+    "grams": null,
+    "percent": null,
+    "note": ""
+   }
+  ],
+  "totalDough": 360,
+  "pan": "",
+  "oven": {
+   "temp": 170,
+   "preheat": false,
+   "time": 12,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "黄油室温软化，加红糖打发，加入蛋液拌匀。",
+   "加入燕麦片、面粉、坚果碎和肉桂粉翻拌成团。",
+   "面团分成小球压扁，间隔排入烤盘。",
+   "烤箱 170℃ 烤 12 分钟至边缘金黄，晾凉后变脆。"
+  ],
+  "stepTimes": [
+   8,
+   5,
+   5,
+   12
+  ],
+  "tips": [
+   "烤箱实际温度与设定常有偏差，建议备个温度计",
+   "烘焙中途频繁开烤箱门会导致塌陷",
+   "配方比例不宜随意增减"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "膳食纤维；健康解馋",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "低甜",
+  "texture": "酥脆"
+ },
+ {
+  "id": "xuemeiniang",
+  "name": "雪媚娘",
+  "alias": "日式大福",
+  "image": "assets/img/full/baking16.jpg",
+  "category": "慕斯与冷藏甜点",
+  "cuisine": "其他",
+  "summary": "糯米皮 + 奶油 + 水果，软糯香甜。",
+  "servings": 6,
+  "prepTime": 18,
+  "cookTime": 20,
+  "level": "简单",
+  "tags": [
+   "人气"
+  ],
+  "formula": [],
+  "totalDough": null,
+  "pan": "",
+  "oven": {
+   "temp": null,
+   "preheat": false,
+   "time": 20,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "糯米粉、玉米淀粉、糖、牛奶混合搅匀，过筛去颗粒。",
+   "加入黄油，蒸 20 分钟至熟透，趁热搅拌至光滑有弹性。",
+   "放凉后分成小剂子，擀成圆皮。",
+   "包入打发的淡奶油和水果丁，收口，冷藏 10 分钟定型。"
+  ],
+  "stepTimes": [
+   8,
+   22,
+   10,
+   10
+  ],
+  "tips": [
+   "糯米皮要趁热包，凉了会裂",
+   "奶油打发不足包不住馅"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "软糯口感；水果清香",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "丝滑"
+ },
+ {
+  "id": "chocolate-mousse",
+  "name": "巧克力慕斯",
+  "alias": "法式巧克力慕斯",
+  "image": "assets/img/full/baking17.jpg",
+  "category": "蛋糕",
+  "cuisine": "其他",
+  "summary": "黑巧 + 淡奶油，丝滑浓郁免烤。",
+  "servings": 6,
+  "prepTime": 23,
+  "cookTime": 0,
+  "level": "简单",
+  "tags": [
+   "丝滑"
+  ],
+  "formula": [],
+  "totalDough": null,
+  "pan": "",
+  "oven": {
+   "temp": null,
+   "preheat": false,
+   "time": 0,
+   "note": ""
+  },
+  "ferment": "",
+  "yield": "",
+  "doneness": "",
+  "troubleshoot": [],
+  "ingredients": [],
+  "steps": [
+   "黑巧克力隔水融化，稍冷却至不烫手。",
+   "淡奶油打发至六成，取一半与巧克力液混合均匀。",
+   "剩余淡奶油打发至硬性，分两次与巧克力糊翻拌均匀。",
+   "装入杯中，冷藏 3 小时定型，表面筛可可粉。"
+  ],
+  "stepTimes": [
+   8,
+   7,
+   8,
+   7
+  ],
+  "tips": [
+   "巧克力温度过高拌入奶油会消泡",
+   "冷藏不足4小时不成型"
+  ],
+  "faq": [],
+  "subs": [],
+  "benefits": "丝滑口感；免烤简单",
+  "equipment": [
+   "烤箱"
+  ],
+  "source": "编辑整理",
+  "legacy": true,
+  "sweetness": "中甜",
+  "texture": "丝滑"
+ },
+ {
+  "alias": "奶香浓郁的柔软吐司",
+  "benefits": "提供碳水化合物和蛋白质，搭配鸡蛋、牛奶就是一份扎实的早餐。",
+  "category": "面包",
+  "cookTime": 35,
+  "cuisine": "其他",
+  "doneness": "表面金黄均匀，轻敲底部有空洞声，脱模后侧面不塌陷",
+  "equipment": [
+   "烤箱",
+   "450g 吐司盒",
+   "厨师机",
+   "晾网"
+  ],
+  "faq": [
+   {
+    "a": "可以，摔打揉面约 20–25 分钟，揉到能拉出薄膜即可，只是费些力气。",
+    "q": "没有厨师机可以手揉吗？"
+   },
+   {
+    "a": "可以，用等量细砂糖代替，奶香味会稍弱，口感依然柔软。",
+    "q": "可以不加炼乳吗？"
+   }
+  ],
+  "ferment": "一发 28°C 约 60 分钟至 2 倍大；二发 35°C 约 40 分钟至模具八分满",
+  "formula": [
+   {
+    "grams": 250,
+    "name": "高筋面粉",
+    "note": "蛋白质含量12%以上",
+    "percent": 100
+   },
+   {
+    "grams": 160,
+    "name": "牛奶",
+    "note": "冷藏的即可",
+    "percent": 64
+   },
+   {
+    "grams": 30,
+    "name": "淡奶油",
+    "note": "",
+    "percent": 12
+   },
+   {
+    "grams": 15,
+    "name": "炼乳",
+    "note": "",
+    "percent": 6
+   },
+   {
+    "grams": 35,
+    "name": "细砂糖",
+    "note": "",
+    "percent": 14
+   },
+   {
+    "grams": 25,
+    "name": "黄油",
+    "note": "室温软化",
+    "percent": 10
+   },
+   {
+    "grams": 20,
+    "name": "全蛋液",
+    "note": "约半个鸡蛋",
+    "percent": 8
+   },
+   {
+    "grams": 3,
+    "name": "盐",
+    "note": "",
+    "percent": 1.2
+   },
+   {
+    "grams": 3,
+    "name": "干酵母",
+    "note": "耐高糖型更佳",
+    "percent": 1.2
+   }
+  ],
+  "id": "b017",
+  "image": "assets/img/baking/b017.jpg",
+  "ingredients": [],
+  "level": "中等",
+  "name": "北海道吐司",
+  "oven": {
+   "note": "上下火，中下层；带盖烤约30分钟",
+   "preheat": true,
+   "temp": 180,
+   "time": 35
+  },
+  "pan": "450g 吐司盒（带盖）",
+  "prepTime": 40,
+  "servings": 6,
+  "source": "编辑整理",
+  "steps": [
+   "除黄油和盐之外的所有材料放入厨师机，先低速搅拌成团，再转中速揉约 8 分钟。",
+   "加入软化的黄油和盐，继续揉至完全扩展阶段，能拉出薄而有韧性的手套膜。",
+   "面团收圆放入盆中，28°C 发酵约 60 分钟至 2 倍大，手指戳洞不回缩。",
+   "取出排气，均分成 3 份，滚圆后盖保鲜膜松弛 15 分钟。",
+   "取一份擀成长舌形，卷起后再擀长卷起一次，收口朝下放入吐司盒。",
+   "35°C 发酵约 40 分钟至模具八分满，盖上盒盖。",
+   "烤箱预热至 180°C，放入中下层烘烤 30–35 分钟，出炉立即脱模，侧放在晾网上晾凉后再切片。"
+  ],
+  "subs": [
+   {
+    "from": "淡奶油",
+    "note": "等量替换，奶香减弱，组织稍干",
+    "to": "牛奶"
+   },
+   {
+    "from": "炼乳",
+    "note": "等量替换，风味略有不同",
+    "to": "蜂蜜"
+   }
+  ],
+  "summary": "加入淡奶油和炼乳的经典日式吐司，组织绵软细腻，奶香浓郁，放凉了也好吃。",
+  "tags": [
+   "早餐",
+   "奶香",
+   "柔软"
+  ],
+  "tips": [
+   "液体材料用冰牛奶，可以延缓发酵，让面筋形成更充分",
+   "含麸质、蛋、奶制品，相关过敏人群注意",
+   "吐司必须完全晾凉再切片，否则内部组织会被压塌"
+  ],
+  "totalDough": 541,
+  "troubleshoot": [
+   {
+    "cause": "酵母失活或发酵温度太低",
+    "fix": "先用温水验证酵母活性，发酵环境保持 28°C 左右",
+    "problem": "吐司长不高、组织发紧"
+   },
+   {
+    "cause": "发酵过度或烘烤时间不足",
+    "fix": "二发到八分满即进烤箱，烤透再出炉，出炉后立即脱模侧放晾凉",
+    "problem": "顶部塌陷回缩"
+   },
+   {
+    "cause": "烤箱温度偏高或烘烤过久",
+    "fix": "加盖烘烤，或在表面上色后加盖锡纸",
+    "problem": "表皮厚硬"
+   }
+  ],
+  "yield": "450g 吐司 1 个（约切 8 片）"
+ },
+ {
+  "alias": "外脆内软的健康面包",
+  "benefits": "全麦粉保留麸皮，膳食纤维比白面包高，饱腹感强。",
+  "category": "面包",
+  "cookTime": 30,
+  "cuisine": "其他",
+  "doneness": "表皮深金黄、坚硬，翻到底部轻敲有空洞声",
+  "equipment": [
+   "烤箱",
+   "烤盘",
+   "刮刀",
+   "晾网"
+  ],
+  "faq": [
+   {
+    "a": "可以，但面筋更弱、口感更紧实，建议先按一半比例做熟练了再尝试。",
+    "q": "能全部用全麦粉吗？"
+   },
+   {
+    "a": "用等量细砂糖代替，主要作用是给酵母提供养分。",
+    "q": "没有蜂蜜怎么办？"
+   }
+  ],
+  "ferment": "28°C 约 60 分钟至 1.5 倍大（全麦面团发酵稍慢）",
+  "formula": [
+   {
+    "grams": 150,
+    "name": "全麦面粉",
+    "note": "",
+    "percent": 50
+   },
+   {
+    "grams": 150,
+    "name": "高筋面粉",
+    "note": "与全麦粉合计为100%",
+    "percent": 50
+   },
+   {
+    "grams": 210,
+    "name": "水",
+    "note": "常温",
+    "percent": 70
+   },
+   {
+    "grams": 15,
+    "name": "蜂蜜",
+    "note": "",
+    "percent": 5
+   },
+   {
+    "grams": 15,
+    "name": "橄榄油",
+    "note": "",
+    "percent": 5
+   },
+   {
+    "grams": 6,
+    "name": "盐",
+    "note": "",
+    "percent": 2
+   },
+   {
+    "grams": 3,
+    "name": "干酵母",
+    "note": "",
+    "percent": 1
+   }
+  ],
+  "id": "b018",
+  "image": "assets/img/baking/b018.jpg",
+  "ingredients": [],
+  "level": "中等",
+  "name": "全麦欧包",
+  "oven": {
+   "note": "上下火；底层放空烤盘，开烤时倒入100ml热水制造蒸汽",
+   "preheat": true,
+   "temp": 220,
+   "time": 30
+  },
+  "pan": "烤盘（铺油纸）",
+  "prepTime": 30,
+  "servings": 4,
+  "source": "编辑整理",
+  "steps": [
+   "所有材料混合成团，揉至面团光滑、能拉出粗膜即可，全麦面筋弱不要过度揉。",
+   "收圆放入盆中，28°C 发酵约 60 分钟至 1.5 倍大。",
+   "取出轻拍排气，折叠整形成橄榄形，收口朝下放在铺了油纸的烤盘上。",
+   "室温醒发约 30 分钟至 1.5 倍大，表面筛一层薄薄的全麦粉。",
+   "烤箱预热至 220°C，底层放空烤盘；面包表面用刀片划两道口。",
+   "入炉后立即往底层烤盘倒入 100ml 热水制造蒸汽，关门烘烤 30 分钟至表皮深金黄。",
+   "出炉放在晾网上彻底晾凉再切片，热切会粘刀。"
+  ],
+  "subs": [
+   {
+    "from": "蜂蜜",
+    "note": "等量替换，风味略有差别",
+    "to": "细砂糖"
+   },
+   {
+    "from": "橄榄油",
+    "note": "等量替换，麦香稍弱",
+    "to": "玉米油"
+   }
+  ],
+  "summary": "一半全麦粉一半高筋粉，外皮酥脆、内部湿润有嚼劲，麦香浓郁，越嚼越香。",
+  "tags": [
+   "健康",
+   "全麦",
+   "早餐"
+  ],
+  "tips": [
+   "全麦面团含水量高会很粘手，操作时手上沾水比沾粉更有效",
+   "含麸质，麸质过敏人群不适合",
+   "割包刀片事先沾水，划口更顺滑不断裂"
+  ],
+  "totalDough": 549,
+  "troubleshoot": [
+   {
+    "cause": "水加太多或酵母失活",
+    "fix": "全麦吸水性强但水量别超 75%，确保酵母新鲜有效",
+    "problem": "面包发不起来、内部发黏"
+   },
+   {
+    "cause": "缺少蒸汽或出炉后焖在烤箱里",
+    "fix": "开烤时制造蒸汽，烤好后开门留缝 5 分钟再取出，放在晾网上散热",
+    "problem": "表皮不够脆、发软"
+   }
+  ],
+  "yield": "约 500g 欧包 1 个"
+ },
+ {
+  "alias": "绵软如云朵的海绵蛋糕",
+  "benefits": "鸡蛋提供优质蛋白，做法少油，适合当下午茶点心。",
+  "category": "蛋糕",
+  "cookTime": 60,
+  "cuisine": "其他",
+  "doneness": "表面金黄平整，竹签插入拔出无面糊，轻按表面有弹性",
+  "equipment": [
+   "烤箱",
+   "8寸方形模具",
+   "电动打蛋器",
+   "深烤盘",
+   "晾网"
+  ],
+  "faq": [
+   {
+    "a": "用等量白醋代替，作用都是稳定蛋白霜、去腥。",
+    "q": "没有柠檬汁怎么办？"
+   },
+   {
+    "a": "可以，8 寸圆模时间相当，只是切块形状不同。",
+    "q": "可以用圆模吗？"
+   }
+  ],
+  "ferment": "无需发酵",
+  "formula": [
+   {
+    "grams": 90,
+    "name": "低筋面粉",
+    "note": "需过筛",
+    "percent": 100
+   },
+   {
+    "grams": 300,
+    "name": "全蛋液",
+    "note": "约 6 个鸡蛋，蛋黄蛋白分开",
+    "percent": 333
+   },
+   {
+    "grams": 80,
+    "name": "牛奶",
+    "note": "",
+    "percent": 89
+   },
+   {
+    "grams": 75,
+    "name": "玉米油",
+    "note": "",
+    "percent": 83
+   },
+   {
+    "grams": 70,
+    "name": "细砂糖",
+    "note": "加入蛋白中打发",
+    "percent": 78
+   },
+   {
+    "grams": 5,
+    "name": "柠檬汁",
+    "note": "几滴，去腥稳泡",
+    "percent": 5.6
+   },
+   {
+    "grams": 1,
+    "name": "盐",
+    "note": "",
+    "percent": 1.1
+   }
+  ],
+  "id": "b019",
+  "image": "assets/img/baking/b019.jpg",
+  "ingredients": [],
+  "level": "简单",
+  "name": "古早味蛋糕",
+  "oven": {
+   "note": "水浴法：深烤盘注入约2cm热水，上下火中下层",
+   "preheat": true,
+   "temp": 150,
+   "time": 60
+  },
+  "pan": "8 寸方形活底模具（垫油纸）",
+  "prepTime": 25,
+  "servings": 8,
+  "source": "编辑整理",
+  "steps": [
+   "玉米油和牛奶混合，小火加热至约 70°C（烫手但不冒烟），离火。",
+   "筛入低筋面粉，搅拌至无干粉，再逐个加入蛋黄拌匀成细腻的蛋黄糊。",
+   "蛋白加入柠檬汁和盐，分三次加入细砂糖，打发至湿性偏干性发泡（提起有弯钩）。",
+   "取三分之一蛋白霜拌入蛋黄糊翻拌均匀，再倒回剩余蛋白霜中翻拌至完全混合。",
+   "面糊倒入垫了油纸的 8 寸方模，轻震两下排出大气泡。",
+   "烤箱预热 150°C，深烤盘注入约 2cm 热水，把模具坐在水里，烘烤 60 分钟。",
+   "出炉震两下，立即倒扣在晾网上，彻底晾凉后脱模切块。"
+  ],
+  "subs": [
+   {
+    "from": "玉米油",
+    "note": "等量替换，需融化成液态，奶香更浓",
+    "to": "黄油"
+   },
+   {
+    "from": "牛奶",
+    "note": "等量替换，带淡淡果香",
+    "to": "橙汁"
+   }
+  ],
+  "summary": "绵软蓬松、入口即化的古早味蛋糕，蛋香浓郁，水浴烘烤带来布丁般的嫩滑口感。",
+  "tags": [
+   "下午茶",
+   "蛋香",
+   "松软"
+  ],
+  "tips": [
+   "打蛋白的盆必须无水无油，否则打不起来",
+   "含蛋、奶、麸质，相关过敏人群注意",
+   "翻拌时用刮刀从底部翻起，别画圈搅拌以免消泡"
+  ],
+  "totalDough": 621,
+  "troubleshoot": [
+   {
+    "cause": "烫面温度不够或蛋白打发不足",
+    "fix": "油奶混合加热至约 70°C 再拌粉，蛋白打至湿性偏干性发泡",
+    "problem": "底部出现布丁层、口感发糕"
+   },
+   {
+    "cause": "没烤透或出炉后没及时倒扣",
+    "fix": "烤透至竹签干净，出炉震两下排出热气，立即倒扣晾凉",
+    "problem": "出炉后严重塌陷回缩"
+   },
+   {
+    "cause": "炉温偏高或水浴水量不足",
+    "fix": "用温度计实测 150°C，水浴水量要足，中途水干及时续热水",
+    "problem": "表面开裂严重"
+   }
+  ],
+  "yield": "8 寸蛋糕 1 个（约切 10 块）"
+ },
+ {
+  "alias": "酸甜酥脆的切片饼干",
+  "benefits": "自制饼干无添加剂，用量自己掌控，当零食比买的安心。",
+  "category": "饼干",
+  "cookTime": 20,
+  "cuisine": "其他",
+  "doneness": "边缘呈浅金黄色，冷却后完全酥脆",
+  "equipment": [
+   "烤箱",
+   "烤盘",
+   "电动打蛋器",
+   "刮刀",
+   "保鲜膜"
+  ],
+  "faq": [
+   {
+    "a": "切碎后用少许朗姆酒或温水泡 10 分钟，沥干再用，酸味会柔和很多。",
+    "q": "蔓越莓太酸怎么办？"
+   },
+   {
+    "a": "完全晾凉后密封保存，一周内吃完口感最佳，受潮变软可回炉 150°C 烤 5 分钟。",
+    "q": "烤好的饼干怎么保存？"
+   }
+  ],
+  "ferment": "无需发酵；整形后冷冻 30 分钟定型",
+  "formula": [
+   {
+    "grams": 150,
+    "name": "低筋面粉",
+    "note": "需过筛",
+    "percent": 100
+   },
+   {
+    "grams": 100,
+    "name": "黄油",
+    "note": "室温软化到手指能按出坑",
+    "percent": 67
+   },
+   {
+    "grams": 60,
+    "name": "糖粉",
+    "note": "",
+    "percent": 40
+   },
+   {
+    "grams": 25,
+    "name": "全蛋液",
+    "note": "约半个鸡蛋，室温",
+    "percent": 17
+   },
+   {
+    "grams": 60,
+    "name": "蔓越莓干",
+    "note": "切碎",
+    "percent": 40
+   },
+   {
+    "grams": 15,
+    "name": "奶粉",
+    "note": "",
+    "percent": 10
+   }
+  ],
+  "id": "b020",
+  "image": "assets/img/baking/b020.jpg",
+  "ingredients": [],
+  "level": "简单",
+  "name": "蔓越莓饼干",
+  "oven": {
+   "note": "上下火中层，边缘微黄即出炉",
+   "preheat": true,
+   "temp": 170,
+   "time": 20
+  },
+  "pan": "烤盘（铺油纸）",
+  "prepTime": 20,
+  "servings": 5,
+  "source": "编辑整理",
+  "steps": [
+   "黄油室温软化，加入糖粉用打蛋器打发至颜色发白、体积膨大。",
+   "分两次加入全蛋液，每次都搅打均匀再加下一次。",
+   "筛入低筋面粉和奶粉，用刮刀翻拌至无干粉。",
+   "倒入切碎的蔓越莓干，拌匀成团。",
+   "把面团放在保鲜膜上，整形成长方体，包紧后冷冻 30 分钟定型。",
+   "取出切成约 5mm 的厚片，摆在铺了油纸的烤盘上，留出间隔。",
+   "烤箱预热 170°C，中层烘烤约 20 分钟，边缘微黄即出炉，在烤盘上晾凉。"
+  ],
+  "subs": [
+   {
+    "from": "蔓越莓干",
+    "note": "等量替换，口感更甜",
+    "to": "葡萄干"
+   },
+   {
+    "from": "蔓越莓干",
+    "note": "等量替换，变成巧克力豆饼干",
+    "to": "巧克力豆"
+   }
+  ],
+  "summary": "黄油香浓、口感酥松的切片饼干，点缀酸甜的蔓越莓干，越嚼越香，送人自吃都合适。",
+  "tags": [
+   "下午茶",
+   "伴手礼",
+   "酥脆"
+  ],
+  "tips": [
+   "用糖粉比用细砂糖成品更酥松，表面也更平整",
+   "含蛋、奶、麸质，相关过敏人群注意",
+   "饼干刚出炉是软的，晾凉后才会变脆，别急着判断"
+  ],
+  "totalDough": 410,
+  "troubleshoot": [
+   {
+    "cause": "黄油太软或糖量太多",
+    "fix": "面团冷藏定型后再切片烘烤，糖量别超过面粉的 45%",
+    "problem": "烘烤时饼干摊开变薄"
+   },
+   {
+    "cause": "冷冻时间不够",
+    "fix": "冻到刀能切动但面团硬挺的程度再切，下刀要快",
+    "problem": "切片时碎裂不成形"
+   }
+  ],
+  "yield": "约 20 块饼干"
+ },
+ {
+  "alias": "玫瑰花形的经典法式甜点",
+  "benefits": "苹果富含果胶和膳食纤维，杏仁粉提供维生素 E，甜而不腻。",
+  "category": "塔派",
+  "cookTime": 60,
+  "cuisine": "法餐",
+  "doneness": "塔皮金黄酥脆，苹果片边缘微焦，杏仁馅凝固定型",
+  "equipment": [
+   "烤箱",
+   "8寸塔模",
+   "擀面杖",
+   "烘焙石或豆子",
+   "刮刀"
+  ],
+  "faq": [
+   {
+    "a": "可以用 8 寸蛋糕模代替，但脱模会困难些，建议垫油纸方便取出。",
+    "q": "没有塔模怎么办？"
+   },
+   {
+    "a": "切好后立刻泡进加了柠檬汁的冷水里，摆盘时再沥干。",
+    "q": "苹果片切好容易氧化变色怎么办？"
+   }
+  ],
+  "ferment": "塔皮面团冷藏松弛 30 分钟",
+  "formula": [
+   {
+    "grams": 200,
+    "name": "低筋面粉",
+    "note": "塔皮用",
+    "percent": 100
+   },
+   {
+    "grams": 110,
+    "name": "黄油",
+    "note": "塔皮用，冷藏切小块",
+    "percent": 55
+   },
+   {
+    "grams": 60,
+    "name": "糖粉",
+    "note": "塔皮用",
+    "percent": 30
+   },
+   {
+    "grams": 40,
+    "name": "全蛋液",
+    "note": "塔皮用，约 1 个鸡蛋",
+    "percent": 20
+   },
+   {
+    "grams": 80,
+    "name": "杏仁粉",
+    "note": "馅用",
+    "percent": 40
+   },
+   {
+    "grams": 60,
+    "name": "细砂糖",
+    "note": "馅用",
+    "percent": 30
+   },
+   {
+    "grams": 100,
+    "name": "鸡蛋",
+    "note": "馅用，约 2 个",
+    "percent": 50
+   },
+   {
+    "grams": 60,
+    "name": "黄油",
+    "note": "馅用，室温软化",
+    "percent": 30
+   },
+   {
+    "grams": 450,
+    "name": "苹果",
+    "note": "约 3 个，选酸甜脆的品种",
+    "percent": 225
+   },
+   {
+    "grams": 10,
+    "name": "柠檬汁",
+    "note": "防氧化",
+    "percent": 5
+   },
+   {
+    "grams": 30,
+    "name": "杏子果酱",
+    "note": "刷面用，加一勺热水调稀",
+    "percent": 15
+   }
+  ],
+  "id": "b021",
+  "image": "assets/img/baking/b021.jpg",
+  "ingredients": [],
+  "level": "困难",
+  "name": "法式苹果塔",
+  "oven": {
+   "note": "上下火中层；塔皮先盲烤15分钟，再与馅同烤30分钟",
+   "preheat": true,
+   "temp": 180,
+   "time": 45
+  },
+  "pan": "8 寸塔模（活底）",
+  "prepTime": 50,
+  "servings": 8,
+  "source": "编辑整理",
+  "steps": [
+   "低筋面粉、糖粉混合，加入冷藏黄油块，用手搓成粗砂状。",
+   "加入全蛋液揉成团，压扁包保鲜膜，冷藏松弛 30 分钟。",
+   "面团擀成 3mm 圆片，铺入塔模，贴合边角，去掉多余面皮，冷藏 15 分钟定型。",
+   "塔皮铺油纸，压上烘焙石或豆子，180°C 盲烤 15 分钟后取出重物。",
+   "软化黄油加细砂糖打匀，分次加入鸡蛋搅匀，再拌入杏仁粉成杏仁奶油馅。",
+   "苹果对半去核，切成约 2mm 的均匀薄片，泡柠檬水防氧化。",
+   "杏仁馅铺入塔皮抹平，苹果片从外圈向内叠成玫瑰花形，边缘微焦更漂亮。",
+   "180°C 烘烤约 30 分钟至馅料凝固、苹果边缘微焦，出炉趁热刷一层调稀的杏子果酱。"
+  ],
+  "subs": [
+   {
+    "from": "杏子果酱",
+    "note": "刷面增亮用，风味略有不同",
+    "to": "蜂蜜加水调稀"
+   },
+   {
+    "from": "杏仁粉",
+    "note": "等量替换，坚果香减弱",
+    "to": "低筋面粉"
+   }
+  ],
+  "summary": "酥脆塔皮配杏仁奶油馅，苹果片摆成玫瑰花形，酸甜清香，是颜值与口味兼具的法式经典。",
+  "tags": [
+   "下午茶",
+   "颜值",
+   "法式"
+  ],
+  "tips": [
+   "苹果片切得越薄越均匀，摆出的花形越漂亮，2mm 是最佳厚度",
+   "含蛋、奶、麸质及坚果（杏仁粉），相关过敏人群注意",
+   "盲烤时重物要压到边角，否则塔皮边缘会塌陷"
+  ],
+  "totalDough": 1200,
+  "troubleshoot": [
+   {
+    "cause": "面团没松弛够或没压重物盲烤",
+    "fix": "冷藏松弛 30 分钟再入模，盲烤时铺油纸压足豆子",
+    "problem": "塔皮回缩变形"
+   },
+   {
+    "cause": "杏仁馅太湿或烘烤不足",
+    "fix": "苹果片沥干水分再摆，烤透至馅料完全凝固",
+    "problem": "底部湿软不酥脆"
+   }
+  ],
+  "yield": "8 寸苹果塔 1 个"
+ },
+ {
+  "alias": "免烤箱的清爽果味甜点",
+  "benefits": "芒果富含维生素 A 和 C，做法免烤箱，夏天吃清爽不腻。",
+  "category": "慕斯与冷藏甜点",
+  "cookTime": 0,
+  "cuisine": "其他",
+  "doneness": "慕斯凝固不晃动，脱模后切面光滑，镜面平整",
+  "equipment": [
+   "6寸慕斯圈",
+   "料理机",
+   "电动打蛋器",
+   "冰箱",
+   "刮刀"
+  ],
+  "faq": [
+   {
+    "a": "可以用碗垫保鲜膜代替，凝固后提保鲜膜取出，只是形状没那么规整。",
+    "q": "没有慕斯圈怎么办？"
+   },
+   {
+    "a": "吉利丁粉与吉利丁片 1:1 等量替换，粉需用 5 倍冷水泡开再隔水融化。",
+    "q": "吉利丁片能用吉利丁粉代替吗？"
+   }
+  ],
+  "ferment": "无需发酵；冷藏 4 小时以上定型",
+  "formula": [
+   {
+    "grams": 300,
+    "name": "芒果果肉",
+    "note": "约 2 个大芒果，选熟透的；以主料为100%基准",
+    "percent": 100
+   },
+   {
+    "grams": 250,
+    "name": "淡奶油",
+    "note": "",
+    "percent": 83
+   },
+   {
+    "grams": 50,
+    "name": "牛奶",
+    "note": "",
+    "percent": 17
+   },
+   {
+    "grams": 50,
+    "name": "细砂糖",
+    "note": "",
+    "percent": 17
+   },
+   {
+    "grams": 12,
+    "name": "吉利丁片",
+    "note": "需冷水泡软",
+    "percent": 4
+   },
+   {
+    "grams": 100,
+    "name": "消化饼干",
+    "note": "垫底用",
+    "percent": 33
+   },
+   {
+    "grams": 45,
+    "name": "黄油",
+    "note": "融化，垫底用",
+    "percent": 15
+   },
+   {
+    "grams": 10,
+    "name": "柠檬汁",
+    "note": "提味",
+    "percent": 3
+   }
+  ],
+  "id": "b022",
+  "image": "assets/img/baking/b022.jpg",
+  "ingredients": [],
+  "level": "中等",
+  "name": "芒果慕斯",
+  "oven": {
+   "note": "无需烤箱，冷藏定型",
+   "preheat": false,
+   "temp": 0,
+   "time": 0
+  },
+  "pan": "6 寸慕斯圈或活底蛋糕模",
+  "prepTime": 40,
+  "servings": 6,
+  "source": "编辑整理",
+  "steps": [
+   "消化饼干压碎，拌入融化的黄油，压实在慕斯圈底部，冷藏 20 分钟定型。",
+   "吉利丁片用冷水泡软，捞出挤干水分备用。",
+   "200g 芒果果肉加柠檬汁，用料理机打成细腻果泥。",
+   "牛奶加热至约 50°C，放入泡软的吉利丁搅拌至完全融化，倒入芒果泥拌匀。",
+   "淡奶油加细砂糖打发至 6 分发（出现纹路但仍可流动）。",
+   "把芒果吉利丁液倒入淡奶油中，翻拌均匀成慕斯糊。",
+   "倒入慕斯圈，轻震排出气泡，冷藏 2 小时。",
+   "剩余 100g 芒果打成泥做镜面，贴近表面缓慢倒在凝固的慕斯上，再冷藏 2 小时以上。",
+   "用热毛巾捂一下慕斯圈外壁，轻松脱模，表面点缀芒果丁。"
+  ],
+  "subs": [
+   {
+    "from": "消化饼干",
+    "note": "等量替换，需去掉夹心",
+    "to": "奥利奥饼干碎"
+   },
+   {
+    "from": "芒果",
+    "note": "等量替换，风味不同",
+    "to": "百香果果肉"
+   }
+  ],
+  "summary": "绵密细腻的芒果慕斯配饼干底，果香浓郁、入口即化，免烤箱就能做的夏日甜点。",
+  "tags": [
+   "免烤箱",
+   "夏季",
+   "果味"
+  ],
+  "tips": [
+   "吉利丁千万别煮沸，高温会失去凝固力，50°C 温牛奶融化最稳妥",
+   "含奶制品，乳糖不耐受人群注意",
+   "奶油打到 6 分发即可，打过头慕斯口感会粗糙"
+  ],
+  "totalDough": 817,
+  "troubleshoot": [
+   {
+    "cause": "吉利丁量不足或没完全融化",
+    "fix": "吉利丁与 50°C 温牛奶充分搅匀，别用沸水",
+    "problem": "慕斯不成形、太软塌"
+   },
+   {
+    "cause": "吉利丁直接倒入冷的芒果泥",
+    "fix": "先与少量温牛奶化开，再与芒果泥混合",
+    "problem": "吉利丁结块、有颗粒"
+   },
+   {
+    "cause": "倒镜面时太高太快带入空气",
+    "fix": "贴近表面缓慢倒入，冷藏前轻震一下去泡",
+    "problem": "镜面有气泡不平整"
+   }
+  ],
+  "yield": "6 寸慕斯 1 个（约 6 份）"
+ },
+ {
+  "alias": "层层起酥的中式经典",
+  "benefits": "咸蛋黄富含卵磷脂，红豆沙补铁，逢年过节送礼体面。",
+  "category": "中式糕点",
+  "cookTime": 30,
+  "cuisine": "其他",
+  "doneness": "表面金黄、层次分明，底部上色酥脆",
+  "equipment": [
+   "烤箱",
+   "烤盘",
+   "擀面杖",
+   "刮刀"
+  ],
+  "faq": [
+   {
+    "a": "喷一层高度白酒，180°C 烤 5 分钟，腥味基本去除。",
+    "q": "咸蛋黄有腥味怎么办？"
+   },
+   {
+    "a": "加 5–10g 水揉匀，油皮要柔软不粘手，太干容易擀破漏酥。",
+    "q": "油皮太干擀不动怎么办？"
+   }
+  ],
+  "ferment": "油皮、油酥各松弛 30 分钟；包好后松弛 15 分钟",
+  "formula": [
+   {
+    "grams": 150,
+    "name": "中筋面粉",
+    "note": "油皮用",
+    "percent": 100
+   },
+   {
+    "grams": 55,
+    "name": "猪油",
+    "note": "油皮用，可用黄油代替",
+    "percent": 37
+   },
+   {
+    "grams": 20,
+    "name": "细砂糖",
+    "note": "油皮用",
+    "percent": 13
+   },
+   {
+    "grams": 70,
+    "name": "水",
+    "note": "油皮用",
+    "percent": 47
+   },
+   {
+    "grams": 120,
+    "name": "低筋面粉",
+    "note": "油酥用",
+    "percent": 80
+   },
+   {
+    "grams": 60,
+    "name": "猪油",
+    "note": "油酥用",
+    "percent": 40
+   },
+   {
+    "grams": 300,
+    "name": "红豆沙",
+    "note": "",
+    "percent": 200
+   },
+   {
+    "grams": 180,
+    "name": "咸蛋黄",
+    "note": "12 个，喷白酒去腥",
+    "percent": 120
+   },
+   {
+    "grams": 15,
+    "name": "全蛋液",
+    "note": "刷面用",
+    "percent": 10
+   }
+  ],
+  "id": "b023",
+  "image": "assets/img/baking/b023.jpg",
+  "ingredients": [],
+  "level": "困难",
+  "name": "蛋黄酥",
+  "oven": {
+   "note": "上下火中层，表面金黄即可",
+   "preheat": true,
+   "temp": 180,
+   "time": 30
+  },
+  "pan": "烤盘（铺油纸）",
+  "prepTime": 60,
+  "servings": 12,
+  "source": "编辑整理",
+  "steps": [
+   "咸蛋黄喷一层高度白酒，180°C 烤 5 分钟去腥，放凉备用。",
+   "中筋面粉、猪油、细砂糖、水混合揉成光滑油皮，盖保鲜膜松弛 30 分钟。",
+   "低筋面粉加猪油拌匀成油酥团，同样松弛 30 分钟。",
+   "油皮、油酥各分成 12 份，油皮包住油酥收口朝下。",
+   "取一份按扁擀成长舌形，卷起，盖保鲜膜松弛 15 分钟，再擀卷一次。",
+   "擀开的面皮包入 25g 红豆沙和 1 个咸蛋黄，收口捏紧朝下。",
+   "表面刷全蛋液，撒少许黑芝麻，放入预热 180°C 的烤箱中层。",
+   "烘烤约 30 分钟至表面金黄、层次分明，出炉晾凉。"
+  ],
+  "subs": [
+   {
+    "from": "猪油",
+    "note": "等量替换，奶香重但层次稍差",
+    "to": "黄油"
+   },
+   {
+    "from": "红豆沙",
+    "note": "等量替换，换种风味",
+    "to": "莲蓉馅"
+   }
+  ],
+  "summary": "酥皮层层分明，咸香蛋黄配绵密红豆沙，咸甜交织，是中秋之外也值得常做的中式糕点。",
+  "tags": [
+   "中式",
+   "送礼",
+   "咸甜"
+  ],
+  "tips": [
+   "猪油起酥性最好，追求层次分明优先用猪油",
+   "含蛋、奶（若用黄油）、麸质，相关过敏人群注意",
+   "擀卷时力度均匀，别把油酥擀破，否则层次会糊在一起"
+  ],
+  "totalDough": 970,
+  "troubleshoot": [
+   {
+    "cause": "收口没捏紧或豆沙太湿",
+    "fix": "收口捏严实，豆沙选干一些的，包的时候别沾到收口处",
+    "problem": "烘烤时爆馅漏酥"
+   },
+   {
+    "cause": "油酥没包好或松弛时间不够",
+    "fix": "擀卷时别擀破皮，每次卷好都松弛 15 分钟再擀",
+    "problem": "层次不分明、不起酥"
+   },
+   {
+    "cause": "炉温偏低或烘烤时间不够",
+    "fix": "烤透至底部金黄，必要时延长 5 分钟",
+    "problem": "底部不酥、口感发硬"
+   }
+  ],
+  "yield": "蛋黄酥 12 个"
+ },
+ {
+  "alias": "一张面团搞定各种披萨",
+  "benefits": "自己发面做披萨，用料实在，比外卖更新鲜，面团还能冷冻囤着。",
+  "category": "基础面团与面糊",
+  "cookTime": 15,
+  "cuisine": "意餐",
+  "doneness": "饼边金黄鼓起，底部上色酥脆，芝士冒泡微焦",
+  "equipment": [
+   "烤箱",
+   "披萨盘或烤盘",
+   "擀面杖",
+   "刮刀"
+  ],
+  "faq": [
+   {
+    "a": "用不完的面团分装冷藏可存 3 天，冷冻可存 1 个月，用前提前回温发酵。",
+    "q": "面团一次用不完怎么办？"
+   },
+   {
+    "a": "可以，但面筋较弱，饼底偏软，口感不如高筋粉有嚼劲。",
+    "q": "没有高筋粉能用中筋粉吗？"
+   }
+  ],
+  "ferment": "28°C 约 60 分钟至 2 倍大",
+  "formula": [
+   {
+    "grams": 300,
+    "name": "高筋面粉",
+    "note": "蛋白质含量12%以上",
+    "percent": 100
+   },
+   {
+    "grams": 195,
+    "name": "水",
+    "note": "约 35°C 温水",
+    "percent": 65
+   },
+   {
+    "grams": 20,
+    "name": "橄榄油",
+    "note": "",
+    "percent": 7
+   },
+   {
+    "grams": 10,
+    "name": "细砂糖",
+    "note": "促进发酵",
+    "percent": 3
+   },
+   {
+    "grams": 6,
+    "name": "盐",
+    "note": "",
+    "percent": 2
+   },
+   {
+    "grams": 4,
+    "name": "干酵母",
+    "note": "",
+    "percent": 1.3
+   }
+  ],
+  "id": "b024",
+  "image": "assets/img/baking/b024.jpg",
+  "ingredients": [],
+  "level": "简单",
+  "name": "万能披萨面团",
+  "oven": {
+   "note": "烤箱调至最高温充分预热，加料后230°C烤12–15分钟",
+   "preheat": true,
+   "temp": 230,
+   "time": 15
+  },
+  "pan": "披萨盘或烤盘（铺油纸）",
+  "prepTime": 20,
+  "servings": 4,
+  "source": "编辑整理",
+  "steps": [
+   "干酵母用 35°C 温水化开，静置 5 分钟至起泡，确认酵母有活性。",
+   "高筋面粉、细砂糖、盐混合，倒入酵母水和橄榄油，揉成光滑面团约 10 分钟。",
+   "收圆放入盆中，28°C 发酵约 60 分钟至 2 倍大。",
+   "取出排气，均分成 2 份，滚圆松弛 10 分钟。",
+   "擀成圆形饼底，边缘留 1cm 厚的边，用叉子在中间均匀戳洞。",
+   "饼底刷薄薄一层番茄酱，铺上喜欢的馅料和马苏里拉芝士。",
+   "烤箱调至最高温充分预热，230°C 烘烤 12–15 分钟至芝士金黄冒泡。"
+  ],
+  "subs": [
+   {
+    "from": "橄榄油",
+    "note": "等量替换，风味稍弱",
+    "to": "玉米油"
+   },
+   {
+    "from": "高筋面粉",
+    "note": "等量替换，饼底偏软",
+    "to": "中筋面粉"
+   }
+  ],
+  "summary": "一次发酵就能用的披萨面团，饼边金黄有嚼劲，配什么馅料都好吃，还能冷冻囤着随用随取。",
+  "tags": [
+   "意式",
+   "主食",
+   "可冷冻"
+  ],
+  "tips": [
+   "面团放冰箱冷藏发酵 24 小时，风味会更香浓",
+   "含麸质、奶制品（芝士），相关过敏人群注意",
+   "酱料一定要薄涂，涂太厚饼底会被浸湿变软"
+  ],
+  "totalDough": 535,
+  "troubleshoot": [
+   {
+    "cause": "水温太高烫死酵母或酵母过期",
+    "fix": "水温控制在 35°C 左右，先用温水验证酵母起泡再用",
+    "problem": "面团发不起来"
+   },
+   {
+    "cause": "酱料涂太厚或烤温不够",
+    "fix": "酱料薄涂一层，烤箱充分预热到最高温，可用披萨石辅助",
+    "problem": "饼底湿软不酥脆"
+   }
+  ],
+  "yield": "10 寸披萨 2 个"
+ }
+]

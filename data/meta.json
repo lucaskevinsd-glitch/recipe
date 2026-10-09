@@ -1,0 +1,14 @@
+{
+ "version": "2.0.0",
+ "dataVersion": "2026-10-09",
+ "counts": {
+  "recipe": 56,
+  "baking": 24,
+  "drink": 28,
+  "ingredient": 537,
+  "technique": 24,
+  "culture": 16,
+  "substitution": 64
+ },
+ "note": "FoodAtlas v2 首版：结构化内容库 + 9 件厨房工具 + PWA；AI 待接入"
+}
