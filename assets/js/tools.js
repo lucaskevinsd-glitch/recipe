@@ -13,7 +13,10 @@
 
   /* ---------- 通用量解析 ---------- */
   function parseAmt(s) {
-    const m = String(s || '').match(/(\d+(?:\.\d+)?)\s*([a-zA-Z\u4e00-\u9fa5]*)/);
+    const str = String(s || '').trim();
+    // 分数(1/2)、范围(2-3个)、约数等非标准格式不参与数值计算,返回 null 由调用方原样保留,避免误算
+    if (/[/–—~～约]/.test(str) || /\d\s*-\s*\d/.test(str)) return null;
+    const m = str.match(/(\d+(?:\.\d+)?)\s*([a-zA-Z\u4e00-\u9fa5]*)/);
     if (!m) return null;
     return { num: parseFloat(m[1]), unit: m[2] || '' };
   }
@@ -65,7 +68,8 @@
         let rows = '';
         if (type === 'baking' && item.formula && item.formula.length) {
           rows = item.formula.map(x => {
-            const g = x.grams == null ? '—' : fmtNum(x.grams * f) + ' 克';
+            const base = x.amount || (x.grams == null ? '' : x.grams + '克');
+            const g = base ? scaleAmount(base, f, NONLINEAR.test(x.name)) : '—';
             return `<tr><td>${esc(x.name)}</td><td>${g}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`;
           }).join('');
           $('sc-out').innerHTML = `<div class="result-box">

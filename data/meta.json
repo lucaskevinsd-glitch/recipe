@@ -1,6 +1,6 @@
 {
  "version": "2.0.0",
- "dataVersion": "2026-10-09",
+ "dataVersion": "2026-10-10",
  "counts": {
   "recipe": 56,
   "baking": 24,
@@ -10,5 +10,5 @@
   "culture": 16,
   "substitution": 64
  },
- "note": "FoodAtlas v2 首版：结构化内容库 + 9 件厨房工具 + PWA；AI 待接入"
+ "note": "内容升级: 葡式蛋挞6步教程试点 + 15条旧烘焙76个用量补回 + 5条旧烘焙重写(肉桂卷/提拉米苏/柠檬塔/马卡龙/巴斯克)"
 }

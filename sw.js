@@ -5,8 +5,8 @@
  * - 图片: cache-first(内容不变,换图时改文件名或等 SW 更新)
  * 对应架构文档 12.3 离线能力: 已缓存的菜谱/收藏/计时器/单位换算离线可用。
  */
-const VERSION = 'foodatlas-v2-20261009d';
-const AV = '20261009d';
+const VERSION = 'foodatlas-v2-20261010b';
+const AV = '20261010b';
 const CORE = [
   './assets/css/main.css?v=' + AV,
   './assets/js/config.js?v=' + AV, './assets/js/data.js?v=' + AV, './assets/js/store.js?v=' + AV,
