@@ -271,7 +271,59 @@
     .drink-param{display:block;margin-top:8px;background:var(--green-2);color:var(--green);border-radius:8px;padding:8px 12px;font-size:.85rem;font-weight:600}
     .drink-empty{color:var(--muted);padding:24px 0;text-align:center}
     @media(max-width:760px){.drink-hero{grid-template-columns:1fr}.drink-visual{min-height:200px}}
-  </style>
+  
+    /* ===== 今日吃喝盲盒 ===== */
+    .blindbox{margin:0 0 40px}
+    .blindbox-inner{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+    .blindbox-head h2{font:800 clamp(1.3rem,2.6vw,1.7rem) var(--serif);margin:0 0 4px;color:var(--ink)}
+    .blindbox-head p{color:var(--muted);margin:0 0 18px;font-size:.9rem}
+    .blindbox-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+    .bbopt span{display:block;font-weight:700;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+    .bbopt-btns{display:flex;flex-wrap:wrap;gap:8px}
+    .bbopt-btns button{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 14px;font-size:.85rem;cursor:pointer;color:var(--ink)}
+    .bbopt-btns button.on{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}
+    .blindbox-actions{display:flex;gap:12px}
+    .bb-go{background:var(--green);color:#fff;border:0;border-radius:12px;padding:13px 34px;font-size:1rem;font-weight:800;cursor:pointer}
+    .bb-re{background:var(--green-2);color:var(--green);border:1px solid var(--green);border-radius:12px;padding:13px 24px;font-weight:700;cursor:pointer}
+    .blindbox-result{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+    .bb-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;width:100%}
+    .bb-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+    .bb-card .bb-body{padding:14px 16px}
+    .bb-card h4{font:800 1.05rem var(--serif);margin:0 0 6px;color:var(--ink)}
+    .bb-card .bb-meta{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+    .bb-card .bb-reason{font-size:.88rem;color:var(--ink);background:var(--green-2);border-radius:8px;padding:8px 10px;margin:0}
+    .bb-role{display:inline-block;font-size:.75rem;background:var(--coral-soft);color:var(--coral);border-radius:6px;padding:2px 8px;margin-bottom:8px;font-weight:700}
+    @media(max-width:680px){.blindbox-opts{grid-template-columns:1fr}.blindbox-result{grid-template-columns:1fr}}
+    /* ===== 失败风险提示 ===== */
+    .risk-box{background:#FFF8E6;border:1px solid #F0D98C;border-radius:12px;padding:12px 16px;margin:12px 0;font-size:.88rem;color:#7A5C00}
+    .risk-box b{display:block;margin-bottom:6px;font-size:.92rem}
+    .risk-box ul{margin:0;padding-left:18px}
+    .risk-box li{margin:3px 0}
+    /* ===== 食材替换助手 ===== */
+    .sub-box{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px}
+    .sub-box h3{font:800 1rem var(--serif);margin:0 0 10px;color:var(--ink)}
+    .sub-item{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .sub-head{width:100%;background:var(--bg);border:0;padding:10px 14px;text-align:left;font-size:.9rem;cursor:pointer;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+    .sub-head .sub-arrow{color:var(--muted)}
+    .sub-detail{padding:10px 14px;font-size:.85rem;color:var(--muted);display:none;border-top:1px solid var(--line)}
+    .sub-item.open .sub-detail{display:block}
+    .sub-detail b{color:var(--ink)}
+    .sub-warn{color:#B06030;font-weight:700}
+    /* ===== 可信度徽章 ===== */
+    .cred-badge{display:inline-block;font-size:.72rem;background:#EDEBE4;color:#8A8578;border-radius:6px;padding:3px 9px;margin:6px 0 0 8px;vertical-align:middle;cursor:help;font-weight:600}
+    /* ===== 今日食物故事 ===== */
+    .food-story{margin:44px 0 30px}
+    .story-card{display:grid;grid-template-columns:340px 1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .story-img img{width:100%;height:100%;min-height:240px;object-fit:cover;display:block}
+    .story-body{padding:26px 28px}
+    .story-body h3{font:800 1.35rem var(--serif);margin:0 0 12px;color:var(--ink)}
+    .story-body p{color:var(--ink);line-height:1.85;font-size:.95rem;margin:0 0 16px}
+    .story-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .story-foot a{color:var(--green);font-weight:700;font-size:.88rem;text-decoration:none}
+    .story-foot button{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.85rem;cursor:pointer;color:var(--muted)}
+    @media(max-width:680px){.story-card{grid-template-columns:1fr}.story-img img{min-height:180px}}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -313,6 +365,31 @@
           </div>
         </div>
       </div>
+
+
+      <section class="blindbox" aria-label="今日吃喝盲盒">
+        <div class="blindbox-inner">
+          <div class="blindbox-head">
+            <div><h2>今天不想费脑？交给食见。</h2><p>设置条件，一键生成今日吃喝方案</p></div>
+          </div>
+          <div class="blindbox-opts">
+            <div class="bbopt"><span>用餐时间</span><div class="bbopt-btns" id="bbMeal">
+              <button type="button" data-v="早餐">早餐</button><button type="button" data-v="午餐" class="on">午餐</button><button type="button" data-v="晚餐">晚餐</button><button type="button" data-v="夜宵">夜宵</button>
+            </div></div>
+            <div class="bbopt"><span>制作时长</span><div class="bbopt-btns" id="bbTime">
+              <button type="button" data-v="15">15分钟内</button><button type="button" data-v="30" class="on">30分钟内</button><button type="button" data-v="60">1小时内</button><button type="button" data-v="9999">不限</button>
+            </div></div>
+            <div class="bbopt"><span>口味偏好</span><div class="bbopt-btns" id="bbTaste">
+              <button type="button" data-v="清淡">清淡</button><button type="button" data-v="下饭" class="on">下饭</button><button type="button" data-v="甜点">甜点</button><button type="button" data-v="饮品">饮品</button>
+            </div></div>
+          </div>
+          <div class="blindbox-actions">
+            <button class="bb-go" id="bbGo" type="button">🎲 开盲盒</button>
+            <button class="bb-re" id="bbRe" type="button" hidden>换一组</button>
+          </div>
+          <div class="blindbox-result" id="bbResult" hidden></div>
+        </div>
+      </section>
 
       <section class="home-3col" aria-label="今日推荐">
         <div class="home-card today-col">
@@ -508,6 +585,21 @@
     </section>
   </main>
 
+
+      <section class="food-story" aria-label="今日食物故事">
+        <div class="section-head">
+          <div><h2>今日食物故事</h2><p>每一种食材，都有自己的故事</p></div>
+        </div>
+        <article class="story-card" id="storyCard">
+          <div class="story-img"><img id="storyImg" alt=""></div>
+          <div class="story-body">
+            <h3 id="storyTitle"></h3>
+            <p id="storyText"></p>
+            <div class="story-foot"><a id="storyLink" href="#"></a><button id="storyMore" type="button">换一个故事 →</button></div>
+          </div>
+        </article>
+      </section>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <a class="brand footer-brand" aria-label="食见 FoodAtlas"><svg class="brand-leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C11 3.5 4.5 10 4.5 19.5c9.5 0 16-6.5 16-16z"/><path d="M6 18C8.5 13.5 12 10 17 7.5" stroke="#F7F5EF" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg><span class="brand-cn">食见</span><span class="brand-en">FoodAtlas</span></a>
@@ -524,7 +616,7 @@
 </div>
 
 <dialog id="recipeDialog" aria-labelledby="detailTitle">
-  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><div class="detail-alias" id="detailAlias"></div><div class="benefit-line" id="detailBenefits"></div><div class="cook-cta"><button id="startCooking" type="button">▶ 开始烹饪</button><span>全屏一步一步跟着做，手机放厨房也好用</span></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
+  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><span class="cred-badge" id="detailCred" title="由编辑整理公开资料而成，未经实验室实测">编辑整理</span><div class="detail-alias" id="detailAlias"></div><div class="risk-box" id="detailRisk" hidden></div><div class="benefit-line" id="detailBenefits"></div><div class="cook-cta"><button id="startCooking" type="button">▶ 开始烹饪</button><span>全屏一步一步跟着做，手机放厨房也好用</span></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><div class="sub-box" id="detailSub" hidden><h3>🔄 食材替换助手</h3><div id="subList"></div></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
 </dialog>
 
 <dialog id="ingredientDialog" aria-labelledby="ingredientDetailTitle">
@@ -567,25 +659,25 @@
 
 <script>
 (function(){
-  const recipes=[{id:'tomato',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',level:'简单',labels:['家常菜','高蛋白'],cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],stepTimes:[4,6,3],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},{id:'fish',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',level:'简单',labels:['清淡','高蛋白'],cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],stepTimes:[5,10,3],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},{id:'chicken',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',level:'简单',labels:['高蛋白','快手'],cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],stepTimes:[12,6,4],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},{id:'shrimp',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',level:'简单',labels:['高蛋白','清淡'],cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],stepTimes:[3,4,3],source:'https://www.pljs.net/1/229292.html'},{id:'oatmeal',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',level:'简单',labels:['早餐','快手'],cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],stepTimes:[5,2,2],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},{id:'tofu',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',level:'简单',labels:['清淡','快手'],cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],stepTimes:[4,6,3],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},{id:'beef',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['高蛋白','下饭菜'],cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],stepTimes:[8,4,4],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},{id:'millet',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',level:'简单',labels:['早餐','清淡'],cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],stepTimes:[5,5,25],source:'https://ihopesun.com/yinshi/46652.html'}];
+  const recipes=[{id:'tomato',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',level:'简单',labels:['家常菜','高蛋白'],cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],stepTimes:[4,6,3],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},{id:'fish',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',level:'简单',labels:['清淡','高蛋白'],cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],stepTimes:[5,10,3],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},{id:'chicken',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',level:'简单',labels:['高蛋白','快手'],cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],stepTimes:[12,6,4],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},{id:'shrimp',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',level:'简单',labels:['高蛋白','清淡'],cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],stepTimes:[3,4,3],source:'https://www.pljs.net/1/229292.html'},{id:'oatmeal',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',level:'简单',labels:['早餐','快手'],cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],stepTimes:[5,2,2],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},{id:'tofu',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',level:'简单',labels:['清淡','快手'],cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],stepTimes:[4,6,3],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},{id:'beef',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['高蛋白','下饭菜'],cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],stepTimes:[8,4,4],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},{id:'millet',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',level:'简单',labels:['早餐','清淡'],cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],stepTimes:[5,5,25],source:'https://ihopesun.com/yinshi/46652.html'}];
   /* ===== 烘焙甜点数据 ===== */
   const bakingRecipes=[
-    {id:'strawberry-cake',name:'草莓奶油蛋糕',alias:'经典生日蛋糕',image:'assets/img/full/baking1.jpg',time:'2 小时',level:'中等',labels:['经典'],cats:['cake'],summary:'蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。',tags:['奶油','草莓'],benefits:['心情愉悦','分享喜悦'],ingredients:['低筋面粉 80 克','鸡蛋 4 个','细砂糖 60 克','牛奶 40 毫升','玉米油 40 毫升','淡奶油 300 毫升','草莓 200 克','糖粉 20 克'],steps:['鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。','面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。','淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。','表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。'],stepTimes:[15,30,15,60],prepTime:'准备 30 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷藏 60 分钟',source:'#'},
-    {id:'cookies',name:'曲奇饼干',alias:'黄油曲奇',image:'assets/img/full/baking2.jpg',time:'35 分钟',level:'简单',labels:['入门'],cats:['cookie'],summary:'黄油 + 面粉 + 糖，酥脆香甜，新手首选。',tags:['黄油','酥脆'],benefits:['下午茶搭配','简单易做'],ingredients:['黄油 100 克','低筋面粉 150 克','细砂糖 50 克','鸡蛋 1 个','香草精几滴'],steps:['黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。','筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。','烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。','取出冷却，密封保存。'],stepTimes:[10,5,15,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷却 5 分钟',source:'#'},
-    {id:'lava-cake',name:'熔岩巧克力蛋糕',alias:'流心巧克力蛋糕',image:'assets/img/full/baking3.jpg',time:'35 分钟',level:'中等',labels:['热门'],cats:['chocolate','cake'],summary:'巧克力 + 蛋糕 + 流心，切开有惊喜。',tags:['巧克力','流心'],benefits:['浓郁口感','聚会亮点'],ingredients:['黑巧克力 100 克','黄油 80 克','鸡蛋 2 个','蛋黄 1 个','细砂糖 40 克','低筋面粉 30 克','可可粉少许'],steps:['巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。','面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。','倒扣脱模，撒可可粉，趁热切开享用流心。'],stepTimes:[10,10,10,5],prepTime:'准备 20 分钟',bakeTime:'烘烤 10 分钟',coolTime:'静置 5 分钟',source:'#'},
-    {id:'macaron',name:'马卡龙',alias:'法式小圆饼',image:'assets/img/full/baking4.jpg',time:'90 分钟',level:'中等',labels:['创意'],cats:['cookie','dessert'],summary:'杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。',tags:['杏仁','法式'],benefits:['精致下午茶','送礼佳品'],ingredients:['杏仁粉 80 克','糖粉 80 克','蛋白 60 克（分两次）','细砂糖 60 克','食用色素少许','夹心奶油适量'],steps:['杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。','另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。','装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。','烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。'],stepTimes:[20,10,30,30],prepTime:'准备 30 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾皮+冷却 45 分钟',source:'#'},
-    {id:'basque-cheesecake',name:'巴斯克芝士蛋糕',alias:'焦香芝士蛋糕',image:'assets/img/full/baking6.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake','dessert'],summary:'奶油奶酪 + 鸡蛋，表面焦香、中心流心。',tags:['芝士','流心'],benefits:['浓郁芝香','聚会人气'],ingredients:['奶油奶酪 250 克','细砂糖 80 克','鸡蛋 3 个','淡奶油 150 毫升','低筋面粉 15 克','玉米淀粉 10 克','香草精几滴'],steps:['奶油奶酪室温软化，加糖搅打顺滑，分次加入鸡蛋拌匀。','倒入淡奶油和香草精拌匀，筛入低筋面粉和玉米淀粉翻拌至无颗粒。','面糊倒入铺油纸的 6 寸模具，烤箱 220℃ 烤 25 分钟至表面焦黄。','出炉放凉 15 分钟后脱模切块，中心微流心口感最佳。'],stepTimes:[10,8,25,17],prepTime:'准备 18 分钟',bakeTime:'烘烤 25 分钟',coolTime:'冷却 17 分钟',source:'#'},
-    {id:'tiramisu',name:'提拉米苏',alias:'意式咖啡蛋糕',image:'assets/img/full/baking7.jpg',time:'40 分钟+冷藏 4 小时',level:'中等',labels:['热门'],cats:['dessert'],summary:'马斯卡彭 + 咖啡 + 可可粉，免烤的意式经典。',tags:['咖啡','免烤'],benefits:['免烤简单','意式风情'],ingredients:['马斯卡彭 250 克','淡奶油 200 毫升','蛋黄 3 个','细砂糖 60 克','手指饼干 1 包','浓缩咖啡 200 毫升','可可粉适量'],steps:['蛋黄加糖隔水加热打发至浓稠，放凉备用。','马斯卡彭室温软化，与打发的淡奶油、蛋黄糊混合成顺滑芝士糊。','手指饼干快速蘸咖啡液，整齐铺入容器底层。','铺一层芝士糊，重复一层饼干一层芝士糊，抹平表面。','表面筛上可可粉，冷藏 4 小时以上定型后食用。'],stepTimes:[8,10,7,10,5],prepTime:'准备 35 分钟',bakeTime:'免烤',coolTime:'冷藏 4 小时',source:'#'},
-    {id:'portuguese-tart',name:'葡式蛋挞',alias:'葡式蛋塔',image:'assets/img/full/baking8.jpg',time:'35 分钟',level:'简单',labels:['热门'],cats:['tart'],summary:'酥皮 + 蛋奶馅，烤出漂亮焦斑。',tags:['酥皮','蛋奶'],benefits:['外酥内嫩','下午茶首选'],ingredients:['蛋挞皮 8 个','牛奶 120 毫升','淡奶油 120 毫升','蛋黄 3 个','细砂糖 40 克','低筋面粉 10 克'],steps:['蛋挞皮室温解冻，码入模具备用。','牛奶、淡奶油、糖小火加热至糖化，放凉后加入蛋黄拌匀，过筛。','蛋挞液倒入挞皮八分满。','烤箱 220℃ 烤 15 分钟至表面出现焦斑，晾凉脱模。'],stepTimes:[5,10,5,15],prepTime:'准备 20 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾凉即食',source:'#'},
-    {id:'brownie',name:'巧克力布朗尼',alias:'美式巧克力蛋糕',image:'assets/img/full/baking9.jpg',time:'40 分钟',level:'简单',labels:['入门'],cats:['chocolate','cake'],summary:'浓郁巧克力 + 坚果，外脆内软。',tags:['巧克力','坚果'],benefits:['巧克力浓郁','简单易做'],ingredients:['黑巧克力 120 克','黄油 90 克','鸡蛋 2 个','细砂糖 80 克','低筋面粉 60 克','可可粉 15 克','核桃碎 40 克'],steps:['黑巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','加入糖和鸡蛋搅匀，筛入面粉和可可粉翻拌，加入坚果碎。','面糊倒入铺油纸的模具抹平，烤箱 175℃ 烤 20 分钟。','出炉放凉 5 分钟后切块，中心微湿润口感最佳。'],stepTimes:[8,7,20,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 20 分钟',coolTime:'冷却 5 分钟',source:'#'},
-    {id:'cinnamon-roll',name:'肉桂卷',alias:'瑞典肉桂面包',image:'assets/img/full/baking10.jpg',time:'约 2 小时',level:'中等',labels:['香甜'],cats:['bread'],summary:'肉桂 + 糖霜，香甜松软的北欧风味。',tags:['肉桂','糖霜'],benefits:['香气浓郁','早餐人气'],ingredients:['高筋面粉 300 克','酵母 5 克','温牛奶 150 毫升','鸡蛋 1 个','黄油 40 克','细砂糖 40 克','肉桂粉 8 克','红糖 60 克','糖粉 50 克（糖霜用）'],steps:['面粉、酵母、温牛奶、鸡蛋、黄油、糖揉成光滑面团。','面团发酵 60 分钟至两倍大。','擀成长方形，抹软化黄油，撒肉桂红糖，卷起切 8 段，排入烤盘二发 20 分钟。','烤箱 180℃ 烤 20 分钟至金黄。','出炉趁热淋上糖霜即成。'],stepTimes:[15,60,30,20,5],prepTime:'准备 45 分钟',bakeTime:'烘烤 20 分钟',coolTime:'发酵 65 分钟',source:'#'},
-    {id:'chiffon-cake',name:'戚风蛋糕',alias:'气疯蛋糕',image:'assets/img/full/baking11.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake'],summary:'松软不塌，掌握蛋白打发的关键。',tags:['松软','基础'],benefits:['口感轻盈','烘焙基本功'],ingredients:['低筋面粉 85 克','鸡蛋 5 个','细砂糖 70 克','牛奶 50 毫升','玉米油 40 毫升'],steps:['蛋黄加牛奶、玉米油搅匀，筛入低筋面粉拌成顺滑蛋黄糊。','蛋白分三次加糖打发至硬性发泡，提起有直立尖角。','取三分之一蛋白霜与蛋黄糊翻拌，再倒回剩余蛋白霜中拌匀。','面糊倒入 8 寸模具，烤箱 160℃ 烤 30 分钟。','出炉震出热气后倒扣，放凉后脱模。'],stepTimes:[10,10,8,30,2],prepTime:'准备 28 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷却 2 分钟',source:'#'},
-    {id:'lemon-tart',name:'柠檬塔',alias:'法式柠檬挞',image:'assets/img/full/baking12.jpg',time:'70 分钟',level:'中等',labels:['清爽'],cats:['tart'],summary:'酸甜柠檬馅 + 酥脆塔皮，清新不腻。',tags:['柠檬','酸甜'],benefits:['清爽解腻','颜值担当'],ingredients:['黄油 90 克','糖粉 50 克','鸡蛋 1 个','低筋面粉 180 克','柠檬汁 80 毫升','柠檬皮屑 1 个','细砂糖 80 克','鸡蛋 2 个（馅用）','黄油 60 克（馅用）'],steps:['黄油加糖粉打发，加入蛋液，拌入低筋面粉成团，冷藏松弛 20 分钟。','面团擀开铺入塔模，用叉子扎洞，烤箱 180℃ 烤 15 分钟定型。','柠檬汁、柠檬皮屑、糖、鸡蛋、黄油隔水加热，不断搅拌成浓稠柠檬馅。','柠檬馅倒入塔壳抹平，冷藏 20 分钟定型，表面装饰柠檬片。'],stepTimes:[10,25,15,20],prepTime:'准备 25 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷藏 30 分钟',source:'#'},
-    {id:'apple-pie',name:'苹果派',alias:'美式苹果派',image:'assets/img/full/baking13.jpg',time:'75 分钟',level:'中等',labels:['经典'],cats:['tart'],summary:'肉桂苹果馅，烤得金黄酥脆。',tags:['苹果','肉桂'],benefits:['果香浓郁','节日氛围'],ingredients:['低筋面粉 250 克','黄油 150 克','细砂糖 30 克','盐 2 克','冰水 60 毫升','苹果 3 个','肉桂粉 5 克','细砂糖 60 克（馅用）','柠檬汁 10 毫升'],steps:['面粉、黄油、糖、盐搓成粗粒，加冰水揉成团，冷藏 30 分钟。','苹果切片，加肉桂粉、糖、柠檬汁拌匀，静置 10 分钟。','面团擀开铺入派盘，填入苹果馅，顶部编织格子盖。','烤箱 200℃ 烤 35 分钟至金黄，晾凉 5 分钟后切块。'],stepTimes:[10,10,15,40],prepTime:'准备 35 分钟',bakeTime:'烘烤 35 分钟',coolTime:'晾凉 5 分钟',source:'#'},
-    {id:'croissant',name:'可颂面包',alias:'牛角面包',image:'assets/img/full/baking14.jpg',time:'3 小时',level:'较难',labels:['热门'],cats:['bread'],summary:'黄油开酥，层层分明的法式经典。',tags:['黄油','开酥'],benefits:['酥脆掉渣','法式早餐'],ingredients:['高筋面粉 300 克','酵母 6 克','细砂糖 30 克','盐 5 克','牛奶 160 毫升','黄油 30 克（面团用）','裹入黄油 150 克','蛋液少许（刷面用）'],steps:['面粉、酵母、糖、盐、牛奶、黄油揉成面团，冷藏 1 小时。','裹入黄油擀成薄片包入面团，三折两次，每次冷藏松弛 30 分钟。','面团擀开切三角形，卷成牛角形，发酵 45 分钟。','表面刷蛋液，烤箱 200℃ 烤 18 分钟至金黄酥脆。','出炉放凉，层次分明，趁新鲜食用。'],stepTimes:[15,80,65,18,2],prepTime:'准备 55 分钟',bakeTime:'烘烤 18 分钟',coolTime:'冷藏发酵 107 分钟',source:'#'},
-    {id:'oatmeal-cookie',name:'燕麦饼干',alias:'健康燕麦曲奇',image:'assets/img/full/baking15.jpg',time:'30 分钟',level:'简单',labels:['健康'],cats:['cookie'],summary:'燕麦 + 坚果，低负担的健康小食。',tags:['燕麦','低负担'],benefits:['膳食纤维','健康解馋'],ingredients:['黄油 80 克','红糖 60 克','鸡蛋 1 个','燕麦片 120 克','低筋面粉 60 克','坚果碎 40 克','肉桂粉少许'],steps:['黄油室温软化，加红糖打发，加入蛋液拌匀。','加入燕麦片、面粉、坚果碎和肉桂粉翻拌成团。','面团分成小球压扁，间隔排入烤盘。','烤箱 170℃ 烤 12 分钟至边缘金黄，晾凉后变脆。'],stepTimes:[8,5,5,12],prepTime:'准备 18 分钟',bakeTime:'烘烤 12 分钟',coolTime:'晾凉即食',source:'#'},
-    {id:'xuemeiniang',name:'雪媚娘',alias:'日式大福',image:'assets/img/full/baking16.jpg',time:'50 分钟',level:'简单',labels:['人气'],cats:['dessert'],summary:'糯米皮 + 奶油 + 水果，软糯香甜。',tags:['糯米','奶油'],benefits:['软糯口感','水果清香'],ingredients:['糯米粉 100 克','玉米淀粉 30 克','细砂糖 40 克','牛奶 180 毫升','黄油 20 克','淡奶油 200 毫升','糖粉 15 克','水果丁适量','熟糯米粉少许（防粘）'],steps:['糯米粉、玉米淀粉、糖、牛奶混合搅匀，过筛去颗粒。','加入黄油，蒸 20 分钟至熟透，趁热搅拌至光滑有弹性。','放凉后分成小剂子，擀成圆皮。','包入打发的淡奶油和水果丁，收口，冷藏 10 分钟定型。'],stepTimes:[8,22,10,10],prepTime:'准备 18 分钟',bakeTime:'蒸制 20 分钟',coolTime:'冷藏 12 分钟',source:'#'},
-    {id:'chocolate-mousse',name:'巧克力慕斯',alias:'法式巧克力慕斯',image:'assets/img/full/baking17.jpg',time:'30 分钟+冷藏 3 小时',level:'简单',labels:['丝滑'],cats:['chocolate','dessert'],summary:'黑巧 + 淡奶油，丝滑浓郁免烤。',tags:['巧克力','免烤'],benefits:['丝滑口感','免烤简单'],ingredients:['黑巧克力 120 克','淡奶油 250 毫升','鸡蛋 2 个','细砂糖 30 克','可可粉少许（装饰）'],steps:['黑巧克力隔水融化，稍冷却至不烫手。','淡奶油打发至六成，取一半与巧克力液混合均匀。','剩余淡奶油打发至硬性，分两次与巧克力糊翻拌均匀。','装入杯中，冷藏 3 小时定型，表面筛可可粉。'],stepTimes:[8,7,8,7],prepTime:'准备 23 分钟',bakeTime:'免烤',coolTime:'冷藏 3 小时',source:'#'}
+    {id:'strawberry-cake',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'草莓奶油蛋糕',alias:'经典生日蛋糕',image:'assets/img/full/baking1.jpg',time:'2 小时',level:'中等',labels:['经典'],cats:['cake'],summary:'蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。',tags:['奶油','草莓'],benefits:['心情愉悦','分享喜悦'],ingredients:['低筋面粉 80 克','鸡蛋 4 个','细砂糖 60 克','牛奶 40 毫升','玉米油 40 毫升','淡奶油 300 毫升','草莓 200 克','糖粉 20 克'],steps:['鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。','面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。','淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。','表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。'],stepTimes:[15,30,15,60],prepTime:'准备 30 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷藏 60 分钟',source:'#'},
+    {id:'cookies',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'曲奇饼干',alias:'黄油曲奇',image:'assets/img/full/baking2.jpg',time:'35 分钟',level:'简单',labels:['入门'],cats:['cookie'],summary:'黄油 + 面粉 + 糖，酥脆香甜，新手首选。',tags:['黄油','酥脆'],benefits:['下午茶搭配','简单易做'],ingredients:['黄油 100 克','低筋面粉 150 克','细砂糖 50 克','鸡蛋 1 个','香草精几滴'],steps:['黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。','筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。','烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。','取出冷却，密封保存。'],stepTimes:[10,5,15,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷却 5 分钟',source:'#'},
+    {id:'lava-cake',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'熔岩巧克力蛋糕',alias:'流心巧克力蛋糕',image:'assets/img/full/baking3.jpg',time:'35 分钟',level:'中等',labels:['热门'],cats:['chocolate','cake'],summary:'巧克力 + 蛋糕 + 流心，切开有惊喜。',tags:['巧克力','流心'],benefits:['浓郁口感','聚会亮点'],ingredients:['黑巧克力 100 克','黄油 80 克','鸡蛋 2 个','蛋黄 1 个','细砂糖 40 克','低筋面粉 30 克','可可粉少许'],steps:['巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。','面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。','倒扣脱模，撒可可粉，趁热切开享用流心。'],stepTimes:[10,10,10,5],prepTime:'准备 20 分钟',bakeTime:'烘烤 10 分钟',coolTime:'静置 5 分钟',source:'#'},
+    {id:'macaron',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'马卡龙',alias:'法式小圆饼',image:'assets/img/full/baking4.jpg',time:'90 分钟',level:'中等',labels:['创意'],cats:['cookie','dessert'],summary:'杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。',tags:['杏仁','法式'],benefits:['精致下午茶','送礼佳品'],ingredients:['杏仁粉 80 克','糖粉 80 克','蛋白 60 克（分两次）','细砂糖 60 克','食用色素少许','夹心奶油适量'],steps:['杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。','另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。','装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。','烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。'],stepTimes:[20,10,30,30],prepTime:'准备 30 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾皮+冷却 45 分钟',source:'#'},
+    {id:'basque-cheesecake',risks:['烤制表面焦黑是正常的，不要提前取出','冷藏后再切，切面更漂亮'],credibility:'编辑整理',name:'巴斯克芝士蛋糕',alias:'焦香芝士蛋糕',image:'assets/img/full/baking6.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake','dessert'],summary:'奶油奶酪 + 鸡蛋，表面焦香、中心流心。',tags:['芝士','流心'],benefits:['浓郁芝香','聚会人气'],ingredients:['奶油奶酪 250 克','细砂糖 80 克','鸡蛋 3 个','淡奶油 150 毫升','低筋面粉 15 克','玉米淀粉 10 克','香草精几滴'],steps:['奶油奶酪室温软化，加糖搅打顺滑，分次加入鸡蛋拌匀。','倒入淡奶油和香草精拌匀，筛入低筋面粉和玉米淀粉翻拌至无颗粒。','面糊倒入铺油纸的 6 寸模具，烤箱 220℃ 烤 25 分钟至表面焦黄。','出炉放凉 15 分钟后脱模切块，中心微流心口感最佳。'],stepTimes:[10,8,25,17],prepTime:'准备 18 分钟',bakeTime:'烘烤 25 分钟',coolTime:'冷却 17 分钟',source:'#'},
+    {id:'tiramisu',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'提拉米苏',alias:'意式咖啡蛋糕',image:'assets/img/full/baking7.jpg',time:'40 分钟+冷藏 4 小时',level:'中等',labels:['热门'],cats:['dessert'],summary:'马斯卡彭 + 咖啡 + 可可粉，免烤的意式经典。',tags:['咖啡','免烤'],benefits:['免烤简单','意式风情'],ingredients:['马斯卡彭 250 克','淡奶油 200 毫升','蛋黄 3 个','细砂糖 60 克','手指饼干 1 包','浓缩咖啡 200 毫升','可可粉适量'],steps:['蛋黄加糖隔水加热打发至浓稠，放凉备用。','马斯卡彭室温软化，与打发的淡奶油、蛋黄糊混合成顺滑芝士糊。','手指饼干快速蘸咖啡液，整齐铺入容器底层。','铺一层芝士糊，重复一层饼干一层芝士糊，抹平表面。','表面筛上可可粉，冷藏 4 小时以上定型后食用。'],stepTimes:[8,10,7,10,5],prepTime:'准备 35 分钟',bakeTime:'免烤',coolTime:'冷藏 4 小时',source:'#'},
+    {id:'portuguese-tart',risks:['蛋挞液表面起泡要撇掉，否则有蜂窝','烤好后别马上脱模，烫手且易碎'],credibility:'编辑整理',name:'葡式蛋挞',alias:'葡式蛋塔',image:'assets/img/full/baking8.jpg',time:'35 分钟',level:'简单',labels:['热门'],cats:['tart'],summary:'酥皮 + 蛋奶馅，烤出漂亮焦斑。',tags:['酥皮','蛋奶'],benefits:['外酥内嫩','下午茶首选'],ingredients:['蛋挞皮 8 个','牛奶 120 毫升','淡奶油 120 毫升','蛋黄 3 个','细砂糖 40 克','低筋面粉 10 克'],steps:['蛋挞皮室温解冻，码入模具备用。','牛奶、淡奶油、糖小火加热至糖化，放凉后加入蛋黄拌匀，过筛。','蛋挞液倒入挞皮八分满。','烤箱 220℃ 烤 15 分钟至表面出现焦斑，晾凉脱模。'],stepTimes:[5,10,5,15],prepTime:'准备 20 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾凉即食',source:'#'},
+    {id:'brownie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'巧克力布朗尼',alias:'美式巧克力蛋糕',image:'assets/img/full/baking9.jpg',time:'40 分钟',level:'简单',labels:['入门'],cats:['chocolate','cake'],summary:'浓郁巧克力 + 坚果，外脆内软。',tags:['巧克力','坚果'],benefits:['巧克力浓郁','简单易做'],ingredients:['黑巧克力 120 克','黄油 90 克','鸡蛋 2 个','细砂糖 80 克','低筋面粉 60 克','可可粉 15 克','核桃碎 40 克'],steps:['黑巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','加入糖和鸡蛋搅匀，筛入面粉和可可粉翻拌，加入坚果碎。','面糊倒入铺油纸的模具抹平，烤箱 175℃ 烤 20 分钟。','出炉放凉 5 分钟后切块，中心微湿润口感最佳。'],stepTimes:[8,7,20,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 20 分钟',coolTime:'冷却 5 分钟',source:'#'},
+    {id:'cinnamon-roll',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'肉桂卷',alias:'瑞典肉桂面包',image:'assets/img/full/baking10.jpg',time:'约 2 小时',level:'中等',labels:['香甜'],cats:['bread'],summary:'肉桂 + 糖霜，香甜松软的北欧风味。',tags:['肉桂','糖霜'],benefits:['香气浓郁','早餐人气'],ingredients:['高筋面粉 300 克','酵母 5 克','温牛奶 150 毫升','鸡蛋 1 个','黄油 40 克','细砂糖 40 克','肉桂粉 8 克','红糖 60 克','糖粉 50 克（糖霜用）'],steps:['面粉、酵母、温牛奶、鸡蛋、黄油、糖揉成光滑面团。','面团发酵 60 分钟至两倍大。','擀成长方形，抹软化黄油，撒肉桂红糖，卷起切 8 段，排入烤盘二发 20 分钟。','烤箱 180℃ 烤 20 分钟至金黄。','出炉趁热淋上糖霜即成。'],stepTimes:[15,60,30,20,5],prepTime:'准备 45 分钟',bakeTime:'烘烤 20 分钟',coolTime:'发酵 65 分钟',source:'#'},
+    {id:'chiffon-cake',risks:['蛋白霜打发是关键，不到位必塌','倒扣冷却不充分会回缩'],credibility:'编辑整理',name:'戚风蛋糕',alias:'气疯蛋糕',image:'assets/img/full/baking11.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake'],summary:'松软不塌，掌握蛋白打发的关键。',tags:['松软','基础'],benefits:['口感轻盈','烘焙基本功'],ingredients:['低筋面粉 85 克','鸡蛋 5 个','细砂糖 70 克','牛奶 50 毫升','玉米油 40 毫升'],steps:['蛋黄加牛奶、玉米油搅匀，筛入低筋面粉拌成顺滑蛋黄糊。','蛋白分三次加糖打发至硬性发泡，提起有直立尖角。','取三分之一蛋白霜与蛋黄糊翻拌，再倒回剩余蛋白霜中拌匀。','面糊倒入 8 寸模具，烤箱 160℃ 烤 30 分钟。','出炉震出热气后倒扣，放凉后脱模。'],stepTimes:[10,10,8,30,2],prepTime:'准备 28 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷却 2 分钟',source:'#'},
+    {id:'lemon-tart',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'柠檬塔',alias:'法式柠檬挞',image:'assets/img/full/baking12.jpg',time:'70 分钟',level:'中等',labels:['清爽'],cats:['tart'],summary:'酸甜柠檬馅 + 酥脆塔皮，清新不腻。',tags:['柠檬','酸甜'],benefits:['清爽解腻','颜值担当'],ingredients:['黄油 90 克','糖粉 50 克','鸡蛋 1 个','低筋面粉 180 克','柠檬汁 80 毫升','柠檬皮屑 1 个','细砂糖 80 克','鸡蛋 2 个（馅用）','黄油 60 克（馅用）'],steps:['黄油加糖粉打发，加入蛋液，拌入低筋面粉成团，冷藏松弛 20 分钟。','面团擀开铺入塔模，用叉子扎洞，烤箱 180℃ 烤 15 分钟定型。','柠檬汁、柠檬皮屑、糖、鸡蛋、黄油隔水加热，不断搅拌成浓稠柠檬馅。','柠檬馅倒入塔壳抹平，冷藏 20 分钟定型，表面装饰柠檬片。'],stepTimes:[10,25,15,20],prepTime:'准备 25 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷藏 30 分钟',source:'#'},
+    {id:'apple-pie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'苹果派',alias:'美式苹果派',image:'assets/img/full/baking13.jpg',time:'75 分钟',level:'中等',labels:['经典'],cats:['tart'],summary:'肉桂苹果馅，烤得金黄酥脆。',tags:['苹果','肉桂'],benefits:['果香浓郁','节日氛围'],ingredients:['低筋面粉 250 克','黄油 150 克','细砂糖 30 克','盐 2 克','冰水 60 毫升','苹果 3 个','肉桂粉 5 克','细砂糖 60 克（馅用）','柠檬汁 10 毫升'],steps:['面粉、黄油、糖、盐搓成粗粒，加冰水揉成团，冷藏 30 分钟。','苹果切片，加肉桂粉、糖、柠檬汁拌匀，静置 10 分钟。','面团擀开铺入派盘，填入苹果馅，顶部编织格子盖。','烤箱 200℃ 烤 35 分钟至金黄，晾凉 5 分钟后切块。'],stepTimes:[10,10,15,40],prepTime:'准备 35 分钟',bakeTime:'烘烤 35 分钟',coolTime:'晾凉 5 分钟',source:'#'},
+    {id:'croissant',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'可颂面包',alias:'牛角面包',image:'assets/img/full/baking14.jpg',time:'3 小时',level:'较难',labels:['热门'],cats:['bread'],summary:'黄油开酥，层层分明的法式经典。',tags:['黄油','开酥'],benefits:['酥脆掉渣','法式早餐'],ingredients:['高筋面粉 300 克','酵母 6 克','细砂糖 30 克','盐 5 克','牛奶 160 毫升','黄油 30 克（面团用）','裹入黄油 150 克','蛋液少许（刷面用）'],steps:['面粉、酵母、糖、盐、牛奶、黄油揉成面团，冷藏 1 小时。','裹入黄油擀成薄片包入面团，三折两次，每次冷藏松弛 30 分钟。','面团擀开切三角形，卷成牛角形，发酵 45 分钟。','表面刷蛋液，烤箱 200℃ 烤 18 分钟至金黄酥脆。','出炉放凉，层次分明，趁新鲜食用。'],stepTimes:[15,80,65,18,2],prepTime:'准备 55 分钟',bakeTime:'烘烤 18 分钟',coolTime:'冷藏发酵 107 分钟',source:'#'},
+    {id:'oatmeal-cookie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'燕麦饼干',alias:'健康燕麦曲奇',image:'assets/img/full/baking15.jpg',time:'30 分钟',level:'简单',labels:['健康'],cats:['cookie'],summary:'燕麦 + 坚果，低负担的健康小食。',tags:['燕麦','低负担'],benefits:['膳食纤维','健康解馋'],ingredients:['黄油 80 克','红糖 60 克','鸡蛋 1 个','燕麦片 120 克','低筋面粉 60 克','坚果碎 40 克','肉桂粉少许'],steps:['黄油室温软化，加红糖打发，加入蛋液拌匀。','加入燕麦片、面粉、坚果碎和肉桂粉翻拌成团。','面团分成小球压扁，间隔排入烤盘。','烤箱 170℃ 烤 12 分钟至边缘金黄，晾凉后变脆。'],stepTimes:[8,5,5,12],prepTime:'准备 18 分钟',bakeTime:'烘烤 12 分钟',coolTime:'晾凉即食',source:'#'},
+    {id:'xuemeiniang',risks:['糯米皮要趁热包，凉了会裂','奶油打发不足包不住馅'],credibility:'编辑整理',name:'雪媚娘',alias:'日式大福',image:'assets/img/full/baking16.jpg',time:'50 分钟',level:'简单',labels:['人气'],cats:['dessert'],summary:'糯米皮 + 奶油 + 水果，软糯香甜。',tags:['糯米','奶油'],benefits:['软糯口感','水果清香'],ingredients:['糯米粉 100 克','玉米淀粉 30 克','细砂糖 40 克','牛奶 180 毫升','黄油 20 克','淡奶油 200 毫升','糖粉 15 克','水果丁适量','熟糯米粉少许（防粘）'],steps:['糯米粉、玉米淀粉、糖、牛奶混合搅匀，过筛去颗粒。','加入黄油，蒸 20 分钟至熟透，趁热搅拌至光滑有弹性。','放凉后分成小剂子，擀成圆皮。','包入打发的淡奶油和水果丁，收口，冷藏 10 分钟定型。'],stepTimes:[8,22,10,10],prepTime:'准备 18 分钟',bakeTime:'蒸制 20 分钟',coolTime:'冷藏 12 分钟',source:'#'},
+    {id:'chocolate-mousse',risks:['巧克力温度过高拌入奶油会消泡','冷藏不足4小时不成型'],credibility:'编辑整理',name:'巧克力慕斯',alias:'法式巧克力慕斯',image:'assets/img/full/baking17.jpg',time:'30 分钟+冷藏 3 小时',level:'简单',labels:['丝滑'],cats:['chocolate','dessert'],summary:'黑巧 + 淡奶油，丝滑浓郁免烤。',tags:['巧克力','免烤'],benefits:['丝滑口感','免烤简单'],ingredients:['黑巧克力 120 克','淡奶油 250 毫升','鸡蛋 2 个','细砂糖 30 克','可可粉少许（装饰）'],steps:['黑巧克力隔水融化，稍冷却至不烫手。','淡奶油打发至六成，取一半与巧克力液混合均匀。','剩余淡奶油打发至硬性，分两次与巧克力糊翻拌均匀。','装入杯中，冷藏 3 小时定型，表面筛可可粉。'],stepTimes:[8,7,8,7],prepTime:'准备 23 分钟',bakeTime:'免烤',coolTime:'冷藏 3 小时',source:'#'}
   ];
   const bakingCats=[{id:'all',name:'🍰 蛋糕'},{id:'cake',name:'🍰 蛋糕'},{id:'cookie',name:'🍪 饼干'},{id:'bread',name:'🥐 面包'},{id:'dessert',name:'🍮 甜品'},{id:'chocolate',name:'🍫 巧克力'},{id:'pie',name:'🥧 派/塔'}];
   const academyCourses=[
@@ -608,27 +700,93 @@
   ];
   /* ===== 饮品 Drinks & Beverages 数据 ===== */
   const drinkRecipes=[
-    {id:'iced-americano',name:'冰美式',alias:'Iced Americano',image:'assets/img/full/drinks1.jpg',bg1:'#B89A7A',bg2:'#7a5f43',time:'5 分钟',level:'简单',labels:['提神'],cats:['coffee'],tastes:['清爽','咖啡香','微苦','无糖'],today:true,summary:'清爽、苦香、低负担，适合早晨与午后。',tags:['提神','低负担'],benefits:['提神醒脑','低热量负担'],ingredients:['浓缩咖啡 60 毫升（双份）','冰块 1 杯（约 200 克）','冰水 200 毫升'],steps:['萃取双份浓缩咖啡，约 60 毫升，备用。','高杯中加满冰块，倒入冰水至八分满。','将浓缩咖啡沿杯壁缓缓倒入，呈现分层即成。'],stepTimes:[2,1,2],params:{sweet:'无糖',ice:'满冰',strength:'标准'},source:'#'},
-    {id:'matcha-latte',name:'抹茶拿铁',alias:'Matcha Latte',image:'assets/img/full/drinks2.jpg',bg1:'#8B9B70',bg2:'#5a6b4c',time:'10 分钟',level:'简单',labels:['奶香'],cats:['milk','milktea'],tastes:['奶香','茶香','浓郁'],today:true,summary:'清新的茶香与奶香融合，顺滑柔和。',tags:['奶香','顺滑'],benefits:['口感顺滑','茶香清新'],ingredients:['抹茶粉 8 克','温水 60 毫升（约 80℃）','牛奶 200 毫升','细砂糖或糖浆 10 克（可选）','冰块 适量'],steps:['抹茶粉过筛，加入温水，用茶筅或奶泡器搅打至细腻起泡。','牛奶加热至 60℃ 左右（做冰饮则直接加冰块）。','杯中先倒牛奶，再缓缓倒入抹茶液，形成分层即成。'],stepTimes:[3,3,4],params:{sweet:'半糖',ice:'少冰',strength:'茶香浓郁'},source:'#'},
-    {id:'passion-lemon-tea',name:'百香果柠檬茶',alias:'Passion Fruit Lemon Tea',image:'assets/img/full/drinks3.jpg',bg1:'#D58D73',bg2:'#9c5f47',time:'10 分钟',level:'简单',labels:['清爽'],cats:['fruit','tea'],tastes:['清爽','酸甜','果香'],today:true,summary:'酸甜明亮，适合炎热天气。',tags:['清爽','果香'],benefits:['酸甜开胃','清爽解腻'],ingredients:['百香果 2 个','柠檬 半个','红茶包 1 包','蜂蜜或糖浆 20 克','冰块 1 杯','清水 400 毫升'],steps:['红茶包用 90℃ 热水泡 3 分钟，取出茶包放凉。','百香果对半挖出果肉，柠檬切片，其中一片挤汁入杯。','茶汤、果肉、柠檬片与蜂蜜混合，加冰块搅匀即成。'],stepTimes:[4,3,3],params:{sweet:'半糖',ice:'标准冰',strength:'果香明亮'},source:'#'},
-    {id:'strawberry-shake',name:'草莓奶昔',alias:'Strawberry Smoothie',image:'assets/img/full/drinks4.jpg',bg1:'#E8A0B4',bg2:'#b06a80',time:'8 分钟',level:'简单',labels:['人气'],cats:['milk','fruit'],tastes:['奶香','酸甜','浓郁','果香'],today:true,summary:'水果、牛奶与冰块融合，浓郁顺滑。',tags:['人气','顺滑'],benefits:['水果奶香','口感浓郁'],ingredients:['新鲜草莓 150 克','牛奶 200 毫升','原味酸奶 50 克（可选）','蜂蜜 10 克（可选）','冰块 4–5 块'],steps:['草莓洗净去蒂，对半切开。','将草莓、牛奶、酸奶、蜂蜜和冰块一起放入料理机。','搅打 30–40 秒至顺滑，倒入杯中即成。'],stepTimes:[3,2,3],params:{sweet:'标准',ice:'少冰',strength:'浓郁顺滑'},source:'#'},
-    {id:'hot-cocoa',name:'热可可',alias:'Hot Chocolate',image:'assets/img/full/drinks5.jpg',bg1:'#A9805E',bg2:'#6f5238',time:'10 分钟',level:'简单',labels:['治愈'],cats:['cocoa'],tastes:['浓郁','巧克力','奶香'],today:true,summary:'巧克力香气浓郁，适合夜晚和寒冷天气。',tags:['治愈','暖心'],benefits:['温暖治愈','巧克力香气'],ingredients:['可可粉 20 克','细砂糖 15 克','牛奶 250 毫升','黑巧克力 20 克（可选）','淡奶油少许（装饰用）'],steps:['可可粉与糖混合，用少量热牛奶调成顺滑糊状。','倒入剩余牛奶，小火加热至 70℃ 左右，边加热边搅拌。','加入黑巧克力搅至融化，倒入杯中，顶层加点淡奶油。'],stepTimes:[2,5,3],params:{sweet:'标准',ice:'热饮去冰',strength:'香气浓郁'},source:'#'},
-    {id:'bubble-milk-tea',name:'珍珠奶茶',alias:'Bubble Milk Tea',image:'assets/img/full/drinks6.jpg',bg1:'#D9A441',bg2:'#96692a',time:'25 分钟',level:'简单',labels:['经典'],cats:['milktea'],tastes:['奶香','茶香','浓郁'],summary:'茶香奶香交织，珍珠 Q 弹有嚼劲。',tags:['经典','Q弹'],benefits:['奶香茶香','嚼感十足'],ingredients:['红茶包 2 包','牛奶 200 毫升','珍珠（木薯粉圆）60 克','红糖或黑糖浆 25 克','冰块 适量','清水 500 毫升'],steps:['水烧开后下珍珠，煮 15 分钟后焖 5 分钟，捞出过凉水拌入糖浆。','红茶包用 90℃ 热水泡 4 分钟，取出后加糖调匀、放凉。','杯底放珍珠，加冰块，倒入奶茶，插入粗吸管即成。'],stepTimes:[20,4,1],params:{sweet:'半糖',ice:'少冰',strength:'奶香浓郁'},source:'#'},
-    {id:'honey-lemon-soda',name:'蜂蜜柠檬气泡饮',alias:'Honey Lemon Sparkling',image:'assets/img/full/drinks7.jpg',bg1:'#9FD8E8',bg2:'#5f9db3',time:'5 分钟',level:'简单',labels:['气泡'],cats:['soda','healthy'],tastes:['清爽','酸甜','果香','无糖'],summary:'冰、气泡、果香，轻松做出夏日感。',tags:['气泡','低负担'],benefits:['清爽解腻','气泡口感'],ingredients:['柠檬 半个','蜂蜜 20 克','气泡水 300 毫升（冰镇）','冰块 1 杯','薄荷叶几片（可选）'],steps:['柠檬一半切片、一半挤汁，蜂蜜用少许温水化开。','杯中加满冰块，放入柠檬片和薄荷叶。','倒入蜂蜜柠檬汁，再缓缓倒入冰镇气泡水，轻搅即成。'],stepTimes:[2,1,2],params:{sweet:'微糖',ice:'多冰',strength:'气泡清爽'},source:'#'},
-    {id:'ginger-date-tea',name:'姜枣枸杞茶',alias:'Ginger Date Goji Tea',image:'assets/img/full/drinks8.jpg',bg1:'#A8B89A',bg2:'#66795c',time:'15 分钟',level:'简单',labels:['暖身'],cats:['healthy','tea'],tastes:['茶香','浓郁'],summary:'温热醇厚，适合寒冷天气与需要暖身的时候。',tags:['暖身','温热'],benefits:['温热暖身','简单易做'],ingredients:['生姜 3 片','红枣 5 颗','枸杞 10 克','红糖 15 克（可选）','清水 600 毫升'],steps:['红枣去核切半，生姜切片，与清水一同入锅。','大火煮开后转小火煮 10 分钟。','加入枸杞和红糖再煮 2 分钟，倒入杯中即成。'],stepTimes:[3,10,2],params:{sweet:'微甜',ice:'热饮',strength:'温润醇厚'},source:'#'},
-    {id:'latte',name:'拿铁咖啡',alias:'Caffè Latte',image:'assets/img/full/drinks10.jpg',bg1:'#C4A484',bg2:'#7a5f43',time:'8 分钟',level:'简单',labels:['经典'],cats:['coffee'],tastes:['奶香','咖啡香','浓郁'],summary:'浓缩 + 热牛奶，柔和顺滑的经典之选。',tags:['经典','顺滑'],benefits:['口感柔和','咖啡入门'],ingredients:['浓缩咖啡 60 毫升（双份）','牛奶 200 毫升'],steps:['萃取双份浓缩咖啡，约 60 毫升。','牛奶加热至 60℃，打出细腻奶泡。','浓缩倒入杯中，缓缓倒入牛奶，表面可拉花。'],stepTimes:[3,3,2],params:{sweet:'无糖',ice:'热饮',strength:'奶香浓郁'},source:'#'},
-    {id:'cappuccino',name:'卡布奇诺',alias:'Cappuccino',image:'assets/img/full/drinks11.jpg',bg1:'#D6B48F',bg2:'#8a6a4a',time:'8 分钟',level:'简单',labels:['经典'],cats:['coffee'],tastes:['奶香','咖啡香','浓郁'],summary:'浓缩 + 奶泡，绵密厚实的意式风味。',tags:['经典','奶泡'],benefits:['奶泡绵密','意式经典'],ingredients:['浓缩咖啡 60 毫升（双份）','牛奶 150 毫升','可可粉少许'],steps:['萃取双份浓缩咖啡，倒入杯中。','牛奶打发成绵密厚奶泡。','先倒牛奶再铺奶泡，表面筛少许可可粉。'],stepTimes:[3,3,2],params:{sweet:'无糖',ice:'热饮',strength:'奶泡厚实'},source:'#'},
-    {id:'mocha',name:'摩卡',alias:'Caffè Mocha',image:'assets/img/full/drinks12.jpg',bg1:'#A9805E',bg2:'#6f5238',time:'10 分钟',level:'简单',labels:['巧克力'],cats:['coffee'],tastes:['巧克力','奶香','浓郁'],summary:'浓缩 + 巧克力 + 牛奶，咖啡与可可的相遇。',tags:['巧克力','香甜'],benefits:['巧克力香气','双重满足'],ingredients:['浓缩咖啡 60 毫升','黑巧克力 20 克','牛奶 200 毫升','淡奶油少许（可选）'],steps:['黑巧克力用少量热牛奶化开，调成巧克力酱。','萃取浓缩倒入，与巧克力酱混合均匀。','牛奶加热打泡后倒入，顶层可挤少许淡奶油。'],stepTimes:[3,2,5],params:{sweet:'标准',ice:'热饮',strength:'巧克力浓郁'},source:'#'},
-    {id:'cold-brew',name:'冷萃咖啡',alias:'Cold Brew',image:'assets/img/full/drinks13.jpg',bg1:'#8B7355',bg2:'#5a4a38',time:'12 小时',level:'简单',labels:['清爽'],cats:['coffee'],tastes:['清爽','咖啡香','微苦','无糖'],summary:'低温慢萃，顺滑低酸，夏日必备。',tags:['慢萃','低酸'],benefits:['口感顺滑','酸度低'],ingredients:['中深烘咖啡粉 60 克','常温水 600 毫升','冰块 适量'],steps:['咖啡粉倒入冷萃壶，加入常温水搅匀。','密封后放入冰箱，冷藏慢萃约 12 小时。','过滤掉咖啡渣，加冰块稀释后饮用。'],stepTimes:[5,710,5],params:{sweet:'无糖',ice:'加冰',strength:'顺滑低酸'},source:'#'},
-    {id:'caramel-macchiato',name:'焦糖玛奇朵',alias:'Caramel Macchiato',image:'assets/img/full/drinks14.jpg',bg1:'#D9A441',bg2:'#96692a',time:'10 分钟',level:'中等',labels:['香甜'],cats:['coffee'],tastes:['香甜','奶香','咖啡香'],summary:'焦糖 + 牛奶 + 浓缩，漂亮的分层。',tags:['焦糖','分层'],benefits:['颜值高','香甜顺滑'],ingredients:['浓缩咖啡 60 毫升','牛奶 180 毫升','焦糖酱 20 毫升'],steps:['杯底倒入焦糖酱，加入热牛奶。','牛奶打发出细腻奶泡。','沿杯壁缓缓倒入浓缩形成分层，顶部再淋焦糖酱。'],stepTimes:[3,2,5],params:{sweet:'香甜',ice:'热饮',strength:'焦糖浓郁'},source:'#'},
-    {id:'white-peach-oolong',name:'白桃乌龙茶',alias:'White Peach Oolong',image:'assets/img/full/drinks15.jpg',bg1:'#F5C6A5',bg2:'#c08a63',time:'10 分钟',level:'简单',labels:['果香'],cats:['tea','fruit'],tastes:['果香','茶香','清爽'],summary:'白桃 + 乌龙，果香茶香两相宜。',tags:['果香','清爽'],benefits:['果香清新','茶香回甘'],ingredients:['乌龙茶叶 8 克','白桃 1 个','蜂蜜 15 克（可选）','冰块 适量','清水 400 毫升'],steps:['乌龙茶用 85℃ 热水泡 3 分钟，过滤后放凉。','白桃一半切丁，一半压成泥。','茶汤、白桃丁、桃泥与蜂蜜混合，加冰块搅匀。'],stepTimes:[5,3,2],params:{sweet:'微糖',ice:'加冰',strength:'果香明亮'},source:'#'},
-    {id:'honey-pomelo-tea',name:'蜂蜜柚子茶',alias:'Honey Pomelo Tea',image:'assets/img/full/drinks16.jpg',bg1:'#F2D06B',bg2:'#b08a3a',time:'15 分钟',level:'简单',labels:['治愈'],cats:['tea'],tastes:['酸甜','果香','浓郁'],summary:'柚子 + 蜂蜜，温热治愈的一杯。',tags:['治愈','温热'],benefits:['温润暖身','果香浓郁'],ingredients:['柚子 半个','蜂蜜 60 克','温水 300 毫升'],steps:['柚子取果肉撕成小块，柚子皮切细丝焯水去苦味。','果肉、皮丝与蜂蜜拌匀，腌制 7 分钟入味。','取 3 勺柚子蜜，加温水冲调均匀即成。'],stepTimes:[6,7,2],params:{sweet:'蜂蜜甜',ice:'热饮',strength:'温润醇厚'},source:'#'},
-    {id:'mango-smoothie',name:'芒果冰沙',alias:'Mango Smoothie',image:'assets/img/full/drinks17.jpg',bg1:'#FFC94D',bg2:'#d19a2e',time:'10 分钟',level:'简单',labels:['人气'],cats:['fruit','milk'],tastes:['果香','酸甜','浓郁'],summary:'芒果 + 冰块 + 酸奶，绵密冰爽。',tags:['人气','冰爽'],benefits:['芒果浓香','冰凉解暑'],ingredients:['芒果 1 个（约 300 克）','原味酸奶 100 克','冰块 5 块','蜂蜜 10 克（可选）'],steps:['芒果取肉切块（用冻芒果口感更绵密）。','芒果块、酸奶、冰块、蜂蜜一起放入料理机。','搅打 40 秒至绵密无颗粒，倒入杯中即成。'],stepTimes:[3,2,5],params:{sweet:'标准',ice:'冰沙',strength:'绵密浓郁'},source:'#'},
-    {id:'watermelon-juice',name:'鲜榨西瓜汁',alias:'Watermelon Juice',image:'assets/img/full/drinks18.jpg',bg1:'#F28B8B',bg2:'#b85a5a',time:'8 分钟',level:'简单',labels:['清爽'],cats:['fruit'],tastes:['清爽','果香','酸甜'],summary:'西瓜 + 柠檬，夏天的味道。',tags:['清爽','解渴'],benefits:['水分充足','清爽解暑'],ingredients:['西瓜 500 克','柠檬汁 10 毫升','冰块 适量'],steps:['西瓜去皮去籽，切成小块。','西瓜块、柠檬汁、冰块放入榨汁机。','榨汁后过滤，倒入杯中即成。'],stepTimes:[4,2,2],params:{sweet:'天然甜',ice:'加冰',strength:'清爽多汁'},source:'#'},
-    {id:'lime-mint-soda',name:'青柠薄荷气泡水',alias:'Lime Mint Sparkling',image:'assets/img/full/drinks19.jpg',bg1:'#9FD8E8',bg2:'#5f9db3',time:'5 分钟',level:'简单',labels:['清爽'],cats:['sparkling'],tastes:['清爽','酸甜','果香'],summary:'青柠 + 薄荷 + 气泡，清凉到底。',tags:['气泡','低负担'],benefits:['清凉提神','零负担'],ingredients:['青柠 1 个','薄荷叶 8 片','气泡水 300 毫升（冰镇）','冰块 1 杯','蜂蜜 10 克（可选）'],steps:['青柠一半切片、一半挤汁，薄荷叶轻拍出香气。','杯中加满冰块，放入青柠片和薄荷叶。','倒入蜂蜜青柠汁，再缓缓倒入冰镇气泡水，轻搅即成。'],stepTimes:[2,1,2],params:{sweet:'微糖',ice:'多冰',strength:'气泡清爽'},source:'#'},
-    {id:'oreo-shake',name:'奥利奥奶昔',alias:'Oreo Milkshake',image:'assets/img/full/drinks20.jpg',bg1:'#8A7A72',bg2:'#5a4f49',time:'8 分钟',level:'简单',labels:['人气'],cats:['milk'],tastes:['奶香','浓郁','香甜'],summary:'奥利奥 + 牛奶 + 冰淇淋，快乐加倍。',tags:['人气','香甜'],benefits:['浓郁香甜','快乐源泉'],ingredients:['奥利奥饼干 4 块','牛奶 200 毫升','香草冰淇淋 2 球','冰块 3 块'],steps:['奥利奥饼干掰碎，留 1 块做装饰。','饼干碎、牛奶、冰淇淋、冰块一起放入料理机。','搅打 30 秒至顺滑，倒入杯中，顶层撒饼干碎。'],stepTimes:[2,2,4],params:{sweet:'香甜',ice:'少冰',strength:'浓郁顺滑'},source:'#'},
-    {id:'mango-pomelo-sago',name:'杨枝甘露',alias:'Mango Pomelo Sago',image:'assets/img/full/drinks21.jpg',bg1:'#F7D154',bg2:'#c9a23a',time:'25 分钟',level:'中等',labels:['经典'],cats:['fruit'],tastes:['果香','酸甜','浓郁','奶香'],summary:'芒果 + 西柚 + 西米 + 椰奶，港式经典。',tags:['经典','港式'],benefits:['层次丰富','果香浓郁'],ingredients:['芒果 1 个','西柚 1 瓣','西米 50 克','椰奶 150 毫升','细砂糖 20 克（可选）'],steps:['西米沸水煮 12 分钟至透明，焖 5 分钟后过凉水备用。','芒果一半打泥、一半切丁，西柚取果肉撕小块。','椰奶加芒果泥和糖搅匀，加入西米、芒果丁、西柚粒。','冷藏 10 分钟后食用，风味更佳。'],stepTimes:[17,5,3,10],params:{sweet:'标准',ice:'冷藏',strength:'层次丰富'},source:'#'}
+    {id:'iced-americano',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'冰美式',alias:'Iced Americano',image:'assets/img/full/drinks1.jpg',bg1:'#B89A7A',bg2:'#7a5f43',time:'5 分钟',level:'简单',labels:['提神'],cats:['coffee'],tastes:['清爽','咖啡香','微苦','无糖'],today:true,summary:'清爽、苦香、低负担，适合早晨与午后。',tags:['提神','低负担'],benefits:['提神醒脑','低热量负担'],ingredients:['浓缩咖啡 60 毫升（双份）','冰块 1 杯（约 200 克）','冰水 200 毫升'],steps:['萃取双份浓缩咖啡，约 60 毫升，备用。','高杯中加满冰块，倒入冰水至八分满。','将浓缩咖啡沿杯壁缓缓倒入，呈现分层即成。'],stepTimes:[2,1,2],params:{sweet:'无糖',ice:'满冰',strength:'标准'},source:'#'},
+    {id:'matcha-latte',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'抹茶拿铁',alias:'Matcha Latte',image:'assets/img/full/drinks2.jpg',bg1:'#8B9B70',bg2:'#5a6b4c',time:'10 分钟',level:'简单',labels:['奶香'],cats:['milk','milktea'],tastes:['奶香','茶香','浓郁'],today:true,summary:'清新的茶香与奶香融合，顺滑柔和。',tags:['奶香','顺滑'],benefits:['口感顺滑','茶香清新'],ingredients:['抹茶粉 8 克','温水 60 毫升（约 80℃）','牛奶 200 毫升','细砂糖或糖浆 10 克（可选）','冰块 适量'],steps:['抹茶粉过筛，加入温水，用茶筅或奶泡器搅打至细腻起泡。','牛奶加热至 60℃ 左右（做冰饮则直接加冰块）。','杯中先倒牛奶，再缓缓倒入抹茶液，形成分层即成。'],stepTimes:[3,3,4],params:{sweet:'半糖',ice:'少冰',strength:'茶香浓郁'},source:'#'},
+    {id:'passion-lemon-tea',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'百香果柠檬茶',alias:'Passion Fruit Lemon Tea',image:'assets/img/full/drinks3.jpg',bg1:'#D58D73',bg2:'#9c5f47',time:'10 分钟',level:'简单',labels:['清爽'],cats:['fruit','tea'],tastes:['清爽','酸甜','果香'],today:true,summary:'酸甜明亮，适合炎热天气。',tags:['清爽','果香'],benefits:['酸甜开胃','清爽解腻'],ingredients:['百香果 2 个','柠檬 半个','红茶包 1 包','蜂蜜或糖浆 20 克','冰块 1 杯','清水 400 毫升'],steps:['红茶包用 90℃ 热水泡 3 分钟，取出茶包放凉。','百香果对半挖出果肉，柠檬切片，其中一片挤汁入杯。','茶汤、果肉、柠檬片与蜂蜜混合，加冰块搅匀即成。'],stepTimes:[4,3,3],params:{sweet:'半糖',ice:'标准冰',strength:'果香明亮'},source:'#'},
+    {id:'strawberry-shake',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'草莓奶昔',alias:'Strawberry Smoothie',image:'assets/img/full/drinks4.jpg',bg1:'#E8A0B4',bg2:'#b06a80',time:'8 分钟',level:'简单',labels:['人气'],cats:['milk','fruit'],tastes:['奶香','酸甜','浓郁','果香'],today:true,summary:'水果、牛奶与冰块融合，浓郁顺滑。',tags:['人气','顺滑'],benefits:['水果奶香','口感浓郁'],ingredients:['新鲜草莓 150 克','牛奶 200 毫升','原味酸奶 50 克（可选）','蜂蜜 10 克（可选）','冰块 4–5 块'],steps:['草莓洗净去蒂，对半切开。','将草莓、牛奶、酸奶、蜂蜜和冰块一起放入料理机。','搅打 30–40 秒至顺滑，倒入杯中即成。'],stepTimes:[3,2,3],params:{sweet:'标准',ice:'少冰',strength:'浓郁顺滑'},source:'#'},
+    {id:'hot-cocoa',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'热可可',alias:'Hot Chocolate',image:'assets/img/full/drinks5.jpg',bg1:'#A9805E',bg2:'#6f5238',time:'10 分钟',level:'简单',labels:['治愈'],cats:['cocoa'],tastes:['浓郁','巧克力','奶香'],today:true,summary:'巧克力香气浓郁，适合夜晚和寒冷天气。',tags:['治愈','暖心'],benefits:['温暖治愈','巧克力香气'],ingredients:['可可粉 20 克','细砂糖 15 克','牛奶 250 毫升','黑巧克力 20 克（可选）','淡奶油少许（装饰用）'],steps:['可可粉与糖混合，用少量热牛奶调成顺滑糊状。','倒入剩余牛奶，小火加热至 70℃ 左右，边加热边搅拌。','加入黑巧克力搅至融化，倒入杯中，顶层加点淡奶油。'],stepTimes:[2,5,3],params:{sweet:'标准',ice:'热饮去冰',strength:'香气浓郁'},source:'#'},
+    {id:'bubble-milk-tea',risks:['珍珠煮好要焖，中心有白心会硬','黑糖珍珠放凉会变硬，尽快喝'],credibility:'编辑整理',name:'珍珠奶茶',alias:'Bubble Milk Tea',image:'assets/img/full/drinks6.jpg',bg1:'#D9A441',bg2:'#96692a',time:'25 分钟',level:'简单',labels:['经典'],cats:['milktea'],tastes:['奶香','茶香','浓郁'],summary:'茶香奶香交织，珍珠 Q 弹有嚼劲。',tags:['经典','Q弹'],benefits:['奶香茶香','嚼感十足'],ingredients:['红茶包 2 包','牛奶 200 毫升','珍珠（木薯粉圆）60 克','红糖或黑糖浆 25 克','冰块 适量','清水 500 毫升'],steps:['水烧开后下珍珠，煮 15 分钟后焖 5 分钟，捞出过凉水拌入糖浆。','红茶包用 90℃ 热水泡 4 分钟，取出后加糖调匀、放凉。','杯底放珍珠，加冰块，倒入奶茶，插入粗吸管即成。'],stepTimes:[20,4,1],params:{sweet:'半糖',ice:'少冰',strength:'奶香浓郁'},source:'#'},
+    {id:'honey-lemon-soda',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'蜂蜜柠檬气泡饮',alias:'Honey Lemon Sparkling',image:'assets/img/full/drinks7.jpg',bg1:'#9FD8E8',bg2:'#5f9db3',time:'5 分钟',level:'简单',labels:['气泡'],cats:['soda','healthy'],tastes:['清爽','酸甜','果香','无糖'],summary:'冰、气泡、果香，轻松做出夏日感。',tags:['气泡','低负担'],benefits:['清爽解腻','气泡口感'],ingredients:['柠檬 半个','蜂蜜 20 克','气泡水 300 毫升（冰镇）','冰块 1 杯','薄荷叶几片（可选）'],steps:['柠檬一半切片、一半挤汁，蜂蜜用少许温水化开。','杯中加满冰块，放入柠檬片和薄荷叶。','倒入蜂蜜柠檬汁，再缓缓倒入冰镇气泡水，轻搅即成。'],stepTimes:[2,1,2],params:{sweet:'微糖',ice:'多冰',strength:'气泡清爽'},source:'#'},
+    {id:'ginger-date-tea',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'姜枣枸杞茶',alias:'Ginger Date Goji Tea',image:'assets/img/full/drinks8.jpg',bg1:'#A8B89A',bg2:'#66795c',time:'15 分钟',level:'简单',labels:['暖身'],cats:['healthy','tea'],tastes:['茶香','浓郁'],summary:'温热醇厚，适合寒冷天气与需要暖身的时候。',tags:['暖身','温热'],benefits:['温热暖身','简单易做'],ingredients:['生姜 3 片','红枣 5 颗','枸杞 10 克','红糖 15 克（可选）','清水 600 毫升'],steps:['红枣去核切半，生姜切片，与清水一同入锅。','大火煮开后转小火煮 10 分钟。','加入枸杞和红糖再煮 2 分钟，倒入杯中即成。'],stepTimes:[3,10,2],params:{sweet:'微甜',ice:'热饮',strength:'温润醇厚'},source:'#'},
+    {id:'latte',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'拿铁咖啡',alias:'Caffè Latte',image:'assets/img/full/drinks10.jpg',bg1:'#C4A484',bg2:'#7a5f43',time:'8 分钟',level:'简单',labels:['经典'],cats:['coffee'],tastes:['奶香','咖啡香','浓郁'],summary:'浓缩 + 热牛奶，柔和顺滑的经典之选。',tags:['经典','顺滑'],benefits:['口感柔和','咖啡入门'],ingredients:['浓缩咖啡 60 毫升（双份）','牛奶 200 毫升'],steps:['萃取双份浓缩咖啡，约 60 毫升。','牛奶加热至 60℃，打出细腻奶泡。','浓缩倒入杯中，缓缓倒入牛奶，表面可拉花。'],stepTimes:[3,3,2],params:{sweet:'无糖',ice:'热饮',strength:'奶香浓郁'},source:'#'},
+    {id:'cappuccino',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'卡布奇诺',alias:'Cappuccino',image:'assets/img/full/drinks11.jpg',bg1:'#D6B48F',bg2:'#8a6a4a',time:'8 分钟',level:'简单',labels:['经典'],cats:['coffee'],tastes:['奶香','咖啡香','浓郁'],summary:'浓缩 + 奶泡，绵密厚实的意式风味。',tags:['经典','奶泡'],benefits:['奶泡绵密','意式经典'],ingredients:['浓缩咖啡 60 毫升（双份）','牛奶 150 毫升','可可粉少许'],steps:['萃取双份浓缩咖啡，倒入杯中。','牛奶打发成绵密厚奶泡。','先倒牛奶再铺奶泡，表面筛少许可可粉。'],stepTimes:[3,3,2],params:{sweet:'无糖',ice:'热饮',strength:'奶泡厚实'},source:'#'},
+    {id:'mocha',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'摩卡',alias:'Caffè Mocha',image:'assets/img/full/drinks12.jpg',bg1:'#A9805E',bg2:'#6f5238',time:'10 分钟',level:'简单',labels:['巧克力'],cats:['coffee'],tastes:['巧克力','奶香','浓郁'],summary:'浓缩 + 巧克力 + 牛奶，咖啡与可可的相遇。',tags:['巧克力','香甜'],benefits:['巧克力香气','双重满足'],ingredients:['浓缩咖啡 60 毫升','黑巧克力 20 克','牛奶 200 毫升','淡奶油少许（可选）'],steps:['黑巧克力用少量热牛奶化开，调成巧克力酱。','萃取浓缩倒入，与巧克力酱混合均匀。','牛奶加热打泡后倒入，顶层可挤少许淡奶油。'],stepTimes:[3,2,5],params:{sweet:'标准',ice:'热饮',strength:'巧克力浓郁'},source:'#'},
+    {id:'cold-brew',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'冷萃咖啡',alias:'Cold Brew',image:'assets/img/full/drinks13.jpg',bg1:'#8B7355',bg2:'#5a4a38',time:'12 小时',level:'简单',labels:['清爽'],cats:['coffee'],tastes:['清爽','咖啡香','微苦','无糖'],summary:'低温慢萃，顺滑低酸，夏日必备。',tags:['慢萃','低酸'],benefits:['口感顺滑','酸度低'],ingredients:['中深烘咖啡粉 60 克','常温水 600 毫升','冰块 适量'],steps:['咖啡粉倒入冷萃壶，加入常温水搅匀。','密封后放入冰箱，冷藏慢萃约 12 小时。','过滤掉咖啡渣，加冰块稀释后饮用。'],stepTimes:[5,710,5],params:{sweet:'无糖',ice:'加冰',strength:'顺滑低酸'},source:'#'},
+    {id:'caramel-macchiato',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'焦糖玛奇朵',alias:'Caramel Macchiato',image:'assets/img/full/drinks14.jpg',bg1:'#D9A441',bg2:'#96692a',time:'10 分钟',level:'中等',labels:['香甜'],cats:['coffee'],tastes:['香甜','奶香','咖啡香'],summary:'焦糖 + 牛奶 + 浓缩，漂亮的分层。',tags:['焦糖','分层'],benefits:['颜值高','香甜顺滑'],ingredients:['浓缩咖啡 60 毫升','牛奶 180 毫升','焦糖酱 20 毫升'],steps:['杯底倒入焦糖酱，加入热牛奶。','牛奶打发出细腻奶泡。','沿杯壁缓缓倒入浓缩形成分层，顶部再淋焦糖酱。'],stepTimes:[3,2,5],params:{sweet:'香甜',ice:'热饮',strength:'焦糖浓郁'},source:'#'},
+    {id:'white-peach-oolong',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'白桃乌龙茶',alias:'White Peach Oolong',image:'assets/img/full/drinks15.jpg',bg1:'#F5C6A5',bg2:'#c08a63',time:'10 分钟',level:'简单',labels:['果香'],cats:['tea','fruit'],tastes:['果香','茶香','清爽'],summary:'白桃 + 乌龙，果香茶香两相宜。',tags:['果香','清爽'],benefits:['果香清新','茶香回甘'],ingredients:['乌龙茶叶 8 克','白桃 1 个','蜂蜜 15 克（可选）','冰块 适量','清水 400 毫升'],steps:['乌龙茶用 85℃ 热水泡 3 分钟，过滤后放凉。','白桃一半切丁，一半压成泥。','茶汤、白桃丁、桃泥与蜂蜜混合，加冰块搅匀。'],stepTimes:[5,3,2],params:{sweet:'微糖',ice:'加冰',strength:'果香明亮'},source:'#'},
+    {id:'honey-pomelo-tea',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'蜂蜜柚子茶',alias:'Honey Pomelo Tea',image:'assets/img/full/drinks16.jpg',bg1:'#F2D06B',bg2:'#b08a3a',time:'15 分钟',level:'简单',labels:['治愈'],cats:['tea'],tastes:['酸甜','果香','浓郁'],summary:'柚子 + 蜂蜜，温热治愈的一杯。',tags:['治愈','温热'],benefits:['温润暖身','果香浓郁'],ingredients:['柚子 半个','蜂蜜 60 克','温水 300 毫升'],steps:['柚子取果肉撕成小块，柚子皮切细丝焯水去苦味。','果肉、皮丝与蜂蜜拌匀，腌制 7 分钟入味。','取 3 勺柚子蜜，加温水冲调均匀即成。'],stepTimes:[6,7,2],params:{sweet:'蜂蜜甜',ice:'热饮',strength:'温润醇厚'},source:'#'},
+    {id:'mango-smoothie',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'芒果冰沙',alias:'Mango Smoothie',image:'assets/img/full/drinks17.jpg',bg1:'#FFC94D',bg2:'#d19a2e',time:'10 分钟',level:'简单',labels:['人气'],cats:['fruit','milk'],tastes:['果香','酸甜','浓郁'],summary:'芒果 + 冰块 + 酸奶，绵密冰爽。',tags:['人气','冰爽'],benefits:['芒果浓香','冰凉解暑'],ingredients:['芒果 1 个（约 300 克）','原味酸奶 100 克','冰块 5 块','蜂蜜 10 克（可选）'],steps:['芒果取肉切块（用冻芒果口感更绵密）。','芒果块、酸奶、冰块、蜂蜜一起放入料理机。','搅打 40 秒至绵密无颗粒，倒入杯中即成。'],stepTimes:[3,2,5],params:{sweet:'标准',ice:'冰沙',strength:'绵密浓郁'},source:'#'},
+    {id:'watermelon-juice',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'鲜榨西瓜汁',alias:'Watermelon Juice',image:'assets/img/full/drinks18.jpg',bg1:'#F28B8B',bg2:'#b85a5a',time:'8 分钟',level:'简单',labels:['清爽'],cats:['fruit'],tastes:['清爽','果香','酸甜'],summary:'西瓜 + 柠檬，夏天的味道。',tags:['清爽','解渴'],benefits:['水分充足','清爽解暑'],ingredients:['西瓜 500 克','柠檬汁 10 毫升','冰块 适量'],steps:['西瓜去皮去籽，切成小块。','西瓜块、柠檬汁、冰块放入榨汁机。','榨汁后过滤，倒入杯中即成。'],stepTimes:[4,2,2],params:{sweet:'天然甜',ice:'加冰',strength:'清爽多汁'},source:'#'},
+    {id:'lime-mint-soda',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'青柠薄荷气泡水',alias:'Lime Mint Sparkling',image:'assets/img/full/drinks19.jpg',bg1:'#9FD8E8',bg2:'#5f9db3',time:'5 分钟',level:'简单',labels:['清爽'],cats:['sparkling'],tastes:['清爽','酸甜','果香'],summary:'青柠 + 薄荷 + 气泡，清凉到底。',tags:['气泡','低负担'],benefits:['清凉提神','零负担'],ingredients:['青柠 1 个','薄荷叶 8 片','气泡水 300 毫升（冰镇）','冰块 1 杯','蜂蜜 10 克（可选）'],steps:['青柠一半切片、一半挤汁，薄荷叶轻拍出香气。','杯中加满冰块，放入青柠片和薄荷叶。','倒入蜂蜜青柠汁，再缓缓倒入冰镇气泡水，轻搅即成。'],stepTimes:[2,1,2],params:{sweet:'微糖',ice:'多冰',strength:'气泡清爽'},source:'#'},
+    {id:'oreo-shake',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'奥利奥奶昔',alias:'Oreo Milkshake',image:'assets/img/full/drinks20.jpg',bg1:'#8A7A72',bg2:'#5a4f49',time:'8 分钟',level:'简单',labels:['人气'],cats:['milk'],tastes:['奶香','浓郁','香甜'],summary:'奥利奥 + 牛奶 + 冰淇淋，快乐加倍。',tags:['人气','香甜'],benefits:['浓郁香甜','快乐源泉'],ingredients:['奥利奥饼干 4 块','牛奶 200 毫升','香草冰淇淋 2 球','冰块 3 块'],steps:['奥利奥饼干掰碎，留 1 块做装饰。','饼干碎、牛奶、冰淇淋、冰块一起放入料理机。','搅打 30 秒至顺滑，倒入杯中，顶层撒饼干碎。'],stepTimes:[2,2,4],params:{sweet:'香甜',ice:'少冰',strength:'浓郁顺滑'},source:'#'},
+    {id:'mango-pomelo-sago',risks:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加'],credibility:'编辑整理',name:'杨枝甘露',alias:'Mango Pomelo Sago',image:'assets/img/full/drinks21.jpg',bg1:'#F7D154',bg2:'#c9a23a',time:'25 分钟',level:'中等',labels:['经典'],cats:['fruit'],tastes:['果香','酸甜','浓郁','奶香'],summary:'芒果 + 西柚 + 西米 + 椰奶，港式经典。',tags:['经典','港式'],benefits:['层次丰富','果香浓郁'],ingredients:['芒果 1 个','西柚 1 瓣','西米 50 克','椰奶 150 毫升','细砂糖 20 克（可选）'],steps:['西米沸水煮 12 分钟至透明，焖 5 分钟后过凉水备用。','芒果一半打泥、一半切丁，西柚取果肉撕小块。','椰奶加芒果泥和糖搅匀，加入西米、芒果丁、西柚粒。','冷藏 10 分钟后食用，风味更佳。'],stepTimes:[17,5,3,10],params:{sweet:'标准',ice:'冷藏',strength:'层次丰富'},source:'#'}
+  ]
+  /* ===== 食材替换助手数据 ===== */
+  const substitutions=[
+    {match:['黄油'],to:'植物油（玉米油/葵花籽油）',ratio:'100g黄油 → 80g植物油',flavor:'奶香减弱，口感稍逊',note:'炒菜、拌面糊可用；酥性饼干风味差异明显',risky:false},
+    {match:['黄油'],to:'椰子油',ratio:'1:1 等量替换',flavor:'带淡淡椰香',note:'室温下为固态，打发效果接近黄油',risky:false},
+    {match:['鸡蛋'],to:'香蕉泥',ratio:'1个鸡蛋 → 半根熟香蕉压泥',flavor:'更甜更湿润',note:'仅适合玛芬、饼干、快手面包；戚风/海绵蛋糕不可替',risky:true},
+    {match:['鸡蛋'],to:'无糖酸奶',ratio:'1个鸡蛋 → 60g酸奶',flavor:'更湿润，略带酸味',note:'适合玛芬和快速面包；蛋白打发类配方不可替',risky:true},
+    {match:['牛奶','鲜奶','纯牛奶'],to:'豆奶/燕麦奶',ratio:'1:1 等量替换',flavor:'豆奶有豆香，燕麦奶更顺滑',note:'加热不易结皮；大豆过敏者选燕麦奶',risky:false},
+    {match:['白糖','细砂糖','砂糖','糖粉'],to:'蜂蜜',ratio:'100g糖 → 约65g蜂蜜',flavor:'更湿润，带花香',note:'配方液体量相应减少，烘烤温度降10℃防焦',risky:false},
+    {match:['白糖','细砂糖'],to:'红糖/黑糖',ratio:'1:1 等量替换',flavor:'焦糖风味，颜色更深',note:'适合饼干、布朗尼、肉桂卷',risky:false},
+    {match:['低筋面粉','低粉'],to:'中筋面粉+玉米淀粉',ratio:'100g低粉 → 80g中筋+20g玉米淀粉',flavor:'接近低粉的松软度',note:'过筛拌匀；做戚风仍建议用真正的低筋粉',risky:true},
+    {match:['淡奶油'],to:'（无理想替代）',ratio:'—',flavor:'—',note:'打发用途无理想替代；做甘纳许可应急用奶油奶酪+牛奶',risky:true},
+    {match:['泡打粉'],to:'小苏打+酸性材料',ratio:'1小勺泡打粉 → 1/4小勺小苏打+半勺柠檬汁/白醋',flavor:'基本无差异',note:'配方中须有酸性成分（酸奶/柠檬/可可）才能起效',risky:true},
+    {match:['奶油奶酪'],to:'希腊酸奶+软化黄油',ratio:'100g奶酪 → 80g希腊酸奶+20g黄油',flavor:'更清爽，略带酸味',note:'做巴斯克、提拉米苏可应急，口感稍逊',risky:false},
+    {match:['黑巧克力','巧克力'],to:'可可粉+黄油',ratio:'30g巧克力 → 20g可可粉+10g黄油',flavor:'缺少可可脂的顺滑感',note:'做淋面、甘纳许不建议替代',risky:false},
+    {match:['橄榄油'],to:'其他植物油',ratio:'1:1 等量替换',flavor:'失去橄榄果香',note:'凉拌建议保留橄榄油，热炒可替',risky:false},
+    {match:['生抽'],to:'老抽+盐',ratio:'老抽用量减半，再补盐调咸度',flavor:'颜色更深',note:'只做调色应急，风味不如生抽鲜',risky:false},
+    {match:['料酒'],to:'白酒/米酒',ratio:'1:1 等量替换',flavor:'去腥效果接近',note:'无酒可用姜汁应急去腥',risky:false},
+    {match:['酵母'],to:'（无直接替代）',ratio:'—',flavor:'—',note:'面包发酵必须用酵母；可改做泡打粉版快速面包',risky:true},
+    {match:['马斯卡彭'],to:'奶油奶酪+淡奶油',ratio:'100g马斯卡彭 → 80g奶油奶酪+20g淡奶油',flavor:'略酸，质地稍硬',note:'做提拉米苏可应急',risky:false},
+    {match:['吉利丁','鱼胶'],to:'琼脂',ratio:'10g吉利丁 → 约4g琼脂',flavor:'口感更脆，不够Q弹',note:'琼脂需煮沸才凝固；慕斯类建议仍用吉利丁',risky:true},
+    {match:['玉米淀粉'],to:'土豆淀粉/木薯淀粉',ratio:'1:1 等量替换',flavor:'基本无差异',note:'勾芡、裹粉均可',risky:false},
+    {match:['香草精'],to:'朗姆酒/柠檬皮屑',ratio:'1小勺香草精 → 1小勺朗姆酒',flavor:'风味不同但同样增香',note:'给小孩吃可用柠檬皮屑',risky:false}
   ];
+  /* ===== 失败风险提示数据 ===== */
+  const recipeRisks={
+    'tomato':['鸡蛋先滑熟盛出，避免炒老','番茄炒出汁后再回锅，酸味更柔和'],
+    'strawberry-cake':['蛋白打发不到位会导致蛋糕塌陷','淡奶油打发过度会油水分离','组装后需冷藏定型，否则切面塌'],
+    'cookies':['黄油未充分软化会导致面团难成型','烘烤过度边缘会发苦，注意观察上色'],
+    'lava-cake':['烘烤时间多1分钟流心就没了，宁可欠一点','脱模要趁热，凉了会粘模'],
+    'macaron':['晾皮不到位（表面粘手）烤后必裂','蛋白打发不足会导致裙边消失'],
+    'basque-cheesecake':['烤制表面焦黑是正常的，不要提前取出','冷藏后再切，切面更漂亮'],
+    'tiramisu':['手指饼干蘸咖啡要快，泡软会塌','马斯卡彭过度搅拌会油水分离'],
+    'portuguese-tart':['蛋挞液表面起泡要撇掉，否则有蜂窝','烤好后别马上脱模，烫手且易碎'],
+    'brownie':['烘烤过度会变干，牙签带点湿 crumbs 最佳','切块前彻底放凉，否则切不齐'],
+    'cinnamon-roll':['发酵不到位会发硬，面团应涨大1倍','糖霜要在温热时淋，凉了不挂霜'],
+    'chiffon-cake':['蛋白霜打发是关键，不到位必塌','倒扣冷却不充分会回缩'],
+    'lemon-tart':['柠檬馅煮过头会发苦，80℃左右离火','塔皮要压实，否则馅会漏'],
+    'apple-pie':['苹果馅水分要炒干，否则派底湿软','派皮边缘刷蛋液防焦'],
+    'croissant':['开酥时黄油化了会混酥，前功尽弃','发酵过度会塌，轻按缓慢回弹即可烤'],
+    'oatmeal-cookie':['面团太湿会摊成大饼，加粉调整','烤好放凉后才会变脆，别心急'],
+    'xuemeiniang':['糯米皮要趁热包，凉了会裂','奶油打发不足包不住馅'],
+    'chocolate-mousse':['巧克力温度过高拌入奶油会消泡','冷藏不足4小时不成型'],
+    'iced-americano':['水温过高（>92℃）会萃取过度发苦','冰块先放再倒咖啡，层次更好'],
+    'latte':['牛奶温度超过70℃会有腥味','奶泡太厚会盖住咖啡香'],
+    'matcha-latte':['抹茶不过筛必结块','水温超80℃抹茶会发苦'],
+    'bubble-milk-tea':['珍珠煮好要焖，中心有白心会硬','黑糖珍珠放凉会变硬，尽快喝']
+  };
+  const defaultRisks={
+    meal:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],
+    baking:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],
+    drink:['水温过高会让茶和咖啡发苦','冰块加太早会稀释风味','糖量可先减半，不够再加']
+  };
+  /* ===== 今日食物故事 ===== */
+  const foodStories=[
+    {title:'番茄：曾被当成观赏植物',img:'assets/img/full/img0001.webp',text:'番茄原产南美洲，16世纪被西班牙人带到欧洲后，人们因它鲜艳的果实只敢观赏、不敢吃，甚至称它"狼桃"，认为有毒。直到18世纪末，一位美国人当众生吃番茄安然无恙，它才逐渐被接受。如今番茄炒蛋成了中国人最熟悉的家常菜之一。',link:{type:'recipe',id:'tomato',label:'去看看番茄炒蛋'}},
+    {title:'咖啡：牧羊人与跳舞的羊',img:'assets/img/full/drinks10.jpg',text:'传说9世纪埃塞俄比亚牧羊人卡尔迪发现，羊吃了某种红色浆果后兴奋得"跳舞"，他自己尝后也精神振奋。咖啡由此传播到也门、阿拉伯世界，再到欧洲。如今全球每天消费约20亿杯咖啡，是仅次于石油的大宗商品之一。',link:{type:'recipe',id:'iced-americano',label:'去看看冰美式'}},
+    {title:'巧克力：从苦味饮品到甜点',img:'assets/img/full/drinks5.jpg',text:'可可原产中美洲，玛雅人和阿兹特克人把可可豆磨碎加辣椒饮用，称之为"神的食物"。16世纪传入欧洲后加糖才变甜。1847年英国人做出第一块固体巧克力，巧克力才从饮品变成今天的甜点形态。',link:{type:'recipe',id:'brownie',label:'去看看布朗尼'}},
+    {title:'茶：神农尝百草的偶然',img:'assets/img/full/drinks15.jpg',text:'传说神农氏尝百草时中了毒，嚼了茶叶后解毒，从此发现茶的药用价值。陆羽在《茶经》中系统总结了种茶、制茶、饮茶之法。中国茶经由丝绸之路和茶马古道走向世界，演变出英式下午茶、日本茶道等不同文化。',link:{type:'recipe',id:'honey-pomelo-tea',label:'去看看蜂蜜柚子茶'}},
+    {title:'马卡龙：意大利血统的法国名片',img:'assets/img/full/baking4.jpg',text:'马卡龙其实起源于意大利，1533年随凯瑟琳·德·美第奇嫁到法国。最初只是简单的杏仁饼干，直到20世纪初巴黎糕点师才把它做成两片夹馅的"三明治"形态。如今它成了法式甜点的代表，全球有上百种口味。',link:{type:'recipe',id:'macaron',label:'去看看马卡龙'}},
+    {title:'豆腐：淮南王的意外发明',img:'assets/img/full/img0006.webp',text:'传说西汉淮南王刘安炼丹时，偶然将豆汁与石膏点在一起，得到了细嫩的豆腐。豆腐的制作工艺后来传入日本、韩国和东南亚，成为东亚共同的食材。一块豆腐里，藏着两千年的饮食智慧。',link:{type:'recipe',id:'tofu',label:'去看看菠菜豆腐汤'}},
+    {title:'奶茶：从游牧民族到街头',img:'assets/img/full/drinks6.jpg',text:'奶茶最早来自中国北方游牧民族，他们把砖茶捣碎加奶煮饮。17世纪传入欧洲后加糖，成为英式奶茶。1980年代台湾春水堂把珍珠加入奶茶，珍珠奶茶风靡全球。如今一杯奶茶背后，是几百年的迁徙与融合。',link:{type:'recipe',id:'bubble-milk-tea',label:'去看看珍珠奶茶'}},
+    {title:'小米：五谷之首的北方记忆',img:'assets/img/full/img0008.png',text:'小米是中国北方最古老的粮食作物之一，考古发现距今约一万年前就已种植。《诗经》中"黍稷重穋"描写的就是它。小米耐旱耐贫瘠，养活了黄河流域的先民。一碗小米粥里，是华夏农耕文明的起点。',link:{type:'recipe',id:'millet',label:'去看看南瓜小米粥'}},
+    {title:'蛋糕：从皇室点心到生日必备',img:'assets/img/full/baking11.jpg',text:'现代蛋糕起源于17世纪欧洲，当时烤箱和精制糖都很昂贵，只有贵族吃得起。19世纪泡打粉发明后，蛋糕才走进寻常人家。生日吃蛋糕的习俗来自古希腊人祭祀月亮女神，如今它成了全世界庆祝的通用语言。',link:{type:'recipe',id:'chiffon-cake',label:'去看看戚风蛋糕'}},
+    {title:'饺子：医圣的"娇耳"',img:'assets/img/full/img0004.jpg',text:'东汉医圣张仲景告老还乡时，见乡亲耳朵冻伤，便用羊肉、辣椒和药材包成耳朵形状的"娇耳"施舍治病。后来人们在冬至吃饺子纪念他。从治冻疮的药食，到团圆的象征，一只饺子走了1800年。',link:null}
+  ];
+;
   const drinkCatNames={all:'全部',coffee:'咖啡',tea:'茶饮',milk:'奶饮',fruit:'果饮',milktea:'奶茶',soda:'气泡饮',cocoa:'热可可',healthy:'健康饮品'};
   const drinkAcademy=[
     {lv:'入门',name:'咖啡基础',desc:'咖啡豆、烘焙、研磨、萃取基础：先认识味道，再调出自己的味道。'},
@@ -885,7 +1043,7 @@
     q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level}`;
     q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
-    q('#recipeDialog').showModal();
+    renderRisks(r);renderSubs(r);renderCred(r);q('#recipeDialog').showModal();
   }
   let bakingFilter='all';
   function renderBaking(){
@@ -905,7 +1063,7 @@
     q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');
     q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
-    q('#recipeDialog').showModal();
+    renderRisks(r);renderSubs(r);renderCred(r);q('#recipeDialog').showModal();
   }
   /* ===== 饮品渲染与详情 ===== */
   let drinkFilter='all',drinkTaste=null;
@@ -939,7 +1097,7 @@
     q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');
     q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
-    q('#recipeDialog').showModal();
+    renderRisks(r);renderSubs(r);renderCred(r);q('#recipeDialog').showModal();
   }
   let cookRecipe=null,cookIdx=0;
   function startCooking(id){cookRecipe=recipes.find(x=>x.id===id)||bakingRecipes.find(x=>x.id===id)||drinkRecipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
@@ -1115,6 +1273,101 @@
   loadFridge();
   renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();renderDrinks();
 })();
+
+  /* ===== 今日吃喝盲盒 ===== */
+  const bbState={meal:'午餐',time:30,taste:'下饭'};
+  function parseMinutes(s){s=String(s||'');const h=s.match(/([\d.]+)\s*小时/);if(h)return parseFloat(h[1])*60;const m=s.match(/([\d.]+)\s*分钟/);if(m)return parseFloat(m[1]);return 9999;}
+  function bbImg(r,type){return type==='drink'?drinkArt(r):r.image;}
+  function bbFilterTaste(list,taste){
+    if(taste==='清淡'){const f=list.filter(r=>(r.labels||[]).includes('清淡')||(r.tags||[]).includes('清淡'));return f.length?f:list;}
+    if(taste==='下饭'){const f=list.filter(r=>(r.labels||[]).some(l=>/下饭|家常/.test(l)));return f.length?f:list;}
+    return list;
+  }
+  function bbReason(r,role){
+    const bits=[];const mins=parseMinutes(r.time);
+    if(mins<=15)bits.push('15分钟内搞定');else if(mins<=30)bits.push('半小时左右上桌');else if(mins<=60)bits.push('1小时内完成');
+    if(bbState.taste==='清淡')bits.push('清淡无负担');if(bbState.taste==='下饭')bits.push('下饭好选择');
+    if(role==='主角')bits.push('适合'+bbState.meal+'吃');else bits.push('搭配起来更完整');
+    return bits.length?bits.join('，')+'。':'食见为你挑选。';
+  }
+  function bbRoll(){
+    const maxT=bbState.time,t=bbState.taste;
+    const ok=r=>parseMinutes(r.time)<=maxT;
+    let mains=[],sides=[],mainType='meal',sideType='drink';
+    if(t==='甜点'){mains=bakingRecipes.filter(ok);sides=drinkRecipes.filter(ok);mainType='baking';sideType='drink';}
+    else if(t==='饮品'){mains=drinkRecipes.filter(ok);sides=bakingRecipes.filter(ok);mainType='drink';sideType='baking';}
+    else{mains=bbFilterTaste(recipes.filter(ok),t);sides=[...drinkRecipes.filter(ok),...bakingRecipes.filter(ok)];mainType='meal';}
+    if(!mains.length)mains=t==='甜点'?bakingRecipes:t==='饮品'?drinkRecipes:recipes;
+    if(!sides.length)sides=[...drinkRecipes,...bakingRecipes];
+    const pick=a=>a[Math.floor(Math.random()*a.length)];
+    const main=pick(mains);let side=pick(sides);
+    if(side.id===main.id&&sides.length>1){side=pick(sides.filter(x=>x.id!==main.id));}
+    const box=q('#bbResult');box.hidden=false;
+    box.innerHTML=[{r:main,type:mainType,role:'主角'},{r:side,type:sideType,role:'搭配'}].map(({r,type,role})=>`
+      <button class="bb-card" type="button" data-bt="${type}" data-bid="${r.id}">
+        <span class="bb-role">${role}</span>
+        <img src="${bbImg(r,type)}" alt="${r.name}" loading="lazy">
+        <span class="bb-body"><h4>${r.name}</h4>
+        <span class="bb-meta">⏱ ${r.time} · 难度${r.level}</span>
+        <p class="bb-reason">💡 ${bbReason(r,role)}</p></span>
+      </button>`).join('');
+    box.querySelectorAll('.bb-card').forEach(c=>c.onclick=()=>{
+      const id=c.dataset.bid,ty=c.dataset.bt;
+      if(ty==='meal')openRecipe(id);else if(ty==='baking')openBaking(id);else openDrink(id);
+    });
+    q('#bbRe').hidden=false;
+    box.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
+  [['#bbMeal','meal'],['#bbTime','time'],['#bbTaste','taste']].forEach(([sel,key])=>{
+    q(sel).querySelectorAll('button').forEach(b=>b.onclick=()=>{
+      q(sel).querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+      bbState[key]=key==='time'?+b.dataset.v:b.dataset.v;
+    });
+  });
+  q('#bbGo').onclick=bbRoll;q('#bbRe').onclick=bbRoll;
+  /* ===== 食材替换助手 ===== */
+  function renderSubs(r){
+    const found=[];
+    (r.ingredients||[]).forEach(ing=>{substitutions.forEach(s=>{
+      if(found.some(f=>f.sub===s))return;
+      if(s.match.some(k=>ing.includes(k)))found.push({sub:s,ing});
+    });});
+    const box=q('#detailSub'),list=q('#subList');
+    if(!found.length){box.hidden=true;return;}
+    box.hidden=false;
+    list.innerHTML=found.map(({sub,ing})=>`
+      <div class="sub-item">
+        <button class="sub-head" type="button"><span>缺少${ing.split(' ')[0]}？试试 → <b>${sub.to}</b>${sub.risky?' <span class="sub-warn">⚠️替换有风险</span>':''}</span><span class="sub-arrow">▼</span></button>
+        <div class="sub-detail"><div><b>参考用量：</b>${sub.ratio}</div><div><b>风味差异：</b>${sub.flavor}</div><div><b>注意事项：</b>${sub.note}</div></div>
+      </div>`).join('');
+    list.querySelectorAll('.sub-head').forEach(b=>b.onclick=()=>b.closest('.sub-item').classList.toggle('open'));
+  }
+  /* ===== 失败风险提示 + 可信度 ===== */
+  function renderRisks(r){
+    const box=q('#detailRisk');const risks=r.risks||[];
+    if(!risks.length){box.hidden=true;return;}
+    box.hidden=false;
+    box.innerHTML=`<b>⚠️ 制作小贴士</b><ul>${risks.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  }
+  function renderCred(r){q('#detailCred').textContent=r.credibility||'编辑整理';}
+  /* ===== 今日食物故事 ===== */
+  let storyIdx=Math.floor(Date.now()/86400000)%foodStories.length;
+  function renderStory(){
+    const s=foodStories[storyIdx];
+    q('#storyImg').src=s.img;q('#storyImg').alt=s.title;
+    q('#storyTitle').textContent=s.title;q('#storyText').textContent=s.text;
+    const link=q('#storyLink');
+    if(s.link){link.hidden=false;link.textContent=s.link.label+' →';
+      link.onclick=e=>{e.preventDefault();
+        const id=s.link.id;
+        if(recipes.some(x=>x.id===id))openRecipe(id);
+        else if(bakingRecipes.some(x=>x.id===id))openBaking(id);
+        else if(drinkRecipes.some(x=>x.id===id))openDrink(id);};
+    }else link.hidden=true;
+  }
+  q('#storyMore').onclick=()=>{storyIdx=(storyIdx+1)%foodStories.length;renderStory();};
+  renderStory();
+
 </script>
 </body>
 </html>
