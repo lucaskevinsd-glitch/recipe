@@ -9,6 +9,10 @@
     ingredient: { kicker: 'INGREDIENTS', title: '全球食材百科', sub: '选购、保存、处理、营养与替换建议', cats: () => FA.config.ingCats },
   };
 
+  // 列表页路由必须与 app.js 中 FA.router.on 注册的路由一致
+  // (recipe→#/recipes, baking→#/baking, drink→#/drinks, ingredient→#/ingredients)
+  const LIST_ROUTE = { recipe: 'recipes', baking: 'baking', drink: 'drinks', ingredient: 'ingredients' };
+
   function listing(type, query) {
     const conf = TYPE_CONF[type];
     const cat = query.cat || '';
@@ -22,9 +26,10 @@
       const ids = new Set(r.map(x => x.item.id));
       items = items.filter(x => ids.has(x.id));
     }
+    const listBase = '#/' + LIST_ROUTE[type];
     const chips = conf.cats().map(c =>
-      `<a class="chip ${cat === c ? 'on' : ''}" href="#/${type === 'ingredient' ? 'ingredients' : type + 's'}${c ? '?cat=' + encodeURIComponent(c) : ''}">${c}</a>`).join('');
-    const base = `#/${type === 'ingredient' ? 'ingredients' : type + 's'}`;
+      `<a class="chip ${cat === c ? 'on' : ''}" href="${listBase}${c ? '?cat=' + encodeURIComponent(c) : ''}">${c}</a>`).join('');
+    const base = listBase;
     const qs = [cat && `cat=${encodeURIComponent(cat)}`, kw && `kw=${encodeURIComponent(kw)}`].filter(Boolean).join('&');
 
     const html = `${pageHead(conf.kicker, conf.title, `${conf.sub} · 共 ${items.length} 条`)}
