@@ -346,6 +346,58 @@
     .challenge-card p{margin:0 0 10px;color:var(--muted);font-size:.88rem}
     .challenge-card button{border:0;background:var(--green);color:#fff;border-radius:10px;padding:10px 20px;font-weight:700;cursor:pointer}
     .challenge-card button.done{background:#B9C9AE}
+    .fav-btn{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 18px;font-size:.92rem;font-weight:700;cursor:pointer;color:var(--ink)}
+    .fav-btn.on{background:#FFF3E0;border-color:#E8A93D;color:#B7791F}
+    .calc-box,.oven-box{background:#F9F7F0;border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+    .calc-box h3,.oven-box h3{margin:0 0 10px;font-size:1rem}
+    .calc-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+    .calc-row select,.calc-row input{border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.9rem;background:#fff}
+    .calc-row button{border:0;background:var(--green);color:#fff;border-radius:8px;padding:8px 18px;font-weight:700;cursor:pointer}
+    .calc-result{font-size:.9rem;line-height:1.9}
+    .calc-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+    .oven-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+    .oven-btns button{border:1px solid var(--green);background:#fff;color:var(--green);border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:.9rem}
+    .oven-btns button:disabled{opacity:.4;cursor:default}
+    .oven-display{font-size:1.6rem;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums}
+    .oven-msg{font-size:.88rem;color:var(--muted);margin-top:6px}
+    .cross-box{margin:18px 0 4px}
+    .cross-box h3{margin:0 0 4px;font-size:1.02rem}
+    .cross-box .cross-sub{font-size:.85rem;color:var(--muted);margin:0 0 12px}
+    .cross-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:560px){.cross-grid{grid-template-columns:1fr}}
+    .cross-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;padding:0;text-align:left}
+    .cross-card img{width:100%;height:110px;object-fit:cover;display:block}
+    .cross-card .cc-body{padding:10px 12px}
+    .cross-card .cc-body b{font-size:.92rem;display:block}
+    .cross-card .cc-body span{font-size:.78rem;color:var(--muted)}
+    .pair-box{background:#F4F7EF;border:1px solid #D8E2CC;border-radius:12px;padding:14px 16px;margin:14px 0}
+    .pair-box h4{margin:0 0 8px;font-size:.95rem}
+    .pair-box ul{margin:0;padding-left:18px;font-size:.88rem;line-height:1.9}
+    .pair-box .pair-why{color:var(--muted);font-size:.8rem}
+    .cab-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+    .cab-item{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.88rem;cursor:pointer;background:#fff}
+    .cab-item.on{background:var(--green);color:#fff;border-color:var(--green)}
+    .cab-make{margin-top:12px}
+    .cup-btns{display:flex;gap:8px;margin:10px 0}
+    .cup-btns button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 20px;font-weight:700;cursor:pointer;font-size:.9rem}
+    .cup-btns button.on{background:var(--green);color:#fff;border-color:var(--green)}
+    .daily-ing{background:linear-gradient(135deg,#F4F7EF,#EDF2E4);border:1px solid #D8E2CC;border-radius:16px;padding:20px 22px;margin:0 0 36px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .daily-ing img{width:88px;height:88px;object-fit:cover;border-radius:14px}
+    .daily-ing .di-body{flex:1;min-width:200px}
+    .daily-ing .di-body h3{margin:0 0 4px;font-size:1.05rem}
+    .daily-ing .di-body p{margin:0 0 8px;font-size:.88rem;color:var(--muted)}
+    .daily-ing .di-links{display:flex;gap:10px;flex-wrap:wrap}
+    .daily-ing .di-links button{border:1px solid var(--green);background:#fff;color:var(--green);border-radius:999px;padding:6px 16px;font-size:.85rem;font-weight:700;cursor:pointer}
+
+
+
+
+    .fav-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+    .fav-row img{width:56px;height:56px;object-fit:cover;border-radius:10px}
+    .fav-row .f-info{flex:1}.fav-row .f-info b{display:block;font-size:.95rem}.fav-row .f-info span{font-size:.8rem;color:var(--muted)}
+    .fav-row .f-del{border:0;background:none;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:4px 8px}
+    .fav-type{font-size:.8rem;color:var(--green);font-weight:700;margin:14px 0 4px}
+
     .evo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
     .evo-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px}
     .evo-card h4{margin:0 0 8px;font-size:1rem}
@@ -433,9 +485,9 @@
   const worldCuisines=[
     {flag:'🇨🇳',name:'中国',desc:'讲究火候与调味的平衡，一个菜系一种性格：川菜重麻辣，粤菜重原味，江浙偏清甜。',items:[{t:'meal',id:'tomato',name:'番茄炒蛋'},{t:'meal',id:'fish',name:'清蒸鲈鱼'},{t:'meal',id:'tofu',name:'菠菜豆腐汤'}]},
     {flag:'🇯🇵',name:'日本',desc:'追求食材本味与时令感，从一碗拉面到一杯抹茶，都讲究克制与精致。',items:[{t:'drink',id:'matcha-latte',name:'抹茶拿铁'},{name:'寿司（食材：鱼类）'},{name:'味噌汤（食材：大豆）'}]},
-    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
-    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',name:'可颂面包'},{t:'baking',id:'macaron',name:'马卡龙'},{t:'baking',id:'lemon-tart',name:'柠檬塔'}]},
-    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
+    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',sweetness:'中甜',texture:'丝滑',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
+    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',sweetness:'低甜',texture:'酥脆',name:'可颂面包'},{t:'baking',id:'macaron',sweetness:'高甜',texture:'酥脆',name:'马卡龙'},{t:'baking',id:'lemon-tart',sweetness:'中甜',texture:'酥脆',name:'柠檬塔'}]},
+    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',sweetness:'高甜',texture:'湿润',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
     {flag:'🇬🇧',name:'英国',desc:'下午茶文化的故乡，一杯红茶配司康，是刻在日常里的仪式感。',items:[{name:'英式红茶'},{name:'司康饼'},{name:'炸鱼薯条'}]},
     {flag:'🌏',name:'东南亚',desc:'热带风情：椰奶、香料、酸辣与清爽，天气热的地方，味道也热烈。',items:[{t:'drink',id:'mango-pomelo-sago',name:'杨枝甘露'},{name:'泰式奶茶'},{name:'海南鸡饭'}]},
     {flag:'🕌',name:'中东',desc:'香料之路的起点，鹰嘴豆、薄荷与咖啡在这里有上千年的历史。',items:[{name:'鹰嘴豆泥'},{name:'薄荷茶'},{name:'阿拉伯咖啡'}]}
@@ -494,7 +546,7 @@
   }
   function stockStatusText(st){return st==='fresh'?['新鲜','st-fresh']:st==='soon'?['尽快食用','st-soon']:['检查一下','st-check']}
   function renderMine(){
-    renderGrowth();renderDiary();renderAllergenSettings();renderStock();
+    renderGrowth();renderDiary();renderAllergenSettings();renderStock();renderFavList();renderCab();
   }
   function renderGrowth(){
     const g=loadGrowth();const body=q('#growthBody');if(!body)return;
@@ -652,6 +704,15 @@
         </div>
       </section>
 
+      <section class="daily-ing" aria-label="今日食材">
+        <img id="diImg" alt="">
+        <div class="di-body">
+          <h3 id="diTitle">今日食材</h3>
+          <p id="diDesc"></p>
+          <div class="di-links" id="diLinks"></div>
+        </div>
+      </section>
+
       <section class="home-3col" aria-label="今日推荐">
         <div class="home-card today-col">
           <div class="home-card-head">
@@ -776,6 +837,20 @@
         <button class="baking-cat" data-bcat="chocolate">🍫 巧克力</button>
         <button class="baking-cat" data-bcat="pie">🥧 派/塔</button>
       </div>
+      <div class="baking-cats" id="bakingSweet" style="margin-top:-12px">
+        <span style="align-self:center;font-size:.85rem;color:var(--muted)">甜度：</span>
+        <button class="baking-cat sweet-f active" data-sw="all">不限</button>
+        <button class="baking-cat sweet-f" data-sw="低甜">低甜</button>
+        <button class="baking-cat sweet-f" data-sw="中甜">中甜</button>
+        <button class="baking-cat sweet-f" data-sw="高甜">高甜</button>
+        <span style="align-self:center;font-size:.85rem;color:var(--muted);margin-left:8px">口感：</span>
+        <button class="baking-cat tex-f active" data-tx="all">不限</button>
+        <button class="baking-cat tex-f" data-tx="酥脆">酥脆</button>
+        <button class="baking-cat tex-f" data-tx="松软">松软</button>
+        <button class="baking-cat tex-f" data-tx="湿润">湿润</button>
+        <button class="baking-cat tex-f" data-tx="流心">流心</button>
+        <button class="baking-cat tex-f" data-tx="丝滑">丝滑</button>
+      </div>
 
       <div class="section-head">
         <div><h2>烘焙甜点推荐</h2><p class="sub">从经典到创意，轻松掌握烘焙技巧。</p></div>
@@ -857,6 +932,12 @@
         </div>
 
         <div class="mine-sec">
+          <h2>⭐ 我的收藏</h2>
+          <p class="sub">收藏喜欢的菜谱、烘焙和饮品</p>
+          <div id="favList"></div>
+        </div>
+
+        <div class="mine-sec">
           <h2>📓 我的味觉日记</h2>
           <p class="sub">记录做过什么、改过什么、喜欢什么</p>
           <div id="diaryStats"></div>
@@ -873,6 +954,13 @@
           </div>
           <div id="stockList"></div>
           <p class="sl-safe">食品安全提示：存放时间不明或明显变质的食物请谨慎处理，不要仅凭外观判断。</p>
+        </div>
+
+        <div class="mine-sec">
+          <h2>🥤 我的饮品柜</h2>
+          <p class="sub">勾选常备的饮品材料，看看现在能做什么</p>
+          <div class="cab-grid" id="cabGrid"></div>
+          <div class="cab-make" id="cabMake"></div>
         </div>
 
         <div class="mine-sec">
@@ -944,7 +1032,18 @@
 </div>
 
 <dialog id="recipeDialog" aria-labelledby="detailTitle">
-  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><h2 id="detailTitle"></h2><span class="cred-badge" id="detailCred" title="由编辑整理公开资料而成，未经实验室实测">编辑整理</span><div class="detail-alias" id="detailAlias"></div><div class="risk-box" id="detailRisk" hidden></div><div class="benefit-line" id="detailBenefits"></div><div class="cook-cta"><button id="startCooking" type="button">▶ 开始烹饪</button><span>全屏一步一步跟着做，手机放厨房也好用</span></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><div class="sub-box" id="detailSub" hidden><h3>🔄 食材替换助手</h3><div id="subList"></div></div><div class="allergen-line" id="detailAllergen" hidden></div><div class="lab-box" id="detailLab" hidden><h3>🧪 味道实验室</h3><p class="lab-sub">拖动滑杆，探索属于你的风味</p><div id="labSliders"></div><div class="lab-presets"><button type="button" data-preset="fresh">更清爽</button><button type="button" data-preset="rich">更浓郁</button><button type="button" data-preset="lessweet">少甜一点</button></div><div class="lab-desc" id="labDesc"></div><div class="lab-actions"><button type="button" id="labSave">保存我的版本</button><button type="button" class="ghost" id="labReset" hidden>恢复原版</button></div><div class="lab-mine" id="labMine" hidden></div></div><div class="equip-box" id="detailEquip" hidden><b>🍳 厨房设备适配</b><ul id="equipList"></ul></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
+  <div class="detail"><div class="detail-media"><img id="detailImage" alt=""></div><div class="detail-copy"><button class="close" type="button" aria-label="关闭">×</button><div style="display:flex;align-items:center;gap:10px"><h2 id="detailTitle" style="flex:1"></h2><button class="fav-btn" id="favBtn" type="button">♡ 收藏</button></div><span class="cred-badge" id="detailCred" title="由编辑整理公开资料而成，未经实验室实测">编辑整理</span><div class="detail-alias" id="detailAlias"></div><div class="risk-box" id="detailRisk" hidden></div><div class="benefit-line" id="detailBenefits"></div><div class="cook-cta"><button id="startCooking" type="button">▶ 开始烹饪</button><span>全屏一步一步跟着做，手机放厨房也好用</span></div><div class="detail-grid"><div><h3>主要食材</h3><ul id="detailIngredients"></ul><div class="cup-btns" id="cupBtns" hidden><span style="align-self:center;font-size:.9rem">份量：</span><button type="button" data-cup="1" class="on">1 杯</button><button type="button" data-cup="2">2 杯</button><button type="button" data-cup="4">4 杯</button></div><div><h3>做法</h3><ol id="detailSteps"></ol></div></div><div class="sub-box" id="detailSub" hidden><h3>🔄 食材替换助手</h3><div id="subList"></div></div><div class="allergen-line" id="detailAllergen" hidden></div><div class="lab-box" id="detailLab" hidden><h3>🧪 味道实验室</h3><p class="lab-sub">拖动滑杆，探索属于你的风味</p><div id="labSliders"></div><div class="lab-presets"><button type="button" data-preset="fresh">更清爽</button><button type="button" data-preset="rich">更浓郁</button><button type="button" data-preset="lessweet">少甜一点</button></div><div class="lab-desc" id="labDesc"></div><div class="lab-actions"><button type="button" id="labSave">保存我的版本</button><button type="button" class="ghost" id="labReset" hidden>恢复原版</button></div><div class="lab-mine" id="labMine" hidden></div></div><div class="equip-box" id="detailEquip" hidden><b>🍳 厨房设备适配</b><ul id="equipList"></ul></div>
+<div class="calc-box" id="detailCalc" hidden><h3>📐 烘焙计算器 · 配方换算</h3>
+<div class="calc-row"><span>模具：</span><select id="calcFrom"><option value="6">6 寸</option><option value="8">8 寸</option><option value="4">4 寸</option></select><span>→</span><select id="calcTo"><option value="6">6 寸</option><option value="8" selected>8 寸</option><option value="4">4 寸</option></select>
+<span style="margin-left:8px">或份量 ×</span><input id="calcServ" type="number" value="1" min="0.5" max="10" step="0.5" style="width:64px"><button type="button" id="calcGo">换算</button></div>
+<div class="calc-result" id="calcResult"></div>
+<p class="calc-note">按模具面积比例换算，仅供参考；烘焙涉及化学反应，时间与温度请按实际观察微调。</p></div>
+<div class="oven-box" id="detailOven" hidden><h3>🔥 烤箱助手</h3>
+<div class="oven-btns"><button type="button" id="ovenPre">开始预热计时（10分钟）</button><button type="button" id="ovenBake">开始烘烤计时</button><button type="button" id="ovenStop">停止</button></div>
+<div class="oven-display" id="ovenDisplay">--:--</div>
+<div class="oven-msg" id="ovenMsg">预热完成后放入面糊；烘烤中途注意观察上色。</div></div>
+<div class="cross-box" id="detailCross" hidden><h3 id="crossTitle"></h3><p class="cross-sub" id="crossSub"></p><div class="cross-grid" id="crossGrid"></div></div>
+<div class="pair-box" id="detailPair" hidden><h4 id="pairTitle"></h4><ul id="pairList"></ul></div><a class="source" id="detailSource" href="#" target="_blank" rel="noopener">查看图片来源</a><p class="notice">营养与身体作用为一般性饮食信息，不替代医疗或个体化营养建议。</p></div></div>
 </dialog>
 
 <dialog id="ingredientDialog" aria-labelledby="ingredientDetailTitle">
@@ -997,22 +1096,22 @@
   const recipes=[{id:'tomato',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'番茄炒蛋',alias:'又名：西红柿炒鸡蛋',image:'assets/img/full/img0001.webp',time:'15 分钟',level:'简单',labels:['家常菜','高蛋白'],cats:['快手','高蛋白'],summary:'酸甜开胃，蛋白质与番茄红素的家常组合。',tags:['蛋白质','番茄红素'],benefits:['肌肉修复支持','抗氧化营养','视力健康支持'],ingredients:['番茄 2 个','鸡蛋 3 个','葱花少许','食用油、盐适量'],steps:['鸡蛋加少许盐打散，热锅滑熟后盛出。','番茄切块，下锅翻炒至出汁。','倒回鸡蛋，调味后快速翻匀。'],stepTimes:[4,6,3],source:'https://preview.allhistory.com/detail/58f8845b55b54258e7001360'},{id:'fish',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'清蒸鲈鱼',alias:'又名：豉油蒸鲈鱼',image:'assets/img/full/img0002.jpg',time:'25 分钟',level:'简单',labels:['清淡','高蛋白'],cats:['高蛋白','清淡'],summary:'少油烹调，保留鱼肉鲜味与优质蛋白。',tags:['优质蛋白','维生素B12'],benefits:['肌肉与组织维护','神经系统支持','心血管饮食友好'],ingredients:['鲈鱼 1 条','姜丝、葱丝','蒸鱼豉油','少量食用油'],steps:['鱼处理干净，两面划刀并铺姜丝。','水开后上锅蒸约 8–10 分钟。','倒掉盘中汤汁，放葱丝，淋豉油与少量热油。'],stepTimes:[5,10,3],source:'https://www.matchingfoodandwine.com/news/recipes/steamed-sea-bass-with-ginger-and-spring-onionqing-zheng-lu-yu-/'},{id:'chicken',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'香菇鸡胸肉',alias:'又名：蘑菇炒鸡片',image:'assets/img/full/img0003.jpg',time:'25 分钟',level:'简单',labels:['高蛋白','快手'],cats:['高蛋白','快手'],summary:'鸡胸肉搭配菌菇，饱腹而不单调。',tags:['蛋白质','B族维生素'],benefits:['肌肉修复支持','能量代谢支持','饱腹感'],ingredients:['鸡胸肉 250 克','鲜香菇 6 朵','蒜 2 瓣','生抽、淀粉适量'],steps:['鸡胸切片，用生抽与淀粉抓匀腌 10 分钟。','香菇切片，锅中炒软盛出。','鸡片炒至变色，倒入香菇翻匀调味。'],stepTimes:[12,6,4],source:'https://mymorningmocha.com/chinese-chicken-and-mushroom/'},{id:'shrimp',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'西兰花炒虾仁',alias:'又名：西兰花虾仁',image:'assets/img/full/img0004.jpg',time:'20 分钟',level:'简单',labels:['高蛋白','清淡'],cats:['高蛋白','快手','清淡'],summary:'脆嫩清爽，一盘兼顾蔬菜和蛋白质。',tags:['维生素C','蛋白质'],benefits:['免疫功能支持','胶原合成支持','肌肉维护'],ingredients:['西兰花 1 小颗','虾仁 180 克','蒜 2 瓣','盐、白胡椒适量'],steps:['西兰花切小朵，沸水焯 1 分钟。','虾仁擦干，少油炒至卷曲变色。','加入蒜末和西兰花，大火翻匀调味。'],stepTimes:[3,4,3],source:'https://www.pljs.net/1/229292.html'},{id:'oatmeal',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'香蕉燕麦粥',alias:'又名：香蕉燕麦碗',image:'assets/img/full/img0005.jpg',time:'10 分钟',level:'简单',labels:['早餐','快手'],cats:['早餐','快手'],summary:'温热柔软，适合忙碌早晨的谷物搭配。',tags:['膳食纤维','钾'],benefits:['肠道健康支持','能量补给','心脏功能支持'],ingredients:['燕麦片 50 克','牛奶或豆奶 250 毫升','香蕉 1 根','坚果碎少许'],steps:['燕麦与牛奶放入小锅，中小火煮至浓稠。','香蕉一半压泥拌入，增加自然甜味。','盛出后铺剩余香蕉片与坚果。'],stepTimes:[5,2,2],source:'https://nourishingmeals.com/recipes/banana-oatmeal'},{id:'tofu',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'菠菜豆腐汤',alias:'又名：青菜豆腐汤',image:'assets/img/full/img0006.webp',time:'18 分钟',level:'简单',labels:['清淡','快手'],cats:['清淡','快手'],summary:'清爽汤菜，补充豆制品与深色叶菜。',tags:['叶酸','植物蛋白'],benefits:['骨骼营养支持','细胞代谢支持','水分补给'],ingredients:['菠菜 200 克','嫩豆腐 1 盒','姜 2 片','盐、香油少许'],steps:['菠菜洗净焯水，豆腐切块。','锅中水煮开，放姜片和豆腐煮 5 分钟。','加入菠菜煮软，调味后滴少许香油。'],stepTimes:[4,6,3],source:'https://ohsnapletseat.com/2021/12/11/vegetable-tofu-soup/'},{id:'beef',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'彩椒牛肉',alias:'又名：彩椒炒牛肉',image:'assets/img/full/img0007.webp',time:'25 分钟',level:'中等',labels:['高蛋白','下饭菜'],cats:['高蛋白','快手'],summary:'颜色丰富，牛肉与彩椒带来铁、蛋白质和维C。',tags:['铁','维生素C'],benefits:['红细胞生成支持','肌肉维护','铁吸收搭配'],ingredients:['牛里脊 200 克','红黄彩椒各半个','洋葱半个','生抽、淀粉适量'],steps:['牛肉逆纹切片，用生抽和淀粉腌制。','牛肉大火滑炒至变色后盛出。','彩椒洋葱炒至断生，倒回牛肉快速翻匀。'],stepTimes:[8,4,4],source:'https://thewoksoflife.com/prepare-beef-for-stir-fry/'},{id:'millet',risks:['火候过大容易糊锅，建议中小火','调味分次加入，避免一次过咸','食材新鲜度直接影响成品'],credibility:'编辑整理',name:'南瓜小米粥',alias:'又名：小米南瓜粥',image:'assets/img/full/img0008.png',time:'35 分钟',level:'简单',labels:['早餐','清淡'],cats:['早餐','清淡'],summary:'软糯温和，适合作为早餐或清淡主食。',tags:['碳水化合物','β-胡萝卜素'],benefits:['日常能量补给','视力健康支持','皮肤健康支持'],ingredients:['小米 60 克','南瓜 180 克','清水 700 毫升'],steps:['小米淘洗后浸泡 10 分钟。','南瓜去皮切丁，与小米一同入锅。','煮开后转小火 25 分钟，期间搅拌防粘。'],stepTimes:[5,5,25],source:'https://ihopesun.com/yinshi/46652.html'}];
   /* ===== 烘焙甜点数据 ===== */
   const bakingRecipes=[
-    {id:'strawberry-cake',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'草莓奶油蛋糕',alias:'经典生日蛋糕',image:'assets/img/full/baking1.jpg',time:'2 小时',level:'中等',labels:['经典'],cats:['cake'],summary:'蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。',tags:['奶油','草莓'],benefits:['心情愉悦','分享喜悦'],ingredients:['低筋面粉 80 克','鸡蛋 4 个','细砂糖 60 克','牛奶 40 毫升','玉米油 40 毫升','淡奶油 300 毫升','草莓 200 克','糖粉 20 克'],steps:['鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。','面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。','淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。','表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。'],stepTimes:[15,30,15,60],prepTime:'准备 30 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷藏 60 分钟',source:'#'},
-    {id:'cookies',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'曲奇饼干',alias:'黄油曲奇',image:'assets/img/full/baking2.jpg',time:'35 分钟',level:'简单',labels:['入门'],cats:['cookie'],summary:'黄油 + 面粉 + 糖，酥脆香甜，新手首选。',tags:['黄油','酥脆'],benefits:['下午茶搭配','简单易做'],ingredients:['黄油 100 克','低筋面粉 150 克','细砂糖 50 克','鸡蛋 1 个','香草精几滴'],steps:['黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。','筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。','烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。','取出冷却，密封保存。'],stepTimes:[10,5,15,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷却 5 分钟',source:'#'},
-    {id:'lava-cake',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'熔岩巧克力蛋糕',alias:'流心巧克力蛋糕',image:'assets/img/full/baking3.jpg',time:'35 分钟',level:'中等',labels:['热门'],cats:['chocolate','cake'],summary:'巧克力 + 蛋糕 + 流心，切开有惊喜。',tags:['巧克力','流心'],benefits:['浓郁口感','聚会亮点'],ingredients:['黑巧克力 100 克','黄油 80 克','鸡蛋 2 个','蛋黄 1 个','细砂糖 40 克','低筋面粉 30 克','可可粉少许'],steps:['巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。','面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。','倒扣脱模，撒可可粉，趁热切开享用流心。'],stepTimes:[10,10,10,5],prepTime:'准备 20 分钟',bakeTime:'烘烤 10 分钟',coolTime:'静置 5 分钟',source:'#'},
-    {id:'macaron',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'马卡龙',alias:'法式小圆饼',image:'assets/img/full/baking4.jpg',time:'90 分钟',level:'中等',labels:['创意'],cats:['cookie','dessert'],summary:'杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。',tags:['杏仁','法式'],benefits:['精致下午茶','送礼佳品'],ingredients:['杏仁粉 80 克','糖粉 80 克','蛋白 60 克（分两次）','细砂糖 60 克','食用色素少许','夹心奶油适量'],steps:['杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。','另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。','装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。','烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。'],stepTimes:[20,10,30,30],prepTime:'准备 30 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾皮+冷却 45 分钟',source:'#'},
-    {id:'basque-cheesecake',risks:['烤制表面焦黑是正常的，不要提前取出','冷藏后再切，切面更漂亮'],credibility:'编辑整理',name:'巴斯克芝士蛋糕',alias:'焦香芝士蛋糕',image:'assets/img/full/baking6.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake','dessert'],summary:'奶油奶酪 + 鸡蛋，表面焦香、中心流心。',tags:['芝士','流心'],benefits:['浓郁芝香','聚会人气'],ingredients:['奶油奶酪 250 克','细砂糖 80 克','鸡蛋 3 个','淡奶油 150 毫升','低筋面粉 15 克','玉米淀粉 10 克','香草精几滴'],steps:['奶油奶酪室温软化，加糖搅打顺滑，分次加入鸡蛋拌匀。','倒入淡奶油和香草精拌匀，筛入低筋面粉和玉米淀粉翻拌至无颗粒。','面糊倒入铺油纸的 6 寸模具，烤箱 220℃ 烤 25 分钟至表面焦黄。','出炉放凉 15 分钟后脱模切块，中心微流心口感最佳。'],stepTimes:[10,8,25,17],prepTime:'准备 18 分钟',bakeTime:'烘烤 25 分钟',coolTime:'冷却 17 分钟',source:'#'},
-    {id:'tiramisu',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'提拉米苏',alias:'意式咖啡蛋糕',image:'assets/img/full/baking7.jpg',time:'40 分钟+冷藏 4 小时',level:'中等',labels:['热门'],cats:['dessert'],summary:'马斯卡彭 + 咖啡 + 可可粉，免烤的意式经典。',tags:['咖啡','免烤'],benefits:['免烤简单','意式风情'],ingredients:['马斯卡彭 250 克','淡奶油 200 毫升','蛋黄 3 个','细砂糖 60 克','手指饼干 1 包','浓缩咖啡 200 毫升','可可粉适量'],steps:['蛋黄加糖隔水加热打发至浓稠，放凉备用。','马斯卡彭室温软化，与打发的淡奶油、蛋黄糊混合成顺滑芝士糊。','手指饼干快速蘸咖啡液，整齐铺入容器底层。','铺一层芝士糊，重复一层饼干一层芝士糊，抹平表面。','表面筛上可可粉，冷藏 4 小时以上定型后食用。'],stepTimes:[8,10,7,10,5],prepTime:'准备 35 分钟',bakeTime:'免烤',coolTime:'冷藏 4 小时',source:'#'},
-    {id:'portuguese-tart',risks:['蛋挞液表面起泡要撇掉，否则有蜂窝','烤好后别马上脱模，烫手且易碎'],credibility:'编辑整理',name:'葡式蛋挞',alias:'葡式蛋塔',image:'assets/img/full/baking8.jpg',time:'35 分钟',level:'简单',labels:['热门'],cats:['tart'],summary:'酥皮 + 蛋奶馅，烤出漂亮焦斑。',tags:['酥皮','蛋奶'],benefits:['外酥内嫩','下午茶首选'],ingredients:['蛋挞皮 8 个','牛奶 120 毫升','淡奶油 120 毫升','蛋黄 3 个','细砂糖 40 克','低筋面粉 10 克'],steps:['蛋挞皮室温解冻，码入模具备用。','牛奶、淡奶油、糖小火加热至糖化，放凉后加入蛋黄拌匀，过筛。','蛋挞液倒入挞皮八分满。','烤箱 220℃ 烤 15 分钟至表面出现焦斑，晾凉脱模。'],stepTimes:[5,10,5,15],prepTime:'准备 20 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾凉即食',source:'#'},
-    {id:'brownie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'巧克力布朗尼',alias:'美式巧克力蛋糕',image:'assets/img/full/baking9.jpg',time:'40 分钟',level:'简单',labels:['入门'],cats:['chocolate','cake'],summary:'浓郁巧克力 + 坚果，外脆内软。',tags:['巧克力','坚果'],benefits:['巧克力浓郁','简单易做'],ingredients:['黑巧克力 120 克','黄油 90 克','鸡蛋 2 个','细砂糖 80 克','低筋面粉 60 克','可可粉 15 克','核桃碎 40 克'],steps:['黑巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','加入糖和鸡蛋搅匀，筛入面粉和可可粉翻拌，加入坚果碎。','面糊倒入铺油纸的模具抹平，烤箱 175℃ 烤 20 分钟。','出炉放凉 5 分钟后切块，中心微湿润口感最佳。'],stepTimes:[8,7,20,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 20 分钟',coolTime:'冷却 5 分钟',source:'#'},
-    {id:'cinnamon-roll',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'肉桂卷',alias:'瑞典肉桂面包',image:'assets/img/full/baking10.jpg',time:'约 2 小时',level:'中等',labels:['香甜'],cats:['bread'],summary:'肉桂 + 糖霜，香甜松软的北欧风味。',tags:['肉桂','糖霜'],benefits:['香气浓郁','早餐人气'],ingredients:['高筋面粉 300 克','酵母 5 克','温牛奶 150 毫升','鸡蛋 1 个','黄油 40 克','细砂糖 40 克','肉桂粉 8 克','红糖 60 克','糖粉 50 克（糖霜用）'],steps:['面粉、酵母、温牛奶、鸡蛋、黄油、糖揉成光滑面团。','面团发酵 60 分钟至两倍大。','擀成长方形，抹软化黄油，撒肉桂红糖，卷起切 8 段，排入烤盘二发 20 分钟。','烤箱 180℃ 烤 20 分钟至金黄。','出炉趁热淋上糖霜即成。'],stepTimes:[15,60,30,20,5],prepTime:'准备 45 分钟',bakeTime:'烘烤 20 分钟',coolTime:'发酵 65 分钟',source:'#'},
-    {id:'chiffon-cake',risks:['蛋白霜打发是关键，不到位必塌','倒扣冷却不充分会回缩'],credibility:'编辑整理',name:'戚风蛋糕',alias:'气疯蛋糕',image:'assets/img/full/baking11.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake'],summary:'松软不塌，掌握蛋白打发的关键。',tags:['松软','基础'],benefits:['口感轻盈','烘焙基本功'],ingredients:['低筋面粉 85 克','鸡蛋 5 个','细砂糖 70 克','牛奶 50 毫升','玉米油 40 毫升'],steps:['蛋黄加牛奶、玉米油搅匀，筛入低筋面粉拌成顺滑蛋黄糊。','蛋白分三次加糖打发至硬性发泡，提起有直立尖角。','取三分之一蛋白霜与蛋黄糊翻拌，再倒回剩余蛋白霜中拌匀。','面糊倒入 8 寸模具，烤箱 160℃ 烤 30 分钟。','出炉震出热气后倒扣，放凉后脱模。'],stepTimes:[10,10,8,30,2],prepTime:'准备 28 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷却 2 分钟',source:'#'},
-    {id:'lemon-tart',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'柠檬塔',alias:'法式柠檬挞',image:'assets/img/full/baking12.jpg',time:'70 分钟',level:'中等',labels:['清爽'],cats:['tart'],summary:'酸甜柠檬馅 + 酥脆塔皮，清新不腻。',tags:['柠檬','酸甜'],benefits:['清爽解腻','颜值担当'],ingredients:['黄油 90 克','糖粉 50 克','鸡蛋 1 个','低筋面粉 180 克','柠檬汁 80 毫升','柠檬皮屑 1 个','细砂糖 80 克','鸡蛋 2 个（馅用）','黄油 60 克（馅用）'],steps:['黄油加糖粉打发，加入蛋液，拌入低筋面粉成团，冷藏松弛 20 分钟。','面团擀开铺入塔模，用叉子扎洞，烤箱 180℃ 烤 15 分钟定型。','柠檬汁、柠檬皮屑、糖、鸡蛋、黄油隔水加热，不断搅拌成浓稠柠檬馅。','柠檬馅倒入塔壳抹平，冷藏 20 分钟定型，表面装饰柠檬片。'],stepTimes:[10,25,15,20],prepTime:'准备 25 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷藏 30 分钟',source:'#'},
-    {id:'apple-pie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'苹果派',alias:'美式苹果派',image:'assets/img/full/baking13.jpg',time:'75 分钟',level:'中等',labels:['经典'],cats:['tart'],summary:'肉桂苹果馅，烤得金黄酥脆。',tags:['苹果','肉桂'],benefits:['果香浓郁','节日氛围'],ingredients:['低筋面粉 250 克','黄油 150 克','细砂糖 30 克','盐 2 克','冰水 60 毫升','苹果 3 个','肉桂粉 5 克','细砂糖 60 克（馅用）','柠檬汁 10 毫升'],steps:['面粉、黄油、糖、盐搓成粗粒，加冰水揉成团，冷藏 30 分钟。','苹果切片，加肉桂粉、糖、柠檬汁拌匀，静置 10 分钟。','面团擀开铺入派盘，填入苹果馅，顶部编织格子盖。','烤箱 200℃ 烤 35 分钟至金黄，晾凉 5 分钟后切块。'],stepTimes:[10,10,15,40],prepTime:'准备 35 分钟',bakeTime:'烘烤 35 分钟',coolTime:'晾凉 5 分钟',source:'#'},
-    {id:'croissant',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'可颂面包',alias:'牛角面包',image:'assets/img/full/baking14.jpg',time:'3 小时',level:'较难',labels:['热门'],cats:['bread'],summary:'黄油开酥，层层分明的法式经典。',tags:['黄油','开酥'],benefits:['酥脆掉渣','法式早餐'],ingredients:['高筋面粉 300 克','酵母 6 克','细砂糖 30 克','盐 5 克','牛奶 160 毫升','黄油 30 克（面团用）','裹入黄油 150 克','蛋液少许（刷面用）'],steps:['面粉、酵母、糖、盐、牛奶、黄油揉成面团，冷藏 1 小时。','裹入黄油擀成薄片包入面团，三折两次，每次冷藏松弛 30 分钟。','面团擀开切三角形，卷成牛角形，发酵 45 分钟。','表面刷蛋液，烤箱 200℃ 烤 18 分钟至金黄酥脆。','出炉放凉，层次分明，趁新鲜食用。'],stepTimes:[15,80,65,18,2],prepTime:'准备 55 分钟',bakeTime:'烘烤 18 分钟',coolTime:'冷藏发酵 107 分钟',source:'#'},
-    {id:'oatmeal-cookie',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'燕麦饼干',alias:'健康燕麦曲奇',image:'assets/img/full/baking15.jpg',time:'30 分钟',level:'简单',labels:['健康'],cats:['cookie'],summary:'燕麦 + 坚果，低负担的健康小食。',tags:['燕麦','低负担'],benefits:['膳食纤维','健康解馋'],ingredients:['黄油 80 克','红糖 60 克','鸡蛋 1 个','燕麦片 120 克','低筋面粉 60 克','坚果碎 40 克','肉桂粉少许'],steps:['黄油室温软化，加红糖打发，加入蛋液拌匀。','加入燕麦片、面粉、坚果碎和肉桂粉翻拌成团。','面团分成小球压扁，间隔排入烤盘。','烤箱 170℃ 烤 12 分钟至边缘金黄，晾凉后变脆。'],stepTimes:[8,5,5,12],prepTime:'准备 18 分钟',bakeTime:'烘烤 12 分钟',coolTime:'晾凉即食',source:'#'},
-    {id:'xuemeiniang',risks:['糯米皮要趁热包，凉了会裂','奶油打发不足包不住馅'],credibility:'编辑整理',name:'雪媚娘',alias:'日式大福',image:'assets/img/full/baking16.jpg',time:'50 分钟',level:'简单',labels:['人气'],cats:['dessert'],summary:'糯米皮 + 奶油 + 水果，软糯香甜。',tags:['糯米','奶油'],benefits:['软糯口感','水果清香'],ingredients:['糯米粉 100 克','玉米淀粉 30 克','细砂糖 40 克','牛奶 180 毫升','黄油 20 克','淡奶油 200 毫升','糖粉 15 克','水果丁适量','熟糯米粉少许（防粘）'],steps:['糯米粉、玉米淀粉、糖、牛奶混合搅匀，过筛去颗粒。','加入黄油，蒸 20 分钟至熟透，趁热搅拌至光滑有弹性。','放凉后分成小剂子，擀成圆皮。','包入打发的淡奶油和水果丁，收口，冷藏 10 分钟定型。'],stepTimes:[8,22,10,10],prepTime:'准备 18 分钟',bakeTime:'蒸制 20 分钟',coolTime:'冷藏 12 分钟',source:'#'},
-    {id:'chocolate-mousse',risks:['巧克力温度过高拌入奶油会消泡','冷藏不足4小时不成型'],credibility:'编辑整理',name:'巧克力慕斯',alias:'法式巧克力慕斯',image:'assets/img/full/baking17.jpg',time:'30 分钟+冷藏 3 小时',level:'简单',labels:['丝滑'],cats:['chocolate','dessert'],summary:'黑巧 + 淡奶油，丝滑浓郁免烤。',tags:['巧克力','免烤'],benefits:['丝滑口感','免烤简单'],ingredients:['黑巧克力 120 克','淡奶油 250 毫升','鸡蛋 2 个','细砂糖 30 克','可可粉少许（装饰）'],steps:['黑巧克力隔水融化，稍冷却至不烫手。','淡奶油打发至六成，取一半与巧克力液混合均匀。','剩余淡奶油打发至硬性，分两次与巧克力糊翻拌均匀。','装入杯中，冷藏 3 小时定型，表面筛可可粉。'],stepTimes:[8,7,8,7],prepTime:'准备 23 分钟',bakeTime:'免烤',coolTime:'冷藏 3 小时',source:'#'}
+    {id:'strawberry-cake',sweetness:'高甜',texture:'松软',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'草莓奶油蛋糕',alias:'经典生日蛋糕',image:'assets/img/full/baking1.jpg',time:'2 小时',level:'中等',labels:['经典'],cats:['cake'],summary:'蛋糕胚 + 淡奶油 + 新鲜草莓，松软香甜。',tags:['奶油','草莓'],benefits:['心情愉悦','分享喜悦'],ingredients:['低筋面粉 80 克','鸡蛋 4 个','细砂糖 60 克','牛奶 40 毫升','玉米油 40 毫升','淡奶油 300 毫升','草莓 200 克','糖粉 20 克'],steps:['鸡蛋加糖打发至浓稠，筛入低筋面粉翻拌均匀，倒入牛奶和玉米油拌匀。','面糊倒入 6 寸模具，烤箱 170℃ 烤 30 分钟，取出倒扣冷却后脱模，切成 3 片。','淡奶油加糖粉打发至硬性，一层蛋糕一层奶油一层草莓组装。','表面抹平奶油，摆上草莓装饰，冷藏 1 小时定型。'],stepTimes:[15,30,15,60],prepTime:'准备 30 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷藏 60 分钟',source:'#'},
+    {id:'cookies',sweetness:'高甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'曲奇饼干',alias:'黄油曲奇',image:'assets/img/full/baking2.jpg',time:'35 分钟',level:'简单',labels:['入门'],cats:['cookie'],summary:'黄油 + 面粉 + 糖，酥脆香甜，新手首选。',tags:['黄油','酥脆'],benefits:['下午茶搭配','简单易做'],ingredients:['黄油 100 克','低筋面粉 150 克','细砂糖 50 克','鸡蛋 1 个','香草精几滴'],steps:['黄油室温软化，加糖打发至蓬松，分次加入蛋液拌匀。','筛入低筋面粉，用刮刀翻拌成面团，装入裱花袋。','烤盘垫油纸，挤出花纹，烤箱 170℃ 烤 15 分钟至边缘金黄。','取出冷却，密封保存。'],stepTimes:[10,5,15,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷却 5 分钟',source:'#'},
+    {id:'lava-cake',sweetness:'高甜',texture:'流心',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'熔岩巧克力蛋糕',alias:'流心巧克力蛋糕',image:'assets/img/full/baking3.jpg',time:'35 分钟',level:'中等',labels:['热门'],cats:['chocolate','cake'],summary:'巧克力 + 蛋糕 + 流心，切开有惊喜。',tags:['巧克力','流心'],benefits:['浓郁口感','聚会亮点'],ingredients:['黑巧克力 100 克','黄油 80 克','鸡蛋 2 个','蛋黄 1 个','细砂糖 40 克','低筋面粉 30 克','可可粉少许'],steps:['巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','鸡蛋、蛋黄加糖打发至浓稠，倒入巧克力液拌匀，筛入面粉翻拌。','面糊倒入抹油撒粉的模具，烤箱 220℃ 烤 8-10 分钟，边缘凝固中心晃动即可。','倒扣脱模，撒可可粉，趁热切开享用流心。'],stepTimes:[10,10,10,5],prepTime:'准备 20 分钟',bakeTime:'烘烤 10 分钟',coolTime:'静置 5 分钟',source:'#'},
+    {id:'macaron',sweetness:'高甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'马卡龙',alias:'法式小圆饼',image:'assets/img/full/baking4.jpg',time:'90 分钟',level:'中等',labels:['创意'],cats:['cookie','dessert'],summary:'杏仁粉 + 蛋白 + 糖，外酥内软，色彩缤纷。',tags:['杏仁','法式'],benefits:['精致下午茶','送礼佳品'],ingredients:['杏仁粉 80 克','糖粉 80 克','蛋白 60 克（分两次）','细砂糖 60 克','食用色素少许','夹心奶油适量'],steps:['杏仁粉和糖粉混合过筛。30 克蛋白与粉类拌成杏仁糊。','另 30 克蛋白加糖打发至硬性，分两次与杏仁糊翻拌至丝带状。','装入裱花袋挤出圆片，晾皮 30 分钟至表面不粘手。','烤箱 150℃ 烤 12-15 分钟，冷却后配对夹入奶油。'],stepTimes:[20,10,30,30],prepTime:'准备 30 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾皮+冷却 45 分钟',source:'#'},
+    {id:'basque-cheesecake',sweetness:'中甜',texture:'湿润',risks:['烤制表面焦黑是正常的，不要提前取出','冷藏后再切，切面更漂亮'],credibility:'编辑整理',name:'巴斯克芝士蛋糕',alias:'焦香芝士蛋糕',image:'assets/img/full/baking6.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake','dessert'],summary:'奶油奶酪 + 鸡蛋，表面焦香、中心流心。',tags:['芝士','流心'],benefits:['浓郁芝香','聚会人气'],ingredients:['奶油奶酪 250 克','细砂糖 80 克','鸡蛋 3 个','淡奶油 150 毫升','低筋面粉 15 克','玉米淀粉 10 克','香草精几滴'],steps:['奶油奶酪室温软化，加糖搅打顺滑，分次加入鸡蛋拌匀。','倒入淡奶油和香草精拌匀，筛入低筋面粉和玉米淀粉翻拌至无颗粒。','面糊倒入铺油纸的 6 寸模具，烤箱 220℃ 烤 25 分钟至表面焦黄。','出炉放凉 15 分钟后脱模切块，中心微流心口感最佳。'],stepTimes:[10,8,25,17],prepTime:'准备 18 分钟',bakeTime:'烘烤 25 分钟',coolTime:'冷却 17 分钟',source:'#'},
+    {id:'tiramisu',sweetness:'中甜',texture:'丝滑',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'提拉米苏',alias:'意式咖啡蛋糕',image:'assets/img/full/baking7.jpg',time:'40 分钟+冷藏 4 小时',level:'中等',labels:['热门'],cats:['dessert'],summary:'马斯卡彭 + 咖啡 + 可可粉，免烤的意式经典。',tags:['咖啡','免烤'],benefits:['免烤简单','意式风情'],ingredients:['马斯卡彭 250 克','淡奶油 200 毫升','蛋黄 3 个','细砂糖 60 克','手指饼干 1 包','浓缩咖啡 200 毫升','可可粉适量'],steps:['蛋黄加糖隔水加热打发至浓稠，放凉备用。','马斯卡彭室温软化，与打发的淡奶油、蛋黄糊混合成顺滑芝士糊。','手指饼干快速蘸咖啡液，整齐铺入容器底层。','铺一层芝士糊，重复一层饼干一层芝士糊，抹平表面。','表面筛上可可粉，冷藏 4 小时以上定型后食用。'],stepTimes:[8,10,7,10,5],prepTime:'准备 35 分钟',bakeTime:'免烤',coolTime:'冷藏 4 小时',source:'#'},
+    {id:'portuguese-tart',sweetness:'中甜',texture:'酥脆',risks:['蛋挞液表面起泡要撇掉，否则有蜂窝','烤好后别马上脱模，烫手且易碎'],credibility:'编辑整理',name:'葡式蛋挞',alias:'葡式蛋塔',image:'assets/img/full/baking8.jpg',time:'35 分钟',level:'简单',labels:['热门'],cats:['tart'],summary:'酥皮 + 蛋奶馅，烤出漂亮焦斑。',tags:['酥皮','蛋奶'],benefits:['外酥内嫩','下午茶首选'],ingredients:['蛋挞皮 8 个','牛奶 120 毫升','淡奶油 120 毫升','蛋黄 3 个','细砂糖 40 克','低筋面粉 10 克'],steps:['蛋挞皮室温解冻，码入模具备用。','牛奶、淡奶油、糖小火加热至糖化，放凉后加入蛋黄拌匀，过筛。','蛋挞液倒入挞皮八分满。','烤箱 220℃ 烤 15 分钟至表面出现焦斑，晾凉脱模。'],stepTimes:[5,10,5,15],prepTime:'准备 20 分钟',bakeTime:'烘烤 15 分钟',coolTime:'晾凉即食',source:'#'},
+    {id:'brownie',sweetness:'高甜',texture:'湿润',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'巧克力布朗尼',alias:'美式巧克力蛋糕',image:'assets/img/full/baking9.jpg',time:'40 分钟',level:'简单',labels:['入门'],cats:['chocolate','cake'],summary:'浓郁巧克力 + 坚果，外脆内软。',tags:['巧克力','坚果'],benefits:['巧克力浓郁','简单易做'],ingredients:['黑巧克力 120 克','黄油 90 克','鸡蛋 2 个','细砂糖 80 克','低筋面粉 60 克','可可粉 15 克','核桃碎 40 克'],steps:['黑巧克力和黄油隔水融化，搅拌顺滑后稍冷却。','加入糖和鸡蛋搅匀，筛入面粉和可可粉翻拌，加入坚果碎。','面糊倒入铺油纸的模具抹平，烤箱 175℃ 烤 20 分钟。','出炉放凉 5 分钟后切块，中心微湿润口感最佳。'],stepTimes:[8,7,20,5],prepTime:'准备 15 分钟',bakeTime:'烘烤 20 分钟',coolTime:'冷却 5 分钟',source:'#'},
+    {id:'cinnamon-roll',sweetness:'高甜',texture:'松软',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'肉桂卷',alias:'瑞典肉桂面包',image:'assets/img/full/baking10.jpg',time:'约 2 小时',level:'中等',labels:['香甜'],cats:['bread'],summary:'肉桂 + 糖霜，香甜松软的北欧风味。',tags:['肉桂','糖霜'],benefits:['香气浓郁','早餐人气'],ingredients:['高筋面粉 300 克','酵母 5 克','温牛奶 150 毫升','鸡蛋 1 个','黄油 40 克','细砂糖 40 克','肉桂粉 8 克','红糖 60 克','糖粉 50 克（糖霜用）'],steps:['面粉、酵母、温牛奶、鸡蛋、黄油、糖揉成光滑面团。','面团发酵 60 分钟至两倍大。','擀成长方形，抹软化黄油，撒肉桂红糖，卷起切 8 段，排入烤盘二发 20 分钟。','烤箱 180℃ 烤 20 分钟至金黄。','出炉趁热淋上糖霜即成。'],stepTimes:[15,60,30,20,5],prepTime:'准备 45 分钟',bakeTime:'烘烤 20 分钟',coolTime:'发酵 65 分钟',source:'#'},
+    {id:'chiffon-cake',sweetness:'低甜',texture:'松软',risks:['蛋白霜打发是关键，不到位必塌','倒扣冷却不充分会回缩'],credibility:'编辑整理',name:'戚风蛋糕',alias:'气疯蛋糕',image:'assets/img/full/baking11.jpg',time:'60 分钟',level:'中等',labels:['经典'],cats:['cake'],summary:'松软不塌，掌握蛋白打发的关键。',tags:['松软','基础'],benefits:['口感轻盈','烘焙基本功'],ingredients:['低筋面粉 85 克','鸡蛋 5 个','细砂糖 70 克','牛奶 50 毫升','玉米油 40 毫升'],steps:['蛋黄加牛奶、玉米油搅匀，筛入低筋面粉拌成顺滑蛋黄糊。','蛋白分三次加糖打发至硬性发泡，提起有直立尖角。','取三分之一蛋白霜与蛋黄糊翻拌，再倒回剩余蛋白霜中拌匀。','面糊倒入 8 寸模具，烤箱 160℃ 烤 30 分钟。','出炉震出热气后倒扣，放凉后脱模。'],stepTimes:[10,10,8,30,2],prepTime:'准备 28 分钟',bakeTime:'烘烤 30 分钟',coolTime:'冷却 2 分钟',source:'#'},
+    {id:'lemon-tart',sweetness:'中甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'柠檬塔',alias:'法式柠檬挞',image:'assets/img/full/baking12.jpg',time:'70 分钟',level:'中等',labels:['清爽'],cats:['tart'],summary:'酸甜柠檬馅 + 酥脆塔皮，清新不腻。',tags:['柠檬','酸甜'],benefits:['清爽解腻','颜值担当'],ingredients:['黄油 90 克','糖粉 50 克','鸡蛋 1 个','低筋面粉 180 克','柠檬汁 80 毫升','柠檬皮屑 1 个','细砂糖 80 克','鸡蛋 2 个（馅用）','黄油 60 克（馅用）'],steps:['黄油加糖粉打发，加入蛋液，拌入低筋面粉成团，冷藏松弛 20 分钟。','面团擀开铺入塔模，用叉子扎洞，烤箱 180℃ 烤 15 分钟定型。','柠檬汁、柠檬皮屑、糖、鸡蛋、黄油隔水加热，不断搅拌成浓稠柠檬馅。','柠檬馅倒入塔壳抹平，冷藏 20 分钟定型，表面装饰柠檬片。'],stepTimes:[10,25,15,20],prepTime:'准备 25 分钟',bakeTime:'烘烤 15 分钟',coolTime:'冷藏 30 分钟',source:'#'},
+    {id:'apple-pie',sweetness:'中甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'苹果派',alias:'美式苹果派',image:'assets/img/full/baking13.jpg',time:'75 分钟',level:'中等',labels:['经典'],cats:['tart'],summary:'肉桂苹果馅，烤得金黄酥脆。',tags:['苹果','肉桂'],benefits:['果香浓郁','节日氛围'],ingredients:['低筋面粉 250 克','黄油 150 克','细砂糖 30 克','盐 2 克','冰水 60 毫升','苹果 3 个','肉桂粉 5 克','细砂糖 60 克（馅用）','柠檬汁 10 毫升'],steps:['面粉、黄油、糖、盐搓成粗粒，加冰水揉成团，冷藏 30 分钟。','苹果切片，加肉桂粉、糖、柠檬汁拌匀，静置 10 分钟。','面团擀开铺入派盘，填入苹果馅，顶部编织格子盖。','烤箱 200℃ 烤 35 分钟至金黄，晾凉 5 分钟后切块。'],stepTimes:[10,10,15,40],prepTime:'准备 35 分钟',bakeTime:'烘烤 35 分钟',coolTime:'晾凉 5 分钟',source:'#'},
+    {id:'croissant',sweetness:'低甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'可颂面包',alias:'牛角面包',image:'assets/img/full/baking14.jpg',time:'3 小时',level:'较难',labels:['热门'],cats:['bread'],summary:'黄油开酥，层层分明的法式经典。',tags:['黄油','开酥'],benefits:['酥脆掉渣','法式早餐'],ingredients:['高筋面粉 300 克','酵母 6 克','细砂糖 30 克','盐 5 克','牛奶 160 毫升','黄油 30 克（面团用）','裹入黄油 150 克','蛋液少许（刷面用）'],steps:['面粉、酵母、糖、盐、牛奶、黄油揉成面团，冷藏 1 小时。','裹入黄油擀成薄片包入面团，三折两次，每次冷藏松弛 30 分钟。','面团擀开切三角形，卷成牛角形，发酵 45 分钟。','表面刷蛋液，烤箱 200℃ 烤 18 分钟至金黄酥脆。','出炉放凉，层次分明，趁新鲜食用。'],stepTimes:[15,80,65,18,2],prepTime:'准备 55 分钟',bakeTime:'烘烤 18 分钟',coolTime:'冷藏发酵 107 分钟',source:'#'},
+    {id:'oatmeal-cookie',sweetness:'低甜',texture:'酥脆',risks:['烤箱实际温度与设定常有偏差，建议备个温度计','烘焙中途频繁开烤箱门会导致塌陷','配方比例不宜随意增减'],credibility:'编辑整理',name:'燕麦饼干',alias:'健康燕麦曲奇',image:'assets/img/full/baking15.jpg',time:'30 分钟',level:'简单',labels:['健康'],cats:['cookie'],summary:'燕麦 + 坚果，低负担的健康小食。',tags:['燕麦','低负担'],benefits:['膳食纤维','健康解馋'],ingredients:['黄油 80 克','红糖 60 克','鸡蛋 1 个','燕麦片 120 克','低筋面粉 60 克','坚果碎 40 克','肉桂粉少许'],steps:['黄油室温软化，加红糖打发，加入蛋液拌匀。','加入燕麦片、面粉、坚果碎和肉桂粉翻拌成团。','面团分成小球压扁，间隔排入烤盘。','烤箱 170℃ 烤 12 分钟至边缘金黄，晾凉后变脆。'],stepTimes:[8,5,5,12],prepTime:'准备 18 分钟',bakeTime:'烘烤 12 分钟',coolTime:'晾凉即食',source:'#'},
+    {id:'xuemeiniang',sweetness:'中甜',texture:'丝滑',risks:['糯米皮要趁热包，凉了会裂','奶油打发不足包不住馅'],credibility:'编辑整理',name:'雪媚娘',alias:'日式大福',image:'assets/img/full/baking16.jpg',time:'50 分钟',level:'简单',labels:['人气'],cats:['dessert'],summary:'糯米皮 + 奶油 + 水果，软糯香甜。',tags:['糯米','奶油'],benefits:['软糯口感','水果清香'],ingredients:['糯米粉 100 克','玉米淀粉 30 克','细砂糖 40 克','牛奶 180 毫升','黄油 20 克','淡奶油 200 毫升','糖粉 15 克','水果丁适量','熟糯米粉少许（防粘）'],steps:['糯米粉、玉米淀粉、糖、牛奶混合搅匀，过筛去颗粒。','加入黄油，蒸 20 分钟至熟透，趁热搅拌至光滑有弹性。','放凉后分成小剂子，擀成圆皮。','包入打发的淡奶油和水果丁，收口，冷藏 10 分钟定型。'],stepTimes:[8,22,10,10],prepTime:'准备 18 分钟',bakeTime:'蒸制 20 分钟',coolTime:'冷藏 12 分钟',source:'#'},
+    {id:'chocolate-mousse',sweetness:'中甜',texture:'丝滑',risks:['巧克力温度过高拌入奶油会消泡','冷藏不足4小时不成型'],credibility:'编辑整理',name:'巧克力慕斯',alias:'法式巧克力慕斯',image:'assets/img/full/baking17.jpg',time:'30 分钟+冷藏 3 小时',level:'简单',labels:['丝滑'],cats:['chocolate','dessert'],summary:'黑巧 + 淡奶油，丝滑浓郁免烤。',tags:['巧克力','免烤'],benefits:['丝滑口感','免烤简单'],ingredients:['黑巧克力 120 克','淡奶油 250 毫升','鸡蛋 2 个','细砂糖 30 克','可可粉少许（装饰）'],steps:['黑巧克力隔水融化，稍冷却至不烫手。','淡奶油打发至六成，取一半与巧克力液混合均匀。','剩余淡奶油打发至硬性，分两次与巧克力糊翻拌均匀。','装入杯中，冷藏 3 小时定型，表面筛可可粉。'],stepTimes:[8,7,8,7],prepTime:'准备 23 分钟',bakeTime:'免烤',coolTime:'冷藏 3 小时',source:'#'}
   ];
   const bakingCats=[{id:'all',name:'🍰 蛋糕'},{id:'cake',name:'🍰 蛋糕'},{id:'cookie',name:'🍪 饼干'},{id:'bread',name:'🥐 面包'},{id:'dessert',name:'🍮 甜品'},{id:'chocolate',name:'🍫 巧克力'},{id:'pie',name:'🥧 派/塔'}];
   const academyCourses=[
@@ -1375,15 +1474,16 @@
   }
   function openRecipe(id){
     const r=recipes.find(x=>x.id===id); if(!r)return;
+    curDetailId=id;curDetailType='meal';renderFavBtn();q('#detailCalc').hidden=true;q('#detailOven').hidden=true;renderCross(r,'meal');renderPairings(r,'meal');q('#cupBtns').hidden=true;
     q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level}`;
     q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
     renderRisks(r);renderSubs(r);renderCred(r);renderEquip(r,'meal');renderAllergenTags(r);q('#detailLab').hidden=true;q('#recipeDialog').showModal();
   }
-  let bakingFilter='all';
+  let bakingFilter='all',bakingSweet='all',bakingTex='all';
   function renderBaking(){
     const term=normalizeSearch(searchInput.value);
-    let list=bakingRecipes.filter(r=>(bakingFilter==='all'||r.cats.includes(bakingFilter))&&bakingMatches(r,term)&&!hasExcluded(r));
+    let list=bakingRecipes.filter(r=>(bakingFilter==='all'||r.cats.includes(bakingFilter))&&(bakingSweet==='all'||r.sweetness===bakingSweet)&&(bakingTex==='all'||r.texture===bakingTex)&&bakingMatches(r,term)&&!hasExcluded(r));
     q('#bakingGrid').innerHTML=list.map(r=>`<article class="baking-card" data-bid="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="bimg"><img src="${r.image}" alt="${r.name}" loading="lazy"><span class="baking-badge">${r.labels[0]}</span></div><div class="bbody"><h3>${r.name}</h3><div class="baking-meta"><span>⏱ ${r.time}</span><span class="baking-level">${r.level}</span></div><p class="bdesc">${r.summary}</p><div class="baking-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join('');
     qa('#bakingGrid .baking-card').forEach(c=>{c.onclick=()=>openBaking(c.dataset.bid);c.onkeydown=e=>{if(e.key==='Enter')openBaking(c.dataset.bid)}});
     q('#academyGrid').innerHTML=academyCourses.map(c=>`<div class="academy-card"><h3><span class="lv">${c.lv}</span>${c.name}</h3><p>${c.desc}</p></div>`).join('');
@@ -1391,10 +1491,12 @@
   }
   function openBaking(id){
     const r=bakingRecipes.find(x=>x.id===id);if(!r)return;
+    curDetailId=id;curDetailType='baking';renderFavBtn();renderBakingCalc(r);renderOven(r);renderCross(r,'baking');renderPairings(r,'baking');q('#cupBtns').hidden=true;
     q('#detailImage').src=r.image;q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;
     q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level} · ${r.prepTime}｜${r.bakeTime}｜${r.coolTime}`;
     q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('');
-    q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');
+    q('#detailIngredients').innerHTML=r.ingredients.map(x=>ingLinkHTML(x)).join('');
+    q('#detailIngredients').querySelectorAll('.ing-link').forEach(a=>a.addEventListener('click',()=>{q('#recipeDialog').close();openIngredient(a.dataset.ing)}));
     q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');
     q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
@@ -1426,6 +1528,7 @@
   }
   function openDrink(id){
     const r=drinkRecipes.find(x=>x.id===id);if(!r)return;
+    curDetailId=id;curDetailType='drink';renderFavBtn();q('#detailCalc').hidden=true;q('#detailOven').hidden=true;renderCross(null,'drink');renderPairings(r,'drink');renderCupBtns(r);
     q('#detailImage').src=drinkArt(r);q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;
     q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level}`;
     q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('')+`<span class="drink-param">关键参数 · 甜度 ${r.params.sweet}｜冰量 ${r.params.ice}｜浓度 ${r.params.strength}</span>`;
@@ -1434,6 +1537,309 @@
     q('#detailSource').href=r.source;
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
     renderRisks(r);renderSubs(r);renderCred(r);renderEquip(r,'drink');renderAllergenTags(r);renderFlavorLab(r);q('#recipeDialog').showModal();
+  }
+  /* ===== 我的饮品柜 ===== */
+  const DRINK_CAB_KEY='foodatlas-drinkcab-v1';
+  const DRINK_CAB_PRESET=['咖啡豆','茶叶','牛奶','燕麦奶','蜂蜜','白糖','柠檬','青柠','气泡水','可可粉','抹茶粉','珍珠','水果','冰块','薄荷','姜'];
+  // map cabinet item -> keywords to match in drink ingredients
+  const CAB_MATCH={'咖啡豆':['咖啡','浓缩'],'茶叶':['茶','乌龙','红茶','绿茶'],'牛奶':['牛奶','鲜奶'],'燕麦奶':['燕麦奶'],'蜂蜜':['蜂蜜'],'白糖':['糖'],'柠檬':['柠檬'],'青柠':['青柠','莱姆'],'气泡水':['气泡','苏打'],'可可粉':['可可','巧克力'],'抹茶粉':['抹茶'],'珍珠':['珍珠'],'水果':['芒果','草莓','西瓜','百香果','柚子','桃'],'冰块':['冰'],'薄荷':['薄荷'],'姜':['姜']};
+  function loadCab(){try{return JSON.parse(localStorage.getItem(DRINK_CAB_KEY)||'[]')}catch(e){return[]}}
+  function saveCab(a){try{localStorage.setItem(DRINK_CAB_KEY,JSON.stringify(a))}catch(e){}}
+  function renderCab(){
+    const grid=q('#cabGrid'),make=q('#cabMake');
+    if(!grid)return;
+    const have=loadCab();
+    grid.innerHTML=DRINK_CAB_PRESET.map(x=>'<button type="button" class="cab-item'+(have.includes(x)?' on':'')+'" data-cab="'+x+'">'+x+'</button>').join('');
+    grid.querySelectorAll('.cab-item').forEach(b=>b.addEventListener('click',()=>{
+      let a=loadCab();
+      const v=b.dataset.cab;
+      a=a.includes(v)?a.filter(x=>x!==v):[...a,v];
+      saveCab(a);renderCab();
+    }));
+    // 你现在能做
+    if(!have.length){make.innerHTML='<p class="sub">勾选上面的材料，看看能做什么饮品。</p>';return}
+    const kws=[];have.forEach(h=>(CAB_MATCH[h]||[h]).forEach(k=>kws.push(k)));
+    const can=drinkRecipes.filter(r=>{
+      // check each ingredient has at least one keyword match OR is water/ice (assumed available)
+      return r.ingredients.every(ing=>{
+        if(/水/.test(ing)&&!/(气泡|苏打)/.test(ing))return true; // plain water assumed
+        return kws.some(k=>ing.includes(k));
+      });
+    });
+    make.innerHTML=can.length
+      ?'<p class="sub">🎉 你现在能做 '+can.length+' 款：</p>'+can.map(r=>'<div class="fav-row"><img src="'+drinkArt(r)+'" alt=""><div class="f-info"><b>'+r.name+'</b><span>'+r.time+' · '+r.level+'</span></div></div>').join('')
+      :'<p class="sub">现有材料还做不出完整饮品，再添几样试试。</p>';
+    make.querySelectorAll('.fav-row').forEach((row,i)=>{
+      row.style.cursor='pointer';
+      row.addEventListener('click',()=>openDrink(can[i].id));
+    });
+  }
+  /* ===== 杯量换算 ===== */
+  let curCup=1,curDrink=null;
+  function renderCupBtns(r){
+    const box=q('#cupBtns');
+    if(!r||curDetailType!=='drink'){box.hidden=true;return}
+    box.hidden=false;curDrink=r;curCup=1;
+    box.querySelectorAll('button').forEach(b=>{
+      b.classList.toggle('on',b.dataset.cup==='1');
+      b.onclick=()=>{
+        curCup=+b.dataset.cup;
+        box.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+        renderDrinkIngredients();
+      };
+    });
+  }
+  function renderDrinkIngredients(){
+    if(!curDrink)return;
+    q('#detailIngredients').innerHTML=curDrink.ingredients.map(s=>{
+      const p=parseIngAmount(s);
+      if(!p||curCup===1)return '<li>'+s+'</li>';
+      let v=p.num*curCup;v=v>=100?Math.round(v):Math.round(v*10)/10;
+      const name=s.replace(/[\d.]+\s*[^\d\s]*$/,'').trim();
+      return '<li>'+name+' <b>'+v+' '+p.unit+'</b></li>';
+    }).join('');
+  }
+  /* ===== 饮品搭配推荐 ===== */
+  const DRINK_PAIRINGS={
+    'strawberry-cake':[['iced-americano','冰美式的苦香平衡奶油的甜腻'],['matcha-latte','抹茶与草莓是经典搭配']],
+    'basque-cheesecake':[['black-tea','红茶的醇厚衬托芝士的浓郁'],['iced-americano','黑咖啡解腻一流']],
+    'tiramisu':[['espresso','意式经典：提拉米苏配浓缩'],['hot-choco','巧克力与咖啡的双重享受']],
+    'chocolate-cake':[['iced-americano','美式咖啡是巧克力蛋糕的标配'],['hot-tea','热茶清口，突出可可香']],
+    'cookies':[['milk','曲奇配牛奶，童年味道'],['hot-choco','巧克力曲奇+热可可加倍快乐']],
+    'macaron':[['earl-grey','伯爵茶的佛手柑香衬托马卡龙'],['sparkling','气泡水清爽解甜']],
+    'lemon-tart':[['sparkling-lemon','柠檬+气泡，清爽翻倍'],['green-tea','清茶配酸甜柠檬塔']],
+    'egg-tart':[['hk-milk-tea','港式经典组合'],['hot-tea','热茶配蛋挞，咸甜平衡']]
+  };
+  const MEAL_DRINK_PAIR=[
+    ['steak','iced-americano','牛排的油脂感需要黑咖啡或红茶来解腻'],
+    ['steak','black-tea',''],
+    ['spicy','lemon-tea','川菜的辣需要清爽柑橘饮品中和'],
+    ['spicy','sparkling-lemon',''],
+    ['bbq','lemon-soda','烧烤配柠檬气泡饮，清爽解油'],
+    ['pasta','sparkling','意面配气泡水，简单清爽']
+  ];
+  function findDrink(id){return drinkRecipes.find(x=>x.id===id)}
+  function crossCardHTML(r,type){
+    const img=type==='drink'?drinkArt(r):r.image;
+    const fn=type==='drink'?"openDrink('"+r.id+"')":type==='baking'?"openBaking('"+r.id+"')":"openRecipe('"+r.id+"')";
+    return '<button class="cross-card" onclick="'+fn+'"><img src="'+img+'" alt="'+r.name+'" loading="lazy"><div class="cc-body"><b>'+r.name+'</b><span>'+r.time+' · '+r.level+'</span></div></button>';
+  }
+  function renderCross(r,type){
+    const box=q('#detailCross'),grid=q('#crossGrid'),title=q('#crossTitle'),sub=q('#crossSub');
+    box.hidden=true;
+    if(type==='meal'){
+      // 饭后甜点推荐
+      const picks=[...bakingRecipes].sort(()=>Math.random()-.5).slice(0,2);
+      title.textContent='吃完了？来点甜的 🍰';
+      sub.textContent='正餐后的完美收尾。';
+      grid.innerHTML=picks.map(x=>crossCardHTML(x,'baking')).join('');
+      box.hidden=false;
+    }else if(type==='baking'){
+      const picks=[...drinkRecipes].sort(()=>Math.random()-.5).slice(0,2);
+      title.textContent='配杯喝的？ 🥤';
+      sub.textContent='甜点配饮品，风味更完整。';
+      grid.innerHTML=picks.map(x=>crossCardHTML(x,'drink')).join('');
+      box.hidden=false;
+    }
+  }
+  function renderPairings(r,type){
+    const box=q('#detailPair'),title=q('#pairTitle'),list=q('#pairList');
+    box.hidden=true;
+    if(type==='drink'){
+      // find pairings where this drink is recommended
+      const pairs=[];
+      Object.keys(DRINK_PAIRINGS).forEach(bid=>{
+        DRINK_PAIRINGS[bid].forEach(([did,why])=>{
+          if(did===r.id){
+            const b=bakingRecipes.find(x=>x.id===bid);
+            if(b)pairs.push([b.name,why]);
+          }
+        });
+      });
+      if(pairs.length){
+        title.textContent='🍵 搭配建议';
+        list.innerHTML=pairs.map(([n,why])=>'<li><b>'+n+'</b>'+(why?'<br><span class="pair-why">'+why+'</span>':'')+'</li>').join('');
+        box.hidden=false;
+      }
+    }else if(type==='meal'){
+      // 佐餐饮品
+      const match=MEAL_DRINK_PAIR.filter(([kw])=>r.name.includes(kw)||(r.tags||[]).some(t=>t.includes(kw)));
+      const picks=match.length?match.slice(0,2):[['iced-americano','百搭'],['lemon-tea','清爽']];
+      const items=picks.map(([did,why])=>{
+        const d=findDrink(did);if(!d)return null;
+        return '<li><b>'+d.name+'</b>'+(why&&why!=='百搭'&&why!=='清爽'?'<br><span class="pair-why">'+why+'</span>':'')+'</li>';
+      }).filter(Boolean);
+      if(items.length){
+        title.textContent='🥤 佐餐饮品';
+        list.innerHTML=items.join('');
+        box.hidden=false;
+      }
+    }else if(type==='baking'){
+      const pairs=(DRINK_PAIRINGS[r.id]||[]).map(([did,why])=>{
+        const d=findDrink(did);if(!d)return null;
+        return '<li><b>'+d.name+'</b>'+(why?'<br><span class="pair-why">'+why+'</span>':'')+'</li>';
+      }).filter(Boolean);
+      if(pairs.length){
+        title.textContent='🥤 搭配建议';
+        list.innerHTML=pairs.join('');
+        box.hidden=false;
+      }
+    }
+  }
+  /* ===== 烘焙计算器 ===== */
+  function parseIngAmount(s){
+    const m=String(s).match(/([\d.]+)\s*([^\d\s]*)$/);
+    if(!m)return null;
+    return {num:parseFloat(m[1]),unit:m[2]||'',raw:s};
+  }
+  function renderBakingCalc(r){
+    const box=q('#detailCalc');
+    if(!r||!r.prepTime){box.hidden=true;return}
+    box.hidden=false;
+    q('#calcGo').onclick=()=>{
+      const from=+q('#calcFrom').value,to=+q('#calcTo').value,serv=+q('#calcServ').value||1;
+      let ratio=serv;
+      if(from!==to)ratio=(to*to)/(from*from)*serv;
+      const lines=r.ingredients.map(s=>{
+        const p=parseIngAmount(s);
+        if(!p)return '<div>'+s+'（按原量）</div>';
+        let v=p.num*ratio;
+        v=v>=100?Math.round(v):Math.round(v*10)/10;
+        return '<div>'+s.split(/\d/)[0].trim()+' <b>'+v+' '+p.unit+'</b></div>';
+      });
+      q('#calcResult').innerHTML='<div style="margin-bottom:6px">换算比例 ×'+(Math.round(ratio*100)/100)+'</div>'+lines.join('');
+    };
+  }
+  /* ===== 烤箱助手 ===== */
+  let ovenTimer=null,ovenLeft=0;
+  function ovenTick(){
+    ovenLeft--;
+    if(ovenLeft<=0){clearInterval(ovenTimer);ovenTimer=null;q('#ovenDisplay').textContent='00:00';q('#ovenMsg').textContent='⏰ 时间到！请检查。';return}
+    const m=String(Math.floor(ovenLeft/60)).padStart(2,'0'),s=String(ovenLeft%60).padStart(2,'0');
+    q('#ovenDisplay').textContent=m+':'+s;
+    if(ovenLeft===300)q('#ovenMsg').textContent='⏰ 还剩 5 分钟，注意观察上色情况。';
+  }
+  function ovenStart(sec,label){
+    if(ovenTimer)clearInterval(ovenTimer);
+    ovenLeft=sec;ovenTick();
+    q('#ovenMsg').textContent=label+'计时中…';
+    ovenTimer=setInterval(ovenTick,1000);
+  }
+  function renderOven(r){
+    const box=q('#detailOven');
+    if(!r||!r.prepTime){box.hidden=true;return}
+    box.hidden=false;
+    if(ovenTimer){clearInterval(ovenTimer);ovenTimer=null}
+    q('#ovenDisplay').textContent='--:--';
+    q('#ovenMsg').textContent='预热完成后放入面糊；烘烤中途注意观察上色。';
+    // parse bake minutes from bakeTime like '烘烤 30 分钟'
+    let bm=30;const m=String(r.bakeTime||'').match(/(\d+)/);if(m)bm=parseInt(m[1],10);
+    q('#ovenPre').onclick=()=>ovenStart(600,'预热');
+    q('#ovenBake').onclick=()=>ovenStart(bm*60,'烘烤');
+    q('#ovenStop').onclick=()=>{if(ovenTimer){clearInterval(ovenTimer);ovenTimer=null}q('#ovenDisplay').textContent='--:--';q('#ovenMsg').textContent='已停止。'};
+  }
+  /* ===== 食材百科链接 ===== */
+  function ingWikiId(name){
+    // strip amounts: '低筋面粉 80 克' -> '低筋面粉'
+    const clean=String(name).replace(/[\d.]+\s*[克毫升个只根片勺杯]/g,'').trim();
+    const hit=ingredients.find(x=>clean.includes(x.name)||x.name.includes(clean));
+    return hit?hit.id:null;
+  }
+  function ingLinkHTML(name){
+    const id=ingWikiId(name);
+    if(!id)return '<li>'+name+'</li>';
+    return '<li><a href="javascript:void(0)" class="ing-link" data-ing="'+id+'" style="color:var(--green);text-decoration:underline">'+name+'</a></li>';
+  }
+  /* ===== 今日食材 ===== */
+  const DAILY_INGS=[
+    {m:1,name:'白萝卜',desc:'冬季当季，清甜多汁，适合炖汤和腌制。',img:'assets/img/full/img0012.jpg',ing:'白萝卜',recipes:['radish-soup','stew']},
+    {m:2,name:'菠菜',desc:'早春嫩叶，富含叶酸，焯水后凉拌或入汤。',img:'assets/img/full/img0006.jpg',ing:'菠菜',recipes:['spinach-tofu']},
+    {m:3,name:'春笋',desc:'春季限定鲜味，油焖、煲汤都出彩。',img:'assets/img/full/img0020.jpg',ing:'春笋',recipes:['braised-bamboo']},
+    {m:4,name:'草莓',desc:'春季水果之王，直接吃或做甜点都惊艳。',img:'assets/img/full/baking1.jpg',ing:'草莓',recipes:['strawberry-cake','xuemeiniang']},
+    {m:5,name:'樱桃',desc:'初夏红果，酸甜多汁，适合做果饮。',img:'assets/img/full/img0030.jpg',ing:'樱桃',recipes:['cherry-drink']},
+    {m:6,name:'西瓜',desc:'夏季解暑神器，打汁加柠檬更清爽。',img:'assets/img/full/drinks18.jpg',ing:'西瓜',recipes:['watermelon-juice']},
+    {m:7,name:'桃子',desc:'夏末蜜桃，香甜多汁，可做白桃乌龙。',img:'assets/img/full/img0040.jpg',ing:'桃',recipes:['peach-oolong']},
+    {m:8,name:'葡萄',desc:'秋季水果，鲜食或做果饮皆宜。',img:'assets/img/full/img0045.jpg',ing:'葡萄',recipes:['grape-drink']},
+    {m:9,name:'南瓜',desc:'秋季金黄，蒸煮香甜，适合做南瓜派。',img:'assets/img/full/img0008.jpg',ing:'南瓜',recipes:['pumpkin-soup']},
+    {m:10,name:'苹果',desc:'秋冬常备，脆甜多汁，生吃熟吃都好。',img:'assets/img/full/img0050.jpg',ing:'苹果',recipes:['apple-pie']},
+    {m:11,name:'大白菜',desc:'冬季囤菜之王，炖煮越久越入味。',img:'assets/img/full/img0060.jpg',ing:'白菜',recipes:['cabbage-stew']},
+    {m:12,name:'橙子',desc:'冬日维C担当，鲜榨果汁酸甜开胃。',img:'assets/img/full/img0070.jpg',ing:'橙子',recipes:['orange-juice']}
+  ];
+  function renderDailyIng(){
+    const box=q('#diTitle');if(!box)return;
+    const m=new Date().getMonth()+1;
+    const d=DAILY_INGS.find(x=>x.m===m)||DAILY_INGS[0];
+    q('#diImg').src=d.img;q('#diImg').alt=d.name;
+    box.textContent='今日食材 · '+d.name;
+    q('#diDesc').textContent=d.desc;
+    const links=q('#diLinks');
+    let htm='<button type="button" id="diWiki">查看食材百科</button>';
+    d.recipes.forEach(rid=>{
+      const r=recipes.find(x=>x.id===rid)||bakingRecipes.find(x=>x.id===rid)||drinkRecipes.find(x=>x.id===rid);
+      if(r)htm+='<button type="button" data-direc="'+rid+'">'+r.name+'</button>';
+    });
+    links.innerHTML=htm;
+    q('#diWiki').onclick=()=>{
+      searchInput.value=d.ing;applySearch(true);
+      switchSection('ingredients',{preserveSearch:true});
+    };
+    links.querySelectorAll('[data-direc]').forEach(b=>b.onclick=()=>{
+      const id=b.dataset.direc;
+      if(recipes.some(x=>x.id===id))openRecipe(id);
+      else if(bakingRecipes.some(x=>x.id===id))openBaking(id);
+      else openDrink(id);
+    });
+  }
+  /* ===== 收藏系统 ===== */
+  const FAV_KEY='foodatlas-fav-v1';
+  let curDetailId=null,curDetailType='meal';
+  function loadFav(){try{return JSON.parse(localStorage.getItem(FAV_KEY)||'[]')}catch(e){return[]}}
+  function saveFav(a){try{localStorage.setItem(FAV_KEY,JSON.stringify(a))}catch(e){}}
+  function isFav(id){return loadFav().includes(id)}
+  function toggleFav(){
+    if(!curDetailId)return;
+    let a=loadFav();
+    if(a.includes(curDetailId))a=a.filter(x=>x!==curDetailId);
+    else a.push(curDetailId);
+    saveFav(a);renderFavBtn();renderFavList();
+  }
+  function renderFavBtn(){
+    const b=q('#favBtn');if(!b)return;
+    const on=isFav(curDetailId);
+    b.textContent=on?'♥ 已收藏':'♡ 收藏';
+    b.classList.toggle('on',on);
+  }
+  function favItemInfo(id){
+    let r=recipes.find(x=>x.id===id),t='菜谱';
+    if(!r){r=bakingRecipes.find(x=>x.id===id);t='烘焙'}
+    if(!r){r=drinkRecipes.find(x=>x.id===id);t='饮品'}
+    if(!r)return null;
+    const img=t==='饮品'?drinkArt(r):r.image;
+    return {r,t,img};
+  }
+  function renderFavList(){
+    const box=q('#favList');if(!box)return;
+    const a=loadFav();
+    if(!a.length){box.innerHTML='<p class="sub">还没有收藏，去发现喜欢的味道吧。</p>';return}
+    const groups={'菜谱':[],'烘焙':[],'饮品':[]};
+    a.forEach(id=>{const info=favItemInfo(id);if(info)groups[info.t].push(info)});
+    box.innerHTML=Object.keys(groups).map(t=>{
+      if(!groups[t].length)return '';
+      return '<div class="fav-type">'+t+'（'+groups[t].length+'）</div>'+groups[t].map(info=>
+        '<div class="fav-row"><img src="'+info.img+'" alt=""><div class="f-info"><b>'+info.r.name+'</b><span>'+info.r.time+' · '+info.r.level+'</span></div><button class="f-del" data-fdel="'+info.r.id+'" aria-label="取消收藏">×</button></div>'
+      ).join('');
+    }).join('');
+    box.querySelectorAll('.fav-row').forEach(row=>{
+      row.addEventListener('click',e=>{
+        if(e.target.closest('.f-del'))return;
+        const id=row.querySelector('.f-del').dataset.fdel;
+        const info=favItemInfo(id);if(!info)return;
+        if(info.t==='菜谱')openRecipe(id);else if(info.t==='烘焙')openBaking(id);else openDrink(id);
+      });
+    });
+    box.querySelectorAll('.f-del').forEach(b=>b.addEventListener('click',()=>{
+      saveFav(loadFav().filter(x=>x!==b.dataset.fdel));renderFavBtn();renderFavList();
+    }));
   }
   /* ===== 味觉日记 ===== */
   const DIARY_KEY='foodatlas-diary-v1';
@@ -1548,6 +1954,9 @@
     if(revealResults&&term&&section==='ingredients')revealIngredientResults();
   }
   qa('[data-section]').forEach(b=>b.addEventListener('click',()=>switchSection(b.dataset.section)));
+  q('#favBtn').addEventListener('click',toggleFav);
+    qa('.sweet-f').forEach(b=>b.addEventListener('click',()=>{bakingSweet=b.dataset.sw;qa('.sweet-f').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
+  qa('.tex-f').forEach(b=>b.addEventListener('click',()=>{bakingTex=b.dataset.tx;qa('.tex-f').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
   qa('.baking-cat').forEach(b=>b.addEventListener('click',()=>{bakingFilter=b.dataset.bcat;qa('.baking-cat').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
   if(q('#bakingExplore'))q('#bakingExplore').addEventListener('click',()=>{const g=q('#bakingGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});});
   if(q('#bakingToday'))q('#bakingToday').addEventListener('click',()=>{const r=bakingRecipes[Math.floor(Math.random()*bakingRecipes.length)];openBaking(r.id);});
@@ -1597,7 +2006,8 @@
   heroSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();heroDoSearch()}});
   q('#heroGo').addEventListener('click',heroDoSearch);
   qa('.hot-tag').forEach(b=>b.addEventListener('click',()=>{heroSearch.value=b.dataset.q;searchInput.value=b.dataset.q;applySearch(true)}));
-  q('#brandHome').addEventListener('click',e=>{e.preventDefault();switchSection('recipes')});
+  q('#brandHome').addEventListener('click',e=>{e.preventDefault();switchSection('recipes');renderDailyIng()});
+  renderDailyIng();
 
 
   /* ===== mockup: world ingredients ===== */
