@@ -1946,7 +1946,167 @@
   function wireHome3col(){
     if(q('#todayMore'))q('#todayMore').addEventListener('click',()=>q('#recipeGrid').scrollIntoView({behavior:'smooth',block:'start'}));
     if(q('#fridgeAll'))q('#fridgeAll').addEventListener('click',()=>switchSection('ingredients'));
-    if(q('#fridgeGo'))q('#fridgeGo').addEventListener('click',()=>{switchSection('ingredients');setTimeout(()=>{const sb=q('#selectionTitle');if(sb)sb.scrollIntoView({behavior:'smooth',block:'center'});},120);});
+    if(q('#fridgeGo'))q('#fridgeGo').addEventListener('click',()=>{switchSection('ingredients');setTimeout/* ===== 从 <style> 移回的 JS ===== */
+  const ALLERGEN_KEY='foodatlas-allergen-v1';
+  let excludedAllergens=[];
+  try{excludedAllergens=JSON.parse(localStorage.getItem(ALLERGEN_KEY)||'[]')}catch(e){excludedAllergens=[]}
+  function saveAllergens(){try{localStorage.setItem(ALLERGEN_KEY,JSON.stringify(excludedAllergens))}catch(e){}}
+  function getAllergens(r){const t=(r.ingredients||[]).join(' ');return ALLERGENS.filter(a=>a.keys.some(k=>t.includes(k))).map(a=>a.name)}
+  function hasExcluded(r){return getAllergens(r).some(a=>excludedAllergens.includes(a))}
+  const ALLERGENS=[
+    {name:'花生',keys:['花生']},
+    {name:'坚果',keys:['核桃','杏仁','腰果','榛子','开心果','松子','碧根果']},
+    {name:'牛奶',keys:['牛奶','奶油','黄油','奶酪','芝士','酸奶','马斯卡彭','炼乳','淡奶油']},
+    {name:'鸡蛋',keys:['鸡蛋','蛋黄','蛋白']},
+    {name:'大豆',keys:['大豆','豆腐','豆浆','酱油','生抽','豆豉']},
+    {name:'小麦',keys:['面粉','面包','面条','馒头','燕麦','麦片']},
+    {name:'鱼类',keys:['鲈鱼','三文鱼','金枪鱼','带鱼']},
+    {name:'贝类',keys:['虾','蟹','贝','牡蛎','扇贝']}
+  ];
+  /* ===== 世界美食探索 ===== */
+  const worldCuisines=[
+    {flag:'🇨🇳',name:'中国',desc:'讲究火候与调味的平衡，一个菜系一种性格：川菜重麻辣，粤菜重原味，江浙偏清甜。',items:[{t:'meal',id:'tomato',name:'番茄炒蛋'},{t:'meal',id:'fish',name:'清蒸鲈鱼'},{t:'meal',id:'tofu',name:'菠菜豆腐汤'}]},
+    {flag:'🇯🇵',name:'日本',desc:'追求食材本味与时令感，从一碗拉面到一杯抹茶，都讲究克制与精致。',items:[{t:'drink',id:'matcha-latte',name:'抹茶拿铁'},{name:'寿司（食材：鱼类）'},{name:'味噌汤（食材：大豆）'}]},
+    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',sweetness:'中甜',texture:'丝滑',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
+    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',sweetness:'低甜',texture:'酥脆',name:'可颂面包'},{t:'baking',id:'macaron',sweetness:'高甜',texture:'酥脆',name:'马卡龙'},{t:'baking',id:'lemon-tart',sweetness:'中甜',texture:'酥脆',name:'柠檬塔'}]},
+    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',sweetness:'高甜',texture:'湿润',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
+    {flag:'🇬🇧',name:'英国',desc:'下午茶文化的故乡，一杯红茶配司康，是刻在日常里的仪式感。',items:[{name:'英式红茶'},{name:'司康饼'},{name:'炸鱼薯条'}]},
+    {flag:'🌏',name:'东南亚',desc:'热带风情：椰奶、香料、酸辣与清爽，天气热的地方，味道也热烈。',items:[{t:'drink',id:'mango-pomelo-sago',name:'杨枝甘露'},{name:'泰式奶茶'},{name:'海南鸡饭'}]},
+    {flag:'🕌',name:'中东',desc:'香料之路的起点，鹰嘴豆、薄荷与咖啡在这里有上千年的历史。',items:[{name:'鹰嘴豆泥'},{name:'薄荷茶'},{name:'阿拉伯咖啡'}]}
+  ];
+  /* ===== 食材的第二次生命 ===== */
+  const secondLifeTips=[
+    {ico:'🍚',t:'剩米饭',d:'做成炒饭、咸粥或饭团，冷藏保存不超过 2 天，吃前彻底加热。'},
+    {ico:'🍞',t:'面包边',d:'烤箱 150℃ 烤干后打成面包糠，裹炸猪排、鸡翅都好吃。'},
+    {ico:'🌿',t:'香菜梗 / 芹菜叶',d:'别扔！切碎做青酱、拌面调料，香味比叶子还浓。'},
+    {ico:'🍋',t:'柠檬皮',d:'擦丝给蛋糕、饮品增香；煮水可去厨房腥味。'},
+    {ico:'🍲',t:'剩高汤 / 火锅汤',d:'分装冷冻成小份，下次煮面、炖菜直接当汤底。'},
+    {ico:'🥚',t:'蛋壳',d:'洗净晒干碾碎，是很好的天然花肥，补钙又疏松土壤。'},
+    {ico:'🥬',t:'蔫掉的青菜',d:'做汤、包馅或蔬菜煎饼，高温烹饪后口感完全没问题。'},
+    {ico:'🍞',t:'剩面包',d:'做法式吐司、面包布丁，或切丁烤成沙拉脆丁。'},
+    {ico:'🍎',t:'水果边角料',d:'苹果核、梨皮加冰糖煮一锅水果茶，酸甜解腻。'}
+  ];
+  /* ===== 厨房挑战 ===== */
+  const challengeThemes=[
+    {ico:'🍳',t:'三种材料早餐',d:'只用三种常见材料，做一顿像样的早餐。'},
+    {ico:'🧁',t:'第一次烘焙',d:'做一道你从没做过的烘焙，哪怕是最简单的饼干。'},
+    {ico:'🍹',t:'无酒精特调',d:'调一杯不含酒精的创意饮品，酸甜自己定。'},
+    {ico:'🧊',t:'零采购一餐',d:'只用冰箱里现有的食材，做一顿完整的饭。'},
+    {ico:'🌶️',t:'新香料挑战',d:'尝试一种你没用过的香料，记录它的味道。'},
+    {ico:'🏠',t:'复刻家乡味',d:'做一道你家乡的菜，给家人一个惊喜。'}
+  ];
+  /* ===== 一道菜的进化史 ===== */
+  const evolutions=[
+    {name:'番茄炒蛋',secs:[
+      ['起源','番茄原产南美，16 世纪传入欧洲时曾被当作观赏植物。约 19 世纪中叶传入中国，最初叫"番柿"。'],
+      ['地区变体','北方多加糖提鲜，南方偏好加少许番茄酱增色；有人爱吃炒得稀烂的"番茄蛋汤"，有人坚持蛋块分明。'],
+      ['现代版','如今它有了无数变体：番茄炒蛋盖饭、番茄蛋花汤、甚至做成三明治馅。一道国民菜，做法从没有标准答案。']]},
+    {name:'饺子',secs:[
+      ['起源','饺子由东汉医圣张仲景发明，最初叫"娇耳"，是用来治冻疮的药食，馅里有羊肉和驱寒药材。'],
+      ['地区变体','北方重皮馅实在，南方有馄饨、云吞等亲戚；日本叫煎饺，韩国叫"mandu"，做法各异。'],
+      ['现代版','从手工现包到速冻水饺，从猪肉白菜到三鲜虾仁，饺子早已走出"过年专属"，变成日常主食。']]},
+    {name:'珍珠奶茶',secs:[
+      ['起源','1980 年代诞生于台湾台中，春水堂的店员把粉圆加进奶茶，一杯传奇就此开始。'],
+      ['地区变体','台湾重茶香，香港有丝袜奶茶，大陆则卷出了黑糖珍珠、脏脏茶等无数流派。'],
+      ['现代版','如今的奶茶店有几十种小料可选：珍珠、椰果、布丁、奶盖……一杯奶茶，成了一种个人表达。']]}
+  ];
+  /* ===== 设备适配 ===== */
+  const EQUIP_TIPS={
+    baking:['空气炸锅版：温度比烤箱低 10℃，时间缩短约 20%，表面上色快可中途加盖锡纸。','没有烤箱：戚风、蛋糕类可用电饭煲"蛋糕键"尝试，但酥皮、派塔、蛋挞类不适合替代。','烤箱温差：家用烤箱普遍有 ±15℃ 温差，第一次做建议用温度计实测，或按最低温度试。'],
+    drink:['没有料理机：奶昔类可用手摇杯加碎冰用力摇匀，口感稍粗但风味不减。','没有奶泡器：热牛奶装入密封瓶摇 30 秒，也能打出绵密奶泡做拿铁。','没有雪克壶：用带盖的水杯/保温杯代替，注意留一半空间方便摇晃。'],
+    meal:['没有平底锅：炒菜可用深口炒锅代替，火候稍大、翻炒更快即可。','电饭煲代替炖锅：炖煮类菜品可用煮饭档，水量减少约 10%，中途开盖看一次。','没有蒸锅：大锅加水垫高盘子，加盖即是简易蒸锅，注意水不要烧干。']
+  };
+  /* ===== 我的面板 ===== */
+  const STOCK_KEY='foodatlas-stock-v1';
+  function loadStock(){try{return JSON.parse(localStorage.getItem(STOCK_KEY)||'[]')}catch(e){return[]}}
+  function saveStock(s){try{localStorage.setItem(STOCK_KEY,JSON.stringify(s))}catch(e){}}
+  function stockStatus(s){
+    const elapsed=(Date.now()-s.added)/86400000;
+    if(elapsed>=s.days)return 'check';
+    if(elapsed>=s.days*0.6)return 'soon';
+    return 'fresh';
+  }
+  function stockStatusText(st){return st==='fresh'?['新鲜','st-fresh']:st==='soon'?['尽快食用','st-soon']:['检查一下','st-check']}
+  function renderMine(){
+    renderGrowth();renderDiary();renderAllergenSettings();renderStock();renderFavList();renderCab();
+  }
+  function renderGrowth(){
+    const g=loadGrowth();const body=q('#growthBody');if(!body)return;
+    if(g.off){body.innerHTML='<p class="sub">成长系统已关闭，打开下方开关可重新启用。</p>';}
+    else{
+      const lv=growthLevel(g);
+      body.innerHTML='<div>当前等级：<span class="level-badge">Lv.'+(lv+1)+' '+LEVELS[lv]+'</span></div>'
+        +'<p class="sub">已完成 '+g.done+' 道 · 连续使用 '+streakDays(g.days)+' 天</p>'
+        +'<div class="achv-grid">'+ACHIEVEMENTS.map(a=>{const got=a.check(g);return '<div class="achv'+(got?' got':'')+'"><span class="a-ico">'+a.ico+'</span><b>'+a.name+'</b><span>'+a.desc+'</span></div>'}).join('')+'</div>'
+        +challengeBadgeHtml(g);
+    }
+    const off=q('#growthOff');off.checked=!!g.off;
+    off.onchange=()=>{g.off=off.checked;saveGrowth(g);renderGrowth();};
+  }
+  function challengeBadgeHtml(g){
+    try{const ch=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}');if((ch.done||[]).length>=4)return '<p class="sub" style="margin-top:10px">🏅 <b>挑战达人</b>：已完成 4 周厨房挑战！</p>'}catch(e){}
+    return '';
+  }
+  function renderDiary(){
+    const d=loadDiary();const list=q('#diaryList'),stats=q('#diaryStats');if(!list)return;
+    const ym=todayStr().slice(0,7);const month=d.filter(x=>x.d.slice(0,7)===ym);
+    const avg=month.length?(month.reduce((s,x)=>s+x.stars,0)/month.length).toFixed(1):'-';
+    stats.innerHTML='<p class="sub">本月完成 '+month.length+' 道 · 平均 '+avg+' 星 · 累计 '+d.length+' 条记录</p>';
+    list.innerHTML=d.length?d.slice(0,30).map(x=>'<div class="diary-item"><div class="d-head"><b>'+x.name+'</b><span class="d-stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+'</span></div><div class="d-note">'+x.d+(x.mins?' · 用时 '+x.mins+' 分钟':'')+(x.note?' · '+x.note:'')+'</div></div>').join(''):'<p class="sub">还没有记录。去完成一道菜，回来记录你的味道吧。</p>';
+  }
+  function renderAllergenSettings(){
+    const box=q('#allergenSettings');if(!box)return;
+    box.innerHTML=ALLERGENS.map(a=>'<label class="ag-check"><input type="checkbox" data-ag="'+a.name+'"'+(excludedAllergens.includes(a.name)?' checked':'')+'> 排除'+a.name+'</label>').join('');
+    box.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{
+      excludedAllergens=[...box.querySelectorAll('input:checked')].map(x=>x.dataset.ag);
+      saveAllergens();applySearch(false);
+    }));
+  }
+  function renderStock(){
+    const list=q('#stockList');if(!list)return;
+    const s=loadStock();
+    list.innerHTML=s.length?s.map((x,i)=>{const st=stockStatus(x);const [txt,cls]=stockStatusText(st);
+      return '<div class="stock-row"><span class="stock-status '+cls+'">'+txt+'</span><span>'+x.name+'</span><span style="color:var(--muted);font-size:.78rem">剩余约 '+Math.max(0,Math.ceil(x.days-(Date.now()-x.added)/86400000))+' 天</span><button class="del" data-i="'+i+'" aria-label="删除">×</button></div>'}).join(''):'<p class="sub">还没有库存。把买回家的食材记下来，临期会提醒你。</p>';
+    list.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{const arr=loadStock();arr.splice(+b.dataset.i,1);saveStock(arr);renderStock();renderStockAlert();}));
+    renderStockAlert();
+  }
+  function renderStockAlert(){
+    const el=q('#stockAlert');if(!el)return;
+    const n=loadStock().filter(x=>stockStatus(x)!=='fresh').length;
+    if(n>0){el.hidden=false;el.textContent='🧊 有 '+n+' 种食材建议尽快使用或检查一下，去「我的」查看。';}
+    else el.hidden=true;
+  }
+  /* ===== 首页新板块 ===== */
+  function renderSecondLife(){
+    q('#secondLifeGrid').innerHTML=secondLifeTips.map(t=>'<div class="sl-card"><span class="sl-ico">'+t.ico+'</span><h4>'+t.t+'</h4><p>'+t.d+'</p></div>').join('');
+  }
+  function weekId(){return Math.floor(Date.now()/604800000)}
+  function renderChallenge(){
+    const themes=challengeThemes;const ch=themes[weekId()%themes.length];
+    let done=[];try{done=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}').done||[]}catch(e){}
+    const wid='w'+weekId();const isDone=done.includes(wid);
+    const d=new Date();const monday=new Date(d);monday.setDate(d.getDate()-((d.getDay()+6)%7));
+    const sunday=new Date(monday);sunday.setDate(monday.getDate()+6);
+    const fmt=x=>(x.getMonth()+1)+'月'+x.getDate()+'日';
+    q('#challengeCard').innerHTML='<span class="ch-ico">'+ch.ico+'</span><div style="flex:1;min-width:200px"><h3>本周挑战：'+ch.t+'</h3><p>'+ch.d+'（'+fmt(monday)+'–'+fmt(sunday)+'）</p><button type="button" id="chDone" class="'+(isDone?'done':'')+'">'+(isDone?'✓ 本周已完成':'我完成了')+'</button></div>';
+    q('#chDone').addEventListener('click',()=>{
+      let st;try{st=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}')}catch(e){st={done:[]};}
+      if(!st.done.includes(wid)){st.done.push(wid);try{localStorage.setItem('foodatlas-challenge-v1',JSON.stringify(st))}catch(e){}}
+      renderChallenge();
+    });
+  }
+  function renderEvolution(){
+    q('#evoGrid').innerHTML=evolutions.map(e=>'<div class="evo-card"><h4>'+e.name+'</h4>'+e.secs.map(([h,p])=>'<h5>'+h+'</h5><p>'+p+'</p>').join('')+'</div>').join('');
+  }
+  let worldOpen=null;
+  function renderWorld(){
+    const g=q('#worldGrid');if(!g)return;
+    g.innerHTML=worldCuisines.map((c,i)=>'<button class="wm-card" data-wi="'+i+'"><span class="wm-flag">'+c.flag+'</span><h3>'+c.name+'</h3><p>'+c.desc.slice(0,26)+'…</p></button>'+(worldOpen===i?'<div class="wm-detail"><b>'+c.flag+' '+c.name+'</b><p style="margin:8px 0">'+c.desc+'</p><div class="wm-items">'+c.items.map(it=>it.id?'<button type="button" data-wt="'+it.t+'" data-wid="'+it.id+'">'+it.name+' →</button>':'<span class="wm-text">'+it.name+'</span>').join('')+'</div></div>':'')).join('');
+    g.querySelectorAll('.wm-card').forEach(b=>b.addEventListener('click',()=>{worldOpen=worldOpen===+b.dataset.wi?null:+b.dataset.wi;renderWorld();}));
+    g.querySelectorAll('[data-wid]').forEach(b=>b.addEventListener('click',ev=>{ev.stopPropagation();const t=b.dataset.wt,id=b.dataset.wid;q('#recipeDialog').close();if(t==='meal')openRecipe(id);else if(t==='baking')openBaking(id);else openDrink(id);}));
+  }
+
+(()=>{const sb=q('#selectionTitle');if(sb)sb.scrollIntoView({behavior:'smooth',block:'center'});},120);});
     if(q('#aiGo'))q('#aiGo').addEventListener('click',()=>switchSection('ingredients'));
     qa('.ai-opt').forEach(b=>b.addEventListener('click',()=>{
       const mode=b.dataset.ai;
@@ -1963,7 +2123,7 @@
     const s=loadStock();s.unshift({name:name,days:+q('#stockDays').value,added:Date.now()});
     saveStock(s);q('#stockName').value='';renderStock();
   });
-  loadFridge();
+loadFridge();
   renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();renderDrinks();renderSecondLife();renderChallenge();renderEvolution();renderWorld();renderStockAlert();
 })();
 
@@ -2127,166 +2287,6 @@
   }
   q('#storyMore').onclick=()=>{storyIdx=(storyIdx+1)%foodStories.length;renderStory();};
   renderStory();
-
-/* ===== 从 <style> 移回的 JS ===== */
-  const ALLERGEN_KEY='foodatlas-allergen-v1';
-  let excludedAllergens=[];
-  try{excludedAllergens=JSON.parse(localStorage.getItem(ALLERGEN_KEY)||'[]')}catch(e){excludedAllergens=[]}
-  function saveAllergens(){try{localStorage.setItem(ALLERGEN_KEY,JSON.stringify(excludedAllergens))}catch(e){}}
-  function getAllergens(r){const t=(r.ingredients||[]).join(' ');return ALLERGENS.filter(a=>a.keys.some(k=>t.includes(k))).map(a=>a.name)}
-  function hasExcluded(r){return getAllergens(r).some(a=>excludedAllergens.includes(a))}
-  const ALLERGENS=[
-    {name:'花生',keys:['花生']},
-    {name:'坚果',keys:['核桃','杏仁','腰果','榛子','开心果','松子','碧根果']},
-    {name:'牛奶',keys:['牛奶','奶油','黄油','奶酪','芝士','酸奶','马斯卡彭','炼乳','淡奶油']},
-    {name:'鸡蛋',keys:['鸡蛋','蛋黄','蛋白']},
-    {name:'大豆',keys:['大豆','豆腐','豆浆','酱油','生抽','豆豉']},
-    {name:'小麦',keys:['面粉','面包','面条','馒头','燕麦','麦片']},
-    {name:'鱼类',keys:['鲈鱼','三文鱼','金枪鱼','带鱼']},
-    {name:'贝类',keys:['虾','蟹','贝','牡蛎','扇贝']}
-  ];
-  /* ===== 世界美食探索 ===== */
-  const worldCuisines=[
-    {flag:'🇨🇳',name:'中国',desc:'讲究火候与调味的平衡，一个菜系一种性格：川菜重麻辣，粤菜重原味，江浙偏清甜。',items:[{t:'meal',id:'tomato',name:'番茄炒蛋'},{t:'meal',id:'fish',name:'清蒸鲈鱼'},{t:'meal',id:'tofu',name:'菠菜豆腐汤'}]},
-    {flag:'🇯🇵',name:'日本',desc:'追求食材本味与时令感，从一碗拉面到一杯抹茶，都讲究克制与精致。',items:[{t:'drink',id:'matcha-latte',name:'抹茶拿铁'},{name:'寿司（食材：鱼类）'},{name:'味噌汤（食材：大豆）'}]},
-    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',sweetness:'中甜',texture:'丝滑',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
-    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',sweetness:'低甜',texture:'酥脆',name:'可颂面包'},{t:'baking',id:'macaron',sweetness:'高甜',texture:'酥脆',name:'马卡龙'},{t:'baking',id:'lemon-tart',sweetness:'中甜',texture:'酥脆',name:'柠檬塔'}]},
-    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',sweetness:'高甜',texture:'湿润',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
-    {flag:'🇬🇧',name:'英国',desc:'下午茶文化的故乡，一杯红茶配司康，是刻在日常里的仪式感。',items:[{name:'英式红茶'},{name:'司康饼'},{name:'炸鱼薯条'}]},
-    {flag:'🌏',name:'东南亚',desc:'热带风情：椰奶、香料、酸辣与清爽，天气热的地方，味道也热烈。',items:[{t:'drink',id:'mango-pomelo-sago',name:'杨枝甘露'},{name:'泰式奶茶'},{name:'海南鸡饭'}]},
-    {flag:'🕌',name:'中东',desc:'香料之路的起点，鹰嘴豆、薄荷与咖啡在这里有上千年的历史。',items:[{name:'鹰嘴豆泥'},{name:'薄荷茶'},{name:'阿拉伯咖啡'}]}
-  ];
-  /* ===== 食材的第二次生命 ===== */
-  const secondLifeTips=[
-    {ico:'🍚',t:'剩米饭',d:'做成炒饭、咸粥或饭团，冷藏保存不超过 2 天，吃前彻底加热。'},
-    {ico:'🍞',t:'面包边',d:'烤箱 150℃ 烤干后打成面包糠，裹炸猪排、鸡翅都好吃。'},
-    {ico:'🌿',t:'香菜梗 / 芹菜叶',d:'别扔！切碎做青酱、拌面调料，香味比叶子还浓。'},
-    {ico:'🍋',t:'柠檬皮',d:'擦丝给蛋糕、饮品增香；煮水可去厨房腥味。'},
-    {ico:'🍲',t:'剩高汤 / 火锅汤',d:'分装冷冻成小份，下次煮面、炖菜直接当汤底。'},
-    {ico:'🥚',t:'蛋壳',d:'洗净晒干碾碎，是很好的天然花肥，补钙又疏松土壤。'},
-    {ico:'🥬',t:'蔫掉的青菜',d:'做汤、包馅或蔬菜煎饼，高温烹饪后口感完全没问题。'},
-    {ico:'🍞',t:'剩面包',d:'做法式吐司、面包布丁，或切丁烤成沙拉脆丁。'},
-    {ico:'🍎',t:'水果边角料',d:'苹果核、梨皮加冰糖煮一锅水果茶，酸甜解腻。'}
-  ];
-  /* ===== 厨房挑战 ===== */
-  const challengeThemes=[
-    {ico:'🍳',t:'三种材料早餐',d:'只用三种常见材料，做一顿像样的早餐。'},
-    {ico:'🧁',t:'第一次烘焙',d:'做一道你从没做过的烘焙，哪怕是最简单的饼干。'},
-    {ico:'🍹',t:'无酒精特调',d:'调一杯不含酒精的创意饮品，酸甜自己定。'},
-    {ico:'🧊',t:'零采购一餐',d:'只用冰箱里现有的食材，做一顿完整的饭。'},
-    {ico:'🌶️',t:'新香料挑战',d:'尝试一种你没用过的香料，记录它的味道。'},
-    {ico:'🏠',t:'复刻家乡味',d:'做一道你家乡的菜，给家人一个惊喜。'}
-  ];
-  /* ===== 一道菜的进化史 ===== */
-  const evolutions=[
-    {name:'番茄炒蛋',secs:[
-      ['起源','番茄原产南美，16 世纪传入欧洲时曾被当作观赏植物。约 19 世纪中叶传入中国，最初叫"番柿"。'],
-      ['地区变体','北方多加糖提鲜，南方偏好加少许番茄酱增色；有人爱吃炒得稀烂的"番茄蛋汤"，有人坚持蛋块分明。'],
-      ['现代版','如今它有了无数变体：番茄炒蛋盖饭、番茄蛋花汤、甚至做成三明治馅。一道国民菜，做法从没有标准答案。']]},
-    {name:'饺子',secs:[
-      ['起源','饺子由东汉医圣张仲景发明，最初叫"娇耳"，是用来治冻疮的药食，馅里有羊肉和驱寒药材。'],
-      ['地区变体','北方重皮馅实在，南方有馄饨、云吞等亲戚；日本叫煎饺，韩国叫"mandu"，做法各异。'],
-      ['现代版','从手工现包到速冻水饺，从猪肉白菜到三鲜虾仁，饺子早已走出"过年专属"，变成日常主食。']]},
-    {name:'珍珠奶茶',secs:[
-      ['起源','1980 年代诞生于台湾台中，春水堂的店员把粉圆加进奶茶，一杯传奇就此开始。'],
-      ['地区变体','台湾重茶香，香港有丝袜奶茶，大陆则卷出了黑糖珍珠、脏脏茶等无数流派。'],
-      ['现代版','如今的奶茶店有几十种小料可选：珍珠、椰果、布丁、奶盖……一杯奶茶，成了一种个人表达。']]}
-  ];
-  /* ===== 设备适配 ===== */
-  const EQUIP_TIPS={
-    baking:['空气炸锅版：温度比烤箱低 10℃，时间缩短约 20%，表面上色快可中途加盖锡纸。','没有烤箱：戚风、蛋糕类可用电饭煲"蛋糕键"尝试，但酥皮、派塔、蛋挞类不适合替代。','烤箱温差：家用烤箱普遍有 ±15℃ 温差，第一次做建议用温度计实测，或按最低温度试。'],
-    drink:['没有料理机：奶昔类可用手摇杯加碎冰用力摇匀，口感稍粗但风味不减。','没有奶泡器：热牛奶装入密封瓶摇 30 秒，也能打出绵密奶泡做拿铁。','没有雪克壶：用带盖的水杯/保温杯代替，注意留一半空间方便摇晃。'],
-    meal:['没有平底锅：炒菜可用深口炒锅代替，火候稍大、翻炒更快即可。','电饭煲代替炖锅：炖煮类菜品可用煮饭档，水量减少约 10%，中途开盖看一次。','没有蒸锅：大锅加水垫高盘子，加盖即是简易蒸锅，注意水不要烧干。']
-  };
-  /* ===== 我的面板 ===== */
-  const STOCK_KEY='foodatlas-stock-v1';
-  function loadStock(){try{return JSON.parse(localStorage.getItem(STOCK_KEY)||'[]')}catch(e){return[]}}
-  function saveStock(s){try{localStorage.setItem(STOCK_KEY,JSON.stringify(s))}catch(e){}}
-  function stockStatus(s){
-    const elapsed=(Date.now()-s.added)/86400000;
-    if(elapsed>=s.days)return 'check';
-    if(elapsed>=s.days*0.6)return 'soon';
-    return 'fresh';
-  }
-  function stockStatusText(st){return st==='fresh'?['新鲜','st-fresh']:st==='soon'?['尽快食用','st-soon']:['检查一下','st-check']}
-  function renderMine(){
-    renderGrowth();renderDiary();renderAllergenSettings();renderStock();renderFavList();renderCab();
-  }
-  function renderGrowth(){
-    const g=loadGrowth();const body=q('#growthBody');if(!body)return;
-    if(g.off){body.innerHTML='<p class="sub">成长系统已关闭，打开下方开关可重新启用。</p>';}
-    else{
-      const lv=growthLevel(g);
-      body.innerHTML='<div>当前等级：<span class="level-badge">Lv.'+(lv+1)+' '+LEVELS[lv]+'</span></div>'
-        +'<p class="sub">已完成 '+g.done+' 道 · 连续使用 '+streakDays(g.days)+' 天</p>'
-        +'<div class="achv-grid">'+ACHIEVEMENTS.map(a=>{const got=a.check(g);return '<div class="achv'+(got?' got':'')+'"><span class="a-ico">'+a.ico+'</span><b>'+a.name+'</b><span>'+a.desc+'</span></div>'}).join('')+'</div>'
-        +challengeBadgeHtml(g);
-    }
-    const off=q('#growthOff');off.checked=!!g.off;
-    off.onchange=()=>{g.off=off.checked;saveGrowth(g);renderGrowth();};
-  }
-  function challengeBadgeHtml(g){
-    try{const ch=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}');if((ch.done||[]).length>=4)return '<p class="sub" style="margin-top:10px">🏅 <b>挑战达人</b>：已完成 4 周厨房挑战！</p>'}catch(e){}
-    return '';
-  }
-  function renderDiary(){
-    const d=loadDiary();const list=q('#diaryList'),stats=q('#diaryStats');if(!list)return;
-    const ym=todayStr().slice(0,7);const month=d.filter(x=>x.d.slice(0,7)===ym);
-    const avg=month.length?(month.reduce((s,x)=>s+x.stars,0)/month.length).toFixed(1):'-';
-    stats.innerHTML='<p class="sub">本月完成 '+month.length+' 道 · 平均 '+avg+' 星 · 累计 '+d.length+' 条记录</p>';
-    list.innerHTML=d.length?d.slice(0,30).map(x=>'<div class="diary-item"><div class="d-head"><b>'+x.name+'</b><span class="d-stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+'</span></div><div class="d-note">'+x.d+(x.mins?' · 用时 '+x.mins+' 分钟':'')+(x.note?' · '+x.note:'')+'</div></div>').join(''):'<p class="sub">还没有记录。去完成一道菜，回来记录你的味道吧。</p>';
-  }
-  function renderAllergenSettings(){
-    const box=q('#allergenSettings');if(!box)return;
-    box.innerHTML=ALLERGENS.map(a=>'<label class="ag-check"><input type="checkbox" data-ag="'+a.name+'"'+(excludedAllergens.includes(a.name)?' checked':'')+'> 排除'+a.name+'</label>').join('');
-    box.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{
-      excludedAllergens=[...box.querySelectorAll('input:checked')].map(x=>x.dataset.ag);
-      saveAllergens();applySearch(false);
-    }));
-  }
-  function renderStock(){
-    const list=q('#stockList');if(!list)return;
-    const s=loadStock();
-    list.innerHTML=s.length?s.map((x,i)=>{const st=stockStatus(x);const [txt,cls]=stockStatusText(st);
-      return '<div class="stock-row"><span class="stock-status '+cls+'">'+txt+'</span><span>'+x.name+'</span><span style="color:var(--muted);font-size:.78rem">剩余约 '+Math.max(0,Math.ceil(x.days-(Date.now()-x.added)/86400000))+' 天</span><button class="del" data-i="'+i+'" aria-label="删除">×</button></div>'}).join(''):'<p class="sub">还没有库存。把买回家的食材记下来，临期会提醒你。</p>';
-    list.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{const arr=loadStock();arr.splice(+b.dataset.i,1);saveStock(arr);renderStock();renderStockAlert();}));
-    renderStockAlert();
-  }
-  function renderStockAlert(){
-    const el=q('#stockAlert');if(!el)return;
-    const n=loadStock().filter(x=>stockStatus(x)!=='fresh').length;
-    if(n>0){el.hidden=false;el.textContent='🧊 有 '+n+' 种食材建议尽快使用或检查一下，去「我的」查看。';}
-    else el.hidden=true;
-  }
-  /* ===== 首页新板块 ===== */
-  function renderSecondLife(){
-    q('#secondLifeGrid').innerHTML=secondLifeTips.map(t=>'<div class="sl-card"><span class="sl-ico">'+t.ico+'</span><h4>'+t.t+'</h4><p>'+t.d+'</p></div>').join('');
-  }
-  function weekId(){return Math.floor(Date.now()/604800000)}
-  function renderChallenge(){
-    const themes=challengeThemes;const ch=themes[weekId()%themes.length];
-    let done=[];try{done=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}').done||[]}catch(e){}
-    const wid='w'+weekId();const isDone=done.includes(wid);
-    const d=new Date();const monday=new Date(d);monday.setDate(d.getDate()-((d.getDay()+6)%7));
-    const sunday=new Date(monday);sunday.setDate(monday.getDate()+6);
-    const fmt=x=>(x.getMonth()+1)+'月'+x.getDate()+'日';
-    q('#challengeCard').innerHTML='<span class="ch-ico">'+ch.ico+'</span><div style="flex:1;min-width:200px"><h3>本周挑战：'+ch.t+'</h3><p>'+ch.d+'（'+fmt(monday)+'–'+fmt(sunday)+'）</p><button type="button" id="chDone" class="'+(isDone?'done':'')+'">'+(isDone?'✓ 本周已完成':'我完成了')+'</button></div>';
-    q('#chDone').addEventListener('click',()=>{
-      let st;try{st=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}')}catch(e){st={done:[]};}
-      if(!st.done.includes(wid)){st.done.push(wid);try{localStorage.setItem('foodatlas-challenge-v1',JSON.stringify(st))}catch(e){}}
-      renderChallenge();
-    });
-  }
-  function renderEvolution(){
-    q('#evoGrid').innerHTML=evolutions.map(e=>'<div class="evo-card"><h4>'+e.name+'</h4>'+e.secs.map(([h,p])=>'<h5>'+h+'</h5><p>'+p+'</p>').join('')+'</div>').join('');
-  }
-  let worldOpen=null;
-  function renderWorld(){
-    const g=q('#worldGrid');if(!g)return;
-    g.innerHTML=worldCuisines.map((c,i)=>'<button class="wm-card" data-wi="'+i+'"><span class="wm-flag">'+c.flag+'</span><h3>'+c.name+'</h3><p>'+c.desc.slice(0,26)+'…</p></button>'+(worldOpen===i?'<div class="wm-detail"><b>'+c.flag+' '+c.name+'</b><p style="margin:8px 0">'+c.desc+'</p><div class="wm-items">'+c.items.map(it=>it.id?'<button type="button" data-wt="'+it.t+'" data-wid="'+it.id+'">'+it.name+' →</button>':'<span class="wm-text">'+it.name+'</span>').join('')+'</div></div>':'')).join('');
-    g.querySelectorAll('.wm-card').forEach(b=>b.addEventListener('click',()=>{worldOpen=worldOpen===+b.dataset.wi?null:+b.dataset.wi;renderWorld();}));
-    g.querySelectorAll('[data-wid]').forEach(b=>b.addEventListener('click',ev=>{ev.stopPropagation();const t=b.dataset.wt,id=b.dataset.wid;q('#recipeDialog').close();if(t==='meal')openRecipe(id);else if(t==='baking')openBaking(id);else openDrink(id);}));
-  }
 </script>
 </body>
 </html>
