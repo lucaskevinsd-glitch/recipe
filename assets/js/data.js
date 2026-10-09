@@ -22,11 +22,12 @@
     cultures: 'data/cultures.json',
     meta: 'data/meta.json',
   };
+  const AV = (FA.config && FA.config.assetV) || '';
 
   async function loadAll() {
     const entries = await Promise.all(Object.entries(FILES).map(async ([k, url]) => {
       try {
-        const r = await fetch(url, { cache: 'no-cache' });
+        const r = await fetch(url + (AV ? '?v=' + AV : ''), { cache: 'no-cache' });
         if (!r.ok) throw new Error(r.status);
         return [k, await r.json()];
       } catch (e) {
