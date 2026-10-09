@@ -2,7 +2,7 @@
  * 策略: 应用外壳与数据 cache-first(版本化); 图片 cache-first; 兜底离线页。
  * 对应架构文档 12.3 离线能力: 已缓存的菜谱/收藏/计时器/单位换算离线可用。
  */
-const VERSION = 'foodatlas-v2-20261009b';
+const VERSION = 'foodatlas-v2-20261009c';
 const CORE = [
   './', './index.html', './manifest.json',
   './assets/css/main.css',

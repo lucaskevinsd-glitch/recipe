@@ -64,5 +64,5 @@
     };
   }
 
-  FA.data = { DB, loadAll, get, list, counts };
+  FA.data = { DB, loadAll, get, list, counts, byId: DB.byId };
 })();

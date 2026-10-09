@@ -35,6 +35,7 @@
     const key = location.hash;
     if (m) {
       document.getElementById('app').innerHTML = '<div class="loading">正在加载…</div>';
+      document.title = '食见 FoodAtlas · 认识每一种食材，做好每一顿饭';
       try { await m.handler(m.params, query); }
       catch (e) { console.error(e); root().innerHTML = FA.ui.empty('😵', '页面加载出错，请稍后重试'); }
     } else {

@@ -6,7 +6,7 @@
   const TYPE_ROUTE = { recipe: 'recipe', baking: 'baking', drink: 'drink', ingredient: 'ingredient', technique: 'technique', culture: 'culture' };
 
   function imgTag(src, alt, cls) {
-    if (src) return `<img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>'+${JSON.stringify('食见')}+'</div>'">`;
+    if (src) return `<img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'">`;
     const ch = (alt || '食').trim().charAt(0) || '食';
     return `<div class="img-fallback">${esc(ch)}</div>`;
   }
