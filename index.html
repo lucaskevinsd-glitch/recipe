@@ -45,13 +45,13 @@
     .today-card{background:var(--green);color:#fff;padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;box-shadow:var(--shadow);margin-bottom:36px}.today-card h2{font:800 1.5rem var(--serif);margin:0 0 3px}.today-card p{margin:0;color:rgba(255,255,255,.8)}
     .today-card button{border:0;background:#fff;color:#18472f;border-radius:10px;padding:11px 17px;font-weight:800;cursor:pointer}
     .meal-strip{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.25);padding-top:16px;gap:16px}.meal-strip div{display:flex;gap:10px}.meal-strip b{color:#ffd3c7;font-size:.8rem}.meal-strip span{font-size:.92rem}
-    .section-head{scroll-margin-top:90px;display:flex;align-items:end;justify-content:space-between;gap:18px;margin:72px 0 28px}.section-head h2{font:800 clamp(1.7rem,3.4vw,2.4rem) var(--serif);margin:0;letter-spacing:-.01em}.section-head p{color:var(--muted);margin:6px 0 0;font-size:.95rem}
-    .filters{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--paper);padding:10px 18px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem}.chip.active{background:var(--green);color:#fff;border-color:var(--green)}
-    .recipe-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}.recipe-grid>.recipe:first-child{grid-column:span 2}.recipe-grid>.recipe:first-child .recipe-image{aspect-ratio:2/1}.recipe-grid>.recipe:first-child h3{font-size:1.3rem}
-    .recipe{background:var(--paper);border:1px solid var(--line);min-width:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;overflow:hidden;text-align:left;padding:0}.recipe:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.recipe:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:28px 0 16px}.section-head h2{font:800 clamp(1.45rem,3vw,2rem) var(--serif);margin:0}.section-head p{color:var(--muted);margin:3px 0 0;font-size:.92rem}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--paper);padding:8px 13px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.88rem}.chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .recipe-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.recipe-grid>.recipe:first-child{grid-column:span 2}.recipe-grid>.recipe:first-child .recipe-image{aspect-ratio:2/1}.recipe-grid>.recipe:first-child h3{font-size:1.3rem}
+    .recipe{background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--green-3);min-width:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;overflow:hidden;text-align:left;padding:0}.recipe:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.recipe:focus-visible{outline:3px solid var(--green);outline-offset:3px}
     .recipe-image{aspect-ratio:4/3;overflow:hidden;background:var(--paper-2);position:relative}.recipe-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.recipe:hover img{transform:scale(1.03)}
     .time{position:absolute;right:10px;bottom:10px;background:rgba(18,29,20,.82);color:#fff;border-radius:999px;padding:5px 9px;font-size:.76rem;font-weight:700}
-    .recipe-body{padding:20px 20px 22px}.recipe h3{font:800 1.18rem var(--serif);margin:0 0 10px;line-height:1.4}.alias{color:var(--muted);font-size:.8rem}.tagline{margin:11px 0 10px;font-size:.88rem;color:var(--muted);min-height:2.7em}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{background:var(--green-2);color:var(--green);font-size:.74rem;font-weight:700;padding:4px 8px;border-radius:6px}
+    .recipe-body{padding:15px 15px 17px}.recipe h3{font:800 1.09rem var(--serif);margin:0 0 4px}.alias{color:var(--muted);font-size:.8rem}.tagline{margin:11px 0 10px;font-size:.88rem;color:var(--muted);min-height:2.7em}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{background:var(--green-2);color:var(--green);font-size:.74rem;font-weight:700;padding:4px 8px;border-radius:6px}
     .plan{margin-top:42px;background:var(--paper);border:1px solid var(--line);padding:24px}.plan-days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:16px 0}.day{border:1px solid var(--line);background:transparent;padding:10px 4px;border-radius:10px;cursor:pointer;font-weight:700}.day.active{background:var(--coral);color:#fff;border-color:var(--coral)}.plan-content{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.plan-meal{background:var(--paper);padding:17px}.plan-meal b{display:block;color:var(--coral);font-size:.78rem;margin-bottom:4px}.plan-meal span{font-weight:700}.plan-meal small{display:block;color:var(--muted);margin-top:5px}
     .fitness-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;margin-bottom:34px}.fitness-intro h1{font:900 clamp(2rem,5vw,4.4rem)/1.05 var(--serif);letter-spacing:-.04em;margin:0}.fitness-intro p{color:var(--muted);max-width:620px}.body-map{background:var(--paper);border:1px solid var(--line);padding:22px;min-height:290px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.body-map:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:var(--green-2);top:-65px;right:-45px}.body-map svg{width:190px;height:255px;z-index:1}.muscle-dot{fill:var(--coral)}
     .muscle-filters{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:0 0 22px}.muscle{border:1px solid var(--line);background:var(--paper);padding:12px 6px;border-radius:10px;font-weight:700;cursor:pointer}.muscle.active{background:var(--green);color:#fff;border-color:var(--green)}
@@ -94,7 +94,7 @@
     .hero-visual img{width:100%;height:clamp(300px,38vw,440px);object-fit:cover;border-radius:22px;box-shadow:var(--shadow);display:block}
     .hero-script{position:absolute;left:6%;top:16%;font-family:"Segoe Script","Bradley Hand","Comic Sans MS",cursive;font-size:clamp(1.1rem,2.2vw,1.5rem);color:#4a6b3f;transform:rotate(-8deg);line-height:1.35;opacity:.9}
     @media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-visual img{height:280px}.hero{margin-bottom:32px}}
-    .meta-row{display:flex;gap:8px;flex-wrap:wrap;margin:0;align-items:center}
+    .meta-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px;align-items:center}
     .difficulty{font-size:.74rem;font-weight:800;color:var(--coral);background:var(--coral-soft);padding:4px 8px;border-radius:6px}
     .cat-tag{font-size:.74rem;font-weight:700;color:var(--green);background:var(--green-2);padding:4px 8px;border-radius:6px}
     .cook-cta{display:flex;align-items:center;gap:12px;margin:16px 0}
@@ -141,39 +141,6 @@
     .shop-count{margin:10px 0 0;font-size:.82rem;color:var(--muted)}
     @media(max-width:640px){.shop-list{grid-template-columns:1fr 1fr}.hero{margin:14px 0 24px;padding:26px 16px}.brand-en{display:none}}
   
-
-    /* ===== Redesign: airy editorial ===== */
-    .featured-hero{position:relative;border-radius:24px;overflow:hidden;margin:8px 0 56px;min-height:440px;display:flex;align-items:flex-end;box-shadow:var(--shadow)}
-    .featured-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .featured-card{background:#1F2A1F;color:#fff;border-radius:18px;padding:30px 32px;max-width:420px;margin:0 0 36px 36px;position:relative;z-index:1}
-    .featured-card .f-eyebrow{font-size:.75rem;letter-spacing:.22em;font-weight:800;color:#9DB38E;margin:0 0 12px}
-    .featured-card h2{font:900 clamp(1.6rem,3vw,2.2rem)/1.25 var(--serif);margin:0 0 10px;color:#fff}
-    .featured-card p{margin:0 0 20px;color:rgba(255,255,255,.78);font-size:.94rem;line-height:1.6}
-    .featured-card button{border:0;background:#fff;color:#1F2A1F;border-radius:999px;padding:12px 28px;font-weight:800;cursor:pointer;font-size:.95rem}
-    .featured-card button:hover{background:var(--green-2)}
-    .featured-meta{display:flex;gap:14px;margin:0 0 16px;font-size:.85rem;color:rgba(255,255,255,.7)}
-    @media(max-width:640px){.featured-hero{min-height:380px}.featured-card{margin:0 16px 20px;padding:24px}}
-    .fridge-pills-row{margin:0 0 64px}
-    .fridge-pills-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
-    .fridge-pills-head h2{font:800 1.35rem var(--serif);margin:0}
-    .fridge-pills-head span{color:var(--muted);font-size:.88rem}
-    .fridge-pills{display:flex;gap:10px;flex-wrap:wrap}
-    .fpill{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 20px;font-weight:600;cursor:pointer;font-size:.92rem;transition:all .15s ease}
-    .fpill:hover{border-color:var(--green);color:var(--green)}
-    .sec-eyebrow{display:block;font-size:.78rem;letter-spacing:.2em;font-weight:800;color:var(--green);margin-bottom:8px;text-transform:uppercase}
-    /* 详情页模块间距 */
-    .detail-copy h3{margin-top:30px!important}
-    .taste-block,.method-block,.pair-block{margin:30px 0}
-    .benefit-line{margin:24px 0;padding:16px 0}
-    .cook-cta{margin:24px 0}
-    .shop-wrap{margin-top:30px;padding-top:26px}
-    /* 烘焙/饮品卡片极简 */
-    .bbody{padding:20px 20px 22px!important}
-    .bbody h3{font-size:1.18rem!important;margin:0 0 10px!important}
-    .dbody{padding:20px 20px 22px!important}
-    .dbody h3{font-size:1.18rem!important;margin:0 0 10px!important}
-    .baking-meta,.drink-meta{margin:0!important}
-
     /* ===== mockup: home 3-col ===== */
     .home-3col{display:grid;grid-template-columns:1.28fr 1fr 1fr;gap:22px;margin:0 0 46px}
     .home-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);min-width:0}
@@ -485,6 +452,12 @@
     .diary-prompt #diarySkip{border:1px solid var(--line);background:#fff;color:var(--ink)}
     .risk-box li{margin:3px 0}
     /* ===== 过敏原 ===== */
+  const ALLERGEN_KEY='foodatlas-allergen-v1';
+  let excludedAllergens=[];
+  try{excludedAllergens=JSON.parse(localStorage.getItem(ALLERGEN_KEY)||'[]')}catch(e){excludedAllergens=[]}
+  function saveAllergens(){try{localStorage.setItem(ALLERGEN_KEY,JSON.stringify(excludedAllergens))}catch(e){}}
+  function getAllergens(r){const t=(r.ingredients||[]).join(' ');return ALLERGENS.filter(a=>a.keys.some(k=>t.includes(k))).map(a=>a.name)}
+  function hasExcluded(r){return getAllergens(r).some(a=>excludedAllergens.includes(a))}
   /* ===== 食材替换助手 ===== */
     .sub-box{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px}
     .sub-box h3{font:800 1rem var(--serif);margin:0 0 10px;color:var(--ink)}
@@ -498,6 +471,158 @@
     /* ===== 可信度徽章 ===== */
     .cred-badge{display:inline-block;font-size:.72rem;background:#EDEBE4;color:#8A8578;border-radius:6px;padding:3px 9px;margin:6px 0 0 8px;vertical-align:middle;cursor:help;font-weight:600}
     /* ===== 过敏原数据 ===== */
+  const ALLERGENS=[
+    {name:'花生',keys:['花生']},
+    {name:'坚果',keys:['核桃','杏仁','腰果','榛子','开心果','松子','碧根果']},
+    {name:'牛奶',keys:['牛奶','奶油','黄油','奶酪','芝士','酸奶','马斯卡彭','炼乳','淡奶油']},
+    {name:'鸡蛋',keys:['鸡蛋','蛋黄','蛋白']},
+    {name:'大豆',keys:['大豆','豆腐','豆浆','酱油','生抽','豆豉']},
+    {name:'小麦',keys:['面粉','面包','面条','馒头','燕麦','麦片']},
+    {name:'鱼类',keys:['鲈鱼','三文鱼','金枪鱼','带鱼']},
+    {name:'贝类',keys:['虾','蟹','贝','牡蛎','扇贝']}
+  ];
+  /* ===== 世界美食探索 ===== */
+  const worldCuisines=[
+    {flag:'🇨🇳',name:'中国',desc:'讲究火候与调味的平衡，一个菜系一种性格：川菜重麻辣，粤菜重原味，江浙偏清甜。',items:[{t:'meal',id:'tomato',name:'番茄炒蛋'},{t:'meal',id:'fish',name:'清蒸鲈鱼'},{t:'meal',id:'tofu',name:'菠菜豆腐汤'}]},
+    {flag:'🇯🇵',name:'日本',desc:'追求食材本味与时令感，从一碗拉面到一杯抹茶，都讲究克制与精致。',items:[{t:'drink',id:'matcha-latte',name:'抹茶拿铁'},{name:'寿司（食材：鱼类）'},{name:'味噌汤（食材：大豆）'}]},
+    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',sweetness:'中甜',texture:'丝滑',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
+    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',sweetness:'低甜',texture:'酥脆',name:'可颂面包'},{t:'baking',id:'macaron',sweetness:'高甜',texture:'酥脆',name:'马卡龙'},{t:'baking',id:'lemon-tart',sweetness:'中甜',texture:'酥脆',name:'柠檬塔'}]},
+    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',sweetness:'高甜',texture:'湿润',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
+    {flag:'🇬🇧',name:'英国',desc:'下午茶文化的故乡，一杯红茶配司康，是刻在日常里的仪式感。',items:[{name:'英式红茶'},{name:'司康饼'},{name:'炸鱼薯条'}]},
+    {flag:'🌏',name:'东南亚',desc:'热带风情：椰奶、香料、酸辣与清爽，天气热的地方，味道也热烈。',items:[{t:'drink',id:'mango-pomelo-sago',name:'杨枝甘露'},{name:'泰式奶茶'},{name:'海南鸡饭'}]},
+    {flag:'🕌',name:'中东',desc:'香料之路的起点，鹰嘴豆、薄荷与咖啡在这里有上千年的历史。',items:[{name:'鹰嘴豆泥'},{name:'薄荷茶'},{name:'阿拉伯咖啡'}]}
+  ];
+  /* ===== 食材的第二次生命 ===== */
+  const secondLifeTips=[
+    {ico:'🍚',t:'剩米饭',d:'做成炒饭、咸粥或饭团，冷藏保存不超过 2 天，吃前彻底加热。'},
+    {ico:'🍞',t:'面包边',d:'烤箱 150℃ 烤干后打成面包糠，裹炸猪排、鸡翅都好吃。'},
+    {ico:'🌿',t:'香菜梗 / 芹菜叶',d:'别扔！切碎做青酱、拌面调料，香味比叶子还浓。'},
+    {ico:'🍋',t:'柠檬皮',d:'擦丝给蛋糕、饮品增香；煮水可去厨房腥味。'},
+    {ico:'🍲',t:'剩高汤 / 火锅汤',d:'分装冷冻成小份，下次煮面、炖菜直接当汤底。'},
+    {ico:'🥚',t:'蛋壳',d:'洗净晒干碾碎，是很好的天然花肥，补钙又疏松土壤。'},
+    {ico:'🥬',t:'蔫掉的青菜',d:'做汤、包馅或蔬菜煎饼，高温烹饪后口感完全没问题。'},
+    {ico:'🍞',t:'剩面包',d:'做法式吐司、面包布丁，或切丁烤成沙拉脆丁。'},
+    {ico:'🍎',t:'水果边角料',d:'苹果核、梨皮加冰糖煮一锅水果茶，酸甜解腻。'}
+  ];
+  /* ===== 厨房挑战 ===== */
+  const challengeThemes=[
+    {ico:'🍳',t:'三种材料早餐',d:'只用三种常见材料，做一顿像样的早餐。'},
+    {ico:'🧁',t:'第一次烘焙',d:'做一道你从没做过的烘焙，哪怕是最简单的饼干。'},
+    {ico:'🍹',t:'无酒精特调',d:'调一杯不含酒精的创意饮品，酸甜自己定。'},
+    {ico:'🧊',t:'零采购一餐',d:'只用冰箱里现有的食材，做一顿完整的饭。'},
+    {ico:'🌶️',t:'新香料挑战',d:'尝试一种你没用过的香料，记录它的味道。'},
+    {ico:'🏠',t:'复刻家乡味',d:'做一道你家乡的菜，给家人一个惊喜。'}
+  ];
+  /* ===== 一道菜的进化史 ===== */
+  const evolutions=[
+    {name:'番茄炒蛋',secs:[
+      ['起源','番茄原产南美，16 世纪传入欧洲时曾被当作观赏植物。约 19 世纪中叶传入中国，最初叫"番柿"。'],
+      ['地区变体','北方多加糖提鲜，南方偏好加少许番茄酱增色；有人爱吃炒得稀烂的"番茄蛋汤"，有人坚持蛋块分明。'],
+      ['现代版','如今它有了无数变体：番茄炒蛋盖饭、番茄蛋花汤、甚至做成三明治馅。一道国民菜，做法从没有标准答案。']]},
+    {name:'饺子',secs:[
+      ['起源','饺子由东汉医圣张仲景发明，最初叫"娇耳"，是用来治冻疮的药食，馅里有羊肉和驱寒药材。'],
+      ['地区变体','北方重皮馅实在，南方有馄饨、云吞等亲戚；日本叫煎饺，韩国叫"mandu"，做法各异。'],
+      ['现代版','从手工现包到速冻水饺，从猪肉白菜到三鲜虾仁，饺子早已走出"过年专属"，变成日常主食。']]},
+    {name:'珍珠奶茶',secs:[
+      ['起源','1980 年代诞生于台湾台中，春水堂的店员把粉圆加进奶茶，一杯传奇就此开始。'],
+      ['地区变体','台湾重茶香，香港有丝袜奶茶，大陆则卷出了黑糖珍珠、脏脏茶等无数流派。'],
+      ['现代版','如今的奶茶店有几十种小料可选：珍珠、椰果、布丁、奶盖……一杯奶茶，成了一种个人表达。']]}
+  ];
+  /* ===== 设备适配 ===== */
+  const EQUIP_TIPS={
+    baking:['空气炸锅版：温度比烤箱低 10℃，时间缩短约 20%，表面上色快可中途加盖锡纸。','没有烤箱：戚风、蛋糕类可用电饭煲"蛋糕键"尝试，但酥皮、派塔、蛋挞类不适合替代。','烤箱温差：家用烤箱普遍有 ±15℃ 温差，第一次做建议用温度计实测，或按最低温度试。'],
+    drink:['没有料理机：奶昔类可用手摇杯加碎冰用力摇匀，口感稍粗但风味不减。','没有奶泡器：热牛奶装入密封瓶摇 30 秒，也能打出绵密奶泡做拿铁。','没有雪克壶：用带盖的水杯/保温杯代替，注意留一半空间方便摇晃。'],
+    meal:['没有平底锅：炒菜可用深口炒锅代替，火候稍大、翻炒更快即可。','电饭煲代替炖锅：炖煮类菜品可用煮饭档，水量减少约 10%，中途开盖看一次。','没有蒸锅：大锅加水垫高盘子，加盖即是简易蒸锅，注意水不要烧干。']
+  };
+  /* ===== 我的面板 ===== */
+  const STOCK_KEY='foodatlas-stock-v1';
+  function loadStock(){try{return JSON.parse(localStorage.getItem(STOCK_KEY)||'[]')}catch(e){return[]}}
+  function saveStock(s){try{localStorage.setItem(STOCK_KEY,JSON.stringify(s))}catch(e){}}
+  function stockStatus(s){
+    const elapsed=(Date.now()-s.added)/86400000;
+    if(elapsed>=s.days)return 'check';
+    if(elapsed>=s.days*0.6)return 'soon';
+    return 'fresh';
+  }
+  function stockStatusText(st){return st==='fresh'?['新鲜','st-fresh']:st==='soon'?['尽快食用','st-soon']:['检查一下','st-check']}
+  function renderMine(){
+    renderGrowth();renderDiary();renderAllergenSettings();renderStock();renderFavList();renderCab();
+  }
+  function renderGrowth(){
+    const g=loadGrowth();const body=q('#growthBody');if(!body)return;
+    if(g.off){body.innerHTML='<p class="sub">成长系统已关闭，打开下方开关可重新启用。</p>';}
+    else{
+      const lv=growthLevel(g);
+      body.innerHTML='<div>当前等级：<span class="level-badge">Lv.'+(lv+1)+' '+LEVELS[lv]+'</span></div>'
+        +'<p class="sub">已完成 '+g.done+' 道 · 连续使用 '+streakDays(g.days)+' 天</p>'
+        +'<div class="achv-grid">'+ACHIEVEMENTS.map(a=>{const got=a.check(g);return '<div class="achv'+(got?' got':'')+'"><span class="a-ico">'+a.ico+'</span><b>'+a.name+'</b><span>'+a.desc+'</span></div>'}).join('')+'</div>'
+        +challengeBadgeHtml(g);
+    }
+    const off=q('#growthOff');off.checked=!!g.off;
+    off.onchange=()=>{g.off=off.checked;saveGrowth(g);renderGrowth();};
+  }
+  function challengeBadgeHtml(g){
+    try{const ch=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}');if((ch.done||[]).length>=4)return '<p class="sub" style="margin-top:10px">🏅 <b>挑战达人</b>：已完成 4 周厨房挑战！</p>'}catch(e){}
+    return '';
+  }
+  function renderDiary(){
+    const d=loadDiary();const list=q('#diaryList'),stats=q('#diaryStats');if(!list)return;
+    const ym=todayStr().slice(0,7);const month=d.filter(x=>x.d.slice(0,7)===ym);
+    const avg=month.length?(month.reduce((s,x)=>s+x.stars,0)/month.length).toFixed(1):'-';
+    stats.innerHTML='<p class="sub">本月完成 '+month.length+' 道 · 平均 '+avg+' 星 · 累计 '+d.length+' 条记录</p>';
+    list.innerHTML=d.length?d.slice(0,30).map(x=>'<div class="diary-item"><div class="d-head"><b>'+x.name+'</b><span class="d-stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+'</span></div><div class="d-note">'+x.d+(x.mins?' · 用时 '+x.mins+' 分钟':'')+(x.note?' · '+x.note:'')+'</div></div>').join(''):'<p class="sub">还没有记录。去完成一道菜，回来记录你的味道吧。</p>';
+  }
+  function renderAllergenSettings(){
+    const box=q('#allergenSettings');if(!box)return;
+    box.innerHTML=ALLERGENS.map(a=>'<label class="ag-check"><input type="checkbox" data-ag="'+a.name+'"'+(excludedAllergens.includes(a.name)?' checked':'')+'> 排除'+a.name+'</label>').join('');
+    box.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{
+      excludedAllergens=[...box.querySelectorAll('input:checked')].map(x=>x.dataset.ag);
+      saveAllergens();applySearch(false);
+    }));
+  }
+  function renderStock(){
+    const list=q('#stockList');if(!list)return;
+    const s=loadStock();
+    list.innerHTML=s.length?s.map((x,i)=>{const st=stockStatus(x);const [txt,cls]=stockStatusText(st);
+      return '<div class="stock-row"><span class="stock-status '+cls+'">'+txt+'</span><span>'+x.name+'</span><span style="color:var(--muted);font-size:.78rem">剩余约 '+Math.max(0,Math.ceil(x.days-(Date.now()-x.added)/86400000))+' 天</span><button class="del" data-i="'+i+'" aria-label="删除">×</button></div>'}).join(''):'<p class="sub">还没有库存。把买回家的食材记下来，临期会提醒你。</p>';
+    list.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{const arr=loadStock();arr.splice(+b.dataset.i,1);saveStock(arr);renderStock();renderStockAlert();}));
+    renderStockAlert();
+  }
+  function renderStockAlert(){
+    const el=q('#stockAlert');if(!el)return;
+    const n=loadStock().filter(x=>stockStatus(x)!=='fresh').length;
+    if(n>0){el.hidden=false;el.textContent='🧊 有 '+n+' 种食材建议尽快使用或检查一下，去「我的」查看。';}
+    else el.hidden=true;
+  }
+  /* ===== 首页新板块 ===== */
+  function renderSecondLife(){
+    q('#secondLifeGrid').innerHTML=secondLifeTips.map(t=>'<div class="sl-card"><span class="sl-ico">'+t.ico+'</span><h4>'+t.t+'</h4><p>'+t.d+'</p></div>').join('');
+  }
+  function weekId(){return Math.floor(Date.now()/604800000)}
+  function renderChallenge(){
+    const themes=challengeThemes;const ch=themes[weekId()%themes.length];
+    let done=[];try{done=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}').done||[]}catch(e){}
+    const wid='w'+weekId();const isDone=done.includes(wid);
+    const d=new Date();const monday=new Date(d);monday.setDate(d.getDate()-((d.getDay()+6)%7));
+    const sunday=new Date(monday);sunday.setDate(monday.getDate()+6);
+    const fmt=x=>(x.getMonth()+1)+'月'+x.getDate()+'日';
+    q('#challengeCard').innerHTML='<span class="ch-ico">'+ch.ico+'</span><div style="flex:1;min-width:200px"><h3>本周挑战：'+ch.t+'</h3><p>'+ch.d+'（'+fmt(monday)+'–'+fmt(sunday)+'）</p><button type="button" id="chDone" class="'+(isDone?'done':'')+'">'+(isDone?'✓ 本周已完成':'我完成了')+'</button></div>';
+    q('#chDone').addEventListener('click',()=>{
+      let st;try{st=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}')}catch(e){st={done:[]};}
+      if(!st.done.includes(wid)){st.done.push(wid);try{localStorage.setItem('foodatlas-challenge-v1',JSON.stringify(st))}catch(e){}}
+      renderChallenge();
+    });
+  }
+  function renderEvolution(){
+    q('#evoGrid').innerHTML=evolutions.map(e=>'<div class="evo-card"><h4>'+e.name+'</h4>'+e.secs.map(([h,p])=>'<h5>'+h+'</h5><p>'+p+'</p>').join('')+'</div>').join('');
+  }
+  let worldOpen=null;
+  function renderWorld(){
+    const g=q('#worldGrid');if(!g)return;
+    g.innerHTML=worldCuisines.map((c,i)=>'<button class="wm-card" data-wi="'+i+'"><span class="wm-flag">'+c.flag+'</span><h3>'+c.name+'</h3><p>'+c.desc.slice(0,26)+'…</p></button>'+(worldOpen===i?'<div class="wm-detail"><b>'+c.flag+' '+c.name+'</b><p style="margin:8px 0">'+c.desc+'</p><div class="wm-items">'+c.items.map(it=>it.id?'<button type="button" data-wt="'+it.t+'" data-wid="'+it.id+'">'+it.name+' →</button>':'<span class="wm-text">'+it.name+'</span>').join('')+'</div></div>':'')).join('');
+    g.querySelectorAll('.wm-card').forEach(b=>b.addEventListener('click',()=>{worldOpen=worldOpen===+b.dataset.wi?null:+b.dataset.wi;renderWorld();}));
+    g.querySelectorAll('[data-wid]').forEach(b=>b.addEventListener('click',ev=>{ev.stopPropagation();const t=b.dataset.wt,id=b.dataset.wid;q('#recipeDialog').close();if(t==='meal')openRecipe(id);else if(t==='baking')openBaking(id);else openDrink(id);}));
+  }
   /* ===== 今日食物故事 ===== */
     .food-story{margin:44px 0 30px}
     .story-card{display:grid;grid-template-columns:340px 1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
@@ -534,21 +659,25 @@
 
   <main>
     <section id="recipesPanel" class="panel">
-      <section class="featured-hero" aria-label="今日推荐">
-        <img id="featImg" src="assets/img/full/img0004.jpg" alt="今日推荐" fetchpriority="high">
-        <div class="featured-card">
-          <p class="f-eyebrow">FEATURED RECIPE · 今日推荐</p>
-          <h2 id="featName">—</h2>
-          <div class="featured-meta"><span id="featTime">—</span><span id="featLevel">—</span></div>
-          <p id="featDesc">—</p>
-          <button id="featGo" type="button">查看做法 →</button>
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">好食材 · 好烹调 · 好生活</p>
+            <h1>今天吃什么？<br>让食材替你决定。</h1>
+            <p class="hero-sub">从冰箱里的食材出发，找到今天最适合你的一餐。</p>
+            <div class="hero-search">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
+              <input id="heroSearch" type="search" placeholder="搜索菜谱、食材或你想吃的味道…" aria-label="搜索菜谱或食材" autocomplete="off" autocapitalize="off" enterkeyhint="search">
+              <button id="heroGo" type="button">开始找菜</button>
+            </div>
+            <div class="hot-tags"><span class="hot-fire">🔥 热门搜索：</span><button class="hot-tag" type="button" data-q="鸡蛋">鸡蛋</button><button class="hot-tag" type="button" data-q="番茄">番茄</button><button class="hot-tag" type="button" data-q="鸡胸肉">鸡胸肉</button><button class="hot-tag" type="button" data-q="土豆">土豆</button><button class="hot-tag" type="button" data-q="牛肉">牛肉</button></div>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/img/full/img0004.jpg" alt="虾仁牛油果沙拉" fetchpriority="high">
+            <span class="hero-script" aria-hidden="true">Good Food<br>Better Life</span>
+          </div>
         </div>
-      </section>
-
-      <section class="fridge-pills-row" aria-label="冰箱有什么">
-        <div class="fridge-pills-head"><h2>冰箱里有什么？</h2><span>点一下，去食材百科看看能做什么</span></div>
-        <div class="fridge-pills" id="fridgePills"></div>
-      </section>
+      </div>
 
 
       <section class="blindbox" aria-label="今日吃喝盲盒">
@@ -584,9 +713,39 @@
         </div>
       </section>
 
+      <section class="home-3col" aria-label="今日推荐">
+        <div class="home-card today-col">
+          <div class="home-card-head">
+            <div><h2><span class="head-ico" aria-hidden="true">🧑‍🍳</span>今天吃什么</h2><p>为你推荐 3 道适合今日的美味</p></div>
+            <button class="link-more" id="todayMore" type="button">查看更多 →</button>
+          </div>
+          <div class="today-grid" id="todayGrid"></div>
+        </div>
+        <div class="home-card fridge-col">
+          <div class="home-card-head">
+            <div><h2><span class="head-ico" aria-hidden="true">🧊</span>从你的冰箱开始</h2><p id="fridgeSub">选择食材，看看能做什么菜</p></div>
+            <button class="link-more" id="fridgeAll" type="button">查看全部 →</button>
+          </div>
+          <div class="fridge-circles" id="fridgeCircles"></div>
+          <button class="fridge-cta" id="fridgeGo" type="button">去看看能做什么菜 →</button>
+            <div class="stock-alert" id="stockAlert" hidden></div>
+        </div>
+        <div class="home-card ai-col">
+          <div class="ai-head"><span class="head-ico" aria-hidden="true">🤖</span><b>AI 智能推荐</b></div>
+          <h2>不知道吃什么？</h2>
+          <p class="ai-sub">告诉我你的时间、预算和口味</p>
+          <div class="ai-grid">
+            <button class="ai-opt" data-ai="quick" type="button"><span aria-hidden="true">⏱</span><b>快速下厨</b><small>15 分钟内</small></button>
+            <button class="ai-opt" data-ai="budget" type="button"><span aria-hidden="true">💰</span><b>经济实惠</b><small>¥20 以内 / 人</small></button>
+            <button class="ai-opt" data-ai="light" type="button"><span aria-hidden="true">🥬</span><b>健康轻食</b><small>低油低盐</small></button>
+            <button class="ai-opt" data-ai="spicy" type="button"><span aria-hidden="true">🌶</span><b>重口味</b><small>辣 / 酸 / 咸 / 香</small></button>
+          </div>
+          <button class="ai-cta" id="aiGo" type="button">告诉我你的需求 →</button>
+        </div>
+      </section>
 
       <div class="section-head">
-        <div><span class="sec-eyebrow">Recipes</span><h2>菜谱库</h2><p id="resultCount" aria-live="polite">8 道基础菜谱</p></div>
+        <div><h2>菜谱库</h2><p id="resultCount" aria-live="polite">8 道基础菜谱</p></div>
         <div class="filters" aria-label="菜谱筛选">
           <button class="chip active" data-filter="全部">全部</button><button class="chip" data-filter="早餐">早餐</button><button class="chip" data-filter="快手">快手</button><button class="chip" data-filter="高蛋白">高蛋白</button><button class="chip" data-filter="清淡">清淡</button>
         </div>
@@ -596,14 +755,14 @@
 
       <section class="world-section" aria-label="探索世界食材">
         <div class="section-head">
-          <div><span class="sec-eyebrow">Around the World</span><h2>探索世界食材</h2><p>来自全球的优质食材，了解它们的故事与营养价值</p></div>
+          <div><h2><span class="head-ico" aria-hidden="true">🌐</span>探索世界食材</h2><p>来自全球的优质食材，了解它们的故事与营养价值</p></div>
           <button class="link-more" id="worldMore" type="button">查看更多 →</button>
         </div>
         <div class="world-strip" id="worldGrid"></div>
       </section>
 
       <section class="plan" aria-labelledby="planTitle">
-        <div class="section-head"><div><span class="sec-eyebrow">Weekly Plan</span><h2 id="planTitle">一周怎么吃</h2><p>切换日期，查看三餐搭配示例</p></div></div>
+        <div class="section-head"><div><h2 id="planTitle">一周怎么吃</h2><p>切换日期，查看三餐搭配示例</p></div></div>
         <div class="plan-days" id="planDays"></div>
         <div class="plan-content" id="planContent"></div>
         <div class="shop-wrap">
@@ -1200,7 +1359,7 @@
     const term=normalizeSearch(searchInput.value);
     let list=recipes.filter(r=>(recipeFilter==='全部'||r.cats.includes(recipeFilter))&&recipeMatches(r,term)&&!hasExcluded(r));
     if(term&&list.length===0&&recipes.some(r=>recipeMatches(r,term))){recipeFilter='全部';qa('.filters .chip').forEach(x=>x.classList.toggle('active',x.dataset.filter==='全部'));list=recipes.filter(r=>recipeMatches(r,term))}
-    q('#recipeGrid').innerHTML=list.map(r=>`<button class="recipe" data-id="${r.id}" aria-label="查看${r.name}详情"><div class="recipe-image"><img src="${r.image}" alt="${r.name}" loading="lazy"><span class="time">⏱ ${r.time}</span></div><div class="recipe-body"><h3>${r.name}</h3><div class="meta-row"><span class="difficulty">${r.level}</span></div></div></button>`).join('');
+    q('#recipeGrid').innerHTML=list.map(r=>`<button class="recipe" data-id="${r.id}" aria-label="查看${r.name}详情"><div class="recipe-image"><img src="${r.image}" alt="${r.name}"><span class="time">⏱ ${r.time}</span></div><div class="recipe-body"><h3>${r.name}</h3><div class="alias">${r.alias.replace('又名：','')}</div><div class="meta-row"><span class="difficulty">${r.level}</span>${r.labels.map(l=>`<span class="cat-tag">${l}</span>`).join('')}</div><p class="tagline">${r.summary}</p><div class="tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></button>`).join('');
     q('#resultCount').textContent=`${list.length} 道菜谱`;
     q('#recipeEmpty').style.display=list.length?'none':'block';
     qa('.recipe').forEach(el=>el.addEventListener('click',()=>openRecipe(el.dataset.id)));
@@ -1325,7 +1484,7 @@
   function renderBaking(){
     const term=normalizeSearch(searchInput.value);
     let list=bakingRecipes.filter(r=>(bakingFilter==='all'||r.cats.includes(bakingFilter))&&(bakingSweet==='all'||r.sweetness===bakingSweet)&&(bakingTex==='all'||r.texture===bakingTex)&&bakingMatches(r,term)&&!hasExcluded(r));
-    q('#bakingGrid').innerHTML=list.map(r=>`<article class="baking-card" data-bid="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="bimg"><img src="${r.image}" alt="${r.name}" loading="lazy"><span class="baking-badge">${r.labels[0]}</span></div><div class="bbody"><h3>${r.name}</h3><div class="baking-meta"><span>⏱ ${r.time}</span><span class="baking-level">${r.level}</span></div></div></article>`).join('');
+    q('#bakingGrid').innerHTML=list.map(r=>`<article class="baking-card" data-bid="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="bimg"><img src="${r.image}" alt="${r.name}" loading="lazy"><span class="baking-badge">${r.labels[0]}</span></div><div class="bbody"><h3>${r.name}</h3><div class="baking-meta"><span>⏱ ${r.time}</span><span class="baking-level">${r.level}</span></div><p class="bdesc">${r.summary}</p><div class="baking-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join('');
     qa('#bakingGrid .baking-card').forEach(c=>{c.onclick=()=>openBaking(c.dataset.bid);c.onkeydown=e=>{if(e.key==='Enter')openBaking(c.dataset.bid)}});
     q('#academyGrid').innerHTML=academyCourses.map(c=>`<div class="academy-card"><h3><span class="lv">${c.lv}</span>${c.name}</h3><p>${c.desc}</p></div>`).join('');
     q('#failList').innerHTML=bakingFails.map(f=>`<div class="fail-item"><b>${f.q}</b><span>${f.a}</span></div>`).join('');
@@ -1363,7 +1522,7 @@
     if(drinkTaste){title.textContent=`「${drinkTaste}」口味`;sub.textContent='口味轮盘为你筛选出的饮品。';}
     else if(drinkFilter!=='all'){title.textContent=`${drinkCatNames[drinkFilter]}饮品`;sub.textContent='点击分类可切换，口味轮盘可叠加筛选。';}
     else{title.textContent='今日推荐';sub.textContent='精选几杯饮品，让你的餐桌每天都有新发现。';}
-    q('#drinkGrid').innerHTML=list.length?list.map(r=>`<article class="drink-card" data-did="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="dimg"><img src="${drinkArt(r)}" alt="${r.name}" loading="lazy"><span class="drink-badge">${r.labels[0]}</span></div><div class="dbody"><h3>${r.name}</h3><div class="drink-meta"><span>⏱ ${r.time}</span><span class="drink-level">${r.level}</span></div></div></article>`).join(''):'<p class="drink-empty">没有找到匹配的饮品，换个筛选试试。</p>';
+    q('#drinkGrid').innerHTML=list.length?list.map(r=>`<article class="drink-card" data-did="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="dimg"><img src="${drinkArt(r)}" alt="${r.name}" loading="lazy"><span class="drink-badge">${r.labels[0]}</span></div><div class="dbody"><h3>${r.name}</h3><div class="drink-meta"><span>⏱ ${r.time}</span><span class="drink-level">${r.level}</span></div><p class="ddesc">${r.summary}</p><div class="drink-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join(''):'<p class="drink-empty">没有找到匹配的饮品，换个筛选试试。</p>';
     qa('#drinkGrid .drink-card').forEach(c=>{c.onclick=()=>openDrink(c.dataset.did);c.onkeydown=e=>{if(e.key==='Enter')openDrink(c.dataset.did)}});
     q('#drinkAcademy').innerHTML=drinkAcademy.map(c=>`<div class="academy-card"><h3><span class="lv">${c.lv}</span>${c.name}</h3><p>${c.desc}</p></div>`).join('');
   }
@@ -1602,7 +1761,7 @@
     {m:7,name:'桃子',desc:'夏末蜜桃，香甜多汁，可做白桃乌龙。',img:'assets/img/full/img0040.jpg',ing:'桃',recipes:['peach-oolong']},
     {m:8,name:'葡萄',desc:'秋季水果，鲜食或做果饮皆宜。',img:'assets/img/full/img0045.jpg',ing:'葡萄',recipes:['grape-drink']},
     {m:9,name:'南瓜',desc:'秋季金黄，蒸煮香甜，适合做南瓜派。',img:'assets/img/full/img0008.jpg',ing:'南瓜',recipes:['pumpkin-soup']},
-    {m:10,name:'红薯',desc:'秋冬烤红薯，香甜软糯，补充膳食纤维。',img:'assets/img/full/img0050.jpg',ing:'红薯',recipes:['apple-pie']},
+    {m:10,name:'苹果',desc:'秋冬常备，脆甜多汁，生吃熟吃都好。',img:'assets/img/full/img0050.jpg',ing:'苹果',recipes:['apple-pie']},
     {m:11,name:'大白菜',desc:'冬季囤菜之王，炖煮越久越入味。',img:'assets/img/full/img0060.jpg',ing:'白菜',recipes:['cabbage-stew']},
     {m:12,name:'橙子',desc:'冬日维C担当，鲜榨果汁酸甜开胃。',img:'assets/img/full/img0070.jpg',ing:'橙子',recipes:['orange-juice']}
   ];
@@ -1795,40 +1954,6 @@
     if(revealResults&&term&&section==='ingredients')revealIngredientResults();
   }
   qa('[data-section]').forEach(b=>b.addEventListener('click',()=>switchSection(b.dataset.section)));
-
-  /* ===== Redesign: featured hero + fridge pills ===== */
-  (function(){
-    try{
-      var featEl=q('#featImg'); if(!featEl) return;
-      var all=[]; if(typeof recipes!=='undefined')all=all.concat(recipes.map(r=>({t:'recipe',r:r})));
-      if(typeof bakingRecipes!=='undefined')all=all.concat(bakingRecipes.map(r=>({t:'baking',r:r})));
-      if(typeof drinkRecipes!=='undefined')all=all.concat(drinkRecipes.map(r=>({t:'drink',r:r})));
-      if(!all.length) return;
-      var day=Math.floor(Date.now()/864e5);
-      var pick=all[day%all.length];
-      featEl.src=pick.r.image|| (pick.t==='drink'&&typeof drinkArt==='function'?drinkArt(pick.r):'');
-      featEl.alt=pick.r.name;
-      q('#featName').textContent=pick.r.name;
-      q('#featTime').textContent='⏱ '+(pick.r.time||'');
-      q('#featLevel').textContent=pick.r.level||'';
-      q('#featDesc').textContent=pick.r.summary||'';
-      q('#featGo').onclick=function(){
-        if(pick.t==='recipe')openRecipe(pick.r.id);
-        else if(pick.t==='baking')openBaking(pick.r.id);
-        else openDrink(pick.r.id);
-      };
-    }catch(e){}
-    try{
-      var box=q('#fridgePills'); if(!box) return;
-      var names=['鸡蛋','番茄','鸡胸肉','土豆','牛肉','豆腐','青菜','虾仁','牛奶','洋葱'];
-      box.innerHTML=names.map(n=>'<button class="fpill" type="button" data-n="'+n+'">'+n+'</button>').join('');
-      box.querySelectorAll('.fpill').forEach(b=>b.addEventListener('click',function(){
-        var s=q('#search'); if(s){s.value=b.dataset.n;}
-        switchSection('ingredients',{preserveSearch:true});
-        setTimeout(function(){ if(typeof applySearch==='function')applySearch(false); },60);
-      }));
-    }catch(e){}
-  })();
   q('#favBtn').addEventListener('click',toggleFav);
     qa('.sweet-f').forEach(b=>b.addEventListener('click',()=>{bakingSweet=b.dataset.sw;qa('.sweet-f').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
   qa('.tex-f').forEach(b=>b.addEventListener('click',()=>{bakingTex=b.dataset.tx;qa('.tex-f').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
@@ -1874,15 +1999,13 @@
   q('#cookFinish').addEventListener('click',()=>finishCooking(false));
   q('#genShopList').addEventListener('click',genShoppingList);
   const heroSearch=q('#heroSearch');let heroComposing=false;
-  const heroDoSearch=()=>{if(heroSearch)searchInput.value=heroSearch.value;applySearch(true)};
-  if(heroSearch){
+  const heroDoSearch=()=>{searchInput.value=heroSearch.value;applySearch(true)};
   heroSearch.addEventListener('compositionstart',()=>{heroComposing=true});
   heroSearch.addEventListener('compositionend',()=>{heroComposing=false;heroDoSearch()});
   heroSearch.addEventListener('input',e=>{if(!heroComposing&&!e.isComposing){searchInput.value=heroSearch.value;applySearch(false)}});
   heroSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();heroDoSearch()}});
-  }
-  if(q('#heroGo'))q('#heroGo').addEventListener('click',heroDoSearch);
-  qa('.hot-tag').forEach(b=>b.addEventListener('click',()=>{if(heroSearch)heroSearch.value=b.dataset.q;searchInput.value=b.dataset.q;applySearch(true)}));
+  q('#heroGo').addEventListener('click',heroDoSearch);
+  qa('.hot-tag').forEach(b=>b.addEventListener('click',()=>{heroSearch.value=b.dataset.q;searchInput.value=b.dataset.q;applySearch(true)}));
   q('#brandHome').addEventListener('click',e=>{e.preventDefault();switchSection('recipes');renderDailyIng()});
   renderDailyIng();
 
@@ -1946,173 +2069,13 @@
   function wireHome3col(){
     if(q('#todayMore'))q('#todayMore').addEventListener('click',()=>q('#recipeGrid').scrollIntoView({behavior:'smooth',block:'start'}));
     if(q('#fridgeAll'))q('#fridgeAll').addEventListener('click',()=>switchSection('ingredients'));
-    if(q('#fridgeGo'))q('#fridgeGo').addEventListener('click',()=>{switchSection('ingredients');setTimeout/* ===== 从 <style> 移回的 JS ===== */
-  const ALLERGEN_KEY='foodatlas-allergen-v1';
-  let excludedAllergens=[];
-  try{excludedAllergens=JSON.parse(localStorage.getItem(ALLERGEN_KEY)||'[]')}catch(e){excludedAllergens=[]}
-  function saveAllergens(){try{localStorage.setItem(ALLERGEN_KEY,JSON.stringify(excludedAllergens))}catch(e){}}
-  function getAllergens(r){const t=(r.ingredients||[]).join(' ');return ALLERGENS.filter(a=>a.keys.some(k=>t.includes(k))).map(a=>a.name)}
-  function hasExcluded(r){return getAllergens(r).some(a=>excludedAllergens.includes(a))}
-  const ALLERGENS=[
-    {name:'花生',keys:['花生']},
-    {name:'坚果',keys:['核桃','杏仁','腰果','榛子','开心果','松子','碧根果']},
-    {name:'牛奶',keys:['牛奶','奶油','黄油','奶酪','芝士','酸奶','马斯卡彭','炼乳','淡奶油']},
-    {name:'鸡蛋',keys:['鸡蛋','蛋黄','蛋白']},
-    {name:'大豆',keys:['大豆','豆腐','豆浆','酱油','生抽','豆豉']},
-    {name:'小麦',keys:['面粉','面包','面条','馒头','燕麦','麦片']},
-    {name:'鱼类',keys:['鲈鱼','三文鱼','金枪鱼','带鱼']},
-    {name:'贝类',keys:['虾','蟹','贝','牡蛎','扇贝']}
-  ];
-  /* ===== 世界美食探索 ===== */
-  const worldCuisines=[
-    {flag:'🇨🇳',name:'中国',desc:'讲究火候与调味的平衡，一个菜系一种性格：川菜重麻辣，粤菜重原味，江浙偏清甜。',items:[{t:'meal',id:'tomato',name:'番茄炒蛋'},{t:'meal',id:'fish',name:'清蒸鲈鱼'},{t:'meal',id:'tofu',name:'菠菜豆腐汤'}]},
-    {flag:'🇯🇵',name:'日本',desc:'追求食材本味与时令感，从一碗拉面到一杯抹茶，都讲究克制与精致。',items:[{t:'drink',id:'matcha-latte',name:'抹茶拿铁'},{name:'寿司（食材：鱼类）'},{name:'味噌汤（食材：大豆）'}]},
-    {flag:'🇮🇹',name:'意大利',desc:'面食之国，也是咖啡文化的发源地之一，Espresso 在这里是日常生活。',items:[{t:'baking',id:'tiramisu',sweetness:'中甜',texture:'丝滑',name:'提拉米苏'},{name:'意式浓缩咖啡'},{name:'玛格丽特披萨'}]},
-    {flag:'🇫🇷',name:'法国',desc:'烘焙与甜点的殿堂，黄油与面粉在这里被做到极致。',items:[{t:'baking',id:'croissant',sweetness:'低甜',texture:'酥脆',name:'可颂面包'},{t:'baking',id:'macaron',sweetness:'高甜',texture:'酥脆',name:'马卡龙'},{t:'baking',id:'lemon-tart',sweetness:'中甜',texture:'酥脆',name:'柠檬塔'}]},
-    {flag:'🇺🇸',name:'美国',desc:'多元融合的代表，从快餐到 Cold Brew，效率与份量是关键词。',items:[{t:'baking',id:'brownie',sweetness:'高甜',texture:'湿润',name:'巧克力布朗尼'},{t:'drink',id:'cold-brew',name:'冷萃咖啡'},{name:'汉堡'}]},
-    {flag:'🇬🇧',name:'英国',desc:'下午茶文化的故乡，一杯红茶配司康，是刻在日常里的仪式感。',items:[{name:'英式红茶'},{name:'司康饼'},{name:'炸鱼薯条'}]},
-    {flag:'🌏',name:'东南亚',desc:'热带风情：椰奶、香料、酸辣与清爽，天气热的地方，味道也热烈。',items:[{t:'drink',id:'mango-pomelo-sago',name:'杨枝甘露'},{name:'泰式奶茶'},{name:'海南鸡饭'}]},
-    {flag:'🕌',name:'中东',desc:'香料之路的起点，鹰嘴豆、薄荷与咖啡在这里有上千年的历史。',items:[{name:'鹰嘴豆泥'},{name:'薄荷茶'},{name:'阿拉伯咖啡'}]}
-  ];
-  /* ===== 食材的第二次生命 ===== */
-  const secondLifeTips=[
-    {ico:'🍚',t:'剩米饭',d:'做成炒饭、咸粥或饭团，冷藏保存不超过 2 天，吃前彻底加热。'},
-    {ico:'🍞',t:'面包边',d:'烤箱 150℃ 烤干后打成面包糠，裹炸猪排、鸡翅都好吃。'},
-    {ico:'🌿',t:'香菜梗 / 芹菜叶',d:'别扔！切碎做青酱、拌面调料，香味比叶子还浓。'},
-    {ico:'🍋',t:'柠檬皮',d:'擦丝给蛋糕、饮品增香；煮水可去厨房腥味。'},
-    {ico:'🍲',t:'剩高汤 / 火锅汤',d:'分装冷冻成小份，下次煮面、炖菜直接当汤底。'},
-    {ico:'🥚',t:'蛋壳',d:'洗净晒干碾碎，是很好的天然花肥，补钙又疏松土壤。'},
-    {ico:'🥬',t:'蔫掉的青菜',d:'做汤、包馅或蔬菜煎饼，高温烹饪后口感完全没问题。'},
-    {ico:'🍞',t:'剩面包',d:'做法式吐司、面包布丁，或切丁烤成沙拉脆丁。'},
-    {ico:'🍎',t:'水果边角料',d:'苹果核、梨皮加冰糖煮一锅水果茶，酸甜解腻。'}
-  ];
-  /* ===== 厨房挑战 ===== */
-  const challengeThemes=[
-    {ico:'🍳',t:'三种材料早餐',d:'只用三种常见材料，做一顿像样的早餐。'},
-    {ico:'🧁',t:'第一次烘焙',d:'做一道你从没做过的烘焙，哪怕是最简单的饼干。'},
-    {ico:'🍹',t:'无酒精特调',d:'调一杯不含酒精的创意饮品，酸甜自己定。'},
-    {ico:'🧊',t:'零采购一餐',d:'只用冰箱里现有的食材，做一顿完整的饭。'},
-    {ico:'🌶️',t:'新香料挑战',d:'尝试一种你没用过的香料，记录它的味道。'},
-    {ico:'🏠',t:'复刻家乡味',d:'做一道你家乡的菜，给家人一个惊喜。'}
-  ];
-  /* ===== 一道菜的进化史 ===== */
-  const evolutions=[
-    {name:'番茄炒蛋',secs:[
-      ['起源','番茄原产南美，16 世纪传入欧洲时曾被当作观赏植物。约 19 世纪中叶传入中国，最初叫"番柿"。'],
-      ['地区变体','北方多加糖提鲜，南方偏好加少许番茄酱增色；有人爱吃炒得稀烂的"番茄蛋汤"，有人坚持蛋块分明。'],
-      ['现代版','如今它有了无数变体：番茄炒蛋盖饭、番茄蛋花汤、甚至做成三明治馅。一道国民菜，做法从没有标准答案。']]},
-    {name:'饺子',secs:[
-      ['起源','饺子由东汉医圣张仲景发明，最初叫"娇耳"，是用来治冻疮的药食，馅里有羊肉和驱寒药材。'],
-      ['地区变体','北方重皮馅实在，南方有馄饨、云吞等亲戚；日本叫煎饺，韩国叫"mandu"，做法各异。'],
-      ['现代版','从手工现包到速冻水饺，从猪肉白菜到三鲜虾仁，饺子早已走出"过年专属"，变成日常主食。']]},
-    {name:'珍珠奶茶',secs:[
-      ['起源','1980 年代诞生于台湾台中，春水堂的店员把粉圆加进奶茶，一杯传奇就此开始。'],
-      ['地区变体','台湾重茶香，香港有丝袜奶茶，大陆则卷出了黑糖珍珠、脏脏茶等无数流派。'],
-      ['现代版','如今的奶茶店有几十种小料可选：珍珠、椰果、布丁、奶盖……一杯奶茶，成了一种个人表达。']]}
-  ];
-  /* ===== 设备适配 ===== */
-  const EQUIP_TIPS={
-    baking:['空气炸锅版：温度比烤箱低 10℃，时间缩短约 20%，表面上色快可中途加盖锡纸。','没有烤箱：戚风、蛋糕类可用电饭煲"蛋糕键"尝试，但酥皮、派塔、蛋挞类不适合替代。','烤箱温差：家用烤箱普遍有 ±15℃ 温差，第一次做建议用温度计实测，或按最低温度试。'],
-    drink:['没有料理机：奶昔类可用手摇杯加碎冰用力摇匀，口感稍粗但风味不减。','没有奶泡器：热牛奶装入密封瓶摇 30 秒，也能打出绵密奶泡做拿铁。','没有雪克壶：用带盖的水杯/保温杯代替，注意留一半空间方便摇晃。'],
-    meal:['没有平底锅：炒菜可用深口炒锅代替，火候稍大、翻炒更快即可。','电饭煲代替炖锅：炖煮类菜品可用煮饭档，水量减少约 10%，中途开盖看一次。','没有蒸锅：大锅加水垫高盘子，加盖即是简易蒸锅，注意水不要烧干。']
-  };
-  /* ===== 我的面板 ===== */
-  const STOCK_KEY='foodatlas-stock-v1';
-  function loadStock(){try{return JSON.parse(localStorage.getItem(STOCK_KEY)||'[]')}catch(e){return[]}}
-  function saveStock(s){try{localStorage.setItem(STOCK_KEY,JSON.stringify(s))}catch(e){}}
-  function stockStatus(s){
-    const elapsed=(Date.now()-s.added)/86400000;
-    if(elapsed>=s.days)return 'check';
-    if(elapsed>=s.days*0.6)return 'soon';
-    return 'fresh';
-  }
-  function stockStatusText(st){return st==='fresh'?['新鲜','st-fresh']:st==='soon'?['尽快食用','st-soon']:['检查一下','st-check']}
-  function renderMine(){
-    renderGrowth();renderDiary();renderAllergenSettings();renderStock();renderFavList();renderCab();
-  }
-  function renderGrowth(){
-    const g=loadGrowth();const body=q('#growthBody');if(!body)return;
-    if(g.off){body.innerHTML='<p class="sub">成长系统已关闭，打开下方开关可重新启用。</p>';}
-    else{
-      const lv=growthLevel(g);
-      body.innerHTML='<div>当前等级：<span class="level-badge">Lv.'+(lv+1)+' '+LEVELS[lv]+'</span></div>'
-        +'<p class="sub">已完成 '+g.done+' 道 · 连续使用 '+streakDays(g.days)+' 天</p>'
-        +'<div class="achv-grid">'+ACHIEVEMENTS.map(a=>{const got=a.check(g);return '<div class="achv'+(got?' got':'')+'"><span class="a-ico">'+a.ico+'</span><b>'+a.name+'</b><span>'+a.desc+'</span></div>'}).join('')+'</div>'
-        +challengeBadgeHtml(g);
-    }
-    const off=q('#growthOff');off.checked=!!g.off;
-    off.onchange=()=>{g.off=off.checked;saveGrowth(g);renderGrowth();};
-  }
-  function challengeBadgeHtml(g){
-    try{const ch=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}');if((ch.done||[]).length>=4)return '<p class="sub" style="margin-top:10px">🏅 <b>挑战达人</b>：已完成 4 周厨房挑战！</p>'}catch(e){}
-    return '';
-  }
-  function renderDiary(){
-    const d=loadDiary();const list=q('#diaryList'),stats=q('#diaryStats');if(!list)return;
-    const ym=todayStr().slice(0,7);const month=d.filter(x=>x.d.slice(0,7)===ym);
-    const avg=month.length?(month.reduce((s,x)=>s+x.stars,0)/month.length).toFixed(1):'-';
-    stats.innerHTML='<p class="sub">本月完成 '+month.length+' 道 · 平均 '+avg+' 星 · 累计 '+d.length+' 条记录</p>';
-    list.innerHTML=d.length?d.slice(0,30).map(x=>'<div class="diary-item"><div class="d-head"><b>'+x.name+'</b><span class="d-stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+'</span></div><div class="d-note">'+x.d+(x.mins?' · 用时 '+x.mins+' 分钟':'')+(x.note?' · '+x.note:'')+'</div></div>').join(''):'<p class="sub">还没有记录。去完成一道菜，回来记录你的味道吧。</p>';
-  }
-  function renderAllergenSettings(){
-    const box=q('#allergenSettings');if(!box)return;
-    box.innerHTML=ALLERGENS.map(a=>'<label class="ag-check"><input type="checkbox" data-ag="'+a.name+'"'+(excludedAllergens.includes(a.name)?' checked':'')+'> 排除'+a.name+'</label>').join('');
-    box.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{
-      excludedAllergens=[...box.querySelectorAll('input:checked')].map(x=>x.dataset.ag);
-      saveAllergens();applySearch(false);
-    }));
-  }
-  function renderStock(){
-    const list=q('#stockList');if(!list)return;
-    const s=loadStock();
-    list.innerHTML=s.length?s.map((x,i)=>{const st=stockStatus(x);const [txt,cls]=stockStatusText(st);
-      return '<div class="stock-row"><span class="stock-status '+cls+'">'+txt+'</span><span>'+x.name+'</span><span style="color:var(--muted);font-size:.78rem">剩余约 '+Math.max(0,Math.ceil(x.days-(Date.now()-x.added)/86400000))+' 天</span><button class="del" data-i="'+i+'" aria-label="删除">×</button></div>'}).join(''):'<p class="sub">还没有库存。把买回家的食材记下来，临期会提醒你。</p>';
-    list.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{const arr=loadStock();arr.splice(+b.dataset.i,1);saveStock(arr);renderStock();renderStockAlert();}));
-    renderStockAlert();
-  }
-  function renderStockAlert(){
-    const el=q('#stockAlert');if(!el)return;
-    const n=loadStock().filter(x=>stockStatus(x)!=='fresh').length;
-    if(n>0){el.hidden=false;el.textContent='🧊 有 '+n+' 种食材建议尽快使用或检查一下，去「我的」查看。';}
-    else el.hidden=true;
-  }
-  /* ===== 首页新板块 ===== */
-  function renderSecondLife(){
-    q('#secondLifeGrid').innerHTML=secondLifeTips.map(t=>'<div class="sl-card"><span class="sl-ico">'+t.ico+'</span><h4>'+t.t+'</h4><p>'+t.d+'</p></div>').join('');
-  }
-  function weekId(){return Math.floor(Date.now()/604800000)}
-  function renderChallenge(){
-    const themes=challengeThemes;const ch=themes[weekId()%themes.length];
-    let done=[];try{done=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}').done||[]}catch(e){}
-    const wid='w'+weekId();const isDone=done.includes(wid);
-    const d=new Date();const monday=new Date(d);monday.setDate(d.getDate()-((d.getDay()+6)%7));
-    const sunday=new Date(monday);sunday.setDate(monday.getDate()+6);
-    const fmt=x=>(x.getMonth()+1)+'月'+x.getDate()+'日';
-    q('#challengeCard').innerHTML='<span class="ch-ico">'+ch.ico+'</span><div style="flex:1;min-width:200px"><h3>本周挑战：'+ch.t+'</h3><p>'+ch.d+'（'+fmt(monday)+'–'+fmt(sunday)+'）</p><button type="button" id="chDone" class="'+(isDone?'done':'')+'">'+(isDone?'✓ 本周已完成':'我完成了')+'</button></div>';
-    q('#chDone').addEventListener('click',()=>{
-      let st;try{st=JSON.parse(localStorage.getItem('foodatlas-challenge-v1')||'{"done":[]}')}catch(e){st={done:[]};}
-      if(!st.done.includes(wid)){st.done.push(wid);try{localStorage.setItem('foodatlas-challenge-v1',JSON.stringify(st))}catch(e){}}
-      renderChallenge();
-    });
-  }
-  function renderEvolution(){
-    q('#evoGrid').innerHTML=evolutions.map(e=>'<div class="evo-card"><h4>'+e.name+'</h4>'+e.secs.map(([h,p])=>'<h5>'+h+'</h5><p>'+p+'</p>').join('')+'</div>').join('');
-  }
-  let worldOpen=null;
-  function renderWorld(){
-    const g=q('#worldGrid');if(!g)return;
-    g.innerHTML=worldCuisines.map((c,i)=>'<button class="wm-card" data-wi="'+i+'"><span class="wm-flag">'+c.flag+'</span><h3>'+c.name+'</h3><p>'+c.desc.slice(0,26)+'…</p></button>'+(worldOpen===i?'<div class="wm-detail"><b>'+c.flag+' '+c.name+'</b><p style="margin:8px 0">'+c.desc+'</p><div class="wm-items">'+c.items.map(it=>it.id?'<button type="button" data-wt="'+it.t+'" data-wid="'+it.id+'">'+it.name+' →</button>':'<span class="wm-text">'+it.name+'</span>').join('')+'</div></div>':'')).join('');
-    g.querySelectorAll('.wm-card').forEach(b=>b.addEventListener('click',()=>{worldOpen=worldOpen===+b.dataset.wi?null:+b.dataset.wi;renderWorld();}));
-    g.querySelectorAll('[data-wid]').forEach(b=>b.addEventListener('click',ev=>{ev.stopPropagation();const t=b.dataset.wt,id=b.dataset.wid;q('#recipeDialog').close();if(t==='meal')openRecipe(id);else if(t==='baking')openBaking(id);else openDrink(id);}));
-  }
-
-(()=>{const sb=q('#selectionTitle');if(sb)sb.scrollIntoView({behavior:'smooth',block:'center'});},120);});
+    if(q('#fridgeGo'))q('#fridgeGo').addEventListener('click',()=>{switchSection('ingredients');setTimeout(()=>{const sb=q('#selectionTitle');if(sb)sb.scrollIntoView({behavior:'smooth',block:'center'});},120);});
     if(q('#aiGo'))q('#aiGo').addEventListener('click',()=>switchSection('ingredients'));
     qa('.ai-opt').forEach(b=>b.addEventListener('click',()=>{
       const mode=b.dataset.ai;
       if(mode==='quick')setRecipeFilter('快手');
       else if(mode==='light')setRecipeFilter('清淡');
-      else if(mode==='budget'){setRecipeFilter('全部');searchInput.value='鸡蛋';if(heroSearch)heroSearch.value='鸡蛋';}
+      else if(mode==='budget'){setRecipeFilter('全部');searchInput.value='鸡蛋';heroSearch.value='鸡蛋';}
       else if(mode==='spicy'){setRecipeFilter('全部');searchInput.value='辣';heroSearch.value='辣';}
       applySearch(false);
       q('#recipeGrid').scrollIntoView({behavior:'smooth',block:'start'});
@@ -2123,7 +2086,7 @@
     const s=loadStock();s.unshift({name:name,days:+q('#stockDays').value,added:Date.now()});
     saveStock(s);q('#stockName').value='';renderStock();
   });
-loadFridge();
+  loadFridge();
   renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();renderDrinks();renderSecondLife();renderChallenge();renderEvolution();renderWorld();renderStockAlert();
 })();
 
@@ -2287,6 +2250,7 @@ loadFridge();
   }
   q('#storyMore').onclick=()=>{storyIdx=(storyIdx+1)%foodStories.length;renderStory();};
   renderStory();
+
 </script>
 </body>
 </html>
