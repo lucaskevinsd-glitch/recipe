@@ -242,6 +242,35 @@
     .fail-item b{color:var(--coral);white-space:nowrap}
     .fail-item span{color:var(--muted)}
     @media(max-width:760px){.baking-hero{grid-template-columns:1fr}.baking-hero-media img{min-height:200px}}
+    /* ===== 饮品 Drinks & Beverages ===== */
+    .drink-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,44px);box-shadow:var(--shadow);margin-bottom:26px}
+    .drink-hero .eyebrow{letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700;font-size:.8rem;margin:0 0 10px}
+    .drink-hero h2{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.25;margin:0 0 12px;color:var(--ink)}
+    .drink-hero .lede{color:var(--muted);margin:0 0 20px;font-size:1.02rem}
+    .drink-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .drink-visual{min-height:280px;height:100%;border-radius:14px;background:linear-gradient(135deg,#B89A7A 0%,#8B9B70 45%,#D58D73 100%);display:flex;align-items:center;justify-content:center;gap:16px;font-size:clamp(2.6rem,6vw,4rem);box-shadow:var(--shadow)}
+    .drink-cats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+    .drink-cat{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 20px;font-size:1rem;cursor:pointer;font-weight:600}
+    .drink-cat.active{background:var(--green);color:#fff;border-color:var(--green)}
+    .drink-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+    .drink-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
+    .drink-card:hover{transform:translateY(-3px)}
+    .drink-card .dimg{position:relative;height:170px;overflow:hidden}
+    .drink-card .dimg img{width:100%;height:100%;object-fit:cover}
+    .drink-badge{position:absolute;top:10px;left:10px;background:var(--green);color:#fff;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px}
+    .drink-card .dbody{padding:14px 16px 18px}
+    .drink-card h3{margin:0 0 6px;font-size:1.1rem;font-family:var(--serif)}
+    .drink-meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:8px}
+    .drink-level{background:var(--green-2);color:var(--green);padding:2px 10px;border-radius:999px;font-weight:700;font-size:.78rem}
+    .drink-card .ddesc{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+    .drink-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .drink-tags span{background:var(--paper-2);border-radius:999px;padding:3px 12px;font-size:.78rem;color:var(--muted)}
+    .taste-wheel{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 6px}
+    .taste-tag{border:1px dashed var(--green);background:var(--green-2);color:var(--green);border-radius:999px;padding:9px 20px;font-size:.95rem;cursor:pointer;font-weight:600}
+    .taste-tag.active{background:var(--green);color:#fff;border-style:solid}
+    .drink-param{display:block;margin-top:8px;background:var(--green-2);color:var(--green);border-radius:8px;padding:8px 12px;font-size:.85rem;font-weight:600}
+    .drink-empty{color:var(--muted);padding:24px 0;text-align:center}
+    @media(max-width:760px){.drink-hero{grid-template-columns:1fr}.drink-visual{min-height:200px}}
   </style>
 </head>
 <body>
@@ -254,6 +283,7 @@
         <button class="section-tab" data-section="ingredients" aria-selected="false">食材百科</button>
         <button class="section-tab" data-section="fitness" aria-selected="false">健身训练</button>
         <button class="section-tab" data-section="baking" aria-selected="false">烘焙甜点</button>
+        <button class="section-tab" data-section="drinks" aria-selected="false">饮品</button>
       </nav>
       <label class="search-wrap">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
@@ -423,6 +453,59 @@
       </div>
       <div class="fail-list" id="failList"></div>
     </section>
+
+    <section class="panel" id="drinksPanel" hidden>
+      <div class="drink-hero">
+        <div class="drink-hero-copy">
+          <p class="eyebrow">Drinks &amp; Beverages</p>
+          <h2>一杯好饮，<br>让生活更有滋味。</h2>
+          <p class="lede">从一杯咖啡到一壶花茶，从清爽果汁到创意特调，在这里找到属于你的饮品世界。</p>
+          <div class="drink-hero-actions">
+            <button class="btn-primary" type="button" id="drinkExplore">探索饮品世界 →</button>
+            <button class="btn-ghost" type="button" id="drinkToday">今天喝什么？</button>
+          </div>
+        </div>
+        <div class="drink-hero-media"><div class="drink-visual" aria-hidden="true"><span>☕</span><span>🧋</span><span>🍵</span></div></div>
+      </div>
+
+      <div class="drink-cats" id="drinkCats" aria-label="饮品分类筛选">
+        <button class="drink-cat active" data-dcat="all">✨ 全部</button>
+        <button class="drink-cat" data-dcat="coffee">☕ 咖啡</button>
+        <button class="drink-cat" data-dcat="tea">🍵 茶饮</button>
+        <button class="drink-cat" data-dcat="milk">🥛 奶饮</button>
+        <button class="drink-cat" data-dcat="fruit">🍊 果饮</button>
+        <button class="drink-cat" data-dcat="milktea">🧋 奶茶</button>
+        <button class="drink-cat" data-dcat="soda">🫧 气泡饮</button>
+        <button class="drink-cat" data-dcat="cocoa">🍫 热可可</button>
+        <button class="drink-cat" data-dcat="healthy">🌿 健康饮品</button>
+      </div>
+
+      <div class="section-head">
+        <div><h2 id="drinkGridTitle">今日推荐</h2><p class="sub" id="drinkGridSub">精选几杯饮品，让你的餐桌每天都有新发现。</p></div>
+      </div>
+      <div class="drink-grid" id="drinkGrid"></div>
+
+      <div class="section-head" style="margin-top:40px">
+        <div><h2>口味轮盘</h2><p class="sub">选一种想喝的味道，看看有哪些选择。</p></div>
+      </div>
+      <div class="taste-wheel" id="tasteWheel" aria-label="口味筛选">
+        <button class="taste-tag" type="button" data-taste="清爽">清爽</button>
+        <button class="taste-tag" type="button" data-taste="浓郁">浓郁</button>
+        <button class="taste-tag" type="button" data-taste="酸甜">酸甜</button>
+        <button class="taste-tag" type="button" data-taste="奶香">奶香</button>
+        <button class="taste-tag" type="button" data-taste="茶香">茶香</button>
+        <button class="taste-tag" type="button" data-taste="咖啡香">咖啡香</button>
+        <button class="taste-tag" type="button" data-taste="果香">果香</button>
+        <button class="taste-tag" type="button" data-taste="巧克力">巧克力</button>
+        <button class="taste-tag" type="button" data-taste="微苦">微苦</button>
+        <button class="taste-tag" type="button" data-taste="无糖">无糖</button>
+      </div>
+
+      <div class="section-head" style="margin-top:40px">
+        <div><h2>饮品学院</h2><p class="sub">从会喝，到会做。</p></div>
+      </div>
+      <div class="academy-grid" id="drinkAcademy"></div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -436,7 +519,7 @@
   </footer>
 
   <nav class="mobile-nav" aria-label="移动端板块导航">
-    <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button><button class="mobile-tab" data-section="baking">烘焙甜点</button>
+    <button class="mobile-tab active" data-section="recipes">健康菜谱</button><button class="mobile-tab" data-section="ingredients">食材库</button><button class="mobile-tab" data-section="fitness">健身训练</button><button class="mobile-tab" data-section="baking">烘焙甜点</button><button class="mobile-tab" data-section="drinks">饮品</button>
   </nav>
 </div>
 
@@ -510,6 +593,25 @@
     {q:'曲奇摊得太开',a:'黄油太软或面粉太少，面团冷藏 30 分钟再烤。'},
     {q:'面包不蓬松',a:'酵母失效或发酵温度太低，检查酵母活性，发酵环境保持 28℃ 左右。'},
     {q:'巧克力分离',a:'温度过高导致油水分离，隔水融化时水温别超 60℃，离火搅拌。'}
+  ];
+  /* ===== 饮品 Drinks & Beverages 数据 ===== */
+  const drinkRecipes=[
+    {id:'iced-americano',name:'冰美式',alias:'Iced Americano',emoji:'☕',bg1:'#B89A7A',bg2:'#7a5f43',time:'5 分钟',level:'简单',labels:['提神'],cats:['coffee'],tastes:['清爽','咖啡香','微苦','无糖'],today:true,summary:'清爽、苦香、低负担，适合早晨与午后。',tags:['提神','低负担'],benefits:['提神醒脑','低热量负担'],ingredients:['浓缩咖啡 60 毫升（双份）','冰块 1 杯（约 200 克）','冰水 200 毫升'],steps:['萃取双份浓缩咖啡，约 60 毫升，备用。','高杯中加满冰块，倒入冰水至八分满。','将浓缩咖啡沿杯壁缓缓倒入，呈现分层即成。'],stepTimes:[2,1,2],params:{sweet:'无糖',ice:'满冰',strength:'标准'},source:'#'},
+    {id:'matcha-latte',name:'抹茶拿铁',alias:'Matcha Latte',emoji:'🍵',bg1:'#8B9B70',bg2:'#5a6b4c',time:'10 分钟',level:'简单',labels:['奶香'],cats:['milk','milktea'],tastes:['奶香','茶香','浓郁'],today:true,summary:'清新的茶香与奶香融合，顺滑柔和。',tags:['奶香','顺滑'],benefits:['口感顺滑','茶香清新'],ingredients:['抹茶粉 8 克','温水 60 毫升（约 80℃）','牛奶 200 毫升','细砂糖或糖浆 10 克（可选）','冰块 适量'],steps:['抹茶粉过筛，加入温水，用茶筅或奶泡器搅打至细腻起泡。','牛奶加热至 60℃ 左右（做冰饮则直接加冰块）。','杯中先倒牛奶，再缓缓倒入抹茶液，形成分层即成。'],stepTimes:[3,3,4],params:{sweet:'半糖',ice:'少冰',strength:'茶香浓郁'},source:'#'},
+    {id:'passion-lemon-tea',name:'百香果柠檬茶',alias:'Passion Fruit Lemon Tea',emoji:'🍋',bg1:'#D58D73',bg2:'#9c5f47',time:'10 分钟',level:'简单',labels:['清爽'],cats:['fruit','tea'],tastes:['清爽','酸甜','果香'],today:true,summary:'酸甜明亮，适合炎热天气。',tags:['清爽','果香'],benefits:['酸甜开胃','清爽解腻'],ingredients:['百香果 2 个','柠檬 半个','红茶包 1 包','蜂蜜或糖浆 20 克','冰块 1 杯','清水 400 毫升'],steps:['红茶包用 90℃ 热水泡 3 分钟，取出茶包放凉。','百香果对半挖出果肉，柠檬切片，其中一片挤汁入杯。','茶汤、果肉、柠檬片与蜂蜜混合，加冰块搅匀即成。'],stepTimes:[4,3,3],params:{sweet:'半糖',ice:'标准冰',strength:'果香明亮'},source:'#'},
+    {id:'strawberry-shake',name:'草莓奶昔',alias:'Strawberry Smoothie',emoji:'🍓',bg1:'#E8A0B4',bg2:'#b06a80',time:'8 分钟',level:'简单',labels:['人气'],cats:['milk','fruit'],tastes:['奶香','酸甜','浓郁','果香'],today:true,summary:'水果、牛奶与冰块融合，浓郁顺滑。',tags:['人气','顺滑'],benefits:['水果奶香','口感浓郁'],ingredients:['新鲜草莓 150 克','牛奶 200 毫升','原味酸奶 50 克（可选）','蜂蜜 10 克（可选）','冰块 4–5 块'],steps:['草莓洗净去蒂，对半切开。','将草莓、牛奶、酸奶、蜂蜜和冰块一起放入料理机。','搅打 30–40 秒至顺滑，倒入杯中即成。'],stepTimes:[3,2,3],params:{sweet:'标准',ice:'少冰',strength:'浓郁顺滑'},source:'#'},
+    {id:'hot-cocoa',name:'热可可',alias:'Hot Chocolate',emoji:'🍫',bg1:'#A9805E',bg2:'#6f5238',time:'10 分钟',level:'简单',labels:['治愈'],cats:['cocoa'],tastes:['浓郁','巧克力','奶香'],today:true,summary:'巧克力香气浓郁，适合夜晚和寒冷天气。',tags:['治愈','暖心'],benefits:['温暖治愈','巧克力香气'],ingredients:['可可粉 20 克','细砂糖 15 克','牛奶 250 毫升','黑巧克力 20 克（可选）','淡奶油少许（装饰用）'],steps:['可可粉与糖混合，用少量热牛奶调成顺滑糊状。','倒入剩余牛奶，小火加热至 70℃ 左右，边加热边搅拌。','加入黑巧克力搅至融化，倒入杯中，顶层加点淡奶油。'],stepTimes:[2,5,3],params:{sweet:'标准',ice:'热饮去冰',strength:'香气浓郁'},source:'#'},
+    {id:'bubble-milk-tea',name:'珍珠奶茶',alias:'Bubble Milk Tea',emoji:'🧋',bg1:'#D9A441',bg2:'#96692a',time:'25 分钟',level:'简单',labels:['经典'],cats:['milktea'],tastes:['奶香','茶香','浓郁'],summary:'茶香奶香交织，珍珠 Q 弹有嚼劲。',tags:['经典','Q弹'],benefits:['奶香茶香','嚼感十足'],ingredients:['红茶包 2 包','牛奶 200 毫升','珍珠（木薯粉圆）60 克','红糖或黑糖浆 25 克','冰块 适量','清水 500 毫升'],steps:['水烧开后下珍珠，煮 15 分钟后焖 5 分钟，捞出过凉水拌入糖浆。','红茶包用 90℃ 热水泡 4 分钟，取出后加糖调匀、放凉。','杯底放珍珠，加冰块，倒入奶茶，插入粗吸管即成。'],stepTimes:[20,4,1],params:{sweet:'半糖',ice:'少冰',strength:'奶香浓郁'},source:'#'},
+    {id:'honey-lemon-soda',name:'蜂蜜柠檬气泡饮',alias:'Honey Lemon Sparkling',emoji:'🫧',bg1:'#9FD8E8',bg2:'#5f9db3',time:'5 分钟',level:'简单',labels:['气泡'],cats:['soda','healthy'],tastes:['清爽','酸甜','果香','无糖'],summary:'冰、气泡、果香，轻松做出夏日感。',tags:['气泡','低负担'],benefits:['清爽解腻','气泡口感'],ingredients:['柠檬 半个','蜂蜜 20 克','气泡水 300 毫升（冰镇）','冰块 1 杯','薄荷叶几片（可选）'],steps:['柠檬一半切片、一半挤汁，蜂蜜用少许温水化开。','杯中加满冰块，放入柠檬片和薄荷叶。','倒入蜂蜜柠檬汁，再缓缓倒入冰镇气泡水，轻搅即成。'],stepTimes:[2,1,2],params:{sweet:'微糖',ice:'多冰',strength:'气泡清爽'},source:'#'},
+    {id:'ginger-date-tea',name:'姜枣枸杞茶',alias:'Ginger Date Goji Tea',emoji:'🌿',bg1:'#A8B89A',bg2:'#66795c',time:'15 分钟',level:'简单',labels:['暖身'],cats:['healthy','tea'],tastes:['茶香','浓郁'],summary:'温热醇厚，适合寒冷天气与需要暖身的时候。',tags:['暖身','温热'],benefits:['温热暖身','简单易做'],ingredients:['生姜 3 片','红枣 5 颗','枸杞 10 克','红糖 15 克（可选）','清水 600 毫升'],steps:['红枣去核切半，生姜切片，与清水一同入锅。','大火煮开后转小火煮 10 分钟。','加入枸杞和红糖再煮 2 分钟，倒入杯中即成。'],stepTimes:[3,10,2],params:{sweet:'微甜',ice:'热饮',strength:'温润醇厚'},source:'#'}
+  ];
+  const drinkCatNames={all:'全部',coffee:'咖啡',tea:'茶饮',milk:'奶饮',fruit:'果饮',milktea:'奶茶',soda:'气泡饮',cocoa:'热可可',healthy:'健康饮品'};
+  const drinkAcademy=[
+    {lv:'入门',name:'咖啡基础',desc:'咖啡豆、烘焙、研磨、萃取基础：先认识味道，再调出自己的味道。'},
+    {lv:'入门',name:'手冲基础',desc:'粉水比、研磨度、水温、注水手法与时间控制。'},
+    {lv:'入门',name:'茶饮基础',desc:'茶类、冲泡温度、浸泡时间与茶水比例。'},
+    {lv:'入门',name:'奶饮基础',desc:'牛奶温度、泡沫、奶泡打发与顺滑口感。'},
+    {lv:'入门',name:'果饮基础',desc:'酸甜平衡、果汁、果肉和冰量的搭配逻辑。'}
   ];
   /* ===== 食见 FoodAtlas 新增数据 ===== */
   const tasteByCat={'叶菜':[1,2,2,2],'根茎薯芋':[1,3,1,2],'瓜果茄类':[3,3,3,3],'花茎芽苗':[1,2,2,3],'菌菇木耳':[0,1,5,4],'豆类豆制品':[0,2,3,2],'谷物杂粮':[0,2,1,3],'面食粉类':[0,1,1,2],'水果':[3,5,0,4],'禽蛋':[0,1,3,2],'畜肉内脏':[0,1,4,3],'乳品':[2,3,2,3],'鱼类':[0,1,5,3],'虾蟹贝软体':[0,2,5,3],'海藻干货':[0,1,5,4],'坚果种子':[0,2,1,4],'香草葱蒜':[1,1,2,5],'调味酱料':[2,2,4,5]};
@@ -635,6 +737,7 @@
   function ingredientMatches(x,term){return matchesSearch([x.name,x.alias,x.cat,x.nutrient],term)}
   function workoutMatches(w,term){return matchesSearch([w.name,w.muscle,w.focus,w.cue,w.plan,w.tip],term)}
   function bakingMatches(r,term){return matchesSearch([r.name,r.alias,r.summary,...r.tags,...r.ingredients],term)}
+  function drinkMatches(r,term){return matchesSearch([r.name,r.alias,r.summary,...r.tags,...r.tastes,...r.ingredients],term)}
 
   function renderRecipes(){
     const term=normalizeSearch(searchInput.value);
@@ -780,8 +883,41 @@
     q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
     q('#recipeDialog').showModal();
   }
+  /* ===== 饮品渲染与详情 ===== */
+  let drinkFilter='all',drinkTaste=null;
+  function drinkArt(r){
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${r.bg1}"/><stop offset="1" stop-color="${r.bg2}"/></linearGradient></defs><rect width="640" height="480" fill="url(#g)"/><text x="320" y="245" font-size="150" text-anchor="middle" dominant-baseline="central">${r.emoji}</text></svg>`;
+    return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+  }
+  function renderDrinks(){
+    const term=normalizeSearch(searchInput.value);
+    const list=drinkRecipes.filter(r=>{
+      if(drinkFilter!=='all'&&!r.cats.includes(drinkFilter))return false;
+      if(drinkFilter==='all'&&!drinkTaste&&!term&&!r.today)return false;
+      if(drinkTaste&&!r.tastes.includes(drinkTaste))return false;
+      return drinkMatches(r,term);
+    });
+    const title=q('#drinkGridTitle'),sub=q('#drinkGridSub');
+    if(drinkTaste){title.textContent=`「${drinkTaste}」口味`;sub.textContent='口味轮盘为你筛选出的饮品。';}
+    else if(drinkFilter!=='all'){title.textContent=`${drinkCatNames[drinkFilter]}饮品`;sub.textContent='点击分类可切换，口味轮盘可叠加筛选。';}
+    else{title.textContent='今日推荐';sub.textContent='精选几杯饮品，让你的餐桌每天都有新发现。';}
+    q('#drinkGrid').innerHTML=list.length?list.map(r=>`<article class="drink-card" data-did="${r.id}" tabindex="0" role="button" aria-label="查看${r.name}详情"><div class="dimg"><img src="${drinkArt(r)}" alt="${r.name}" loading="lazy"><span class="drink-badge">${r.labels[0]}</span></div><div class="dbody"><h3>${r.name}</h3><div class="drink-meta"><span>⏱ ${r.time}</span><span class="drink-level">${r.level}</span></div><p class="ddesc">${r.summary}</p><div class="drink-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join(''):'<p class="drink-empty">没有找到匹配的饮品，换个筛选试试。</p>';
+    qa('#drinkGrid .drink-card').forEach(c=>{c.onclick=()=>openDrink(c.dataset.did);c.onkeydown=e=>{if(e.key==='Enter')openDrink(c.dataset.did)}});
+    q('#drinkAcademy').innerHTML=drinkAcademy.map(c=>`<div class="academy-card"><h3><span class="lv">${c.lv}</span>${c.name}</h3><p>${c.desc}</p></div>`).join('');
+  }
+  function openDrink(id){
+    const r=drinkRecipes.find(x=>x.id===id);if(!r)return;
+    q('#detailImage').src=drinkArt(r);q('#detailImage').alt=r.name;q('#detailTitle').textContent=r.name;
+    q('#detailAlias').textContent=`${r.alias} · ${r.time} · 难度${r.level}`;
+    q('#detailBenefits').innerHTML=r.benefits.map(x=>`<span>${x}</span>`).join('')+`<span class="drink-param">关键参数 · 甜度 ${r.params.sweet}｜冰量 ${r.params.ice}｜浓度 ${r.params.strength}</span>`;
+    q('#detailIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');
+    q('#detailSteps').innerHTML=r.steps.map((x,i)=>`<li>${x}<span class="step-time">⏱ 约${r.stepTimes[i]}分钟</span></li>`).join('');
+    q('#detailSource').href=r.source;
+    q('#startCooking').onclick=()=>{q('#recipeDialog').close();startCooking(r.id)};
+    q('#recipeDialog').showModal();
+  }
   let cookRecipe=null,cookIdx=0;
-  function startCooking(id){cookRecipe=recipes.find(x=>x.id===id)||bakingRecipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
+  function startCooking(id){cookRecipe=recipes.find(x=>x.id===id)||bakingRecipes.find(x=>x.id===id)||drinkRecipes.find(x=>x.id===id);if(!cookRecipe)return;cookIdx=0;renderCook();q('#cookMode').hidden=false;document.body.style.overflow='hidden'}
   function endCooking(){q('#cookMode').hidden=true;document.body.style.overflow=''}
   function renderCook(){
     const r=cookRecipe,n=r.steps.length,done=cookIdx>=n;
@@ -822,11 +958,11 @@
     q('#workoutCount').textContent=`${list.length} 个动作 · ${muscleFilter}`;q('#workoutEmpty').style.display=list.length?'none':'block';
   }
   function switchSection(next,{preserveSearch=false,keepScroll=false}={}){
-    section=next;const recipesOn=section==='recipes',ingredientsOn=section==='ingredients',bakingOn=section==='baking';
-    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#bakingPanel').hidden=!bakingOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn||bakingOn;if(!preserveSearch){searchInput.value='';const hs=q('#heroSearch');if(hs)hs.value='';}
-    searchInput.placeholder=recipesOn?'搜索菜名、食材或营养':ingredientsOn?'搜索胡萝卜、青菜、豆类等':bakingOn?'搜索蛋糕、饼干、甜点':'搜索动作或训练部位';
+    section=next;const recipesOn=section==='recipes',ingredientsOn=section==='ingredients',bakingOn=section==='baking',drinksOn=section==='drinks';
+    q('#recipesPanel').hidden=!recipesOn;q('#ingredientsPanel').hidden=!ingredientsOn;q('#bakingPanel').hidden=!bakingOn;q('#drinksPanel').hidden=!drinksOn;q('#fitnessPanel').hidden=recipesOn||ingredientsOn||bakingOn||drinksOn;if(!preserveSearch){searchInput.value='';const hs=q('#heroSearch');if(hs)hs.value='';}
+    searchInput.placeholder=recipesOn?'搜索菜名、食材或营养':ingredientsOn?'搜索胡萝卜、青菜、豆类等':bakingOn?'搜索蛋糕、饼干、甜点':drinksOn?'搜索咖啡、奶茶、果饮':'搜索动作或训练部位';
     qa('.section-tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.section===section)));qa('.mobile-tab').forEach(b=>b.classList.toggle('active',b.dataset.section===section));
-    if(recipesOn)renderRecipes();else if(ingredientsOn)renderIngredients();else if(bakingOn)renderBaking();else renderWorkouts();if(!keepScroll)window.scrollTo({top:0,behavior:'smooth'});
+    if(recipesOn)renderRecipes();else if(ingredientsOn)renderIngredients();else if(bakingOn)renderBaking();else if(drinksOn)renderDrinks();else renderWorkouts();if(!keepScroll)window.scrollTo({top:0,behavior:'smooth'});
   }
   function revealIngredientResults(){
     requestAnimationFrame(()=>{const target=q('#ingredientCatalog');if(target)target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
@@ -842,13 +978,17 @@
         return;
       }
     }
-    if(section==='recipes')renderRecipes();else if(section==='ingredients')renderIngredients();else if(section==='baking')renderBaking();else renderWorkouts();
+    if(section==='recipes')renderRecipes();else if(section==='ingredients')renderIngredients();else if(section==='baking')renderBaking();else if(section==='drinks')renderDrinks();else renderWorkouts();
     if(revealResults&&term&&section==='ingredients')revealIngredientResults();
   }
   qa('[data-section]').forEach(b=>b.addEventListener('click',()=>switchSection(b.dataset.section)));
   qa('.baking-cat').forEach(b=>b.addEventListener('click',()=>{bakingFilter=b.dataset.bcat;qa('.baking-cat').forEach(x=>x.classList.toggle('active',x===b));renderBaking();}));
   if(q('#bakingExplore'))q('#bakingExplore').addEventListener('click',()=>{const g=q('#bakingGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});});
   if(q('#bakingToday'))q('#bakingToday').addEventListener('click',()=>{const r=bakingRecipes[Math.floor(Math.random()*bakingRecipes.length)];openBaking(r.id);});
+  qa('.drink-cat').forEach(b=>b.addEventListener('click',()=>{drinkFilter=b.dataset.dcat;drinkTaste=null;qa('.drink-cat').forEach(x=>x.classList.toggle('active',x===b));qa('.taste-tag').forEach(x=>x.classList.remove('active'));renderDrinks();}));
+  qa('.taste-tag').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.taste;drinkTaste=drinkTaste===t?null:t;qa('.taste-tag').forEach(x=>x.classList.toggle('active',x.dataset.taste===drinkTaste));renderDrinks();}));
+  if(q('#drinkExplore'))q('#drinkExplore').addEventListener('click',()=>{const g=q('#drinkGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});});
+  if(q('#drinkToday'))q('#drinkToday').addEventListener('click',()=>{const r=drinkRecipes[Math.floor(Math.random()*drinkRecipes.length)];openDrink(r.id);});
   qa('.filters .chip').forEach(b=>b.addEventListener('click',()=>{recipeFilter=b.dataset.filter;qa('.filters .chip').forEach(x=>x.classList.toggle('active',x===b));renderRecipes()}));
   qa('.muscle').forEach(b=>b.addEventListener('click',()=>{muscleFilter=b.dataset.muscle;qa('.muscle').forEach(x=>x.classList.toggle('active',x===b));renderWorkouts()}));
   searchInput.addEventListener('compositionstart',()=>{searchComposing=true});
@@ -948,7 +1088,7 @@
     }));
   }
   loadFridge();
-  renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();
+  renderRecipes();renderPlan();renderWorkouts();renderIngredientFilters();renderSelection();renderTodayPicks();renderFridgePanel();renderWorldIngredients();wireHome3col();renderDrinks();
 })();
 </script>
 </body>
