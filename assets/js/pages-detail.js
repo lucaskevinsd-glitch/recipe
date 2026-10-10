@@ -12,16 +12,19 @@
     <p style="color:var(--ink2);margin-top:8px">${esc(item.summary || '')}</p></div>`;
   }
 
+  // 详情页顶部信息: 语义化结构,桌面端渲染为徽章,移动端渲染为紧凑信息行
+  // 主要信息: 难度/总耗时/份量;次要: 准备/制作时间;标签独立一行
   function metaBadges(item) {
-    const b = [];
-    if (item.level) b.push(`<span class="badge green">${esc(item.level)}</span>`);
+    const primary = [];
+    if (item.level) primary.push(`<span class="mi mi-level">${esc(item.level)}</span>`);
     const t = FA.ui.totalTime(item);
-    if (t) b.push(`<span class="badge">⏱ 共约 ${t} 分钟</span>`);
-    if (item.prepTime) b.push(`<span class="badge">准备 ${item.prepTime} 分钟</span>`);
-    if (item.cookTime) b.push(`<span class="badge">制作 ${item.cookTime} 分钟</span>`);
-    if (item.servings) b.push(`<span class="badge">${item.servings} 人份</span>`);
-    (item.tags || []).forEach(t => b.push(`<span class="badge">${esc(t)}</span>`));
-    return `<div class="meta-row" style="margin:12px 0">${b.join('')}</div>`;
+    if (t) primary.push(`<span class="mi">⏱ ${t} 分钟</span>`);
+    if (item.servings) primary.push(`<span class="mi">${item.servings} 人份</span>`);
+    const sub = [];
+    if (item.prepTime) sub.push(`准备 ${item.prepTime} 分钟`);
+    if (item.cookTime) sub.push(`制作 ${item.cookTime} 分钟`);
+    const tags = (item.tags || []).map(t => `<span class="mtag">${esc(t)}</span>`).join('');
+    return `<div class="meta-block"><div class="meta-line">${primary.join('<i>·</i>')}${sub.length ? `<span class="mi-sub">${sub.join(' · ')}</span>` : ''}</div>${tags ? `<div class="meta-tags">${tags}</div>` : ''}</div>`;
   }
 
   // 烘焙步骤用时常含发酵/冷藏/晾凉等被动等待,合计会大于页头的主动操作时间(准备+制作),加注说明避免混淆
@@ -145,15 +148,22 @@
     document.title = item.name + ' - 食见 FoodAtlas';
     const formula = item.formula && item.formula.length ? item.formula :
       (item.ingredients || []).map(x => ({ name: typeof x === 'string' ? x : x.name, grams: null, percent: null, note: '' }));
+    // 烘焙百分比只对有面粉结构基准的配方有意义;无有效百分比时隐藏该列,避免误导(如蛋挞400%糖)
+    const showPercent = formula.some(x => x.percent != null);
     const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
       ${hero(item, item.name, item.alias)}${metaBadges(item)}${passiveNote(item)}
       ${item.sweetness || item.texture ? `<div class="meta-row"><span class="badge gold">甜度 ${esc(item.sweetness || '—')}</span><span class="badge gold">口感 ${esc(item.texture || '—')}</span></div>` : ''}
       <div class="detail-actions">${FA.ui.favBtn('baking', id)}
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
-      <h3 style="font-family:var(--font-d);margin:18px 0 10px">配方（烘焙百分比）</h3>
-      <table class="formula"><tr><th>原料</th><th>重量</th><th>百分比</th><th>备注</th></tr>
-        ${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : ''); return `<tr><td>${esc(x.name)}</td><td>${amt ? esc(amt) : '—'}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`; }).join('')}</table>
+      <h3 style="font-family:var(--font-d);margin:18px 0 10px">配方${showPercent ? '（烘焙百分比）' : ''}</h3>
+      <div class="formula-wrap">
+      <table class="formula"><tr><th>原料</th><th>用量</th>${showPercent ? '<th>百分比</th>' : ''}<th>备注</th></tr>
+        ${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : ''); return `<tr><td>${esc(x.name)}</td><td>${amt ? esc(amt) : '—'}</td>${showPercent ? `<td>${x.percent == null ? '—' : x.percent + '%'}</td>` : ''}<td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`; }).join('')}</table>
+      <div class="formula-cards">${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : '');
+        const sub = [showPercent && x.percent != null ? `烘焙百分比 ${x.percent}%` : '', x.note || ''].filter(Boolean).join(' · ');
+        return `<div class="fcard"><div class="frow"><span class="fname">${esc(x.name)}</span><span class="famt">${amt ? esc(amt) : '—'}</span></div>${sub ? `<div class="fsub">${esc(sub)}</div>` : ''}</div>`; }).join('')}</div>
+      </div>
       ${item.totalDough ? `<p style="font-size:13.5px;color:var(--muted);margin-top:8px">面团/面糊总重约 ${item.totalDough} 克</p>` : ''}
       <div class="form-row" style="margin:16px 0">
         ${item.pan ? `<div class="field"><label>模具</label><div style="font-size:15px">${esc(item.pan)}</div></div>` : ''}

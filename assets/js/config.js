@@ -3,7 +3,7 @@ window.FA = window.FA || {};
 FA.config = {
   version: '2.0.0',
   dataVersion: '2026-10-09',
-  assetV: '20261010b', // 静态资源缓存 bust 版本,发版时与 index.html/sw.js 同步递增
+  assetV: '20261010c', // 静态资源缓存 bust 版本,发版时与 index.html/sw.js 同步递增
   // 导航（桌面端）
   nav: [
     { id: 'home', label: '首页', route: '#/', icon: '🏠' },

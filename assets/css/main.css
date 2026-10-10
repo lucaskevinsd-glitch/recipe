@@ -76,6 +76,16 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--ink)}
 .badge.gold{background:var(--gold-soft);color:#7A5C1C;border-color:#E4D3A6}
 .badge.terra{background:var(--terra-soft);color:#8F3F1D;border-color:#EAC9B2}
 
+/* ---------- 详情页顶部信息(语义化) ---------- */
+.meta-block{margin:12px 0}
+.meta-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.meta-line .mi{background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:13.5px;color:var(--ink2)}
+.meta-line .mi-level{background:var(--accent-soft);color:var(--accent-deep);border-color:var(--accent-line);font-weight:600}
+.meta-line i{font-style:normal;color:var(--muted);display:none}
+.meta-line .mi-sub{font-size:12.5px;color:var(--muted)}
+.meta-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mtag{font-size:12px;color:var(--ink2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+
 /* 横滑行（移动端） */
 .hscroll{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 
@@ -165,6 +175,8 @@ table.formula{width:100%;border-collapse:collapse;font-size:14.5px;background:va
 table.formula th,table.formula td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
 table.formula th{background:var(--surface2);font-weight:600;font-size:13px;color:var(--ink2)}
 table.formula tr:last-child td{border:none}
+/* 配方卡片(移动端用,桌面端隐藏) */
+.formula-cards{display:none}
 
 /* 烹饪模式 */
 .cookmode{position:fixed;inset:0;z-index:100;background:#1E241B;color:#F2F4E9;display:flex;flex-direction:column}
@@ -277,4 +289,44 @@ footer.site .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center;justif
   .topbar-in{padding:0 14px;gap:10px}
   .brand small{display:none}
   footer.site{padding-bottom:150px}
+  /* ---- 移动端排版优化(2026-10-10) ---- */
+  .wrap{padding:0 16px}
+  .detail-head h1{font-size:22px;line-height:1.35}
+  .detail-head .alias{font-size:13px}
+  /* 顶部信息: 移动端转为紧凑单行,标签更小 */
+  .meta-block{margin:10px 0}
+  .meta-line{gap:0;font-size:14.5px}
+  .meta-line .mi{background:none;border:none;border-radius:0;padding:0;color:var(--ink)}
+  .meta-line .mi-level{background:none;border:none;color:var(--accent-deep);font-weight:700}
+  .meta-line i{display:inline;margin:0 10px;color:var(--line2)}
+  .meta-line .mi-sub{flex-basis:100%;margin-top:5px;font-size:12.5px}
+  .meta-tags{margin-top:7px;gap:6px}
+  .mtag{font-size:11.5px;padding:2px 9px;color:var(--muted)}
+  /* 操作按钮: 烹饪模式+收藏为主要操作并排,记一次制作降为次级独占一行 */
+  .detail-actions{display:flex;flex-wrap:wrap;gap:8px}
+  .detail-actions #cook-go{flex:1 1 55%;order:1;padding:11px 6px;font-size:14px;white-space:nowrap}
+  .detail-actions [data-fav]{flex:1 1 32%;order:2;padding:11px 6px;font-size:14px;white-space:nowrap}
+  .detail-actions #log-quick{order:3;flex:1 1 100%;background:transparent;border:1px dashed var(--line2);color:var(--muted);font-size:13px;padding:8px}
+  /* 步骤卡片: 收紧左侧序号区,保证阅读宽度 */
+  .step{padding:14px 14px 14px 50px;font-size:15px;line-height:1.7}
+  .step::before{left:11px;top:13px;width:28px;height:28px;font-size:13px}
+  .tip-box{padding:14px;font-size:14px}
+  .faq-item{padding:10px 0}
+  /* 配方表: 移动端切换为卡片,桌面端表格不受影响 */
+  .formula-wrap table.formula{display:none}
+  .formula-cards{display:flex;flex-direction:column;gap:10px}
+  .fcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px}
+  .fcard .frow{display:flex;align-items:baseline;gap:10px}
+  .fcard .fname{font-weight:600;font-size:15px}
+  .fcard .famt{margin-left:auto;font-size:15px;color:var(--accent-deep);font-weight:700;white-space:nowrap}
+  .fcard .fsub{margin-top:4px;font-size:12.5px;color:var(--muted)}
+  /* 悬浮 AI 按钮: 缩小并增加右侧安全边距 */
+  .fab-ai{width:48px;height:48px;font-size:20px;right:14px;right:calc(14px + env(safe-area-inset-right))}
+  /* 烹饪模式: 窄屏收紧内边距 */
+  .cm-body{padding:20px}
+  .cm-text{font-size:20px}
+}
+/* 超窄屏(≤360px): 标题微调 */
+@media(max-width:360px){
+  .detail-head h1{font-size:20px}
 }

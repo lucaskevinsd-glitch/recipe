@@ -776,14 +776,14 @@
    {
     "name": "细砂糖",
     "grams": 40,
-    "percent": 400,
+    "percent": null,
     "amount": "40克",
     "note": ""
    },
    {
     "name": "低筋面粉",
     "grams": 10,
-    "percent": 100,
+    "percent": null,
     "amount": "10克",
     "note": "先过筛再用"
    }
