@@ -266,7 +266,7 @@
           <div class="cm-text">${esc(steps[idx])}</div>
           ${stepTime(idx) ? `<div class="cm-timer"><span class="t">${mm}:${ss}</span>
             <button class="btn sm" id="cm-tgo">${iv ? '暂停' : left > 0 && left < stepTime(idx) * 60 ? '继续' : '开始计时'}</button>
-            <button class="btn sm ghost" id="cm-trs" style="color:#F2F4E9;border-color:rgba(255,255,255,.3)">重置</button></div>` : ''}
+            <button class="btn sm ghost" id="cm-trs" style="color:#F2F4E9;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)">重置</button></div>` : ''}
         </div>
         <div class="cm-nav">
           <button class="btn" id="cm-prev" ${idx === 0 ? 'disabled' : ''}>← 上一步</button>
