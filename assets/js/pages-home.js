@@ -50,7 +50,7 @@
       <div class="channel-row">${channelCards}</div>
 
       <section class="section">${sectionHead('TODAY', '今日精选', '#/explore', '去探索')}
-        <div class="grid-cards">${picks.map(p => card(p.item, p.type)).join('')}</div></section>
+        <div class="grid-cards">${picks.map((p, i) => card(p.item, p.type, i < 2 ? { eager: true, fetchPriority: true } : { eager: true })).join('')}</div></section>
 
       <div class="fridge-strip">
         <div><h3>🧊 根据现有食材，发现今天可以做的美食</h3><p>记下冰箱里的食材，自动匹配可做的菜谱，缺的还能一键加入购物清单。</p></div>

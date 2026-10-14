@@ -5,8 +5,37 @@
   const TYPE_LABEL = { recipe: '菜谱', baking: '烘焙', drink: '饮品', ingredient: '食材', technique: '技巧', culture: '文化' };
   const TYPE_ROUTE = { recipe: 'recipe', baking: 'baking', drink: 'drink', ingredient: 'ingredient', technique: 'technique', culture: 'culture' };
 
-  function imgTag(src, alt, cls) {
-    if (src) return `<img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'">`;
+  function thumbUrl(src) {
+    // 将原图 URL 转换为缩略图 URL
+    // assets/img/recipes/r001.jpg -> assets/img/thumb/recipes/r001.jpg
+    // assets/img/full/img0001.webp -> assets/img/thumb/full/img0001.webp
+    // 非本地图片路径原样返回
+    if (!src || typeof src !== 'string') return src;
+    if (!src.startsWith('assets/img/')) return src;
+    if (src.includes('/thumb/')) return src; // 已是缩略图
+    return src.replace('assets/img/', 'assets/img/thumb/');
+  }
+
+  function imgTag(src, alt, cls, opts) {
+    if (src) {
+      // opts: { eager, fetchPriority, width, height, thumb: boolean }
+      // thumb=true 时使用缩略图，加载失败自动回退到原图
+      const o = opts || {};
+      const loading = o.eager ? 'eager' : 'lazy';
+      const fp = o.fetchPriority ? ' fetchpriority="high"' : '';
+      const dims = (o.width && o.height) ? ` width="${o.width}" height="${o.height}"` : '';
+      let imgSrc = src;
+      let onerror = `this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'`;
+      if (o.thumb) {
+        const thumb = thumbUrl(src);
+        if (thumb !== src) {
+          // 缩略图加载失败时回退到原图，原图失败时显示占位
+          imgSrc = thumb;
+          onerror = `if(!this.dataset.fb){this.dataset.fb=1;this.src='${esc(src)}';}else{this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'}`;
+        }
+      }
+      return `<img src="${esc(imgSrc)}" alt="${esc(alt || '')}" loading="${loading}"${fp}${dims} onerror="${onerror}">`;
+    }
     const ch = (alt || '食').trim().charAt(0) || '食';
     return `<div class="img-fallback">${esc(ch)}</div>`;
   }
@@ -26,9 +55,13 @@
     return t > 0 ? t : 0;
   }
 
-  function card(item, type) {
+  function card(item, type, opts) {
+    // opts 透传给 imgTag：{ eager, fetchPriority }
+    // 卡片图统一 4:3，width/height 防止布局跳动
+    // 卡片使用缩略图（thumb=true），加载失败自动回退原图
+    const imgOpts = Object.assign({ width: 400, height: 300, thumb: true }, opts || {});
     return `<a class="card" href="${routeOf(type, item.id)}">
-      <div class="card-img">${imgTag(item.image, item.name || item.title)}</div>
+      <div class="card-img">${imgTag(item.image, item.name || item.title, null, imgOpts)}</div>
       <div class="card-body">
         <div class="card-title">${esc(item.name || item.title)}</div>
         ${item.summary ? `<div class="card-desc">${esc(item.summary)}</div>` : ''}
@@ -74,5 +107,5 @@
     toast(added ? '已加入收藏' : '已取消收藏');
   });
 
-  FA.ui = { esc, imgTag, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, TYPE_LABEL };
+  FA.ui = { esc, imgTag, thumbUrl, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, TYPE_LABEL };
 })();
