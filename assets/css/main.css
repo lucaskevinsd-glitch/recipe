@@ -28,7 +28,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--ink)}
 .page-narrow{max-width:760px}
 
 /* ---------- 顶栏 ---------- */
-.topbar{position:sticky;top:0;z-index:60;background:rgba(246,243,235,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(246,243,235,.97);border-bottom:1px solid var(--line)}
 .topbar-in{max-width:1120px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:18px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:700;font-size:20px;letter-spacing:.5px}
 .brand .logo{width:34px;height:34px;border-radius:10px;background:var(--accent-deep);color:#F6F3EB;display:grid;place-items:center;font-size:18px}

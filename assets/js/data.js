@@ -27,7 +27,7 @@
   async function loadAll() {
     const entries = await Promise.all(Object.entries(FILES).map(async ([k, url]) => {
       try {
-        const r = await fetch(url + (AV ? '?v=' + AV : ''), { cache: 'no-cache' });
+        const r = await fetch(url + (AV ? '?v=' + AV : ''));
         if (!r.ok) throw new Error(r.status);
         return [k, await r.json()];
       } catch (e) {
