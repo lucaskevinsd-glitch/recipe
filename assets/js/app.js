@@ -98,6 +98,30 @@
     });
   }
 
+  // 数据加载失败提示：仅在 init 时检查一次，不随路由切换重复插入
+  function showLoadErrorBanner() {
+    // 移除已存在的提示（防止重复）
+    const existing = document.getElementById('fa-load-error');
+    if (existing) existing.remove();
+    // 无错误时不显示
+    if (!FA.data.hasLoadErrors()) return;
+    const errors = FA.data.getLoadErrors();
+    // 区分核心数据与辅助数据
+    const CORE_KEYS = ['recipes', 'baking', 'drinks', 'ingredients'];
+    const coreFailed = CORE_KEYS.filter(k => errors[k]);
+    const msg = coreFailed.length > 0
+      ? '部分数据加载失败，请检查网络后刷新页面。'
+      : '部分辅助数据加载失败，部分功能可能不可用。';
+    // 插入到 header 之后、#app 之前，不遮挡导航
+    const app = document.getElementById('app');
+    const banner = document.createElement('div');
+    banner.id = 'fa-load-error';
+    banner.className = 'load-error-banner';
+    banner.setAttribute('role', 'alert');
+    banner.innerHTML = `<span>⚠️ ${msg}</span><button onclick="location.reload()">刷新</button>`;
+    app.parentNode.insertBefore(banner, app);
+  }
+
   async function init() {
     if (window.__FA_INIT__) return;
     window.__FA_INIT__ = true;
@@ -113,6 +137,8 @@
 
     document.getElementById('app').innerHTML = '<div class="loading">正在加载知识库…</div>';
     await FA.data.loadAll();
+    // 数据加载完成后检查错误，显示友好提示（不阻止应用使用）
+    showLoadErrorBanner();
     registerRoutes();
     // footer 需要数据计数, 数据加载后插入
     document.body.insertAdjacentHTML('beforeend', footerHtml());

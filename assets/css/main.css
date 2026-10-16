@@ -254,6 +254,11 @@ table.formula tr:last-child td{border:none}
 .empty-state .e-ic{font-size:44px;margin-bottom:12px}
 .toast{position:fixed;left:50%;bottom:calc(var(--tabbar-h) + 20px);transform:translateX(-50%);background:var(--ink);color:#F6F3EB;padding:10px 20px;border-radius:999px;font-size:14px;z-index:120;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1}
+/* 数据加载失败提示：固定在顶部导航下方，不遮挡内容，可横向适配手机 */
+.load-error-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;padding:10px 16px;background:#FFF3CD;color:#856404;border-bottom:1px solid #FFE69C;font-size:14px;line-height:1.5;box-sizing:border-box}
+.load-error-banner span{flex:1;min-width:0}
+.load-error-banner button{flex-shrink:0;padding:6px 14px;background:var(--terra);color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;white-space:nowrap}
+.load-error-banner button:active{opacity:.85}
 .loading{padding:80px 20px;text-align:center;color:var(--muted)}
 
 footer.site{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 110px;color:var(--muted);font-size:13px}

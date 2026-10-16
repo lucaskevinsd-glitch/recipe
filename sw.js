@@ -5,8 +5,8 @@
  * - 图片: cache-first(内容不变,换图时改文件名或等 SW 更新)
  * 对应架构文档 12.3 离线能力: 已缓存的菜谱/收藏/计时器/单位换算离线可用。
  */
-const VERSION = 'foodatlas-v2-20261014b';
-const AV = '20261014b';
+const VERSION = 'foodatlas-v2-20261014c';
+const AV = '20261014c';
 const CORE = [
   './assets/css/main.css?v=' + AV,
   './assets/js/config.js?v=' + AV, './assets/js/data.js?v=' + AV, './assets/js/store.js?v=' + AV,
@@ -36,21 +36,44 @@ self.addEventListener('fetch', e => {
   if (e.request.mode === 'navigate') {
     e.respondWith(
       fetch(e.request).then(res => {
-        const copy = res.clone();
-        caches.open(VERSION).then(c => c.put('./index.html', copy));
+        // 仅缓存成功的 HTML 响应，避免缓存错误页面
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(VERSION).then(c => c.put('./index.html', copy)).catch(() => {});
+        }
         return res;
-      }).catch(() => caches.match('./index.html').then(r => r || caches.match('./')))
+      }).catch(async () => {
+        // 离线回退：返回缓存的 HTML
+        const cached = await caches.match('./index.html') || await caches.match('./');
+        if (cached) return cached;
+        // 缓存中也没有，返回 503 错误响应（绝不返回 undefined）
+        return new Response('FoodAtlas 离线：请检查网络连接后重试', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
+      })
     );
     return;
   }
+  // 非导航请求 (JSON/图片/CSS/JS): cache-first
+  // 关键修复：失败时绝不返回 index.html，避免 JSON 解析失败或图片显示 HTML
   e.respondWith(
     caches.match(e.request).then(hit => {
       if (hit) return hit;
       return fetch(e.request).then(res => {
-        const copy = res.clone();
-        caches.open(VERSION).then(c => c.put(e.request, copy));
+        // 仅缓存成功的响应，避免缓存 404/500 错误页面
+        if (res.ok) {
+          const copy = res.clone();
+          // 缓存写入失败不影响已成功取得的网络响应
+          caches.open(VERSION).then(c => c.put(e.request, copy)).catch(() => {});
+        }
         return res;
-      }).catch(() => caches.match('./index.html'));
+      }).catch(err => {
+        // 非导航请求失败时，让错误传播，由调用方处理
+        // 绝不返回 index.html（否则 JSON 会解析失败、图片会显示 HTML）
+        throw err;
+      });
     })
   );
 });
