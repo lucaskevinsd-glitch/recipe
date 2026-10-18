@@ -89,12 +89,12 @@
       else if (t === 'temp') el.innerHTML = T.tempTool();
       else if (t === 'log') el.innerHTML = T.logTool();
       else { location.hash = '#/tools'; return; }
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     });
     // 冰箱匹配是 fridge 工具的子路由
     R.on(['tools', 'fridge', 'match'], () => {
       document.getElementById('app').innerHTML = FA.tools.fridgeMatch();
-      document.title = '按冰箱找菜 - 食见 FoodAtlas'; window.scrollTo(0, 0);
+      document.title = '按冰箱找菜 - 食见 FoodAtlas'; window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     });
   }
 
