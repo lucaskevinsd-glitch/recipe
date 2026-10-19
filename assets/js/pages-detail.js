@@ -6,7 +6,7 @@
   const PARAM_LABEL = { sweet: '甜度', ice: '冰量', strength: '浓度' };
 
   function hero(item, title, alias) {
-    return `<div class="detail-hero">${item.image ? `<img src="${esc(item.image)}" alt="${esc(title)}">` : `<div class="dh-fallback">${esc(title)}</div>`}</div>
+    return `<div class="detail-hero">${item.image ? imgTag(item.image, title, null, { eager: true, fetchPriority: true, width: 800, height: 450 }) : `<div class="dh-fallback">${esc(title)}</div>`}</div>
     <div class="detail-head"><div class="kicker">${esc(item.category || '')}</div>
     <h1>${esc(title)}</h1>${alias ? `<div class="alias">${esc(alias)}</div>` : ''}
     <p style="color:var(--ink2);margin-top:8px">${esc(item.summary || '')}</p></div>`;

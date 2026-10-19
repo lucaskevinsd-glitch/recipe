@@ -37,7 +37,7 @@
         <select id="f-level"><option value="">难度不限</option>${FA.config.levels.map(l => `<option ${level === l ? 'selected' : ''}>${l}</option>`).join('')}</select>
         <input id="f-kw" placeholder="在结果中搜索…" value="${esc(kw)}" style="border:1px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:14px;background:var(--surface)">
       </div>
-      <div class="grid-cards">${items.map(x => card(x, type)).join('') || FA.ui.empty('🔍', '没有符合条件的内容，换个筛选试试')}</div>`;
+      <div class="grid-cards">${items.map((x, i) => card(x, type, i < 4 ? { eager: true } : {})).join('') || FA.ui.empty('🔍', '没有符合条件的内容，换个筛选试试')}</div>`;
 
     document.getElementById('app').innerHTML = `<div class="wrap page">${html}</div>`;
     const go = () => {

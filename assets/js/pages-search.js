@@ -18,7 +18,7 @@
       ${order.filter(t => groups[t]).map(t => `
         <section class="section"><div class="section-head"><div><div class="kicker">${t.toUpperCase()}</div>
         <h2>${FA.ui.TYPE_LABEL[t]}（${groups[t].length}）</h2></div></div>
-        <div class="grid-cards">${groups[t].map(r => card(r.item, t)).join('')}</div></section>`).join('')}
+        <div class="grid-cards">${groups[t].map((r, i) => card(r.item, t, i < 4 ? { eager: true } : {})).join('')}</div></section>`).join('')}
     </div>`;
     document.getElementById('app').innerHTML = html;
     document.title = `搜索 ${q} - 食见 FoodAtlas`;
@@ -48,7 +48,7 @@
         (desc.length ? `<div class="parsed-chips"><span>理解为：</span>${desc.map(d => `<span class="badge green">${esc(d)}</span>`).join('')}</div>` : '') +
         (results.length ? Object.keys(groups).map(t => `<div class="search-group"><h4>${FA.ui.TYPE_LABEL[t]}</h4>` +
           groups[t].slice(0, 5).map(r => `<a class="sr-item" href="${FA.ui.routeOf(t, r.item.id)}">
-            ${r.item.image ? `<img src="${esc(r.item.image)}" loading="lazy">` : ''}
+            ${r.item.image ? `<img src="${esc(r.item.image)}" loading="lazy" decoding="async" width="52" height="52">` : ''}
             <div><div class="t">${esc(r.item.name || r.item.title)}</div><div class="s">${esc(r.item.category || '')}</div></div></a>`).join('') +
           `</div>`).join('') +
           `<div style="padding:12px 16px"><a class="btn block" href="#/search?q=${encodeURIComponent(q)}">查看全部 ${results.length} 条结果</a></div>`

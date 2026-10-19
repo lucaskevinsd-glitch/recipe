@@ -34,7 +34,7 @@
           onerror = `if(!this.dataset.fb){this.dataset.fb=1;this.src='${esc(src)}';}else{this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'}`;
         }
       }
-      return `<img src="${esc(imgSrc)}" alt="${esc(alt || '')}" loading="${loading}"${fp}${dims} onerror="${onerror}">`;
+      return `<img src="${esc(imgSrc)}" alt="${esc(alt || '')}" loading="${loading}" decoding="async"${fp}${dims} onerror="${onerror}">`;
     }
     const ch = (alt || '食').trim().charAt(0) || '食';
     return `<div class="img-fallback">${esc(ch)}</div>`;
