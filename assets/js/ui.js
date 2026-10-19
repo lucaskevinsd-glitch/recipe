@@ -26,15 +26,18 @@
       const dims = (o.width && o.height) ? ` width="${o.width}" height="${o.height}"` : '';
       let imgSrc = src;
       let onerror = `this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'`;
+      let dataFull = '';
       if (o.thumb) {
         const thumb = thumbUrl(src);
         if (thumb !== src) {
           // 缩略图加载失败时回退到原图，原图失败时显示占位
           imgSrc = thumb;
           onerror = `if(!this.dataset.fb){this.dataset.fb=1;this.src='${esc(src)}';}else{this.parentNode.innerHTML='<div class=&quot;img-fallback&quot;>食见</div>'}`;
+          // data-full 供预加载：列表用缩略图，详情页需原图
+          dataFull = ` data-full="${esc(src)}"`;
         }
       }
-      return `<img src="${esc(imgSrc)}" alt="${esc(alt || '')}" loading="${loading}" decoding="async"${fp}${dims} onerror="${onerror}">`;
+      return `<img src="${esc(imgSrc)}" alt="${esc(alt || '')}" loading="${loading}" decoding="async"${fp}${dims}${dataFull} onerror="${onerror}">`;
     }
     const ch = (alt || '食').trim().charAt(0) || '食';
     return `<div class="img-fallback">${esc(ch)}</div>`;
@@ -107,5 +110,76 @@
     toast(added ? '已加入收藏' : '已取消收藏');
   });
 
-  FA.ui = { esc, imgTag, thumbUrl, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, TYPE_LABEL };
+    // 图片预加载：详情页主图与列表缩略图是不同资源（原图 vs 缩略图）
+  // 列表只加载缩略图（~36K），详情页需要原图（~640K），首次打开需下载原图导致延迟
+  // 本机制在列表可见时预加载原图，利用浏览器缓存，详情页打开时直接命中缓存
+  const preloaded = new Set();
+  let preloadQueue = [];
+  let preloadActive = 0;
+  const PRELOAD_MAX_CONCURRENT = 3;
+  let preloadObserver = null;
+
+  function doPreload(url) {
+    if (!url || preloaded.has(url)) return;
+    preloaded.add(url);
+    preloadActive++;
+    const img = new Image();
+    img.onload = img.onerror = () => {
+      preloadActive--;
+      img.onload = img.onerror = null;
+      pumpPreloadQueue();
+    };
+    img.src = url;
+  }
+
+  function pumpPreloadQueue() {
+    while (preloadActive < PRELOAD_MAX_CONCURRENT && preloadQueue.length > 0) {
+      const url = preloadQueue.shift();
+      if (!preloaded.has(url)) doPreload(url);
+    }
+  }
+
+  function queuePreload(url, priority) {
+    if (!url || preloaded.has(url)) return;
+    const idx = preloadQueue.indexOf(url);
+    if (idx >= 0) {
+      // 已在队列中：用户点击时提升到队首，优先加载
+      if (priority) {
+        preloadQueue.splice(idx, 1);
+        preloadQueue.unshift(url);
+        pumpPreloadQueue();
+      }
+      return;
+    }
+    if (priority) preloadQueue.unshift(url);
+    else preloadQueue.push(url);
+    pumpPreloadQueue();
+  }
+
+  function observePreload() {
+    if (!('IntersectionObserver' in window)) return;
+    if (preloadObserver) preloadObserver.disconnect();
+    preloadObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          const full = e.target.getAttribute('data-full');
+          if (full) queuePreload(full); // 背景预加载，正常排队
+          preloadObserver.unobserve(e.target);
+        }
+      }
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('img[data-full]').forEach(img => preloadObserver.observe(img));
+  }
+
+  document.addEventListener('pointerdown', (e) => {
+    // 从点击目标向上找到卡片，再在卡片内找带 data-full 的图片
+    const card = e.target.closest ? e.target.closest('a.card') : null;
+    const img = card ? card.querySelector('img[data-full]') : null;
+    if (img) {
+      const full = img.getAttribute('data-full');
+      if (full) queuePreload(full, true); // 用户点击，优先加载
+    }
+  }, { passive: true });
+
+FA.ui = { esc, imgTag, thumbUrl, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, TYPE_LABEL , observePreload, queuePreload };
 })();

@@ -50,6 +50,8 @@
     const isSamePage = (current === key);
     current = key;
     FA.app && FA.app.afterRoute && FA.app.afterRoute(segs);
+    // 启动图片预加载观察（列表可见卡片的原图）
+    FA.ui && FA.ui.observePreload && FA.ui.observePreload();
     // 滚动处理：
     // - 同页重渲染（如工具页操作）：不滚动，保持当前位置
     // - 前进/后退且有保存位置：恢复位置
