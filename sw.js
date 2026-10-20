@@ -8,7 +8,7 @@
 const VERSION = 'foodatlas-v2-20261014f';
 const AV = '20261014f';
 // 图片独立缓存：不随应用版本变化而删除，应用更新时保留离线图片
-const IMG_CACHE = 'foodatlas-images-v1';
+const IMG_CACHE = 'foodatlas-images-v2';
 const CORE = [
   './assets/css/main.css?v=' + AV,
   './assets/js/config.js?v=' + AV, './assets/js/data.js?v=' + AV, './assets/js/store.js?v=' + AV,

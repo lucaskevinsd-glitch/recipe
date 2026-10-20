@@ -102,7 +102,7 @@
   "id": "fish",
   "name": "清蒸鲈鱼",
   "alias": "清蒸鲈鱼",
-  "image": "assets/img/full/img0002.jpg",
+  "image": "assets/img/full/img0002.webp",
   "category": "家常菜",
   "cuisine": "其他",
   "summary": "少油清淡的经典做法，最大程度保留鱼肉的鲜嫩，宴客家宴都合适。",
@@ -200,7 +200,7 @@
   "id": "chicken",
   "name": "香菇鸡胸肉",
   "alias": "香菇炒鸡胸肉",
-  "image": "assets/img/full/img0003.jpg",
+  "image": "assets/img/full/img0003.webp",
   "category": "家常菜",
   "cuisine": "其他",
   "summary": "低脂高蛋白的快手菜，鸡胸嫩滑、香菇多汁，健身餐的常客。",
@@ -303,7 +303,7 @@
   "id": "shrimp",
   "name": "西兰花炒虾仁",
   "alias": "西兰花炒虾仁",
-  "image": "assets/img/full/img0004.jpg",
+  "image": "assets/img/full/img0004.webp",
   "category": "家常菜",
   "cuisine": "其他",
   "summary": "脆嫩清爽的快手菜，西兰花翠绿、虾仁弹牙，低脂高蛋白。",
@@ -399,7 +399,7 @@
   "id": "oatmeal",
   "name": "香蕉燕麦粥",
   "alias": "香蕉燕麦粥",
-  "image": "assets/img/full/img0005.jpg",
+  "image": "assets/img/full/img0005.webp",
   "category": "家常菜",
   "cuisine": "其他",
   "summary": "温热柔软的快手早餐，香蕉的自然甜味不用加糖，10分钟搞定。",
@@ -683,7 +683,7 @@
   "id": "millet",
   "name": "南瓜小米粥",
   "alias": "小米南瓜粥",
-  "image": "assets/img/full/img0008.png",
+  "image": "assets/img/full/img0008.webp",
   "category": "家常菜",
   "cuisine": "其他",
   "summary": "金黄软糯、自然清甜的家常养胃粥，小米开花、南瓜绵软，适合早餐或肠胃不适时吃。",
@@ -771,7 +771,7 @@
    }
   ],
   "id": "r009",
-  "image": "assets/img/recipes/r009.jpg",
+  "image": "assets/img/recipes/r009.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -878,7 +878,7 @@
    }
   ],
   "id": "r010",
-  "image": "assets/img/recipes/r010.jpg",
+  "image": "assets/img/recipes/r010.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -978,7 +978,7 @@
    }
   ],
   "id": "r011",
-  "image": "assets/img/recipes/r011.jpg",
+  "image": "assets/img/recipes/r011.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -1083,7 +1083,7 @@
    }
   ],
   "id": "r012",
-  "image": "assets/img/recipes/r012.jpg",
+  "image": "assets/img/recipes/r012.webp",
   "ingredients": [
    {
     "amount": "200克",
@@ -1198,7 +1198,7 @@
    }
   ],
   "id": "r013",
-  "image": "assets/img/recipes/r013.jpg",
+  "image": "assets/img/recipes/r013.webp",
   "ingredients": [
    {
     "amount": "250克",
@@ -1292,7 +1292,7 @@
    }
   ],
   "id": "r014",
-  "image": "assets/img/recipes/r014.jpg",
+  "image": "assets/img/recipes/r014.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -1380,7 +1380,7 @@
    }
   ],
   "id": "r015",
-  "image": "assets/img/recipes/r015.jpg",
+  "image": "assets/img/recipes/r015.webp",
   "ingredients": [
    {
     "amount": "200克",
@@ -1449,7 +1449,7 @@
    }
   ],
   "id": "r016",
-  "image": "assets/img/recipes/r016.jpg",
+  "image": "assets/img/recipes/r016.webp",
   "ingredients": [
    {
     "amount": "100克",
@@ -1549,7 +1549,7 @@
    }
   ],
   "id": "r017",
-  "image": "assets/img/recipes/r017.jpg",
+  "image": "assets/img/recipes/r017.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -1659,7 +1659,7 @@
    }
   ],
   "id": "r018",
-  "image": "assets/img/recipes/r018.jpg",
+  "image": "assets/img/recipes/r018.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -1743,7 +1743,7 @@
    }
   ],
   "id": "r019",
-  "image": "assets/img/recipes/r019.jpg",
+  "image": "assets/img/recipes/r019.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -1848,7 +1848,7 @@
    }
   ],
   "id": "r020",
-  "image": "assets/img/recipes/r020.jpg",
+  "image": "assets/img/recipes/r020.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -1953,7 +1953,7 @@
    }
   ],
   "id": "r021",
-  "image": "assets/img/recipes/r021.jpg",
+  "image": "assets/img/recipes/r021.webp",
   "ingredients": [
    {
     "amount": "1只（约1.2公斤）",
@@ -2044,7 +2044,7 @@
    }
   ],
   "id": "r022",
-  "image": "assets/img/recipes/r022.jpg",
+  "image": "assets/img/recipes/r022.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -2154,7 +2154,7 @@
    }
   ],
   "id": "r023",
-  "image": "assets/img/recipes/r023.jpg",
+  "image": "assets/img/recipes/r023.webp",
   "ingredients": [
    {
     "amount": "800克",
@@ -2279,7 +2279,7 @@
    }
   ],
   "id": "r024",
-  "image": "assets/img/recipes/r024.jpg",
+  "image": "assets/img/recipes/r024.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -2394,7 +2394,7 @@
    }
   ],
   "id": "r025",
-  "image": "assets/img/recipes/r025.jpg",
+  "image": "assets/img/recipes/r025.webp",
   "ingredients": [
    {
     "amount": "8只",
@@ -2489,7 +2489,7 @@
    }
   ],
   "id": "r026",
-  "image": "assets/img/recipes/r026.jpg",
+  "image": "assets/img/recipes/r026.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -2604,7 +2604,7 @@
    }
   ],
   "id": "r027",
-  "image": "assets/img/recipes/r027.jpg",
+  "image": "assets/img/recipes/r027.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -2682,7 +2682,7 @@
    }
   ],
   "id": "r028",
-  "image": "assets/img/recipes/r028.jpg",
+  "image": "assets/img/recipes/r028.webp",
   "ingredients": [
    {
     "amount": "2只",
@@ -2792,7 +2792,7 @@
    }
   ],
   "id": "r029",
-  "image": "assets/img/recipes/r029.jpg",
+  "image": "assets/img/recipes/r029.webp",
   "ingredients": [
    {
     "amount": "1条",
@@ -2877,7 +2877,7 @@
    }
   ],
   "id": "r030",
-  "image": "assets/img/recipes/r030.jpg",
+  "image": "assets/img/recipes/r030.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -2955,7 +2955,7 @@
    }
   ],
   "id": "r031",
-  "image": "assets/img/recipes/r031.jpg",
+  "image": "assets/img/recipes/r031.webp",
   "ingredients": [
    {
     "amount": "600克",
@@ -3045,7 +3045,7 @@
    }
   ],
   "id": "r032",
-  "image": "assets/img/recipes/r032.jpg",
+  "image": "assets/img/recipes/r032.webp",
   "ingredients": [
    {
     "amount": "4条",
@@ -3150,7 +3150,7 @@
    }
   ],
   "id": "r033",
-  "image": "assets/img/recipes/r033.jpg",
+  "image": "assets/img/recipes/r033.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -3245,7 +3245,7 @@
    }
   ],
   "id": "r034",
-  "image": "assets/img/recipes/r034.jpg",
+  "image": "assets/img/recipes/r034.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -3325,7 +3325,7 @@
    }
   ],
   "id": "r035",
-  "image": "assets/img/recipes/r035.jpg",
+  "image": "assets/img/recipes/r035.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -3404,7 +3404,7 @@
    }
   ],
   "id": "r036",
-  "image": "assets/img/recipes/r036.jpg",
+  "image": "assets/img/recipes/r036.webp",
   "ingredients": [
    {
     "amount": "6个",
@@ -3481,7 +3481,7 @@
    }
   ],
   "id": "r037",
-  "image": "assets/img/recipes/r037.jpg",
+  "image": "assets/img/recipes/r037.webp",
   "ingredients": [
    {
     "amount": "20克",
@@ -3569,7 +3569,7 @@
    }
   ],
   "id": "r038",
-  "image": "assets/img/recipes/r038.jpg",
+  "image": "assets/img/recipes/r038.webp",
   "ingredients": [
    {
     "amount": "3棵",
@@ -3665,7 +3665,7 @@
    }
   ],
   "id": "r039",
-  "image": "assets/img/recipes/r039.jpg",
+  "image": "assets/img/recipes/r039.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -3747,7 +3747,7 @@
    }
   ],
   "id": "r040",
-  "image": "assets/img/recipes/r040.jpg",
+  "image": "assets/img/recipes/r040.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -3835,7 +3835,7 @@
    }
   ],
   "id": "r041",
-  "image": "assets/img/recipes/r041.jpg",
+  "image": "assets/img/recipes/r041.webp",
   "ingredients": [
    {
     "amount": "2个",
@@ -3919,7 +3919,7 @@
    }
   ],
   "id": "r042",
-  "image": "assets/img/recipes/r042.jpg",
+  "image": "assets/img/recipes/r042.webp",
   "ingredients": [
    {
     "amount": "10克",
@@ -4002,7 +4002,7 @@
    }
   ],
   "id": "r043",
-  "image": "assets/img/recipes/r043.jpg",
+  "image": "assets/img/recipes/r043.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -4089,7 +4089,7 @@
    }
   ],
   "id": "r044",
-  "image": "assets/img/recipes/r044.jpg",
+  "image": "assets/img/recipes/r044.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -4166,7 +4166,7 @@
    }
   ],
   "id": "r045",
-  "image": "assets/img/recipes/r045.jpg",
+  "image": "assets/img/recipes/r045.webp",
   "ingredients": [
    {
     "amount": "150克",
@@ -4286,7 +4286,7 @@
    }
   ],
   "id": "r046",
-  "image": "assets/img/recipes/r046.jpg",
+  "image": "assets/img/recipes/r046.webp",
   "ingredients": [
    {
     "amount": "半只",
@@ -4380,7 +4380,7 @@
    }
   ],
   "id": "r047",
-  "image": "assets/img/recipes/r047.jpg",
+  "image": "assets/img/recipes/r047.webp",
   "ingredients": [
    {
     "amount": "500克",
@@ -4485,7 +4485,7 @@
    }
   ],
   "id": "r048",
-  "image": "assets/img/recipes/r048.jpg",
+  "image": "assets/img/recipes/r048.webp",
   "ingredients": [
    {
     "amount": "20克",
@@ -4579,7 +4579,7 @@
    }
   ],
   "id": "r049",
-  "image": "assets/img/recipes/r049.jpg",
+  "image": "assets/img/recipes/r049.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -4674,7 +4674,7 @@
    }
   ],
   "id": "r050",
-  "image": "assets/img/recipes/r050.jpg",
+  "image": "assets/img/recipes/r050.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -4749,7 +4749,7 @@
    }
   ],
   "id": "r051",
-  "image": "assets/img/recipes/r051.jpg",
+  "image": "assets/img/recipes/r051.webp",
   "ingredients": [
    {
     "amount": "400克",
@@ -4859,7 +4859,7 @@
    }
   ],
   "id": "r052",
-  "image": "assets/img/recipes/r052.jpg",
+  "image": "assets/img/recipes/r052.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -4964,7 +4964,7 @@
    }
   ],
   "id": "r053",
-  "image": "assets/img/recipes/r053.jpg",
+  "image": "assets/img/recipes/r053.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -5064,7 +5064,7 @@
    }
   ],
   "id": "r054",
-  "image": "assets/img/recipes/r054.jpg",
+  "image": "assets/img/recipes/r054.webp",
   "ingredients": [
    {
     "amount": "300克",
@@ -5194,7 +5194,7 @@
    }
   ],
   "id": "r055",
-  "image": "assets/img/recipes/r055.jpg",
+  "image": "assets/img/recipes/r055.webp",
   "ingredients": [
    {
     "amount": "150克",
@@ -5288,7 +5288,7 @@
    }
   ],
   "id": "r056",
-  "image": "assets/img/recipes/r056.jpg",
+  "image": "assets/img/recipes/r056.webp",
   "ingredients": [
    {
     "amount": "500克",
