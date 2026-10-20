@@ -62,17 +62,29 @@ self.addEventListener('fetch', e => {
   }
   // 非导航请求: cache-first
   // 图片使用独立缓存 IMG_CACHE，其他资源使用应用缓存 VERSION
-  const isImage = url.pathname.startsWith('/assets/img/') || url.pathname.includes('/thumb/');
+  // 旧页面兼容（菜谱图片 WebP 化）：旧版页面内存中的菜谱数据仍持有 .jpg/.png 路径，
+  // 而新版菜谱图已统一为 .webp；SW 更新后旧页面不刷新点击详情会请求旧路径导致 404。
+  // 在图片加载边界把旧菜谱图路径映射到新 WebP 路径，缓存按新路径存取，与新页面共用。
+  // 映射范围经全量数据核对，仅覆盖菜谱图：assets/img/full/img0001-0008 与
+  // assets/img/recipes/r*（含各自 thumb/ 缩略图）；烘焙/饮品/食材等路径不匹配、零影响。
+  const compat = url.pathname.match(/\/(assets\/img\/(?:thumb\/)?(?:full\/img000[1-8]|recipes\/r\d+))\.(?:jpg|jpeg|png)$/);
+  let req = e.request;
+  if (compat) {
+    const mapped = new URL(e.request.url);
+    mapped.pathname = url.pathname.replace(/\.(?:jpg|jpeg|png)$/, '.webp');
+    req = new Request(mapped.href);
+  }
+  const isImage = !!compat || url.pathname.startsWith('/assets/img/') || url.pathname.includes('/thumb/');
   const cacheName = isImage ? IMG_CACHE : VERSION;
   e.respondWith(
-    caches.match(e.request, { cacheName }).then(hit => {
+    caches.match(req, { cacheName }).then(hit => {
       if (hit) return hit;
-      return fetch(e.request).then(res => {
+      return fetch(req).then(res => {
         // 仅缓存成功的响应，避免缓存 404/500 错误页面
         if (res.ok) {
           const copy = res.clone();
           // 缓存写入失败不影响已成功取得的网络响应
-          caches.open(cacheName).then(c => c.put(e.request, copy)).catch(() => {});
+          caches.open(cacheName).then(c => c.put(req, copy)).catch(() => {});
         }
         return res;
       }).catch(err => {
