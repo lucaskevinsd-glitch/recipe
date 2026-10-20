@@ -33,6 +33,17 @@ self.addEventListener('activate', e => {
   // 图片缓存独立管理，应用版本更新不清空离线图片
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== VERSION && k !== IMG_CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
 });
+// 旧菜谱图路径映射（.jpg/.jpeg/.png -> .webp），fetch 处理与 CACHE_IMAGES 下载共用。
+// 背景：旧版页面内存中的菜谱数据仍持有 .jpg/.png 路径，而新版菜谱图已统一为 .webp；
+// SW 更新后旧页面不刷新时，详情图请求与“下载全部图片”都会请求旧路径导致 404。
+// 映射范围经全量数据核对，仅覆盖菜谱图：assets/img/full/img0001-0008 与
+// assets/img/recipes/r*（含各自 thumb/ 缩略图）；烘焙/饮品/食材等路径不匹配、零影响。
+function mapLegacyImageUrl(u) {
+  return u
+    .replace(/\/(assets\/img\/(?:thumb\/)?(?:full\/img000[1-8]|recipes\/r\d+))\.(?:jpg|jpeg|png)$/, '/$1.webp')
+    .replace(/^(assets\/img\/(?:thumb\/)?(?:full\/img000[1-8]|recipes\/r\d+))\.(?:jpg|jpeg|png)$/, '$1.webp');
+}
+
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== self.location.origin) return;
@@ -62,19 +73,16 @@ self.addEventListener('fetch', e => {
   }
   // 非导航请求: cache-first
   // 图片使用独立缓存 IMG_CACHE，其他资源使用应用缓存 VERSION
-  // 旧页面兼容（菜谱图片 WebP 化）：旧版页面内存中的菜谱数据仍持有 .jpg/.png 路径，
-  // 而新版菜谱图已统一为 .webp；SW 更新后旧页面不刷新点击详情会请求旧路径导致 404。
-  // 在图片加载边界把旧菜谱图路径映射到新 WebP 路径，缓存按新路径存取，与新页面共用。
-  // 映射范围经全量数据核对，仅覆盖菜谱图：assets/img/full/img0001-0008 与
-  // assets/img/recipes/r*（含各自 thumb/ 缩略图）；烘焙/饮品/食材等路径不匹配、零影响。
-  const compat = url.pathname.match(/\/(assets\/img\/(?:thumb\/)?(?:full\/img000[1-8]|recipes\/r\d+))\.(?:jpg|jpeg|png)$/);
+  // 旧页面兼容：在图片加载边界把旧菜谱图路径映射到新 WebP 路径，
+  // 缓存按新路径存取，与新页面共用（映射规则见 mapLegacyImageUrl）。
+  const mappedPath = mapLegacyImageUrl(url.pathname);
   let req = e.request;
-  if (compat) {
+  if (mappedPath !== url.pathname) {
     const mapped = new URL(e.request.url);
-    mapped.pathname = url.pathname.replace(/\.(?:jpg|jpeg|png)$/, '.webp');
+    mapped.pathname = mappedPath;
     req = new Request(mapped.href);
   }
-  const isImage = !!compat || url.pathname.startsWith('/assets/img/') || url.pathname.includes('/thumb/');
+  const isImage = mappedPath !== url.pathname || url.pathname.startsWith('/assets/img/') || url.pathname.includes('/thumb/');
   const cacheName = isImage ? IMG_CACHE : VERSION;
   e.respondWith(
     caches.match(req, { cacheName }).then(hit => {
@@ -115,7 +123,9 @@ self.addEventListener('message', e => {
     return;
   }
   downloadInProgress = true;
-  const urls = data.urls || [];
+  // 旧页面兼容：旧版页面发来的 URL 列表可能仍含 .jpg/.png 菜谱图路径；
+  // SW 内部 fetch 不经过 fetch 事件，需在此同样映射到新 WebP 路径后再缓存。
+  const urls = (data.urls || []).map(mapLegacyImageUrl);
   const clientId = e.source ? e.source.id : null;
   // 关键：使用 e.waitUntil() 保持 SW 存活，直到下载完成
   // 否则浏览器可能在 message 处理返回后终止 SW，导致下载中断
