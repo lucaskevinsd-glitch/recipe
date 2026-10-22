@@ -85,7 +85,8 @@
       }
     }
     out.sort((a, b) => b.score - a.score);
-    return { results: out.slice(0, opts.limit || 60), parsed: nl };
+    // total 为过滤后的实际总命中数 (截断前), 与 results 的展示数分离, 供页面如实标注口径
+    return { results: out.slice(0, opts.limit || 60), total: out.length, parsed: nl };
   }
 
   function describeParsed(nl) {

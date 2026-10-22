@@ -75,6 +75,8 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--ink)}
 .badge.green{background:var(--accent-soft);color:var(--accent-deep);border-color:var(--accent-line)}
 .badge.gold{background:var(--gold-soft);color:#7A5C1C;border-color:#E4D3A6}
 .badge.terra{background:var(--terra-soft);color:#8F3F1D;border-color:#EAC9B2}
+/* 换算后用量的原始值注记 (二阶段统一显示规范): 弱化次级信息, 不影响主用量可读性 */
+.amt-orig{font-size:11px;color:var(--muted);font-weight:400;white-space:nowrap}
 
 /* ---------- 详情页顶部信息(语义化) ---------- */
 .meta-block{margin:12px 0}

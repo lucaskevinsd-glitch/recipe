@@ -65,17 +65,20 @@
       <button class="btn ghost sm block" id="ing-to-fridge" style="margin-top:8px">把已有的记入冰箱</button>
     </aside>`;
   }
-  function bindIngSide(item) {
+  function bindIngSide(item, type) {
     const raw = item.ingredients || [];
     const base = item.servings || 3;
     let cur = base;
     const render = () => {
       const f = cur / base;
-      const scaled = FA.tools.scaleIngredients(raw, f);
+      const infos = FA.tools.scaleInfo(raw, f);
       document.getElementById('sv-n').textContent = cur;
-      document.getElementById('ing-list').innerHTML = scaled.map((x, i) =>
-        `<li class="ing-item"><input type="checkbox" data-ing="${i}"><span class="ing-name">${esc(x.name)}${x.note ? `<span style="color:var(--muted)">（${esc(x.note)}）</span>` : ''}</span><span class="amt">${esc(x.amount || '')}</span></li>`).join('');
-      document.getElementById('sv-note').textContent = f === 1 ? '' : `已按 ${f.toFixed(2)} 倍换算；盐、酵母等调料按非线性换算`;
+      document.getElementById('ing-list').innerHTML = infos.map((r, i) => {
+        const badge = (r.factorChanged && (r.state === 'unscaled' || r.state === 'missing')) ? ' <span class="badge terra">未换算</span>' : '';
+        const origNote = (r.state === 'scaled' && r.orig) ? ` <span class="amt-orig">（原 ${esc(r.orig)}）</span>` : '';
+        return `<li class="ing-item"><input type="checkbox" data-ing="${i}"><span class="ing-name">${esc(r.name)}${r.note ? `<span style="color:var(--muted)">（${esc(r.note)}）</span>` : ''}</span><span class="amt">${esc(r.text)}${origNote}${badge}</span></li>`;
+      }).join('');
+      document.getElementById('sv-note').textContent = f === 1 ? '' : `已按 ${f.toFixed(2)} 倍换算；盐、酵母等调料按非线性换算，计数单位已取整到半个，标注“未换算”的项目保持原量`;
       document.querySelectorAll('#ing-list input').forEach(c => c.onchange = () => c.closest('.ing-item').classList.toggle('done', c.checked));
     };
     document.getElementById('sv-dec').onclick = () => { if (cur > 1) { cur--; render(); } };
@@ -83,11 +86,22 @@
     const checkedNames = () => [...document.querySelectorAll('#ing-list input:checked')].map(c => raw[+c.dataset.ing])
       .map(x => typeof x === 'string' ? x : x.name);
     document.getElementById('ing-to-shop').onclick = () => {
+      // 加入范围与原行为一致 (未勾选且冰箱没有); 用量取当前份量的 scaleInfo 结果, 以配方为来源幂等写入
       const have = new Set(checkedNames());
-      const missing = raw.map(x => typeof x === 'string' ? x : x.name).filter(n => !have.has(n) && !FA.store.fridgeHas(n));
-      if (!missing.length) { FA.ui.toast('食材齐了，无需购买'); return; }
-      missing.forEach(n => FA.store.shopAdd(n, ''));
-      FA.ui.toast(`已将 ${missing.length} 样加入购物清单`);
+      const infos = FA.tools.scaleInfo(raw, cur / base);
+      let added = 0;
+      raw.forEach((x, i) => {
+        const nm = typeof x === 'string' ? x : x.name;
+        if (have.has(nm) || FA.store.fridgeHas(nm)) return;
+        const r = infos[i];
+        FA.store.shopAddSource(nm, {
+          key: `${type}:${item.id}`, from: type, label: item.name,
+          text: r.orig == null ? '' : r.text, num: r.num, unit: r.unit,
+        });
+        added++;
+      });
+      if (!added) { FA.ui.toast('食材齐了，无需购买'); return; }
+      FA.ui.toast(`已将 ${added} 样加入购物清单`);
     };
     document.getElementById('ing-to-fridge').onclick = () => {
       const names = checkedNames();
@@ -132,7 +146,7 @@
       ${relatedCards('同类菜谱', findRelatedRecipes(item, 'recipe').map(x => FA.ui.card(x, 'recipe')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
-    bindIngSide(item);
+    bindIngSide(item, 'recipe');
     document.getElementById('cook-go').onclick = () => cookMode(item, 'recipe');
     document.getElementById('log-quick').onclick = () => {
       FA.store.logAdd({ title: item.name, refType: 'recipe', refId: id, rating: 5, note: '' });
@@ -150,21 +164,19 @@
       (item.ingredients || []).map(x => ({ name: typeof x === 'string' ? x : x.name, grams: null, percent: null, note: '' }));
     // 烘焙百分比只对有面粉结构基准的配方有意义;无有效百分比时隐藏该列,避免误导(如蛋挞400%糖)
     const showPercent = formula.some(x => x.percent != null);
+    const base = item.servings || 3;
     const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
       ${hero(item, item.name, item.alias)}${metaBadges(item)}${passiveNote(item)}
       ${item.sweetness || item.texture ? `<div class="meta-row"><span class="badge gold">甜度 ${esc(item.sweetness || '—')}</span><span class="badge gold">口感 ${esc(item.texture || '—')}</span></div>` : ''}
       <div class="detail-actions">${FA.ui.favBtn('baking', id)}
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
+        <button class="btn ghost sm" id="bk-to-shop">🛒 加入购物清单</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
       <h3 style="font-family:var(--font-d);margin:18px 0 10px">配方${showPercent ? '（烘焙百分比）' : ''}</h3>
-      <div class="formula-wrap">
-      <table class="formula"><tr><th>原料</th><th>用量</th>${showPercent ? '<th>百分比</th>' : ''}<th>备注</th></tr>
-        ${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : ''); return `<tr><td>${esc(x.name)}</td><td>${amt ? esc(amt) : '—'}</td>${showPercent ? `<td>${x.percent == null ? '—' : x.percent + '%'}</td>` : ''}<td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`; }).join('')}</table>
-      <div class="formula-cards">${formula.map(x => { const amt = x.amount || (x.grams != null ? x.grams + '克' : '');
-        const sub = [showPercent && x.percent != null ? `烘焙百分比 ${x.percent}%` : '', x.note || ''].filter(Boolean).join(' · ');
-        return `<div class="fcard"><div class="frow"><span class="fname">${esc(x.name)}</span><span class="famt">${amt ? esc(amt) : '—'}</span></div>${sub ? `<div class="fsub">${esc(sub)}</div>` : ''}</div>`; }).join('')}</div>
-      </div>
-      ${item.totalDough ? `<p style="font-size:13.5px;color:var(--muted);margin-top:8px">面团/面糊总重约 ${item.totalDough} 克</p>` : ''}
+      <div class="serv-ctl"><button id="bk-dec">−</button><span><b id="bk-n">${base}</b> 人份</span><button id="bk-inc">＋</button></div>
+      <div id="bk-note" style="font-size:12px;color:var(--muted);margin:8px 0"></div>
+      <div id="bk-formula"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:10px">提示：份量变化不会自动调整烤盘尺寸。面糊厚度可能变化，请根据实际状态观察并调整烘焙时间。</p>
       <div class="form-row" style="margin:16px 0">
         ${item.pan ? `<div class="field"><label>模具</label><div style="font-size:15px">${esc(item.pan)}</div></div>` : ''}
         ${item.oven && item.oven.temp ? `<div class="field"><label>烤箱</label><div style="font-size:15px">${item.oven.temp}°C${item.oven.preheat ? '（预热）' : ''} · 约 ${item.oven.time || '—'} 分钟${item.oven.note ? ' · ' + esc(item.oven.note) : ''}</div></div>` : ''}
@@ -182,6 +194,49 @@
       ${relatedCards('同类烘焙', findRelatedRecipes(item, 'baking').map(x => FA.ui.card(x, 'baking')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
+    // 份量换算: 统一走 FA.tools.scaleInfo (二阶段设计规范), 每次从原始数据按当前倍率计算, 无累计误差。
+    // 烘焙规则 (amount 优先; amount 不可解析则保留原文不回退 grams; 无 amount 以 grams 为基准;
+    // percent 透传不缩放; totalDough 用 fmtNum) 由 scaleInfo 的 kind:'baking' 保证。
+    let cur = base;
+    const renderBk = () => {
+      const f = cur / base;
+      document.getElementById('bk-n').textContent = cur;
+      const infos = FA.tools.scaleInfo(formula, f, { kind: 'baking' });
+      const badge = r => (r.factorChanged && (r.state === 'unscaled' || r.state === 'missing')) ? ' <span class="badge terra">未换算</span>' : '';
+      const origNote = r => (r.state === 'scaled' && r.orig) ? ` <span class="amt-orig">（原 ${esc(r.orig)}）</span>` : '';
+      const rows = formula.map((x, i) => {
+        const r = infos[i];
+        return `<tr><td>${esc(x.name)}</td><td>${esc(r.text)}${origNote(r)}${badge(r)}</td>${showPercent ? `<td>${x.percent == null ? '—' : x.percent + '%'}</td>` : ''}<td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`;
+      }).join('');
+      const cards = formula.map((x, i) => {
+        const r = infos[i];
+        const sub = [showPercent && x.percent != null ? `烘焙百分比 ${x.percent}%` : '', x.note || ''].filter(Boolean).join(' · ');
+        const mark = badge(r) ? `<div class="fsub"><span class="badge terra">未换算</span></div>` : '';
+        return `<div class="fcard"><div class="frow"><span class="fname">${esc(x.name)}</span><span class="famt">${esc(r.text)}${origNote(r)}</span></div>${sub ? `<div class="fsub">${esc(sub)}</div>` : ''}${mark}</div>`;
+      }).join('');
+      const td = (typeof item.totalDough === 'number' && isFinite(item.totalDough))
+        ? `<p style="font-size:13.5px;color:var(--muted);margin-top:8px">面团/面糊总重约 ${f === 1 ? item.totalDough : FA.tools.fmtNum(item.totalDough * f)} 克</p>` : '';
+      document.getElementById('bk-formula').innerHTML = `<div class="formula-wrap"><table class="formula"><tr><th>原料</th><th>用量</th>${showPercent ? '<th>百分比</th>' : ''}<th>备注</th></tr>${rows}</table><div class="formula-cards">${cards}</div></div>${td}`;
+      document.getElementById('bk-note').textContent = f === 1 ? '' : `已按 ${f.toFixed(2)} 倍换算；盐、酵母等调料按非线性规则换算，计数单位已取整到半个，标注“未换算”的项目保持原量`;
+    };
+    document.getElementById('bk-dec').onclick = () => { if (cur > 1) { cur--; renderBk(); } };
+    document.getElementById('bk-inc').onclick = () => { if (cur < 24) { cur++; renderBk(); } };
+    document.getElementById('bk-to-shop').onclick = () => {
+      // 与菜谱详情一致: 冰箱已有的不加入; 用量取当前份量, 以本配方为来源幂等写入 (重复点击只更新不累加)
+      const infos = FA.tools.scaleInfo(formula, cur / base, { kind: 'baking' });
+      let added = 0;
+      formula.forEach((x, i) => {
+        if (FA.store.fridgeHas(x.name)) return;
+        const r = infos[i];
+        FA.store.shopAddSource(x.name, {
+          key: `baking:${id}`, from: 'baking', label: item.name,
+          text: r.orig == null ? '' : r.text, num: r.num, unit: r.unit,
+        });
+        added++;
+      });
+      FA.ui.toast(added ? `已将 ${added} 样加入购物清单` : '食材齐了，无需购买');
+    };
+    renderBk();
     document.getElementById('cook-go').onclick = () => cookMode(item, 'baking');
     document.getElementById('log-quick').onclick = () => {
       FA.store.logAdd({ title: item.name, refType: 'baking', refId: id, rating: 5, note: '' });
@@ -213,7 +268,7 @@
       ${relatedCards('同类饮品', findRelatedRecipes(item, 'drink').map(x => FA.ui.card(x, 'drink')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
-    bindIngSide(item);
+    bindIngSide(item, 'drink');
     document.getElementById('cook-go').onclick = () => cookMode(item, 'drink');
     document.getElementById('log-quick').onclick = () => {
       FA.store.logAdd({ title: item.name, refType: 'drink', refId: id, rating: 5, note: '' });

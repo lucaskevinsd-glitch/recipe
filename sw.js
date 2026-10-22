@@ -5,8 +5,8 @@
  * - 图片: cache-first,使用独立缓存 IMG_CACHE,应用版本更新时不清空
  * 对应架构文档 12.3 离线能力: 已缓存的菜谱/收藏/计时器/单位换算离线可用。
  */
-const VERSION = 'foodatlas-v2-20261021a';
-const AV = '20261021a';
+const VERSION = 'foodatlas-v2-20261022e';
+const AV = '20261022e';
 // 图片独立缓存：不随应用版本变化而删除，应用更新时保留离线图片
 const IMG_CACHE = 'foodatlas-images-v2';
 const CORE = [

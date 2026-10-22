@@ -27,11 +27,14 @@
   }
   // 调料类是否应用非线性换算(架构文档 7.2)
   const NONLINEAR = /盐|酵母|泡打粉|小苏打|苏打粉|胡椒|花椒|辣椒粉|五香粉|味精|鸡精|香料|孜然/;
+  // 有效倍率: 调料类按 factor^0.75 非线性缩放 (scaleAmount 与 scaleInfo 共用, 保证规则单一)
+  function effFactor(factor, isSeasoning) {
+    return isSeasoning ? Math.pow(factor, 0.75) : factor;
+  }
   function scaleAmount(amount, factor, isSeasoning) {
     const p = parseAmt(amount);
     if (!p) return amount;
-    const f = isSeasoning ? Math.pow(factor, 0.75) : factor;
-    return fmtNum(p.num * f) + p.unit;
+    return fmtNum(p.num * effFactor(factor, isSeasoning)) + p.unit;
   }
   function scaleIngredients(ings, factor) {
     return ings.map(x => {
@@ -39,6 +42,90 @@
       const amount = typeof x === 'string' ? '' : (x.amount || '');
       const note = typeof x === 'string' ? '' : (x.note || '');
       return { name, amount: scaleAmount(amount, factor, NONLINEAR.test(name)), note };
+    });
+  }
+
+  /* ---------- 统一换算显示规范 (二阶段设计规范): 单位分档格式化 + 状态化换算 ---------- */
+  // C1 可半分计数单位; C2 细粒计数单位; 其余 (重量/体积/量具/未分类) 沿用 fmtNum
+  const UNIT_C1 = ['个', '只', '片', '瓣', '朵', '根', '块', '条', '段', '小块', '小段', '棵', '盒', '包'];
+  const UNIT_C2 = ['粒', '颗', '滴'];
+  const EPS = 1e-9; // 仅消除浮点微小误差, 不移动 0.25 / 0.75 等业务取整边界
+  // C1/C2 取整的单一实现: fmtScaled 的文本与 scaleInfo 的数值字段共用, 保证两者永不分叉
+  function roundC1(v) {
+    let val = Math.floor(v * 2 + 0.5 + EPS) / 2; // 就近 0.5 步进 (四舍五入)
+    let approx = false;
+    if (val === 0) { val = 0.5; approx = true; } // 下限保护: 原始值 <0.25 取整为 0 时, 提升为"约半"
+    return { val, approx };
+  }
+  function roundC2(v) {
+    let r = Math.floor(v + 0.5 + EPS);
+    if (r === 0) r = 1;
+    return r;
+  }
+  function fmtScaled(num, unit) {
+    if (!Number.isFinite(num)) return null;
+    if (UNIT_C1.includes(unit)) {
+      const { val, approx } = roundC1(num);
+      if (val === 0.5) return (approx ? '约半' : '半') + unit;
+      return (Number.isInteger(val) ? String(val) : val.toFixed(1)) + unit;
+    }
+    if (UNIT_C2.includes(unit)) return String(roundC2(num)) + unit;
+    return fmtNum(num) + unit;
+  }
+  // 与 fmtScaled 显示值一致的数值 (供购物清单来源贡献使用): C1 取整后值 / C2 整数 / 其余 fmtNum 值
+  function displayNum(rawScaled, unit) {
+    if (UNIT_C1.includes(unit)) return roundC1(rawScaled).val;
+    if (UNIT_C2.includes(unit)) return roundC2(rawScaled);
+    return Number(fmtNum(rawScaled));
+  }
+  // 状态化换算: 返回每行的最终显示用量与状态, 状态由数据与倍率结构化判定, 不比较显示字符串
+  // state: original (倍率 1) | scaled (成功换算) | unscaled (保留原文) | missing (用量缺失)
+  // opts.kind: 'std' (菜谱/饮品) | 'baking' (烘焙: amount 优先, 不可解析时不回退 grams; percent 透传)
+  function scaleInfo(items, factor, opts) {
+    const kind = (opts && opts.kind) || 'std';
+    const fOk = Number.isFinite(factor) && factor > 0;
+    const f = fOk ? factor : 1; // 异常倍率回退 1, 绝不产生 NaN / Infinity 显示
+    const changed = f !== 1;
+    return (items || []).map(x => {
+      const name = typeof x === 'string' ? x : (x.name || '');
+      const note = typeof x === 'string' ? '' : (x.note || '');
+      const row = {
+        name, note, state: 'original', text: '', orig: null, factorChanged: changed,
+        percent: kind === 'baking' && typeof x !== 'string' && x.percent != null ? x.percent : null,
+        num: null, unit: '', // 与显示值一致的可计算数值 (三阶段B购物清单来源使用); 未换算/缺失时为 null
+      };
+      const amount = typeof x === 'string' ? '' : String(x.amount || '');
+      const gramsOk = kind === 'baking' && typeof x !== 'string' && typeof x.grams === 'number' && Number.isFinite(x.grams);
+      const gramsText = gramsOk ? fmtNum(x.grams) + '克' : null;
+      const hasAmount = amount.trim() !== '';
+      const origText = hasAmount ? amount : (gramsText || '—'); // 原始渲染与改造前一致
+      row.orig = hasAmount ? amount : gramsText;
+      if (!hasAmount && !gramsOk) { // 用量缺失: 显示 —, 永不转 0
+        row.text = '—';
+        row.state = changed ? 'missing' : 'original';
+        return row;
+      }
+      if (!changed) {
+        row.text = origText;
+        const p0 = hasAmount ? parseAmt(amount) : (gramsOk ? { num: x.grams, unit: '克' } : null);
+        if (p0) { row.num = p0.num; row.unit = p0.unit; }
+        return row;
+      }
+      let p = hasAmount ? parseAmt(amount) : null;
+      if (hasAmount && !p) { // amount 不可解析: 保留原文, 即使存在 grams 也不回退换算
+        row.text = amount;
+        row.state = 'unscaled';
+        return row;
+      }
+      if (!hasAmount) p = { num: x.grams, unit: '克' }; // 烘焙无 amount 时以 grams 为基准
+      const rawScaled = p.num * effFactor(f, NONLINEAR.test(name));
+      const txt = fmtScaled(rawScaled, p.unit);
+      if (txt == null) { row.text = origText; row.state = 'unscaled'; return row; }
+      row.text = txt;
+      row.state = 'scaled';
+      row.num = displayNum(rawScaled, p.unit);
+      row.unit = p.unit;
+      return row;
     });
   }
 
@@ -66,26 +153,28 @@
         const from = Math.max(1, +$('sc-from').value || 1), to = Math.max(1, +$('sc-to').value || 1);
         const f = to / from;
         let rows = '';
+        const badge = r => (r.factorChanged && (r.state === 'unscaled' || r.state === 'missing')) ? ' <span class="badge terra">未换算</span>' : '';
+        const origNote = r => (r.state === 'scaled' && r.orig) ? ` <span class="amt-orig">（原 ${esc(r.orig)}）</span>` : '';
         if (type === 'baking' && item.formula && item.formula.length) {
-          rows = item.formula.map(x => {
-            const base = x.amount || (x.grams == null ? '' : x.grams + '克');
-            const g = base ? scaleAmount(base, f, NONLINEAR.test(x.name)) : '—';
-            return `<tr><td>${esc(x.name)}</td><td>${g}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`;
+          const infos = scaleInfo(item.formula, f, { kind: 'baking' });
+          rows = item.formula.map((x, i) => {
+            const r = infos[i];
+            return `<tr><td>${esc(x.name)}</td><td>${esc(r.text)}${origNote(r)}${badge(r)}</td><td>${x.percent == null ? '—' : x.percent + '%'}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`;
           }).join('');
           $('sc-out').innerHTML = `<div class="result-box">
             <p><b>${esc(item.name)}</b>：${from} 人份 → ${to} 人份（系数 ${f.toFixed(2)}）</p>
             <table class="formula" style="margin-top:12px"><tr><th>原料</th><th>换算后重量</th><th>烘焙百分比</th><th>备注</th></tr>${rows}</table>
-            <p style="margin-top:12px;font-size:13.5px;color:var(--muted)">烘焙换算说明：原料重量按比例缩放，百分比不变；<b>烤箱温度不变</b>，烘烤时间视面糊厚度增减并观察上色；酵母、盐、泡打粉已按非线性（系数^0.75）换算，避免过量。</p>
+            <p style="margin-top:12px;font-size:13.5px;color:var(--muted)">烘焙换算说明：原料重量按比例缩放，百分比不变；<b>烤箱温度不变</b>，烘烤时间视面糊厚度增减并观察上色；酵母、盐、泡打粉已按非线性（系数^0.75）换算，避免过量。计数单位按半个单位取整；标注“未换算”的项目保持原量。</p>
             ${item.oven && item.oven.temp ? `<p style="font-size:13.5px;color:var(--muted)">原配方：${item.oven.temp}°C${item.oven.preheat ? '（需预热）' : ''}，约 ${item.oven.time || '—'} 分钟。</p>` : ''}
           </div>`;
         } else {
           const ings = item.ingredients || [];
-          const scaled = scaleIngredients(ings, f);
-          rows = scaled.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.amount || '—')}</td><td style="color:var(--muted)">${esc(x.note || '')}</td></tr>`).join('');
+          const infos = scaleInfo(ings, f);
+          rows = infos.map(r => `<tr><td>${esc(r.name)}</td><td>${esc(r.text)}${origNote(r)}${badge(r)}</td><td style="color:var(--muted)">${esc(r.note || '')}</td></tr>`).join('');
           $('sc-out').innerHTML = `<div class="result-box">
             <p><b>${esc(item.name)}</b>：${from} 人份 → ${to} 人份（系数 ${f.toFixed(2)}）</p>
             <table class="formula" style="margin-top:12px"><tr><th>食材</th><th>换算后用量</th><th>备注</th></tr>${rows}</table>
-            <p style="margin-top:12px;font-size:13.5px;color:var(--muted)">换算说明：主料按比例线性缩放；盐、酵母、香辛料等按非线性（系数^0.75）换算，火候与时间请按实际观察调整。</p>
+            <p style="margin-top:12px;font-size:13.5px;color:var(--muted)">换算说明：主料按比例线性缩放；盐、酵母、香辛料等按非线性（系数^0.75）换算，计数单位按半个单位取整，标注“未换算”的项目保持原量，火候与时间请按实际观察调整。</p>
           </div>`;
         }
       };
@@ -243,14 +332,21 @@
   function shopTool() {
     const render = () => {
       const st = FA.store.state.shopping;
-      const rows = st.map(x => `<div class="list-row">
+      const rows = st.map(x => {
+        const sum = FA.store.shopSummary ? FA.store.shopSummary(x.name) : null;
+        const hasSrc = !!(sum && sum.sources.length);
+        // 手动数量与自动汇总分开显示, 永不混成一个数字; 来源明细逐条保留原文 (含不可合并与缺失)
+        const autoTxt = hasSrc && sum.groups.length ? `<span style="color:var(--muted);font-size:13px"> · 自动汇总 ${sum.groups.map(g => FA.tools.fmtNum(g.total) + g.unit).join(' + ')}</span>` : '';
+        const srcTxt = hasSrc ? `<div style="font-size:12.5px;color:var(--muted);margin-top:2px">来源：${sum.sources.map(c => `${c.from === 'menu' ? '一周菜单·' : ''}${esc(c.label || c.from)} ${esc(c.text || '用量缺失')}`).join('；')}</div>` : '';
+        return `<div class="list-row">
         <input type="checkbox" ${x.done ? 'checked' : ''} data-shop-tg="${esc(x.name)}">
         <div style="flex:1;${x.done ? 'text-decoration:line-through;color:var(--muted)' : ''}"><b>${esc(x.name)}</b>
-        ${x.qty ? `<span style="color:var(--muted);font-size:13px"> · ${esc(x.qty)}</span>` : ''}</div>
-        <button class="btn ghost sm" data-shop-del="${esc(x.name)}">删除</button></div>`).join('');
+        ${x.qty ? `<span style="color:var(--muted);font-size:13px"> · ${hasSrc ? '手动 ' : ''}${esc(x.qty)}</span>` : ''}${autoTxt}${srcTxt}</div>
+        <button class="btn ghost sm" data-shop-del="${esc(x.name)}">删除</button></div>`;
+      }).join('');
       const body = `
-        <div style="display:flex;gap:8px;margin-bottom:8px"><input id="sh-name" placeholder="食材名，如：番茄" style="flex:2">
-        <input id="sh-qty" placeholder="数量" style="flex:1"><button class="btn" id="sh-add">添加</button></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px"><input id="sh-name" placeholder="食材名，如：番茄" style="flex:2;min-width:0">
+        <input id="sh-qty" placeholder="数量" style="flex:1;min-width:0"><button class="btn" id="sh-add">添加</button></div>
         <div style="display:flex;gap:10px;margin:12px 0"><button class="btn ghost sm" id="sh-clear">清除已购</button>
         <span style="font-size:13px;color:var(--muted);align-self:center">共 ${st.length} 项，未购 ${st.filter(x => !x.done).length} 项</span></div>
         ${st.length ? rows : FA.ui.empty('🛒', '清单是空的。在菜谱详情页可把缺少的食材一键加入。')}`;
@@ -317,22 +413,51 @@
         FA.store.menuSet(wk, day, slot, null); FA.router.render();
       });
       $('menu-gen').onclick = () => {
+        // 三阶段C: 菜单来源以餐次为单位追踪, key = menu:<周一日期>:<天>:<餐次>; 菜单无份量倍率, 用量取原始配方 (scaleInfo f=1)
+        const prefix = `menu:${wk}:`;
+        const contribs = []; // {name, key, label, text, num, unit}
         const need = {};
         for (let d = 0; d < 7; d++) for (const slot of ['lunch', 'dinner']) {
           const rid = (menu[d] || {})[slot];
           const r = rid ? FA.data.get('recipe', rid) : null;
-          (r && r.ingredients || []).forEach(x => {
+          if (!r) continue;
+          const rows = scaleInfo(r.ingredients || [], 1);
+          (r.ingredients || []).forEach((x, i) => {
             const n = typeof x === 'string' ? x : x.name;
-            if (!FA.store.fridgeHas(n)) need[n] = (need[n] || 0) + 1;
+            if (FA.store.fridgeHas(n)) return;
+            need[n] = (need[n] || 0) + 1;
+            const row = rows[i];
+            contribs.push({
+              name: n, key: `${prefix}${d}:${slot}`, label: r.name,
+              text: row.orig == null ? '' : row.text, num: row.num, unit: row.unit,
+            });
           });
         }
+        // 重新生成时清理本周已过期来源: 只动 menu:<本周>: 命名空间, 不碰详情页来源、其他周来源与手动数量
+        const cleanupStale = () => {
+          const keep = new Map(); // name -> Set(key)
+          contribs.forEach(c => { if (!keep.has(c.name)) keep.set(c.name, new Set()); keep.get(c.name).add(c.key); });
+          FA.store.state.shopping.slice().forEach(it => {
+            (Array.isArray(it.sources) ? it.sources : []).forEach(c => {
+              if (c.key && c.key.startsWith(prefix) && !(keep.get(it.name) || new Set()).has(c.key))
+                FA.store.shopRemoveSource(it.name, c.key);
+            });
+          });
+        };
         const names2 = Object.keys(need);
-        if (!names2.length) { $('menu-out').innerHTML = `<div class="result-box">本周菜单所需食材冰箱里都有（或菜单为空），无需采购。</div>`; return; }
+        if (!names2.length) {
+          cleanupStale();
+          $('menu-out').innerHTML = `<div class="result-box">本周菜单所需食材冰箱里都有（或菜单为空），无需采购。</div>`;
+          return;
+        }
         $('menu-out').innerHTML = `<div class="result-box"><b>需采购 ${names2.length} 样</b>（已扣除冰箱现有）：
           <div style="margin:10px 0">${names2.map(n => `<span class="badge" style="margin:2px">${esc(n)}</span>`).join('')}</div>
           <button class="btn sm" id="menu-add-shop">全部加入购物清单</button></div>`;
         document.getElementById('menu-add-shop').onclick = () => {
-          names2.forEach(n => FA.store.shopAdd(n, ''));
+          cleanupStale();
+          contribs.forEach(c => FA.store.shopAddSource(c.name, {
+            key: c.key, from: 'menu', label: c.label, text: c.text, num: c.num, unit: c.unit,
+          }));
           FA.ui.toast('已加入购物清单');
         };
       };
@@ -473,5 +598,5 @@
       <div class="tool-grid" style="grid-template-columns:repeat(3,1fr)">${cards}</div></div>`;
   }
 
-  FA.tools = { toolsHome, scaleTool, unitTool, subTool, fridgeTool, fridgeMatch, shopTool, menuTool, timerTool, tempTool, logTool, scaleIngredients, parseAmt, fmtNum };
+  FA.tools = { toolsHome, scaleTool, unitTool, subTool, fridgeTool, fridgeMatch, shopTool, menuTool, timerTool, tempTool, logTool, scaleIngredients, parseAmt, fmtNum, scaleInfo, fmtScaled };
 })();

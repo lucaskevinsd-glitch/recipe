@@ -51,7 +51,11 @@
     const open = st.filter(x => !x.done);
     return `<div style="margin-bottom:14px"><a class="btn sm" href="#/tools/shopping">管理购物清单</a></div>` +
       (open.length ? `<p style="color:var(--muted);font-size:14px;margin-bottom:8px">还有 ${open.length} 样待购：</p>` +
-        open.map(x => `<div class="list-row"><b style="flex:1">${esc(x.name)}</b><span style="color:var(--muted);font-size:13px">${esc(x.qty || '')}</span></div>`).join('')
+        open.map(x => {
+          const sum = FA.store.shopSummary ? FA.store.shopSummary(x.name) : null;
+          const auto = sum && sum.groups.length ? ` · 自动 ${sum.groups.map(g => FA.tools.fmtNum(g.total) + g.unit).join(' + ')}` : '';
+          return `<div class="list-row"><b style="flex:1">${esc(x.name)}</b><span style="color:var(--muted);font-size:13px">${esc(x.qty || '')}${auto}</span></div>`;
+        }).join('')
         : FA.ui.empty('🛒', '没有待购项目'));
   }
 

@@ -3,16 +3,29 @@
   const { esc, card } = FA.ui;
 
   function render(query) {
-    const q = (query.q || '').trim();
-    const { results, parsed } = FA.search.search(q, { limit: 60 });
+    // 空白标准化与全站一致: 全角空格转半角后 trim; 标准化后为空时显示搜索引导, 不把空串当搜索词列默认结果
+    const q = (query.q || '').replace(/　/g, ' ').trim().replace(/\s+/g, ' ');
+    if (!q) {
+      document.getElementById('app').innerHTML = `<div class="wrap page">
+      <div class="kicker">SEARCH</div>
+      <h1 style="font-family:var(--font-d);font-size:28px;margin:6px 0 4px">搜索</h1>
+      ${FA.ui.empty('🔍', '输入菜名、食材或关键词开始搜索', '<button class="btn" onclick="FA.searchUI.openOverlay()">打开搜索</button>')}
+    </div>`;
+      document.title = '搜索 - 食见 FoodAtlas';
+      return;
+    }
+    const { results, total, parsed } = FA.search.search(q, { limit: 60 });
     const desc = FA.search.describeParsed(parsed);
     const groups = {};
     results.forEach(r => { (groups[r.type] = groups[r.type] || []).push(r); });
     const order = ['recipe', 'baking', 'drink', 'ingredient', 'technique', 'culture'];
+    const countLine = total > results.length
+      ? `共找到 ${total} 条相关内容，当前显示前 ${results.length} 条`
+      : `找到 ${total} 条相关内容`;
     const html = `<div class="wrap page">
       <div class="kicker">SEARCH</div>
       <h1 style="font-family:var(--font-d);font-size:28px;margin:6px 0 4px">搜索「${esc(q)}」</h1>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:6px">找到 ${results.length} 条相关内容</p>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:6px">${countLine}</p>
       ${desc.length ? `<div class="parsed-chips" style="padding:0;margin-bottom:10px"><span>理解为：</span>${desc.map(d => `<span class="badge green">${esc(d)}</span>`).join('')}</div>` : ''}
       ${q && !results.length ? FA.ui.empty('🔍', '没有找到相关内容，换个关键词试试') : ''}
       ${order.filter(t => groups[t]).map(t => `
@@ -40,7 +53,7 @@
     const doSearch = () => {
       const q = input.value.trim();
       if (!q) { $('so-body').innerHTML = ''; return; }
-      const { results, parsed } = FA.search.search(q, { limit: 24 });
+      const { results, total, parsed } = FA.search.search(q, { limit: 24 });
       const desc = FA.search.describeParsed(parsed);
       const groups = {};
       results.forEach(r => { (groups[r.type] = groups[r.type] || []).push(r); });
@@ -51,7 +64,7 @@
             ${r.item.image ? `<img src="${esc(r.item.image)}" loading="lazy" decoding="async" width="52" height="52">` : ''}
             <div><div class="t">${esc(r.item.name || r.item.title)}</div><div class="s">${esc(r.item.category || '')}</div></div></a>`).join('') +
           `</div>`).join('') +
-          `<div style="padding:12px 16px"><a class="btn block" href="#/search?q=${encodeURIComponent(q)}">查看全部 ${results.length} 条结果</a></div>`
+          `<div style="padding:12px 16px"><a class="btn block" href="#/search?q=${encodeURIComponent(q)}">查看全部 ${total} 条结果</a></div>`
           : `<div class="search-group">${FA.ui.empty('🔍', '没有找到相关内容')}</div>`);
     };
     let deb = null;
