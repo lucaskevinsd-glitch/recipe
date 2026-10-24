@@ -595,7 +595,7 @@
     const cards = FA.config.tools.map(t => `<a class="tool-entry" href="#/tools/${t.id}">
       <div class="te-ic">${t.icon}</div><div><h4>${t.name}</h4><p>${t.desc}</p></div></a>`).join('');
     return `<div class="wrap page">${FA.ui.pageHead('KITCHEN TOOLS', '厨房工具箱', '配方换算、食材管理、计时器……全部本地运行，不依赖网络与 AI。')}
-      <div class="tool-grid" style="grid-template-columns:repeat(3,1fr)">${cards}</div></div>`;
+      <div class="tool-grid">${cards}</div></div>`;
   }
 
   FA.tools = { toolsHome, scaleTool, unitTool, subTool, fridgeTool, fridgeMatch, shopTool, menuTool, timerTool, tempTool, logTool, scaleIngredients, parseAmt, fmtNum, scaleInfo, fmtScaled };
