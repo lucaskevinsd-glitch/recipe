@@ -40,19 +40,23 @@
   /* 搜索浮层 (顶栏触发) */
   function openOverlay() {
     closeOverlay();
+    /* 默认提示: 初始与清空后共用同一份, 恢复时必须同时重绑快捷词点击, 否则新节点无事件 */
+    const HOT = ['30分钟内快手菜', '不需要烤箱的甜点', '鸡肉', '低糖饮品', '吐司'];
+    const hintHTML = () => `<div class="search-group"><h4>试试这样搜</h4>
+      <div class="filter-bar">${HOT.map(t => `<button class="chip" data-so-hot="${esc(t)}">${esc(t)}</button>`).join('')}</div></div>`;
     const wrap = document.createElement('div');
     wrap.className = 'search-overlay'; wrap.id = 'search-overlay';
     wrap.innerHTML = `<div class="search-panel"><div class="sp-head">
       <input id="so-q" placeholder="搜索菜谱、食材、烘焙、饮品、技巧…" autocomplete="off">
       <button class="icon-btn" id="so-x">✕</button></div>
-      <div id="so-body"><div class="search-group"><h4>试试这样搜</h4>
-      <div class="filter-bar">${['30分钟内快手菜', '不需要烤箱的甜点', '鸡肉', '低糖饮品', '吐司'].map(t => `<button class="chip" data-so-hot="${esc(t)}">${esc(t)}</button>`).join('')}</div></div></div></div>`;
+      <div id="so-body">${hintHTML()}</div></div>`;
     document.body.appendChild(wrap);
     const $ = id => document.getElementById(id);
     const input = $('so-q');
+    const bindHot = () => wrap.querySelectorAll('[data-so-hot]').forEach(b => b.onclick = () => { input.value = b.dataset.soHot; doSearch(); input.focus(); });
     const doSearch = () => {
       const q = input.value.trim();
-      if (!q) { $('so-body').innerHTML = ''; return; }
+      if (!q) { $('so-body').innerHTML = hintHTML(); bindHot(); return; }
       const { results, total, parsed } = FA.search.search(q, { limit: 24 });
       const desc = FA.search.describeParsed(parsed);
       const groups = {};
@@ -72,7 +76,7 @@
     input.addEventListener('keydown', e => { if (e.key === 'Enter' && input.value.trim()) { closeOverlay(); location.hash = '#/search?q=' + encodeURIComponent(input.value.trim()); } });
     wrap.addEventListener('click', e => { if (e.target === wrap) closeOverlay(); });
     $('so-x').onclick = closeOverlay;
-    wrap.querySelectorAll('[data-so-hot]').forEach(b => b.onclick = () => { input.value = b.dataset.soHot; doSearch(); input.focus(); });
+    bindHot();
     setTimeout(() => input.focus(), 50);
   }
   function closeOverlay() { const el = document.getElementById('search-overlay'); if (el) el.remove(); }
