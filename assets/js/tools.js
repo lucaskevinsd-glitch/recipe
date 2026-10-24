@@ -275,7 +275,7 @@
           <button class="btn ghost sm" data-fridge-del="${esc(f.name)}">移除</button></div>`;
       }).join('');
       const body = `
-        <div class="form-row">
+        <div class="form-row fr-row">
           <div class="field" style="flex:2"><label>食材名</label><input id="fr-name" placeholder="如：鸡蛋"></div>
           <div class="field"><label>数量</label><input id="fr-qty" placeholder="如：6"></div>
           <div class="field"><label>单位</label><input id="fr-unit" placeholder="个/克"></div>

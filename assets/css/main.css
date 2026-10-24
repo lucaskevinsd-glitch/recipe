@@ -290,6 +290,9 @@ footer.site .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center;justif
   .topbar-right{flex-shrink:0}
 }
 @media(max-width:640px){
+  /* 冰箱四字段表单行: 字段被 input 固有宽度顶住无法再压缩, 窄屏改为换行两列 (仅 .fr-row, 不影响其他表单) */
+  .fr-row{flex-wrap:wrap}
+  .fr-row .field{flex-basis:110px}
   .nav-links{display:none}
   .bottom-nav{display:block}
   .fab-ai{bottom:calc(var(--tabbar-h) + 14px + env(safe-area-inset-bottom))}
