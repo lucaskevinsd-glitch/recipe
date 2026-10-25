@@ -44,11 +44,15 @@
     let s = 0;
     if (raw && name.includes(raw)) s += 100;
     if (raw && hay.includes(raw)) s += 30;
-    // 单字级匹配: "鸡肉"能命中"鸡腿肉"
+    // 逐字匹配只计名称命中, 且命中字数须达到阈值: 摘要/配料里的常见字 (的/不/在、数字、拉丁字母)
+    // 会让任意长查询都带入大量无关条目; 名称命中 + 阈值既保留 "鸡肉→鸡腿肉" 类短查询拆字能力,
+    // 又使无意义字符串因凑不够名称命中字数而归零
     const chars = [...new Set(String(raw || '').replace(/\s+/g, ''))];
-    for (const ch of chars) {
-      if (name.includes(ch)) s += 10;
-      else if (hay.includes(ch)) s += 3;
+    if (chars.length) {
+      let hit = 0;
+      for (const ch of chars) if (name.includes(ch)) hit++;
+      const need = chars.length === 1 ? 1 : Math.max(2, Math.ceil(chars.length / 2));
+      if (hit >= need) s += hit * 10;
     }
     return s;
   }
