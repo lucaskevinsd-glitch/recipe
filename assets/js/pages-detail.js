@@ -57,7 +57,7 @@
   /* ---------- 食材侧栏 (含份量换算) ---------- */
   function ingSide(item, type) {
     const base = item.servings || 3;
-    return `<aside class="side-box"><h3>食材</h3>
+    return `<aside class="side-box" id="sec-ing"><h3>食材</h3>
       <div class="serv-ctl"><button id="sv-dec">−</button><span><b id="sv-n">${base}</b> 人份</span><button id="sv-inc">＋</button></div>
       <ul class="ing-list" id="ing-list"></ul>
       <div id="sv-note" style="font-size:12px;color:var(--muted);margin:8px 0"></div>
@@ -112,10 +112,18 @@
     render();
   }
 
-  function relatedCards(title, cards) {
+  function relatedCards(title, cards, id) {
     if (!cards.length) return '';
-    return `<section class="section"><h3 style="font-family:var(--font-d);margin-bottom:14px">${title}</h3><div class="hscroll">${cards}</div></section>`;
+    return `<section class="section"${id ? ` id="${id}"` : ''}><h3 style="font-family:var(--font-d);margin-bottom:14px">${title}</h3><div class="hscroll">${cards}</div></section>`;
   }
+
+  // 页内导航: 用按钮 + scrollIntoView, 不改 location.hash (hash 路由会把 #sec-* 当成未知路由)
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-jump]');
+    if (!b) return;
+    const el = document.getElementById(b.dataset.jump);
+    if (el) el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  });
 
   function findRelatedRecipes(item, type, n) {
     const pool = type === 'drink' ? FA.data.list('drink') : FA.data.list('recipe');
@@ -134,12 +142,13 @@
       <div class="detail-actions">${FA.ui.favBtn('recipe', id)}
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
+      <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-ing">食材</button><button data-jump="sec-steps">制作步骤</button>${item.tips && item.tips.length ? '<button data-jump="sec-tips">关键技巧</button>' : ''}${item.faq && item.faq.length ? '<button data-jump="sec-faq">常见问题</button>' : ''}${item.subs && item.subs.length ? '<button data-jump="sec-subs">替换建议</button>' : ''}</nav>
       <div class="detail-cols">${ingSide(item, 'recipe')}
         <div>
-          <h3 style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
+          <h3 id="sec-steps" style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
           <ol class="step-list">${(item.steps || []).map((s, i) =>
             `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
-          ${tipsBox('💡 关键技巧', item.tips)}${faqHtml(item.faq)}${subsHtml(item.subs)}
+          ${item.tips && item.tips.length ? `<div id="sec-tips">${tipsBox('💡 关键技巧', item.tips)}</div>` : ''}${item.faq && item.faq.length ? `<div id="sec-faq">${faqHtml(item.faq)}</div>` : ''}${item.subs && item.subs.length ? `<div id="sec-subs">${subsHtml(item.subs)}</div>` : ''}
           ${item.benefits ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">营养与功效</h3><p style="color:var(--ink2)">${esc(item.benefits)}</p>` : ''}
         </div></div>
       ${relatedCards('相关食材', relIng.map(x => FA.ui.card(x, 'ingredient')))}
@@ -172,7 +181,8 @@
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="bk-to-shop">🛒 加入购物清单</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
-      <h3 style="font-family:var(--font-d);margin:18px 0 10px">配方${showPercent ? '（烘焙百分比）' : ''}</h3>
+      <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-formula">配方</button><button data-jump="sec-steps">制作步骤</button>${item.troubleshoot && item.troubleshoot.length ? '<button data-jump="sec-trouble">失败排查</button>' : ''}${item.faq && item.faq.length ? '<button data-jump="sec-faq">常见问题</button>' : ''}${item.subs && item.subs.length ? '<button data-jump="sec-subs">替换建议</button>' : ''}</nav>
+      <h3 id="sec-formula" style="font-family:var(--font-d);margin:18px 0 10px">配方${showPercent ? '（烘焙百分比）' : ''}</h3>
       <div class="serv-ctl"><button id="bk-dec">−</button><span><b id="bk-n">${base}</b> 人份</span><button id="bk-inc">＋</button></div>
       <div id="bk-note" style="font-size:12px;color:var(--muted);margin:8px 0"></div>
       <div id="bk-formula"></div>
@@ -184,13 +194,13 @@
         ${item.yield ? `<div class="field"><label>成品</label><div style="font-size:15px">${esc(item.yield)}</div></div>` : ''}
       </div>
       ${item.doneness ? `<div class="tip-box"><h4>成品判断</h4><p>${esc(item.doneness)}</p></div>` : ''}
-      <h3 style="font-family:var(--font-d);margin:18px 0 12px">制作步骤</h3>
+      <h3 id="sec-steps" style="font-family:var(--font-d);margin:18px 0 12px">制作步骤</h3>
       <ol class="step-list">${(item.steps || []).map((s, i) =>
         `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
       ${tipsBox('💡 关键技巧', item.tips)}
-      ${item.troubleshoot && item.troubleshoot.length ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">失败排查</h3>` +
-        item.troubleshoot.map(t => `<div class="faq-item"><b>${esc(t.problem)}</b><p>原因：${esc(t.cause)}<br>解决：${esc(t.fix)}</p></div>`).join('') : ''}
-      ${faqHtml(item.faq)}${subsHtml(item.subs)}
+      ${item.troubleshoot && item.troubleshoot.length ? `<div id="sec-trouble"><h3 style="font-family:var(--font-d);margin:22px 0 6px">失败排查</h3>` +
+        item.troubleshoot.map(t => `<div class="faq-item"><b>${esc(t.problem)}</b><p>原因：${esc(t.cause)}<br>解决：${esc(t.fix)}</p></div>`).join('') + `</div>` : ''}
+      ${item.faq && item.faq.length ? `<div id="sec-faq">${faqHtml(item.faq)}</div>` : ''}${item.subs && item.subs.length ? `<div id="sec-subs">${subsHtml(item.subs)}</div>` : ''}
       ${relatedCards('同类烘焙', findRelatedRecipes(item, 'baking').map(x => FA.ui.card(x, 'baking')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
@@ -256,12 +266,13 @@
       <div class="detail-actions">${FA.ui.favBtn('drink', id)}
         <button class="btn sm" id="cook-go">👨‍🍳 进入制作模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
+      <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-ing">食材</button><button data-jump="sec-steps">制作步骤</button>${item.params && Object.keys(item.params).length ? '<button data-jump="sec-params">关键参数</button>' : ''}</nav>
       <div class="detail-cols">${ingSide(item, 'drink')}
         <div>
-          <h3 style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
+          <h3 id="sec-steps" style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
           <ol class="step-list">${(item.steps || []).map((s, i) =>
             `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
-          ${item.params && Object.keys(item.params).length ? `<div class="tip-box"><h4>关键参数</h4><ul>${Object.entries(item.params).map(([k, v]) => `<li>${esc(PARAM_LABEL[k] || k)}：${esc(v)}</li>`).join('')}</ul></div>` : ''}
+          ${item.params && Object.keys(item.params).length ? `<div id="sec-params"><div class="tip-box"><h4>关键参数</h4><ul>${Object.entries(item.params).map(([k, v]) => `<li>${esc(PARAM_LABEL[k] || k)}：${esc(v)}</li>`).join('')}</ul></div></div>` : ''}
           ${tipsBox('💡 关键技巧', item.tips)}${faqHtml(item.faq)}
           ${item.benefits ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">营养与功效</h3><p style="color:var(--ink2)">${esc(item.benefits)}</p>` : ''}
         </div></div>
@@ -287,19 +298,20 @@
       (r.ingredients || []).some(x => { const n = typeof x === 'string' ? x : x.name; return n && (n.includes(item.name) || item.name.includes(n)); })).slice(0, 8);
     const subs = FA.data.DB.substitutions.filter(s => s.match.includes(item.name) || s.to.includes(item.name)).slice(0, 6);
     const sameCat = FA.data.list('ingredient').filter(x => x.cat === item.cat && x.id !== id).slice(0, 8);
-    const sec = (t, c) => c ? `<h3 style="font-family:var(--font-d);margin:22px 0 8px">${t}</h3><p style="color:var(--ink2)">${esc(c)}</p>` : '';
+    const sec = (t, c, id) => c ? `<div id="${id}"><h3 style="font-family:var(--font-d);margin:22px 0 8px">${t}</h3><p style="color:var(--ink2)">${esc(c)}</p></div>` : '';
     const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
       ${hero(item, item.name, item.alias ? '别名：' + item.alias : '')}
       <div class="meta-row" style="margin:12px 0"><span class="badge green">${esc(item.cat)}</span>${item.nutrient ? `<span class="badge gold">${esc(item.nutrient)}</span>` : ''}</div>
       <div class="detail-actions">${FA.ui.favBtn('ingredient', id)}
         <a class="btn ghost sm" href="#/tools/substitute?q=${encodeURIComponent(item.name)}">查替换方案</a></div>
+      <nav class="detail-nav" aria-label="页面导航">${item.texture ? '<button data-jump="sec-texture">选购</button>' : ''}${item.nutrientText || item.nutrient ? '<button data-jump="sec-nutrient">营养</button>' : ''}${item.cooking ? '<button data-jump="sec-cooking">处理</button>' : ''}${item.storage ? '<button data-jump="sec-storage">保存</button>' : ''}${subs.length ? '<button data-jump="sec-subs">替代关系</button>' : ''}${usedIn.length ? '<button data-jump="sec-used">用它做的菜</button>' : ''}${sameCat.length ? '<button data-jump="sec-same">同类食材</button>' : ''}</nav>
       ${item.lead ? `<p class="lead" style="font-size:18px;color:var(--ink2);margin:14px 0">${esc(item.lead)}</p>` : ''}
-      ${sec('🔍 选购与形态', item.texture)}${sec('🥗 营养亮点', item.nutrientText || item.nutrient)}
-      ${sec('🍳 处理与烹饪', item.cooking)}${sec('❄️ 保存方法', item.storage)}
-      ${subs.length ? `<h3 style="font-family:var(--font-d);margin:22px 0 10px">可替代关系</h3>` +
-        subs.map(s => `<div class="faq-item"><b>${esc(s.match)} → ${esc(s.to)}</b><p>用量比 ${esc(s.ratio)}；${esc(s.note)}</p></div>`).join('') : ''}
-      ${relatedCards('用它做的菜', usedIn.map(x => FA.ui.card(x, FA.data.byId.get(x.id).type)))}
-      ${relatedCards('同类食材', sameCat.map(x => FA.ui.card(x, 'ingredient')))}
+      ${sec('🔍 选购与形态', item.texture, 'sec-texture')}${sec('🥗 营养亮点', item.nutrientText || item.nutrient, 'sec-nutrient')}
+      ${sec('🍳 处理与烹饪', item.cooking, 'sec-cooking')}${sec('❄️ 保存方法', item.storage, 'sec-storage')}
+      ${subs.length ? `<div id="sec-subs"><h3 style="font-family:var(--font-d);margin:22px 0 10px">可替代关系</h3>` +
+        subs.map(s => `<div class="faq-item"><b>${esc(s.match)} → ${esc(s.to)}</b><p>用量比 ${esc(s.ratio)}；${esc(s.note)}</p></div>`).join('') + `</div>` : ''}
+      ${relatedCards('用它做的菜', usedIn.map(x => FA.ui.card(x, FA.data.byId.get(x.id).type)), 'sec-used')}
+      ${relatedCards('同类食材', sameCat.map(x => FA.ui.card(x, 'ingredient')), 'sec-same')}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
   }

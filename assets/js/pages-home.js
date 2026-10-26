@@ -40,10 +40,13 @@
 
     const html = `
     <section class="hero wrap">
+      <div class="hero-text">
       <h1>探索食物，理解风味，享受烹饪</h1>
       <p>FoodAtlas 食见 · 你的个人美食知识库与厨房工具</p>
       <div class="hero-search"><input id="hero-q" placeholder="搜索菜谱、食材、饮品或烘焙知识…"><button id="hero-go">搜索</button></div>
       <div class="hero-tags"><span>热门：</span>${hotTags().map(t => `<button data-hot="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+      </div>
+      ${picks.length ? `<a class="hero-figure" href="${FA.ui.routeOf(picks[0].type, picks[0].item.id)}">${FA.ui.imgTag(picks[0].item.image, picks[0].item.name || picks[0].item.title, null, { eager: true, fetchPriority: true, thumb: true })}<span class="hero-figcap">今日精选 · <b>${esc(picks[0].item.name || picks[0].item.title)}</b></span></a>` : ''}
     </section>
 
     <div class="wrap">
@@ -64,14 +67,14 @@
 
       <section class="section">${sectionHead('BAKING', '烘焙甜点', '#/baking', '全部烘焙 →')}
         <div class="filter-bar">${catChips(FA.config.bakingCats.slice(0, 5), '#/baking')}</div>
-        <div class="hscroll">${baking.slice(0, 8).map(x => card(x, 'baking')).join('')}</div></section>
+        <div class="grid-cards c3">${baking.slice(0, 8).map(x => card(x, 'baking')).join('')}</div></section>
 
       <section class="section">${sectionHead('DRINKS', '饮品世界', '#/drinks', '全部饮品 →')}
         <div class="filter-bar">${catChips(FA.config.drinkCats.slice(0, 5), '#/drinks')}</div>
-        <div class="hscroll">${drinks.slice(0, 8).map(x => card(x, 'drink')).join('')}</div></section>
+        <div class="hscroll drink-row">${drinks.slice(0, 8).map(x => card(x, 'drink')).join('')}</div></section>
 
       <section class="section">${sectionHead('INGREDIENTS', '全球食材百科', '#/ingredients', '全部食材 →')}
-        <div class="hscroll">${ings.slice(0, 8).map(x => card(x, 'ingredient')).join('')}</div></section>
+        <div class="hscroll ing-row">${ings.slice(0, 8).map(x => card(x, 'ingredient')).join('')}</div></section>
 
       <section class="section">${sectionHead('TOOLS', '厨房工具箱', '#/tools', '全部工具 →')}
         <div class="tool-grid">${FA.config.tools.slice(0, 6).map(t => `<a class="tool-entry" href="#/tools/${t.id}">
