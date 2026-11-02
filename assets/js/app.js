@@ -81,7 +81,7 @@
       document.title = (titles[t] || '工具') + ' - 食见 FoodAtlas';
       if (t === 'scale') el.innerHTML = T.scaleTool();
       else if (t === 'unit') el.innerHTML = T.unitTool();
-      else if (t === 'substitute') el.innerHTML = T.substitute(q.q);
+      else if (t === 'substitute') el.innerHTML = T.subTool(q.q);
       else if (t === 'fridge') el.innerHTML = T.fridgeTool();
       else if (t === 'shopping') el.innerHTML = T.shopTool();
       else if (t === 'menu') el.innerHTML = T.menuTool(q);

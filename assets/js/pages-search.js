@@ -19,16 +19,26 @@
     const groups = {};
     results.forEach(r => { (groups[r.type] = groups[r.type] || []).push(r); });
     const order = ['recipe', 'baking', 'drink', 'ingredient', 'technique', 'culture'];
-    const countLine = total > results.length
-      ? `共找到 ${total} 条相关内容，当前显示前 ${results.length} 条`
-      : `找到 ${total} 条相关内容`;
+    // 类型筛选 tab: 仅当结果同时含菜谱与饮品时展示 (如"15分钟内"), 默认展示全部;
+    // 首页"15 分钟轻松做"入口带 tab=recipe, 默认展示菜谱分类
+    const tab = ['all', 'recipe', 'drink'].includes(query.tab) ? query.tab : 'all';
+    const showTabs = !!(groups.recipe && groups.drink);
+    const effTab = showTabs ? tab : 'all';
+    const tabDefs = [['all', '全部'], ['recipe', '菜谱'], ['drink', '饮品']];
+    const tabCount = t => t === 'all' ? total : (groups[t] || []).length;
+    const showTypes = effTab === 'all' ? order.filter(t => groups[t]) : [effTab].filter(t => groups[t]);
+    const countLine = effTab === 'all'
+      ? (total > results.length ? `共找到 ${total} 条相关内容，当前显示前 ${results.length} 条` : `找到 ${total} 条相关内容`)
+      : `找到 ${tabCount(effTab)} 条${effTab === 'recipe' ? '菜谱' : '饮品'}`;
     const html = `<div class="wrap page">
       <div class="kicker">SEARCH</div>
       <h1 style="font-family:var(--font-d);font-size:28px;margin:6px 0 4px">搜索「${esc(q)}」</h1>
       <p style="color:var(--muted);font-size:14px;margin-bottom:6px">${countLine}</p>
       ${desc.length ? `<div class="parsed-chips" style="padding:0;margin-bottom:10px"><span>理解为：</span>${desc.map(d => `<span class="badge green">${esc(d)}</span>`).join('')}</div>` : ''}
+      ${showTabs ? `<div class="search-tabs" role="tablist" aria-label="结果分类">${tabDefs.map(([v, label]) =>
+        `<a role="tab" aria-selected="${effTab === v}" class="chip${effTab === v ? ' on' : ''}" href="#/search?q=${encodeURIComponent(q)}${v === 'all' ? '' : `&tab=${v}`}">${label} ${tabCount(v)}</a>`).join('')}</div>` : ''}
       ${q && !results.length ? FA.ui.empty('🔍', '没有找到相关内容，换个关键词试试') : ''}
-      ${order.filter(t => groups[t]).map(t => `
+      ${showTypes.map(t => `
         <section class="section"><div class="section-head"><div><div class="kicker">${t.toUpperCase()}</div>
         <h2>${FA.ui.TYPE_LABEL[t]}（${groups[t].length}）</h2></div></div>
         <div class="grid-cards">${groups[t].map((r, i) => card(r.item, t, i < 4 ? { eager: true } : {})).join('')}</div></section>`).join('')}

@@ -181,5 +181,5 @@
     }
   }, { passive: true });
 
-FA.ui = { esc, imgTag, thumbUrl, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, TYPE_LABEL , observePreload, queuePreload };
+FA.ui = { esc, imgTag, thumbUrl, routeOf, card, sectionHead, empty, pageHead, favBtn, toast, totalTime, metaBadges, TYPE_LABEL , observePreload, queuePreload };
 })();

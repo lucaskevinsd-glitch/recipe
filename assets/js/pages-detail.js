@@ -137,19 +137,35 @@
     FA.store.pushRecent('recipe', id);
     document.title = item.name + ' - 食见 FoodAtlas';
     const relIng = (item.relatedIngredients || []).map(n => FA.data.list('ingredient').find(x => x.name === n)).filter(Boolean).slice(0, 8);
-    const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
-      ${hero(item, item.name, item.alias)}${metaBadges(item)}
-      <div class="detail-actions">${FA.ui.favBtn('recipe', id)}
+    const t = FA.ui.totalTime(item);
+    // S1 特稿重构: 只改表现层;钩子清单见 ~/workspace/foodatlas-audit/hook-inventory-s1.md
+    // 保留: pushRecent/H1, document.title, relIng, 所有 #sec-* 锚点, data-jump 导航,
+    // #sv-dec/#sv-inc/#sv-n/#ing-list/#sv-note/#ing-to-shop/#ing-to-fridge,
+    // #cook-go/#log-quick, data-fav, relatedCards;绑定逻辑(下)逐行保留
+    const html = `<div class="wrap page"><div class="rd-wrap">
+      <nav class="rd-crumb" aria-label="面包屑"><a href="#/">食见</a><span class="sep">/</span><a href="#/recipes">菜谱厨房</a><span class="sep">/</span><span>${esc(item.category || '菜谱')}</span></nav>
+      <div class="kicker">${esc(item.category || '')} · RECIPE</div>
+      <h1 class="rd-title">${esc(item.name)}</h1>
+      ${item.alias ? `<div class="rd-alias">别名：${esc(item.alias)}</div>` : ''}
+      ${item.summary ? `<p class="rd-standfirst">${esc(item.summary)}</p>` : ''}
+      <div class="rd-glance">
+        ${t ? `<div class="rd-g"><span class="rd-gk">总耗时</span><span class="rd-gv">${t} 分钟</span>${(item.prepTime || item.cookTime) ? `<span class="rd-gsub">准备 ${item.prepTime || 0} · 制作 ${item.cookTime || 0}</span>` : ''}</div>` : ''}
+        ${item.level ? `<div class="rd-g"><span class="rd-gk">难度</span><span class="rd-gv">${esc(item.level)}</span></div>` : ''}
+        ${item.servings ? `<div class="rd-g"><span class="rd-gk">份量</span><span class="rd-gv">${item.servings} 人份</span><span class="rd-gsub">可在配方卡调整</span></div>` : ''}
+        <div class="rd-g rd-gact">${FA.ui.favBtn('recipe', id)}</div>
+      </div>
+      <figure class="rd-hero">${item.image ? imgTag(item.image, item.name, null, { eager: true, fetchPriority: true, width: 960, height: 600 }) : `<div class="dh-fallback">${esc(item.name)}</div>`}</figure>
+      <div class="detail-actions">
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
       <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-ing">食材</button><button data-jump="sec-steps">制作步骤</button>${item.tips && item.tips.length ? '<button data-jump="sec-tips">关键技巧</button>' : ''}${item.faq && item.faq.length ? '<button data-jump="sec-faq">常见问题</button>' : ''}${item.subs && item.subs.length ? '<button data-jump="sec-subs">替换建议</button>' : ''}</nav>
-      <div class="detail-cols">${ingSide(item, 'recipe')}
+      <div class="rd-cols">${ingSide(item, 'recipe')}
         <div>
-          <h3 id="sec-steps" style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
-          <ol class="step-list">${(item.steps || []).map((s, i) =>
-            `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
-          ${item.tips && item.tips.length ? `<div id="sec-tips">${tipsBox('💡 关键技巧', item.tips)}</div>` : ''}${item.faq && item.faq.length ? `<div id="sec-faq">${faqHtml(item.faq)}</div>` : ''}${item.subs && item.subs.length ? `<div id="sec-subs">${subsHtml(item.subs)}</div>` : ''}
-          ${item.benefits ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">营养与功效</h3><p style="color:var(--ink2)">${esc(item.benefits)}</p>` : ''}
+          <h2 class="rd-h2" id="sec-steps">制作步骤</h2>
+          <ol class="rd-steps">${(item.steps || []).map((s, i) =>
+            `<li class="rd-step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
+          ${item.tips && item.tips.length ? `<div id="sec-tips"><h2 class="rd-h2">关键技巧</h2><div class="rd-callout"><ul>${item.tips.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div></div>` : ''}${item.faq && item.faq.length ? `<div id="sec-faq"><h2 class="rd-h2">常见问题</h2>${item.faq.map(f => `<div class="rd-qa"><div class="q">${esc(f.q)}</div><div class="a">${esc(f.a)}</div></div>`).join('')}</div>` : ''}${item.subs && item.subs.length ? `<div id="sec-subs"><h2 class="rd-h2">替换建议</h2><table class="rd-subs"><thead><tr><th>原食材</th><th></th><th>可替换为</th><th>说明</th></tr></thead><tbody>${item.subs.map(s => `<tr><td class="from">${esc(s.from)}</td><td class="arr">→</td><td class="from">${esc(s.to)}</td><td>${esc(s.note || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+          ${item.benefits ? `<h2 class="rd-h2">营养与功效</h2><div class="rd-benefits">${esc(item.benefits)}</div>` : ''}
         </div></div>
       ${relatedCards('相关食材', relIng.map(x => FA.ui.card(x, 'ingredient')))}
       ${relatedCards('同类菜谱', findRelatedRecipes(item, 'recipe').map(x => FA.ui.card(x, 'recipe')))}
@@ -174,33 +190,57 @@
     // 烘焙百分比只对有面粉结构基准的配方有意义;无有效百分比时隐藏该列,避免误导(如蛋挞400%糖)
     const showPercent = formula.some(x => x.percent != null);
     const base = item.servings || 3;
-    const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
-      ${hero(item, item.name, item.alias)}${metaBadges(item)}${passiveNote(item)}
-      ${item.sweetness || item.texture ? `<div class="meta-row"><span class="badge gold">甜度 ${esc(item.sweetness || '—')}</span><span class="badge gold">口感 ${esc(item.texture || '—')}</span></div>` : ''}
-      <div class="detail-actions">${FA.ui.favBtn('baking', id)}
+    const t = FA.ui.totalTime(item);
+    const oven = item.oven || {};
+    // S2 烘焙重构: 只改表现层;钩子清单见 ~/workspace/foodatlas-audit/hook-inventory-s2.md
+    // 保留: pushRecent/B1, document.title, formula/showPercent, renderBk 全部逻辑,
+    // #bk-dec/#bk-inc/#bk-n/#bk-note/#bk-formula, #bk-to-shop 绑定, #cook-go/#log-quick,
+    // data-fav, data-jump 导航, sec-* 锚点, passiveNote, relatedCards;绑定逻辑(下)逐行保留
+    const html = `<div class="wrap page"><div class="bk-wrap ed-wrap">
+      <nav class="ed-crumb" aria-label="面包屑"><a href="#/">食见</a><span class="sep">/</span><a href="#/baking">烘焙甜点</a><span class="sep">/</span><span>${esc(item.category || '烘焙')}</span></nav>
+      <div class="kicker bk">${esc(item.category || '')} · BAKING</div>
+      <h1 class="ed-title">${esc(item.name)}</h1>
+      ${item.alias ? `<div class="ed-alias">别名：${esc(item.alias)}</div>` : ''}
+      ${item.summary ? `<p class="ed-standfirst">${esc(item.summary)}</p>` : ''}
+      ${(oven.temp || oven.time) ? `<div class="bk-oven" role="note" aria-label="烤箱信息">
+        ${oven.temp ? `<div><span class="lbl">烤箱温度</span><span class="t">${oven.temp}°C</span></div>` : ''}
+        ${oven.time ? `<div><span class="lbl">烘烤时间</span><span class="t">约 ${oven.time} 分钟</span></div>` : ''}
+        ${oven.preheat ? `<div><span class="lbl">预热</span><span class="t">需预热</span></div>` : ''}
+        ${oven.note ? `<div class="note">📌 ${esc(oven.note)}</div>` : ''}
+      </div>` : ''}
+      <div class="ed-glance">
+        ${t ? `<div class="ed-g"><span class="ed-gk">总耗时</span><span class="ed-gv">${t} 分钟</span>${(item.prepTime || item.cookTime) ? `<span class="ed-gsub">准备 ${item.prepTime || 0} · 制作 ${item.cookTime || 0}</span>` : ''}</div>` : ''}
+        ${item.level ? `<div class="ed-g"><span class="ed-gk">难度</span><span class="ed-gv">${esc(item.level)}</span></div>` : ''}
+        ${item.servings ? `<div class="ed-g"><span class="ed-gk">份量</span><span class="ed-gv">${item.servings} 人份</span><span class="ed-gsub">可在配方区调整</span></div>` : ''}
+        <div class="ed-g ed-gact">${FA.ui.favBtn('baking', id)}</div>
+      </div>
+      ${item.sweetness || item.texture ? `<div class="bk-attr">${item.sweetness ? `<span class="badge gold">甜度 ${esc(item.sweetness)}</span>` : ''}${item.texture ? `<span class="badge gold">口感 ${esc(item.texture)}</span>` : ''}</div>` : ''}
+      <figure class="ed-hero">${item.image ? imgTag(item.image, item.name, null, { eager: true, fetchPriority: true, width: 960, height: 600 }) : `<div class="dh-fallback">${esc(item.name)}</div>`}</figure>
+      <div class="detail-actions">
         <button class="btn sm" id="cook-go">👨‍🍳 进入烹饪模式</button>
         <button class="btn ghost sm" id="bk-to-shop">🛒 加入购物清单</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
       <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-formula">配方</button><button data-jump="sec-steps">制作步骤</button>${item.troubleshoot && item.troubleshoot.length ? '<button data-jump="sec-trouble">失败排查</button>' : ''}${item.faq && item.faq.length ? '<button data-jump="sec-faq">常见问题</button>' : ''}${item.subs && item.subs.length ? '<button data-jump="sec-subs">替换建议</button>' : ''}</nav>
-      <h3 id="sec-formula" style="font-family:var(--font-d);margin:18px 0 10px">配方${showPercent ? '（烘焙百分比）' : ''}</h3>
+      <h2 class="ed-h2" id="sec-formula">配方${showPercent ? '（烘焙百分比）' : ''}</h2>
       <div class="serv-ctl"><button id="bk-dec">−</button><span><b id="bk-n">${base}</b> 人份</span><button id="bk-inc">＋</button></div>
       <div id="bk-note" style="font-size:12px;color:var(--muted);margin:8px 0"></div>
       <div id="bk-formula"></div>
-      <p style="font-size:12.5px;color:var(--muted);margin-top:10px">提示：份量变化不会自动调整烤盘尺寸。面糊厚度可能变化，请根据实际状态观察并调整烘焙时间。</p>
-      <div class="form-row" style="margin:16px 0">
-        ${item.pan ? `<div class="field"><label>模具</label><div style="font-size:15px">${esc(item.pan)}</div></div>` : ''}
-        ${item.oven && item.oven.temp ? `<div class="field"><label>烤箱</label><div style="font-size:15px">${item.oven.temp}°C${item.oven.preheat ? '（预热）' : ''} · 约 ${item.oven.time || '—'} 分钟${item.oven.note ? ' · ' + esc(item.oven.note) : ''}</div></div>` : ''}
-        ${item.ferment ? `<div class="field"><label>发酵</label><div style="font-size:15px">${esc(item.ferment)}</div></div>` : ''}
-        ${item.yield ? `<div class="field"><label>成品</label><div style="font-size:15px">${esc(item.yield)}</div></div>` : ''}
-      </div>
-      ${item.doneness ? `<div class="tip-box"><h4>成品判断</h4><p>${esc(item.doneness)}</p></div>` : ''}
-      <h3 id="sec-steps" style="font-family:var(--font-d);margin:18px 0 12px">制作步骤</h3>
-      <ol class="step-list">${(item.steps || []).map((s, i) =>
-        `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
+      <p class="bk-pannote">提示：份量变化不会自动调整烤盘尺寸。面糊厚度可能变化，请根据实际状态观察并调整烘焙时间。</p>
+      ${(item.pan || item.ferment || item.yield) ? `<div class="bk-spec">
+        ${item.pan ? `<div class="sp"><div class="k">模具</div><div class="v">${esc(item.pan)}</div></div>` : ''}
+        ${item.ferment ? `<div class="sp"><div class="k">发酵</div><div class="v">${esc(item.ferment)}</div></div>` : ''}
+        ${item.yield ? `<div class="sp"><div class="k">成品</div><div class="v">${esc(item.yield)}</div></div>` : ''}
+      </div>` : ''}
+      ${item.doneness ? `<div class="bk-doneness"><h4>👀 成品判断</h4><p>${esc(item.doneness)}</p></div>` : ''}
+      ${passiveNote(item)}
+      <h2 class="ed-h2" id="sec-steps">制作步骤</h2>
+      <ol class="ed-steps">${(item.steps || []).map((s, i) =>
+        `<li class="ed-step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
       ${tipsBox('💡 关键技巧', item.tips)}
-      ${item.troubleshoot && item.troubleshoot.length ? `<div id="sec-trouble"><h3 style="font-family:var(--font-d);margin:22px 0 6px">失败排查</h3>` +
-        item.troubleshoot.map(t => `<div class="faq-item"><b>${esc(t.problem)}</b><p>原因：${esc(t.cause)}<br>解决：${esc(t.fix)}</p></div>`).join('') + `</div>` : ''}
+      ${item.troubleshoot && item.troubleshoot.length ? `<div id="sec-trouble"><h2 class="ed-h2">失败排查</h2><div class="bk-trouble">` +
+        item.troubleshoot.map(x => `<div class="bk-t"><div class="p">⚠️ ${esc(x.problem)}</div><div class="row"><b>原因：</b>${esc(x.cause)}</div><div class="row"><b>解决：</b>${esc(x.fix)}</div></div>`).join('') + `</div></div>` : ''}
       ${item.faq && item.faq.length ? `<div id="sec-faq">${faqHtml(item.faq)}</div>` : ''}${item.subs && item.subs.length ? `<div id="sec-subs">${subsHtml(item.subs)}</div>` : ''}
+      ${item.benefits ? `<h2 class="ed-h2">营养与功效</h2><div class="ed-benefits">${esc(item.benefits)}</div>` : ''}
       ${relatedCards('同类烘焙', findRelatedRecipes(item, 'baking').map(x => FA.ui.card(x, 'baking')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
@@ -260,26 +300,56 @@
     if (!item) return FA.pagesContent.notFound();
     FA.store.pushRecent('drink', id);
     document.title = item.name + ' - 食见 FoodAtlas';
-    const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
-      ${hero(item, item.name, item.alias)}${metaBadges(item)}
-      ${item.tastes && item.tastes.length ? `<div class="meta-row">${item.tastes.map(t => `<span class="badge gold">${esc(t)}</span>`).join('')}${item.temp ? `<span class="badge">${esc(item.temp)}</span>` : ''}</div>` : ''}
-      <div class="detail-actions">${FA.ui.favBtn('drink', id)}
+    const tt = FA.ui.totalTime(item);
+    // S2 饮品重构: 只改表现层;钩子清单见 ~/workspace/foodatlas-audit/hook-inventory-s2.md
+    // 保留: pushRecent/D1, document.title, ingSide/bindIngSide(item,'drink') 全部逻辑,
+    // #sv-*/#ing-*/#cook-go/#log-quick, data-fav, data-jump 导航, sec-* 锚点,
+    // PARAM_LABEL 映射, relatedCards;绑定逻辑(下)逐行保留
+    const html = `<div class="wrap page"><div class="dk-wrap ed-wrap">
+      <nav class="ed-crumb" aria-label="面包屑"><a href="#/">食见</a><span class="sep">/</span><a href="#/drinks">饮品世界</a><span class="sep">/</span><span>${esc(item.category || '饮品')}</span></nav>
+      <div class="kicker dk">${esc(item.category || '')} · DRINKS</div>
+      <h1 class="ed-title">${esc(item.name)}</h1>
+      ${item.alias ? `<div class="ed-alias">别名：${esc(item.alias)}</div>` : ''}
+      ${item.summary ? `<p class="ed-standfirst">${esc(item.summary)}</p>` : ''}
+      ${item.tastes && item.tastes.length ? `<div class="dk-tastes" aria-label="风味">${item.tastes.map(x => `<span class="badge gold">${esc(x)}</span>`).join('')}${item.temp ? `<span class="badge">饮用 · ${esc(item.temp)}</span>` : ''}</div>` : ''}
+      <div class="ed-glance">
+        ${tt ? `<div class="ed-g"><span class="ed-gk">总耗时</span><span class="ed-gv">${tt} 分钟</span>${(item.prepTime || item.cookTime) ? `<span class="ed-gsub">准备 ${item.prepTime || 0} · 制作 ${item.cookTime || 0}</span>` : ''}</div>` : ''}
+        ${item.level ? `<div class="ed-g"><span class="ed-gk">难度</span><span class="ed-gv">${esc(item.level)}</span></div>` : ''}
+        ${item.servings ? `<div class="ed-g"><span class="ed-gk">份量</span><span class="ed-gv">${item.servings} 人份</span><span class="ed-gsub">可在配方卡调整</span></div>` : ''}
+        <div class="ed-g ed-gact">${FA.ui.favBtn('drink', id)}</div>
+      </div>
+      <figure class="dk-hero">${item.image ? imgTag(item.image, item.name, null, { eager: true, fetchPriority: true, width: 900, height: 675 }) : `<div class="dh-fallback">${esc(item.name)}</div>`}</figure>
+      <div class="detail-actions">
         <button class="btn sm" id="cook-go">👨‍🍳 进入制作模式</button>
         <button class="btn ghost sm" id="log-quick">记一次制作</button></div>
       <nav class="detail-nav" aria-label="页面导航"><button data-jump="sec-ing">食材</button><button data-jump="sec-steps">制作步骤</button>${item.params && Object.keys(item.params).length ? '<button data-jump="sec-params">关键参数</button>' : ''}</nav>
-      <div class="detail-cols">${ingSide(item, 'drink')}
+      <div class="dk-cols">${ingSide(item, 'drink')}
         <div>
-          <h3 id="sec-steps" style="font-family:var(--font-d);margin-bottom:12px">制作步骤</h3>
-          <ol class="step-list">${(item.steps || []).map((s, i) =>
-            `<li class="step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
-          ${item.params && Object.keys(item.params).length ? `<div id="sec-params"><div class="tip-box"><h4>关键参数</h4><ul>${Object.entries(item.params).map(([k, v]) => `<li>${esc(PARAM_LABEL[k] || k)}：${esc(v)}</li>`).join('')}</ul></div></div>` : ''}
+          <h2 class="ed-h2" id="sec-steps">制作步骤</h2>
+          <ol class="ed-steps">${(item.steps || []).map((s, i) =>
+            `<li class="ed-step">${esc(s)}${item.stepTimes && item.stepTimes[i] ? `<div class="step-time">⏱ 约 ${item.stepTimes[i]} 分钟</div>` : ''}</li>`).join('')}</ol>
+          ${item.params && Object.keys(item.params).length ? `<div id="sec-params"><h2 class="ed-h2">关键参数</h2><div class="dk-specs">${Object.entries(item.params).map(([k, v]) => `<div class="dk-spec"><div class="k">${esc(PARAM_LABEL[k] || k)}</div><div class="v">${esc(v)}</div></div>`).join('')}</div></div>` : ''}
           ${tipsBox('💡 关键技巧', item.tips)}${faqHtml(item.faq)}
-          ${item.benefits ? `<h3 style="font-family:var(--font-d);margin:22px 0 6px">营养与功效</h3><p style="color:var(--ink2)">${esc(item.benefits)}</p>` : ''}
+          ${item.benefits ? `<h2 class="ed-h2">营养与功效</h2><div class="ed-benefits">${esc(item.benefits)}</div>` : ''}
         </div></div>
       ${relatedCards('同类饮品', findRelatedRecipes(item, 'drink').map(x => FA.ui.card(x, 'drink')))}
     </div></div>`;
     document.getElementById('app').innerHTML = html;
     bindIngSide(item, 'drink');
+    // S2: 饮品图自适应比例 — 竖图 3:4、横图 16:10、方图 4:3;不强行裁切杯体
+    (() => {
+      const fig = document.querySelector('.dk-hero');
+      const img = fig && fig.querySelector('img');
+      if (!img) return;
+      const setOrient = () => {
+        if (!img.naturalWidth) return;
+        const r = img.naturalWidth / img.naturalHeight;
+        fig.classList.toggle('tall', r < 0.92);
+        fig.classList.toggle('wide', r > 1.25);
+      };
+      if (img.complete && img.naturalWidth) setOrient();
+      else img.addEventListener('load', setOrient);
+    })();
     document.getElementById('cook-go').onclick = () => cookMode(item, 'drink');
     document.getElementById('log-quick').onclick = () => {
       FA.store.logAdd({ title: item.name, refType: 'drink', refId: id, rating: 5, note: '' });
@@ -293,23 +363,47 @@
     if (!item) return FA.pagesContent.notFound();
     FA.store.pushRecent('ingredient', id);
     document.title = item.name + ' - 食见 FoodAtlas';
-    // 适用菜谱: 配料名包含该食材名
+    // 适用菜谱: 配料名包含该食材名 (既有逻辑)
     const usedIn = [...FA.data.list('recipe'), ...FA.data.list('drink')].filter(r =>
       (r.ingredients || []).some(x => { const n = typeof x === 'string' ? x : x.name; return n && (n.includes(item.name) || item.name.includes(n)); })).slice(0, 8);
     const subs = FA.data.DB.substitutions.filter(s => s.match.includes(item.name) || s.to.includes(item.name)).slice(0, 6);
     const sameCat = FA.data.list('ingredient').filter(x => x.cat === item.cat && x.id !== id).slice(0, 8);
-    const sec = (t, c, id) => c ? `<div id="${id}"><h3 style="font-family:var(--font-d);margin:22px 0 8px">${t}</h3><p style="color:var(--ink2)">${esc(c)}</p></div>` : '';
-    const html = `<div class="wrap page"><div class="page-narrow" style="margin:0 auto;max-width:960px">
-      ${hero(item, item.name, item.alias ? '别名：' + item.alias : '')}
-      <div class="meta-row" style="margin:12px 0"><span class="badge green">${esc(item.cat)}</span>${item.nutrient ? `<span class="badge gold">${esc(item.nutrient)}</span>` : ''}</div>
-      <div class="detail-actions">${FA.ui.favBtn('ingredient', id)}
-        <a class="btn ghost sm" href="#/tools/substitute?q=${encodeURIComponent(item.name)}">查替换方案</a></div>
-      <nav class="detail-nav" aria-label="页面导航">${item.texture ? '<button data-jump="sec-texture">选购</button>' : ''}${item.nutrientText || item.nutrient ? '<button data-jump="sec-nutrient">营养</button>' : ''}${item.cooking ? '<button data-jump="sec-cooking">处理</button>' : ''}${item.storage ? '<button data-jump="sec-storage">保存</button>' : ''}${subs.length ? '<button data-jump="sec-subs">替代关系</button>' : ''}${usedIn.length ? '<button data-jump="sec-used">用它做的菜</button>' : ''}${sameCat.length ? '<button data-jump="sec-same">同类食材</button>' : ''}</nav>
-      ${item.lead ? `<p class="lead" style="font-size:18px;color:var(--ink2);margin:14px 0">${esc(item.lead)}</p>` : ''}
-      ${sec('🔍 选购与形态', item.texture, 'sec-texture')}${sec('🥗 营养亮点', item.nutrientText || item.nutrient, 'sec-nutrient')}
-      ${sec('🍳 处理与烹饪', item.cooking, 'sec-cooking')}${sec('❄️ 保存方法', item.storage, 'sec-storage')}
-      ${subs.length ? `<div id="sec-subs"><h3 style="font-family:var(--font-d);margin:22px 0 10px">可替代关系</h3>` +
-        subs.map(s => `<div class="faq-item"><b>${esc(s.match)} → ${esc(s.to)}</b><p>用量比 ${esc(s.ratio)}；${esc(s.note)}</p></div>`).join('') + `</div>` : ''}
+    // S5: 营养关键词按 · 拆分 (537/537 含 ·, 真实数据)
+    const nutTags = String(item.nutrient || '').split('·').map(s => s.trim()).filter(Boolean);
+    // S5: 替代目标精确匹配食材名时可跳转, 否则为纯文本 (不虚构链接)
+    const nameToId = {};
+    FA.data.list('ingredient').forEach(x => { nameToId[x.name] = x.id; });
+    const subsHtml = subs.length ? `<div id="sec-subs"><h2 class="ig-h2">可替代关系</h2>` +
+      subs.map(s => {
+        const toHref = nameToId[s.to] ? `#/ingredient/${encodeURIComponent(nameToId[s.to])}` : null;
+        const toEl = toHref ? `<a class="ig-sub-to" href="${toHref}">${esc(s.to)}</a>` : `<span class="ig-sub-to">${esc(s.to)}</span>`;
+        return `<div class="ig-sub">
+          <div class="ig-sub-row"><span class="ig-sub-from">${esc(s.match)}</span><span class="ig-sub-arrow">→</span>${toEl}</div>
+          <div class="meta-row">${s.ratio ? `<span class="badge">用量 ${esc(s.ratio)}</span>` : ''}${(s.for || []).map(f => `<span class="badge green">适用 ${esc(f)}</span>`).join('')}${s.risky ? `<span class="badge" style="background:#FBEAE5;border-color:#E8B4A6;color:#A33B22">⚠️ 替代有风险</span>` : ''}</div>
+          ${s.flavor ? `<p class="ig-sub-note"><b>风味差异：</b>${esc(s.flavor)}</p>` : ''}
+          ${s.note ? `<p class="ig-sub-note">${esc(s.note)}</p>` : ''}
+        </div>`;
+      }).join('') + `</div>` : '';
+    const secBtn = (cond, target, label) => cond ? `<button data-jump="${target}">${label}</button>` : '';
+    const html = `<div class="wrap page"><div class="ig-wrap">
+      <nav class="ig-crumb" aria-label="面包屑"><a href="#/">食见</a><span>/</span><a href="#/ingredients">全球食材百科</a><span>/</span><span>${esc(item.cat)}</span></nav>
+      <div class="kicker ing">${esc(item.cat)} · INGREDIENT</div>
+      <h1 class="ig-title">${esc(item.name)}</h1>
+      ${item.alias ? `<div class="ig-alias">别名：${esc(item.alias)}</div>` : ''}
+      ${item.lead ? `<p class="ig-lead">${esc(item.lead)}</p>` : ''}
+      <div class="ig-glance">
+        <div class="ig-g"><span class="ig-gk">分类</span><span class="ig-gv">${esc(item.cat)}</span></div>
+        <div class="ig-g"><span class="ig-gk">营养关键词</span><span class="ig-gv">${nutTags.map(t => `<span class="badge gold">${esc(t)}</span>`).join('')}</span></div>
+        <div class="ig-gact">${FA.ui.favBtn('ingredient', id)}</div>
+      </div>
+      <div class="ig-hero">${item.image ? imgTag(item.image, item.name, null, { eager: true, fetchPriority: true, thumb: true, width: 960, height: 720 }) : `<div class="dh-fallback">${esc(item.name)}</div>`}</div>
+      <div class="detail-actions"><a class="btn ghost sm" href="#/tools/substitute?q=${encodeURIComponent(item.name)}">查替换方案</a></div>
+      <nav class="detail-nav" aria-label="页面导航">${secBtn(item.texture, 'sec-texture', '选购')}${secBtn(item.nutrientText || item.nutrient, 'sec-nutrient', '营养')}${secBtn(item.cooking, 'sec-cooking', '处理')}${secBtn(item.storage, 'sec-storage', '保存')}${secBtn(subs.length, 'sec-subs', '替代关系')}${secBtn(usedIn.length, 'sec-used', '用它做的菜')}${secBtn(sameCat.length, 'sec-same', '同类食材')}</nav>
+      ${item.texture ? `<div id="sec-texture"><h2 class="ig-h2">🔍 选购与形态</h2><p class="ig-p">${esc(item.texture)}</p></div>` : ''}
+      ${item.nutrientText ? `<div id="sec-nutrient"><h2 class="ig-h2">🥗 营养</h2><p class="ig-p">${esc(item.nutrientText)}</p></div>` : ''}
+      ${item.cooking ? `<div id="sec-cooking"><h2 class="ig-h2">🍳 处理与烹饪</h2><p class="ig-p">${esc(item.cooking)}</p></div>` : ''}
+      ${item.storage ? `<div id="sec-storage"><h2 class="ig-h2">❄️ 保存方法</h2><p class="ig-p">${esc(item.storage)}</p></div>` : ''}
+      ${subsHtml}
       ${relatedCards('用它做的菜', usedIn.map(x => FA.ui.card(x, FA.data.byId.get(x.id).type)), 'sec-used')}
       ${relatedCards('同类食材', sameCat.map(x => FA.ui.card(x, 'ingredient')), 'sec-same')}
     </div></div>`;
